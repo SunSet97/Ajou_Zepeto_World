@@ -1,0 +1,68 @@
+fileFormatVersion: 2
+guid: cfd69137103aa1247902a2fb96006b15
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: "{\"source\":\"\\\"use strict\\\";\\r\\nObject.defineProperty(exports,
+    \\\"__esModule\\\", { value: true });\\r\\nconst UnityEngine_1 = require(\\\"UnityEngine\\\");\\r\\nconst
+    ZEPETO_Script_1 = require(\\\"ZEPETO.Script\\\");\\r\\nconst ZEPETO_Character_Controller_1
+    = require(\\\"ZEPETO.Character.Controller\\\");\\r\\nconst ClientStarter_1 =
+    require(\\\"./ClientStarter\\\");\\r\\nclass AnimationLinker extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\\r\\n    constructor() {\\r\\n        super(...arguments);\\r\\n        this.AniOriginal
+    = [\\\"idle\\\", \\\"walk\\\", \\\"run\\\", \\\"jump_idle\\\", \\\"jump_move\\\"];\\r\\n   
+    }\\r\\n    static get instance() {\\r\\n        return this._instance;\\r\\n   
+    }\\r\\n    Awake() {\\r\\n        UnityEngine_1.GameObject.DontDestroyOnLoad(this.gameObject);\\r\\n       
+    AnimationLinker._instance = this;\\r\\n        //console.log(AnimationLinker.instance)\\r\\n   
+    }\\r\\n    Start() {\\r\\n        //\uAE30\uBCF8 Animation\uB4E4 \uB123\uC5B4\uC8FC\uAE30,
+    Inspector\uC5D0\uC11C \uB123\uC5B4\uC8FC\uAE30\uB294 \uC880 \uC2EB\uAE34\uD55C\uB370
+    \uADF8\uB0E5 \uB123\uC5B4\uB3C4 \uB428, \uB2E8 \uC774\uB984\uC740 \uD1B5\uC77C\uB41C
+    \uD615\uC2DD\uC73C\uB85C ex) \uC774\uB984_\uC0C1\uD0DC, coffee_walk\\r\\n       
+    // this.StartCoroutine(this.AniSet())\\r\\n    }\\r\\n    // *AniSet(){\\r\\n   
+    //     while(ZepetoPlayers.instance.LocalPlayer == null){\\r\\n    //        
+    console.log(\\\"\uB85C\uB529 \uC911\\\")\\r\\n    //         yield null\\r\\n   
+    //     }\\r\\n    //     var charAnimator = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character.ZepetoAnimator\\r\\n   
+    //     //animationName - ex) \\\"\\\", \\\"coffee\\\"\\r\\n    //     var overrideController
+    : AnimatorOverrideController = new AnimatorOverrideController(charAnimator.runtimeAnimatorController);\\r\\n   
+    //     charAnimator.runtimeAnimatorController = overrideController\\r\\n    //    
+    //\uC774\uB7F0 \uB290\uB08C\\r\\n    //     console.log(\\\"\uC560\uB2C8\uBA54\uC774\uC158
+    \uCC3E\uAE30\\\")\\r\\n    //     for(var index = 0; index < this.AniOriginal.length;
+    index++){\\r\\n    //         console.log(\\\"\uC544\uC774\uD15C : \\\" + this.AniOriginal[index])\\r\\n   
+    //         overrideController[this.AniOriginal[index]] = this.FindAnimation(this.AniOriginal[index]
+    + \\\"_\\\" + \\\"self\\\");\\r\\n    //     }\\r\\n    // }\\r\\n    //\uC624\uBC84\uB85C\uB4DC\\r\\n   
+    SetAnimationName(name) {\\r\\n        this.animationName = name;\\r\\n       
+    console.log(\\\"\uC774\uB984 \uBCF4\uB0C4 - \\\" + name);\\r\\n        this.SetAnimation(ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character.ZepetoAnimator,
+    name);\\r\\n        console.log(\\\"\uB85C\uCEEC \uC138\uD305\\\");\\r\\n       
+    ClientStarter_1.default.instance.SendAnimation(name);\\r\\n    }\\r\\n    //
+    \uC11C\uBC84\uC5D0\uC11C \uD074\uB77C\uC774\uC5B8\uD2B8\uB85C \uC694\uCCAD\uC744
+    \uBCF4\uB0B4 \uC2E4\uD589\uC2DC\uD0A4\uB294 \uD568\uC218\\r\\n    SetAnimation(charAnimator,
+    name) {\\r\\n        //animationName - ex) \\\"\\\", \\\"coffee\\\"\\r\\n       
+    this.animationName = name;\\r\\n        //animationName - ex) \\\"\\\", \\\"coffee\\\"\\r\\n       
+    var overrideController = new UnityEngine_1.AnimatorOverrideController(charAnimator.runtimeAnimatorController);\\r\\n       
+    charAnimator.runtimeAnimatorController = overrideController;\\r\\n        //\uC774\uB7F0
+    \uB290\uB08C\\r\\n        console.log(\\\"\uC560\uB2C8\uBA54\uC774\uC158 \uCC3E\uAE30\\\");\\r\\n       
+    for (var index = 0; index < this.AniOriginal.length; index++) {\\r\\n           
+    // console.log(\\\"\uC544\uC774\uD15C : \\\" + this.AniOriginal[index])\\r\\n           
+    overrideController.set_Item(this.AniOriginal[index], this.FindAnimation(this.AniOriginal[index]
+    + \\\"_\\\" + this.animationName));\\r\\n        }\\r\\n    }\\r\\n    //\uB300\uCDA9
+    \uC774\uB7F0 \uB290\uB08C\\r\\n    FindAnimation(name) {\\r\\n        // item
+    name - asda_idle, asda_jump_move\\r\\n        // console.log(\\\"\uCC3E\uB294
+    \uC560\uB2C8\uBA54\uC774\uC158 \uC774\uB984 : \\\" + name)\\r\\n        var clip
+    = this.animations.find((item) => { return item.name == name; });\\r\\n       
+    return clip;\\r\\n    }\\r\\n}\\r\\nexports.default = AnimationLinker;\\r\\n//#
+    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQW5pbWF0aW9uTGlua2VyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiQW5pbWF0aW9uTGlua2VyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsNkNBQXdHO0FBQ3hHLGlEQUFxRDtBQUVyRCw2RUFBNEQ7QUFHNUQsbURBQTRDO0FBRTVDLE1BQXFCLGVBQWdCLFNBQVEscUNBQXFCO0lBQWxFOztRQVlxQixnQkFBVyxHQUFjLENBQUMsTUFBTSxFQUFFLE1BQU0sRUFBRSxLQUFLLEVBQUUsV0FBVyxFQUFFLFdBQVcsQ0FBQyxDQUFBO0lBcUUvRixDQUFDO0lBN0VVLE1BQU0sS0FBSyxRQUFRO1FBQ3RCLE9BQU8sSUFBSSxDQUFDLFNBQVMsQ0FBQztJQUMxQixDQUFDO0lBUUQsS0FBSztRQUNELHdCQUFVLENBQUMsaUJBQWlCLENBQUMsSUFBSSxDQUFDLFVBQVUsQ0FBQyxDQUFBO1FBQzdDLGVBQWUsQ0FBQyxTQUFTLEdBQUcsSUFBSSxDQUFBO1FBQ2hDLHVDQUF1QztJQUMzQyxDQUFDO0lBQ0QsS0FBSztRQUNELDhGQUE4RjtRQUM5RixxQ0FBcUM7SUFDekMsQ0FBQztJQUNELGFBQWE7SUFDYix5REFBeUQ7SUFDekQsOEJBQThCO0lBQzlCLHFCQUFxQjtJQUNyQixRQUFRO0lBQ1Isa0dBQWtHO0lBQ2xHLHlDQUF5QztJQUN6QyxvSUFBb0k7SUFDcEksa0VBQWtFO0lBR2xFLGNBQWM7SUFDZCw4QkFBOEI7SUFDOUIsb0VBQW9FO0lBQ3BFLDBEQUEwRDtJQUMxRCxvSEFBb0g7SUFDcEgsUUFBUTtJQUNSLElBQUk7SUFHSixNQUFNO0lBSU4sZ0JBQWdCLENBQUMsSUFBYTtRQUMxQixJQUFJLENBQUMsYUFBYSxHQUFHLElBQUksQ0FBQTtRQUN6QixPQUFPLENBQUMsR0FBRyxDQUFDLFVBQVUsR0FBRyxJQUFJLENBQUMsQ0FBQTtRQUM5QixJQUFJLENBQUMsWUFBWSxDQUFDLDJDQUFhLENBQUMsUUFBUSxDQUFDLFdBQVcsQ0FBQyxZQUFZLENBQUMsU0FBUyxDQUFDLGNBQWMsRUFBRSxJQUFJLENBQUMsQ0FBQTtRQUNqRyxPQUFPLENBQUMsR0FBRyxDQUFDLE9BQU8sQ0FBQyxDQUFBO1FBQ3BCLHVCQUFhLENBQUMsUUFBUSxDQUFDLGFBQWEsQ0FBQyxJQUFJLENBQUMsQ0FBQTtJQUM5QyxDQUFDO0lBRUQsOEJBQThCO0lBQzlCLFlBQVksQ0FBQyxZQUF1QixFQUFFLElBQWE7UUFDL0Msa0NBQWtDO1FBQ2xDLElBQUksQ0FBQyxhQUFhLEdBQUcsSUFBSSxDQUFBO1FBRXpCLGtDQUFrQztRQUNsQyxJQUFJLGtCQUFrQixHQUFnQyxJQUFJLHdDQUEwQixDQUFDLFlBQVksQ0FBQyx5QkFBeUIsQ0FBQyxDQUFDO1FBQzdILFlBQVksQ0FBQyx5QkFBeUIsR0FBRyxrQkFBa0IsQ0FBQTtRQUczRCxPQUFPO1FBQ1AsT0FBTyxDQUFDLEdBQUcsQ0FBQyxVQUFVLENBQUMsQ0FBQTtRQUN2QixLQUFJLElBQUksS0FBSyxHQUFHLENBQUMsRUFBRSxLQUFLLEdBQUcsSUFBSSxDQUFDLFdBQVcsQ0FBQyxNQUFNLEVBQUUsS0FBSyxFQUFFLEVBQUM7WUFDeEQsa0RBQWtEO1lBQ2xELGtCQUFrQixVQUFDLElBQUksQ0FBQyxXQUFXLENBQUMsS0FBSyxDQUFDLEVBQUksSUFBSSxDQUFDLGFBQWEsQ0FBQyxJQUFJLENBQUMsV0FBVyxDQUFDLEtBQUssQ0FBQyxHQUFHLEdBQUcsR0FBRyxJQUFJLENBQUMsYUFBYSxDQUFDLEVBQUM7U0FDeEg7SUFDTCxDQUFDO0lBR0QsVUFBVTtJQUNWLGFBQWEsQ0FBQyxJQUFhO1FBQ3ZCLHdDQUF3QztRQUN4Qyx1Q0FBdUM7UUFDdkMsSUFBSSxJQUFJLEdBQW1CLElBQUksQ0FBQyxVQUFVLENBQUMsSUFBSSxDQUFDLENBQUMsSUFBSSxFQUFFLEVBQUUsR0FBRSxPQUFPLElBQUksQ0FBQyxJQUFJLElBQUksSUFBSSxDQUFBLENBQUEsQ0FBQyxDQUFDLENBQUE7UUFDckYsT0FBTyxJQUFJLENBQUE7SUFDZixDQUFDO0NBQ0o7QUFqRkQsa0NBaUZDIn0=\",\"assetPath\":\"Assets/Scripts/AnimationLinker.ts\",\"manifest\":{\"properties\":[{\"assembly\":\"mscorlib\",\"name\":\"animationName\",\"type\":\"System.String\",\"isArray\":false,\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]},{\"assembly\":\"UnityEngine.AnimationModule\",\"name\":\"animations\",\"type\":\"UnityEngine.AnimationClip[]\",\"isArray\":true,\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]}],\"name\":\"AnimationLinker\",\"description\":\"\"},\"isCompiled\":true}"
+  typescriptHash: 9e840525697de09c54a628b5bc466543

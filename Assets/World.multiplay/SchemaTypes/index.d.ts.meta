@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3d25bf9424e714998970af8697d33163
+guid: 8ba6c617e463451dab9a8cfae334df63
 importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
 ScriptedImporter:
   internalIDToNameTable: []
@@ -18,5 +18,5 @@ ScriptedImporter:
   wrapperTypes: []
   WrapperFilters: []
   wrapperOutputDirectory: Generated
-  compiledResult: '{"source":"","assetPath":"Assets/SampleScript.ts","manifest":{"properties":[],"name":"","description":""},"isCompiled":false}'
-  typescriptHash: 12425cb68feda3e4a3ef8b776c9552c5
+  compiledResult: 
+  typescriptHash: 

@@ -1,0 +1,105 @@
+fileFormatVersion: 2
+guid: 4212d286e76b75b48bbfc6a2865b8a10
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: "{\"source\":\"\\\"use strict\\\";\\r\\nObject.defineProperty(exports,
+    \\\"__esModule\\\", { value: true });\\r\\nconst UnityEngine_1 = require(\\\"UnityEngine\\\");\\r\\nconst
+    UnityEngine_UI_1 = require(\\\"UnityEngine.UI\\\");\\r\\nconst ZEPETO_Script_1
+    = require(\\\"ZEPETO.Script\\\");\\r\\nconst ZEPETO_Script_Leaderboard_1 = require(\\\"ZEPETO.Script.Leaderboard\\\");\\r\\nconst
+    ZEPETO_World_1 = require(\\\"ZEPETO.World\\\");\\r\\nclass JumpMapManager extends
+    ZEPETO_Script_1.ZepetoScriptBehaviour {\\r\\n    constructor() {\\r\\n       
+    super(...arguments);\\r\\n        this.leaderboardId = \\\"3d6837f6-e016-426b-9081-ee0c27d4dd4\\\";\\r\\n   
+    }\\r\\n    Start() {\\r\\n        this.profileImage = new Array(5);\\r\\n       
+    this.medalImage = new Array(5);\\r\\n        this.medalText = new Array(5);\\r\\n       
+    this.playerName = new Array(5);\\r\\n        // console.log(this._leaderBoards)\\r\\n       
+    // console.log(this._leaderBoards.Capacity)\\r\\n        for (var i = 0; i <
+    this.leaderBoardParent.transform.childCount; i++) {\\r\\n            console.log(1);\\r\\n           
+    this.medalImage[i] = this.leaderBoardParent.transform.GetChild(i).GetChild(0).GetComponent($typeof(UnityEngine_UI_1.Image));\\r\\n           
+    console.log(2);\\r\\n            this.medalText[i] = this.leaderBoardParent.transform.GetChild(i).GetChild(0).GetChild(0).GetComponent($typeof(UnityEngine_UI_1.Text));\\r\\n           
+    console.log(3);\\r\\n            this.profileImage[i] = this.leaderBoardParent.transform.GetChild(i).GetChild(1).GetComponent($typeof(UnityEngine_UI_1.Image));\\r\\n           
+    console.log(4);\\r\\n            this.playerName[i] = this.leaderBoardParent.transform.GetChild(i).GetChild(2).GetComponent($typeof(UnityEngine_UI_1.Text));\\r\\n           
+    console.log(5);\\r\\n        }\\r\\n    }\\r\\n    GameStart() {\\r\\n       
+    if (!this.isStart) {\\r\\n            this.isStart = true;\\r\\n            this.timer
+    = 0;\\r\\n            this.timerText.gameObject.SetActive(true);\\r\\n       
+    }\\r\\n    }\\r\\n    GameEnd() {\\r\\n        if (this.isStart) {\\r\\n           
+    //\uD50C\uB808\uC774\uC5B4\uC5D0 \uBD99\uC740 \uC2A4\uD06C\uB9BD\uD2B8 \uC0AD\uC81C\\r\\n           
+    //GameObject.DestroyImmediate(this.player)\\r\\n            ZEPETO_Script_Leaderboard_1.LeaderboardAPI.SetScore(this.leaderboardId,
+    this.timer, this.OnSetScoreResult, (error) => { console.log(\\\"\uC5D0\uB7EC
+    : \\\" + error); });\\r\\n            ZEPETO_Script_Leaderboard_1.LeaderboardAPI.GetRangeRank(this.leaderboardId,
+    1, 10000, this.resetRule, false, (response) => {\\r\\n                console.log(\\\"\uB9AC\uB354\uBCF4\uB4DC
+    \uBD88\uB7EC\uC624\uAE30 \uACB0\uACFC : \\\" + response.isSuccess);\\r\\n               
+    //\uBA64\uBC84\uB294 \u3141\u3139, \uC774\uB984\uC740 \uC774\uB984, score - number\uB85C
+    \uB428 float \uC548\uB428, rank - 1\uB4F1\uC778\uAC00\\r\\n                console.log(\\\"\uB0B4
+    \uB7AD\uD0B9\\\" + response.rankInfo.myRank.member + \\\" \\\" + response.rankInfo.myRank.name
+    + \\\" \\\" + response.rankInfo.myRank.score + \\\" \\\" + response.rankInfo.myRank.rank);\\r\\n               
+    console.log(\\\"\uCD1D \uB7AD\uD0B9 \uCE74\uC6B4\uD2B8\\\" + response.rankInfo.totalRankCount);\\r\\n               
+    // \uC790\uC2E0\uC758 \uB7AD\uD06C\\r\\n                // for(var index = 0;
+    index < response.rankInfo.Ranks.length; index++){\\r\\n                //    
+    console.log(\\\"\uB7AD\uD06C : \\\" + response.rankInfo.Ranks[index].member +
+    \\\" \\\" + response.rankInfo.Ranks[index].name + \\\" \\\" + response.rankInfo.Ranks[index].score
+    + \\\" \\\" + response.rankInfo.Ranks[index].rank)\\r\\n                // }\\r\\n               
+    // console.log(\\\"--------------------------\\\")\\r\\n                // for(var
+    index = 0; index < response.rankInfo.rankList.length; index++){\\r\\n               
+    for (var index = 0; index < response.rankInfo.rankList.length; index++) {\\r\\n                   
+    if (index > 5)\\r\\n                        break;\\r\\n                    var
+    rank = response.rankInfo.rankList[index];\\r\\n                    console.log(\\\"\uB7AD\uD06C\uB9AC\uC2A4\uD2B8
+    : \\\" + rank.name + \\\"\\\\n\uC810\uC218 : \\\" + rank.score + \\\", \uB7AD\uD0B9
+    : \\\" + rank.rank);\\r\\n                    if (rank.rank > 3) {\\r\\n                       
+    this.medalText[index].text = rank.rank.toString();\\r\\n                       
+    this.medalImage[index].sprite = this.medalSprites[3];\\r\\n                       
+    // console.log(rank.rank.toString() + \\\"  \\\" + this.medalSprites[3])\\r\\n                   
+    }\\r\\n                    else {\\r\\n                        this.medalImage[index].sprite
+    = this.medalSprites[index];\\r\\n                        this.medalText[index].text
+    = '';\\r\\n                        // console.log(this.medalSprites[index] +
+    \\\"  \\\" + '')\\r\\n                    }\\r\\n                    this.medalImage[index].enabled
+    = true;\\r\\n                    this.profileImage[index].enabled = true;\\r\\n                   
+    this.SetProfileImage(this.profileImage[index], rank.member);\\r\\n                   
+    this.playerName[index].text = rank.name;\\r\\n                }\\r\\n               
+    for (var index = response.rankInfo.rankList.length; index < this.leaderBoardParent.transform.childCount;
+    index++) {\\r\\n                    if (index > 5)\\r\\n                       
+    break;\\r\\n                    // const leaderBoard = this._leaderBoards[index]\\r\\n                   
+    this.medalImage[index].enabled = false;\\r\\n                    this.medalText[index].text
+    = '';\\r\\n                    this.profileImage[index].enabled = false;\\r\\n                   
+    this.playerName[index].text = '';\\r\\n                }\\r\\n            },
+    (error) => { \\\"\uC5D0\uB7EC : \\\" + console.log(error); });\\r\\n           
+    //LeaderboardAPI.GetRangeRank(\\\"\\\", 1, 100, null, )\\r\\n            this.timerText.gameObject.SetActive(false);\\r\\n           
+    this.timer = 0;\\r\\n            this.isStart = false;\\r\\n        }\\r\\n   
+    }\\r\\n    OnSetScoreResult(setScoreResponse) {\\r\\n        console.log(\\\"\uC810\uC218
+    \uC124\uC815\\\" + setScoreResponse.isSuccess);\\r\\n    }\\r\\n    SetProfileImage(image,
+    userId) {\\r\\n        ZEPETO_World_1.ZepetoWorldHelper.GetProfileTexture(userId,
+    (texture) => {\\r\\n            // console.log(sprite)\\r\\n            // console.log(this.sampleImage)\\r\\n           
+    // console.log(this.sampleImage.gameObject)\\r\\n            // console.log(this.sampleImage.gameObject.tag)\\r\\n           
+    // console.log(this.sampleImage.gameObject.name)\\r\\n            // console.log(this.sampleImage.sprite)\\r\\n           
+    image.sprite = this.GetSprite(texture);\\r\\n            //this.sampleImage.SetNativeSize()\\r\\n       
+    }, (error) => {\\r\\n            console.log(\\\"\uC5D0\uB7EC : \\\" + error);\\r\\n       
+    });\\r\\n    }\\r\\n    GetSprite(texture) {\\r\\n        let rect = new UnityEngine_1.Rect(0,
+    0, texture.width, texture.height);\\r\\n        return UnityEngine_1.Sprite.Create(texture,
+    rect, new UnityEngine_1.Vector2(0.5, 0.5));\\r\\n    }\\r\\n    Update() {\\r\\n       
+    if (this.isStart) {\\r\\n            this.timer += UnityEngine_1.Time.deltaTime;\\r\\n           
+    this.timerText.text = this.timer.toString();\\r\\n        }\\r\\n        // if(this.player.GetIsGround()){\\r\\n       
+    //     var a = this.player.GetInfoGround()\\r\\n        //     //\uB5A8\uC5B4\uC9D0
+    \uD310\uC815\\r\\n        //     //\uAC8C\uC784\uC885\uB8CC\\r\\n        //    
+    //\uB9AC\uB354\uBCF4\uB4DC, \uB370\uC774\uD130\uBCA0\uC774\uC2A4, \uCCB4\uD06C
+    \uD3EC\uC778\uD2B8\\r\\n        //     // checkedPoint = this.player.GetInfoGround().position;\\r\\n       
+    //     //sendMessage(a.pointNum)\\r\\n        // }\\r\\n    }\\r\\n    IfFloor()
+    {\\r\\n        // \uCCB4\uD06C \uD3EC\uC778\uD2B8\uB85C \uC774\uB3D9\\r\\n       
+    // \uBAA8\uB4E0 \uD50C\uB808\uC774\uC5B4\uC5D0 \uB300\uD574 \uC774\uB3D9\uC744
+    \uC2E4\uD589\\r\\n    }\\r\\n}\\r\\nexports.default = JumpMapManager;\\r\\n//#
+    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiSnVtcE1hcE1hbmFnZXIuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJKdW1wTWFwTWFuYWdlci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLDZDQUFxRztBQUNyRyxtREFBNkM7QUFDN0MsaURBQXFEO0FBQ3JELHlFQUEySTtBQUMzSSwrQ0FBaUQ7QUFFakQsTUFBcUIsY0FBZSxTQUFRLHFDQUFxQjtJQUFqRTs7UUFnQnFCLGtCQUFhLEdBQVkscUNBQXFDLENBQUE7SUErSG5GLENBQUM7SUE5SEcsS0FBSztRQUNELElBQUksQ0FBQyxZQUFZLEdBQUcsSUFBSSxLQUFLLENBQVEsQ0FBQyxDQUFDLENBQUE7UUFDdkMsSUFBSSxDQUFDLFVBQVUsR0FBRyxJQUFJLEtBQUssQ0FBUSxDQUFDLENBQUMsQ0FBQTtRQUNyQyxJQUFJLENBQUMsU0FBUyxHQUFHLElBQUksS0FBSyxDQUFPLENBQUMsQ0FBQyxDQUFBO1FBQ25DLElBQUksQ0FBQyxVQUFVLEdBQUcsSUFBSSxLQUFLLENBQU8sQ0FBQyxDQUFDLENBQUE7UUFDcEMsa0NBQWtDO1FBQ2xDLDJDQUEyQztRQUMzQyxLQUFJLElBQUksQ0FBQyxHQUFHLENBQUMsRUFBRSxDQUFDLEdBQUcsSUFBSSxDQUFDLGlCQUFpQixDQUFDLFNBQVMsQ0FBQyxVQUFVLEVBQUUsQ0FBQyxFQUFFLEVBQUM7WUFDaEUsT0FBTyxDQUFDLEdBQUcsQ0FBQyxDQUFDLENBQUMsQ0FBQTtZQUNkLElBQUksQ0FBQyxVQUFVLENBQUMsQ0FBQyxDQUFDLEdBQUcsSUFBSSxDQUFDLGlCQUFpQixDQUFDLFNBQVMsQ0FBQyxRQUFRLENBQUMsQ0FBQyxDQUFDLENBQUMsUUFBUSxDQUFDLENBQUMsQ0FBQyxDQUFDLFlBQVksU0FBQyxzQkFBSyxFQUFHLENBQUE7WUFDbkcsT0FBTyxDQUFDLEdBQUcsQ0FBQyxDQUFDLENBQUMsQ0FBQTtZQUNkLElBQUksQ0FBQyxTQUFTLENBQUMsQ0FBQyxDQUFDLEdBQUcsSUFBSSxDQUFDLGlC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\",\"assetPath\":\"Assets/Scripts/JumpMap/JumpMapManager.ts\",\"manifest\":{\"properties\":[{\"assembly\":\"UnityEngine.CoreModule\",\"name\":\"medalSprites\",\"type\":\"UnityEngine.Sprite[]\",\"isArray\":true,\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]},{\"assembly\":\"UnityEngine.CoreModule\",\"name\":\"leaderBoardParent\",\"type\":\"UnityEngine.GameObject\",\"isArray\":false,\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]},{\"assembly\":\"mscorlib\",\"name\":\"timer\",\"type\":\"System.Single\",\"isArray\":false,\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]},{\"assembly\":\"mscorlib\",\"name\":\"isStart\",\"type\":\"System.Boolean\",\"isArray\":false,\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]},{\"assembly\":\"UnityEngine.UI\",\"name\":\"timerText\",\"type\":\"UnityEngine.UI.Text\",\"isArray\":false,\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]},{\"assembly\":\"ZEPETO.Script.Leaderboard\",\"name\":\"resetRule\",\"type\":\"ZEPETO.Script.Leaderboard.ResetRule\",\"isArray\":false,\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]}],\"name\":\"JumpMapManager\",\"description\":\"\"},\"isCompiled\":true}"
+  typescriptHash: c03e5d4f912b941723345fabb5ec80c4
