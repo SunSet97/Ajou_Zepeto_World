@@ -6,6 +6,7 @@ import JumpMapManager from './JumpMapManager';
 export default class JumpMapCollider extends ZepetoScriptBehaviour {
 
     public jumpManagerObject : GameObject
+    @Header("Start인 경우 'Start',  End인 경우 'End'를 적으세요.")
     public kind : string
     private jumpManager : JumpMapManager
 

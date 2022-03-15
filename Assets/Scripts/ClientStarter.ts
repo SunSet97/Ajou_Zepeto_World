@@ -66,14 +66,17 @@ export default class ClientStarter extends ZepetoScriptBehaviour {
     
             state.players.OnRemove += (player: Player, sessionId: string) => this.OnLeavePlayer(sessionId, player);
 
+
+
             // [CharacterController] (Local)Player �ν��Ͻ��� Scene�� ������ �ε�Ǿ��� �� ȣ��
             ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(() => {
                 const myPlayer = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer;
+                // myPlayer.character.OnChangedState
                 myPlayer.character.OnChangedState.AddListener((cur, next) => {
                     this.SendState(next);
                 });
                 console.log(myPlayer.character.gameObject.layer)
-                myPlayer.character.gameObject.layer = UnityEngine.LayerMask.NameToLayer("LocalPlayer")
+                // myPlayer.character.gameObject.layer = UnityEngine.LayerMask.NameToLayer("LocalPlayer")
                 console.log(myPlayer.character.gameObject.layer)
             });
 

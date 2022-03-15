@@ -1,9 +1,6 @@
 import { AnimationClip, Animator, AnimatorOverrideController, GameObject, WaitUntil } from 'UnityEngine'
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
-import { List$1 } from 'System.Collections.Generic';
 import { ZepetoPlayers } from 'ZEPETO.Character.Controller';
-import { ScriptRunDelayedTasks } from 'UnityEngine.PlayerLoop.Update';
-import * as System from 'System';
 import ClientStarter from './ClientStarter';
 
 export default class AnimationLinker extends ZepetoScriptBehaviour {
@@ -14,8 +11,10 @@ export default class AnimationLinker extends ZepetoScriptBehaviour {
         return this._instance;
     }
 
+    @Header("디버그용입니다 넣지 마세용")
     public animationName : string   //현재 animation 이름 - "", "물건 든 상태", "어떤 상태"
 
+    @Header("애니메이션 형식 기존이름_이름으로 넣으세요. ex) idle_cup")
     public animations : AnimationClip[]
 
     private readonly AniOriginal : string[] = ["idle", "walk", "run", "jump_idle", "jump_move"]

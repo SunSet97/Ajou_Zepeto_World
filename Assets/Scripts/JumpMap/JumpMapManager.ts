@@ -11,14 +11,17 @@ export default class JumpMapManager extends ZepetoScriptBehaviour {
     private medalText : Text[]
     private playerName : Text[]
 
+    @Header("1, 2, 3위, 그 외 순서대로 넣으세요.")
     public medalSprites : Sprite[]
     public leaderBoardParent : GameObject
-    
-    //public player : CharacterFloorDetector
-    public timer : float
-    public isStart : bool
     public timerText : Text
     public resetRule : ResetRule
+
+
+    //public player : CharacterFloorDetector
+    @Header("디버그용입니다~")
+    public timer : float
+    public isStart : bool
     
     private readonly leaderboardId : string = "3d6837f6-e016-426b-9081-ee0c27d4dd4"
     Start(){
