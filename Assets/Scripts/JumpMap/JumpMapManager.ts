@@ -6,14 +6,16 @@ import { ZepetoWorldHelper } from 'ZEPETO.World';
 
 export default class JumpMapManager extends ZepetoScriptBehaviour {
 
-    private profileImage : Image[]
-    private medalImage : Image[]
-    private medalText : Text[]
-    private playerName : Text[]
+    public profileImage : Image[]
+    public medalImage : Image[]
+    public medalText : Text[]
+    public playerName : Text[]
+    public score : Text[]
+    public leaderBoardPanel : GameObject
 
     @Header("1, 2, 3위, 그 외 순서대로 넣으세요.")
     public medalSprites : Sprite[]
-    public leaderBoardParent : GameObject
+    public leaderBoardItemParent : GameObject
     public timerText : Text
     public resetRule : ResetRule
 
@@ -23,24 +25,29 @@ export default class JumpMapManager extends ZepetoScriptBehaviour {
     public timer : float
     public isStart : bool
     
-    private readonly leaderboardId : string = "3d6837f6-e016-426b-9081-ee0c27d4dd4"
+    public readonly leaderboardId : string
     Start(){
-        this.profileImage = new Array<Image>(5)
-        this.medalImage = new Array<Image>(5)
-        this.medalText = new Array<Text>(5)
-        this.playerName = new Array<Text>(5)
+        var itemCount = this.leaderBoardItemParent.transform.childCount
+        this.leaderBoardPanel.SetActive(false)
+        this.profileImage = new Array<Image>(itemCount)
+        this.medalImage = new Array<Image>(itemCount)
+        this.medalText = new Array<Text>(itemCount)
+        this.playerName = new Array<Text>(itemCount)
+        this.score = new Array<Text>(itemCount)
         // console.log(this._leaderBoards)
         // console.log(this._leaderBoards.Capacity)
-        for(var i = 0; i < this.leaderBoardParent.transform.childCount; i++){
+        for(var i = 0; i < itemCount; i++){
             console.log(1)
-            this.medalImage[i] = this.leaderBoardParent.transform.GetChild(i).GetChild(0).GetComponent<Image>()
+            this.medalImage[i] = this.leaderBoardItemParent.transform.GetChild(i).GetChild(0).GetComponent<Image>()
             console.log(2)
-            this.medalText[i] = this.leaderBoardParent.transform.GetChild(i).GetChild(0).GetChild(0).GetComponent<Text>()
+            this.medalText[i] = this.leaderBoardItemParent.transform.GetChild(i).GetChild(0).GetChild(0).GetComponent<Text>()
             console.log(3)
-            this.profileImage[i] = this.leaderBoardParent.transform.GetChild(i).GetChild(1).GetComponent<Image>()
+            this.profileImage[i] = this.leaderBoardItemParent.transform.GetChild(i).GetChild(1).GetChild(0).GetComponent<Image>()
             console.log(4)
-            this.playerName[i] = this.leaderBoardParent.transform.GetChild(i).GetChild(2).GetComponent<Text>()
+            this.playerName[i] = this.leaderBoardItemParent.transform.GetChild(i).GetChild(1).GetChild(1).GetComponent<Text>()
             console.log(5)
+            this.score[i] = this.leaderBoardItemParent.transform.GetChild(i).GetChild(2).GetComponent<Text>()
+            console.log(6)
         }
     }
     GameStart(){
@@ -56,53 +63,59 @@ export default class JumpMapManager extends ZepetoScriptBehaviour {
             //플레이어에 붙은 스크립트 삭제
             //GameObject.DestroyImmediate(this.player)
             LeaderboardAPI.SetScore(this.leaderboardId, this.timer, this.OnSetScoreResult, (error) => {console.log("에러 : " + error)})
-            LeaderboardAPI.GetRangeRank(this.leaderboardId, 1, 10000, this.resetRule, false, (response : GetRangeRankResponse) => {
-                console.log("리더보드 불러오기 결과 : " + response.isSuccess)
-                //멤버는 ㅁㄹ, 이름은 이름, score - number로 됨 float 안됨, rank - 1등인가
-                console.log("내 랭킹" + response.rankInfo.myRank.member + " " + response.rankInfo.myRank.name + " " + response.rankInfo.myRank.score + " " + response.rankInfo.myRank.rank)
-                console.log("총 랭킹 카운트" + response.rankInfo.totalRankCount)
-        
-                // 자신의 랭크
-                // for(var index = 0; index < response.rankInfo.Ranks.length; index++){
-                //     console.log("랭크 : " + response.rankInfo.Ranks[index].member + " " + response.rankInfo.Ranks[index].name + " " + response.rankInfo.Ranks[index].score + " " + response.rankInfo.Ranks[index].rank)
-                // }
-                
-                // console.log("--------------------------")
-        
-                // for(var index = 0; index < response.rankInfo.rankList.length; index++){
-                for(var index = 0; index < response.rankInfo.rankList.length; index++){
-                    if(index > 5) break;
-                    var rank : Rank = response.rankInfo.rankList[index]
-                    console.log("랭크리스트 : " + rank.name + "\n점수 : " + rank.score + ", 랭킹 : " + rank.rank)
-
-                    if(rank.rank > 3){
-                        this.medalText[index].text = rank.rank.toString()
-                        this.medalImage[index].sprite = this.medalSprites[3]
-                        // console.log(rank.rank.toString() + "  " + this.medalSprites[3])
-                    }else{
-                        this.medalImage[index].sprite = this.medalSprites[index]
-                        this.medalText[index].text = ''
-                        // console.log(this.medalSprites[index] + "  " + '')
-                    }
-                    this.medalImage[index].enabled = true
-                    this.profileImage[index].enabled = true
-                    this.SetProfileImage(this.profileImage[index], rank.member)
-                    this.playerName[index].text = rank.name
-                }
-                for(var index = response.rankInfo.rankList.length; index < this.leaderBoardParent.transform.childCount; index++){
-                    if(index > 5) break;
-                    // const leaderBoard = this._leaderBoards[index]
-                    this.medalImage[index].enabled = false
-                    this.medalText[index].text = ''
-                    this.profileImage[index].enabled = false
-                    this.playerName[index].text = ''
-                }
-            }, (error) => {"에러 : " + console.log(error)})
+            this.ShowRank()
             //LeaderboardAPI.GetRangeRank("", 1, 100, null, )
             this.timerText.gameObject.SetActive(false)
             this.timer = 0
             this.isStart = false
         }
+    }
+
+    ShowRank(){
+        LeaderboardAPI.GetRangeRank(this.leaderboardId, 1, 10000, this.resetRule, false, (response : GetRangeRankResponse) => {
+            console.log("리더보드 불러오기 결과 : " + response.isSuccess)
+            //멤버는 ㅁㄹ, 이름은 이름, score - number로 됨 float 안됨, rank - 1등인가
+            console.log("내 랭킹" + response.rankInfo.myRank.member + " " + response.rankInfo.myRank.name + " " + response.rankInfo.myRank.score + " " + response.rankInfo.myRank.rank)
+            console.log("총 랭킹 카운트" + response.rankInfo.totalRankCount)
+    
+            // 자신의 랭크
+            // for(var index = 0; index < response.rankInfo.Ranks.length; index++){
+            //     console.log("랭크 : " + response.rankInfo.Ranks[index].member + " " + response.rankInfo.Ranks[index].name + " " + response.rankInfo.Ranks[index].score + " " + response.rankInfo.Ranks[index].rank)
+            // }
+            
+            // console.log("--------------------------")
+            this.leaderBoardPanel.SetActive(true)
+            // for(var index = 0; index < response.rankInfo.rankList.length; index++){
+            for(var index = 0; index < response.rankInfo.rankList.length; index++){
+                if(index >= this.leaderBoardItemParent.transform.childCount) break;
+                var rank : Rank = response.rankInfo.rankList[index]
+                console.log("랭크리스트 : " + rank.name + "\n점수 : " + rank.score + ", 랭킹 : " + rank.rank)
+
+                if(rank.rank > 3){
+                    this.medalText[index].text = rank.rank.toString()
+                    this.medalImage[index].sprite = this.medalSprites[3]
+                    // console.log(rank.rank.toString() + "  " + this.medalSprites[3])
+                }else{
+                    this.medalImage[index].sprite = this.medalSprites[index]
+                    this.medalText[index].text = ''
+                    // console.log(this.medalSprites[index] + "  " + '')
+                }
+                this.medalImage[index].enabled = true
+                this.profileImage[index].enabled = true
+                this.SetProfileImage(this.profileImage[index], rank.member)
+                this.playerName[index].text = rank.name
+                this.score[index].text = rank.score.toString()
+            }
+            for(var index = response.rankInfo.rankList.length; index < this.leaderBoardItemParent.transform.childCount; index++){
+                if(index >= this.leaderBoardItemParent.transform.childCount) break;
+                // const leaderBoard = this._leaderBoards[index]
+                this.medalImage[index].enabled = false
+                this.medalText[index].text = ''
+                this.profileImage[index].enabled = false
+                this.playerName[index].text = ''
+                this.score[index].text = ''
+            }
+        }, (error) => {"에러 : " + console.log(error)})
     }
 
 

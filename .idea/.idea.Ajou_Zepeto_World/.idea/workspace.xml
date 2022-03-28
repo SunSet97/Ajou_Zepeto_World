@@ -4,8 +4,23 @@
     <list default="true" id="2d783d68-ac2c-459e-bf57-fe29b2cd69b1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Ajou_Zepeto_World/.idea/runConfigurations/Zepeto_Multiplay_Script.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Ajou_Zepeto_World/.idea/runConfigurations/Zepeto_Multiplay_Script.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Ajou_Zepeto_World/.idea/runConfigurations/Zepeto_Script.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Ajou_Zepeto_World/.idea/runConfigurations/Zepeto_Script.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Ajou_Zepeto_World/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Ajou_Zepeto_World/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/launch.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SampleScript.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SampleScript.ts.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Ani_work_folder/Cup_Hold/idle_cup.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ani_work_folder/Cup_Hold/idle_cup.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AnimationLinker.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AnimationLinker.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AnimationLinker.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AnimationLinker.ts.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ClientStarter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ClientStarter.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ClientStarter.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ClientStarter.ts.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/JumpMap/JumpMapCollider.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/JumpMap/JumpMapCollider.ts.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/JumpMap/JumpMapManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/JumpMap/JumpMapManager.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/JumpMap/JumpMapManager.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/JumpMap/JumpMapManager.ts.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MoveAniInteractor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MoveAniInteractor.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MoveAniInteractor.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MoveAniInteractor.ts.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/World.multiplay/SchemaTypes/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/World.multiplay/SchemaTypes/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/World.multiplay/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/World.multiplay/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/World.multiplay/schemas.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/World.multiplay/schemas.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,10 +73,20 @@
       <option name="presentableId" value="Default" />
       <updated>1647256345790</updated>
       <workItem from="1647256350660" duration="24000" />
+      <workItem from="1647784933061" duration="1000" />
+      <workItem from="1647784984060" duration="1000" />
+      <workItem from="1647801770315" duration="3000" />
+      <workItem from="1647930716494" duration="21000" />
+      <workItem from="1648326663276" duration="43000" />
+      <workItem from="1648462887096" duration="43000" />
     </task>
     <servers />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />

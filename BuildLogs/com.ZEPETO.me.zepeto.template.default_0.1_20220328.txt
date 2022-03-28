@@ -1,0 +1,69 @@
+[World Settings]
+world id             com.zepeto.me.zepeto.template.default
+version              0.1                 
+max clients          8                   
+orientation          vertical            
+disable invite       false               
+disable room list    false               
+disable private room false               
+
+[Build Manifest]
+[scenes]
+380 kb               assets/scenes/mainscene.unity
+[assets]
+3 mb                 assets/ani_work_folder/new folder/sleep.anim
+2 kb                 assets/scenes/materials/uv_marble.mat
+13 kb                packages/zepeto.character.controller/runtime/_resources/images/touchpad_handle_base.png
+560 kb               packages/zepeto.character.controller/runtime/_resources/animations/base/idle.anim
+2 kb                 packages/zepeto.character.controller/runtime/_resources/animations/ui/controller/touchpad_handle_off.anim
+1 mb                 assets/scenes/fbx/plat4.fbx
+940 kb               assets/ani_work_folder/cup_hold/new folder/run_self.anim
+1 mb                 assets/scenes/fbx/plat1.fbx
+34 kb                packages/zepeto.character.controller/runtime/_resources/inputactions/zepetoinputcontrol.inputactions
+1 kb                 packages/zepeto.character.controller/runtime/_resources/prefabs/shadow/fxt_blobshadow.png
+5 mb                 assets/ani_work_folder/new folder/dance.anim
+3 kb                 packages/zepeto.character.controller/runtime/_resources/animations/ui/controller/touchpad_handle_ziggle.anim
+1 mb                 packages/zepeto.character.controller/runtime/_resources/animations/base/walk.anim
+2 kb                 packages/zepeto.character.controller/runtime/_resources/animations/ui/controller/touchpad_handle_on.anim
+704 kb               assets/ani_work_folder/cup_hold/new folder/idle_self.anim
+3 mb                 assets/scenes/fbx/land.fbx
+2 kb                 assets/scenes/materials/transparent.mat
+1 mb                 assets/ani_work_folder/cup_hold/new folder/jump_move_self.anim
+963 kb               assets/ani_work_folder/cup_hold/new folder/walk_self.anim
+560 kb               assets/ani_work_folder/default/idle.anim
+1 mb                 packages/zepeto.character.controller/runtime/_resources/animations/base/jump_idle.anim
+1 mb                 packages/zepeto.character.controller/runtime/_resources/animations/base/jump_move.anim
+27 kb                packages/zepeto.character.controller/runtime/_resources/prefabs/uicontroller_touchpad_horizontal.prefab
+2 kb                 packages/zepeto.character.controller/runtime/_resources/animations/ui/controller/touchpad_handle_origin_off.anim
+7 kb                 packages/zepeto.character.controller/runtime/_resources/animatorcontroller/uicontrollertouchpadhandleorigin.controller
+27 kb                packages/zepeto.character.controller/runtime/_resources/prefabs/uicontroller_touchpad_vertical.prefab
+5 kb                 packages/zepeto.character.controller/runtime/_resources/images/touchpad_handle_icon.png
+1 kb                 packages/com.unity.inputsystem/inputsystem/editor/icons/inputsystemuiinputmodule@64.png
+1 mb                 assets/ani_work_folder/default/jump_move.anim
+5 kb                 packages/zepeto.character.controller/runtime/_resources/images/touchpad_jump_icon.png
+7 kb                 packages/zepeto.character.controller/runtime/_resources/animatorcontroller/uicontrollertouchpadhandle.controller
+1 mb                 assets/scenes/texture/uv_marble.png
+1 mb                 assets/scenes/fbx/plat6.fbx
+1 kb                 packages/zepeto.character.controller/runtime/_resources/camera/zepetocamera.prefab
+940 kb               packages/zepeto.character.controller/runtime/_resources/animations/base/run.anim
+3 kb                 packages/zepeto.character.controller/runtime/_resources/prefabs/shadow/charactershadow.prefab
+1 mb                 assets/scenes/fbx/plat5.fbx
+12 kb                packages/zepeto.character.controller/runtime/_resources/images/touchpad_jump_base.png
+1 mb                 assets/ani_work_folder/default/jump_idle.anim
+1 mb                 assets/ani_work_folder/default/walk.anim
+62 kb                packages/zepeto.character.controller/runtime/_resources/animations/base/gesture.anim
+1 mb                 assets/ani_work_folder/cup_hold/new folder/jump_idle_self.anim
+1 mb                 assets/ani_work_folder/new folder/ok.anim
+18 kb                packages/zepeto.character.controller/runtime/_resources/animatorcontroller/zepetoanimator.controller
+1 mb                 assets/scenes/fbx/plat2.fbx
+2 kb                 packages/zepeto.character.controller/runtime/_resources/prefabs/shadow/fxt_blobshadow.mat
+2 kb                 packages/zepeto.character.controller/runtime/_resources/prefabs/eventsystem.prefab
+2 kb                 packages/zepeto.character.controller/runtime/_resources/animations/ui/controller/touchpad_handle_origin_on.anim
+940 kb               assets/ani_work_folder/default/run.anim
+31 kb                packages/com.unity.inputsystem/inputsystem/plugins/playerinput/defaultinputactions.inputactions
+1 mb                 assets/scenes/fbx/plat3.fbx
+760 kb               assets/scenes/texture/uvbronze.png
+3 kb                 packages/zepeto.character.controller/runtime/_resources/animations/ui/controller/touchpad_handle_origin_ziggle.anim
+[resources]
+0 b                  assets/resources    
+[streamingAssets]

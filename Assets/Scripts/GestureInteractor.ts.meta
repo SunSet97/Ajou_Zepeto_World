@@ -1,0 +1,46 @@
+fileFormatVersion: 2
+guid: 738a2ad490c5d7a4e88b805836b0fe8a
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: "{\"source\":\"\\\"use strict\\\";\\r\\nObject.defineProperty(exports,
+    \\\"__esModule\\\", { value: true });\\r\\nconst UnityEngine_1 = require(\\\"UnityEngine\\\");\\r\\nconst
+    ZEPETO_Character_Controller_1 = require(\\\"ZEPETO.Character.Controller\\\");\\r\\nconst
+    ZEPETO_Script_1 = require(\\\"ZEPETO.Script\\\");\\r\\nconst AnimationLinker_1
+    = require(\\\"./AnimationLinker\\\");\\r\\nclass GestureInteractor extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\\r\\n    Start() {\\r\\n        ZEPETO_Character_Controller_1.ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(()
+    => {\\r\\n            this.playerCharacter = ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoPlayer;\\r\\n       
+    });\\r\\n        this.btn.onClick.AddListener(() => {\\r\\n            // console.log(this.animationClip)\\r\\n           
+    // this.StopAllCoroutines()\\r\\n            // console.log(this.playerCharacter)\\r\\n           
+    // AnimationLinker.instance.ResetAniamtor(this.playerCharacter.character.ZepetoAnimator,
+    this.playerCharacter.id)\\r\\n            AnimationLinker_1.default.instance.PlayGesture(this.animationClip.name);\\r\\n           
+    // this.playerCharacter.character.SetGesture(this.animationClip)\\r\\n           
+    // this.StartCoroutine(this.DoStop(this.animationClip.length))\\r\\n        });\\r\\n   
+    }\\r\\n    OnTriggerEnter(col) {\\r\\n        const character = col.GetComponent($typeof(ZEPETO_Character_Controller_1.ZepetoCharacter));\\r\\n       
+    // console.log(col.GetComponent<ZepetoPlayer>())\\r\\n        // this.playerCharacter
+    = ZepetoPlayers.instance.getplayer\\r\\n        if (character === ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character)
+    {\\r\\n            this.btn.gameObject.SetActive(true);\\r\\n        }\\r\\n   
+    }\\r\\n    // *DoStop(seconds : float){\\r\\n    //     yield new WaitForSeconds(seconds)\\r\\n   
+    //     this.playerCharacter.character.CancelGesture()\\r\\n    //     //\uAE30\uC874\uC758
+    \uC774\uB984\uC73C\uB85C \uC560\uB2C8\uBA54\uC774\uC158 \uBCC0\uACBD \uD6C4 \uC11C\uBC84\uC5D0
+    \uBCF4\uB0B4\uAE30\\r\\n    //     // AnimationLinker.instance.SendAnimationToServer(AnimationLinker.instance.animationName)\\r\\n   
+    // }\\r\\n    OnTriggerExit(col) {\\r\\n        const character = col.GetComponent($typeof(ZEPETO_Character_Controller_1.ZepetoCharacter));\\r\\n       
+    if (character === ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character)
+    {\\r\\n            this.btn.gameObject.SetActive(false);\\r\\n        }\\r\\n   
+    }\\r\\n}\\r\\nexports.default = GestureInteractor;\\r\\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiR2VzdHVyZUludGVyYWN0b3IuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJHZXN0dXJlSW50ZXJhY3Rvci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLDZDQUFxRTtBQUVyRSw2RUFBMkY7QUFDM0YsaURBQXFEO0FBQ3JELHVEQUFnRDtBQUVoRCxNQUFxQixpQkFBa0IsU0FBUSxxQ0FBcUI7SUFNaEUsS0FBSztRQUNELDJDQUFhLENBQUMsUUFBUSxDQUFDLGtCQUFrQixDQUFDLFdBQVcsQ0FBQyxHQUFHLEVBQUU7WUFDdkQsSUFBSSxDQUFDLGVBQWUsR0FBRywyQ0FBYSxDQUFDLFFBQVEsQ0FBQyxXQUFXLENBQUMsWUFBWSxDQUFBO1FBQzFFLENBQUMsQ0FBQyxDQUFBO1FBQ0YsSUFBSSxDQUFDLEdBQUcsQ0FBQyxPQUFPLENBQUMsV0FBVyxDQUFDLEdBQUcsRUFBRTtZQUM5QixrQ0FBa0M7WUFDbEMsMkJBQTJCO1lBQzNCLG9DQUFvQztZQUNwQyxpSEFBaUg7WUFDakgseUJBQWUsQ0FBQyxRQUFRLENBQUMsV0FBVyxDQUFDLElBQUksQ0FBQyxhQUFhLENBQUMsSUFBSSxDQUFDLENBQUE7WUFDN0QsZ0VBQWdFO1lBQ2hFLDhEQUE4RDtRQUNsRSxDQUFDLENBQUMsQ0FBQTtJQUNOLENBQUM7SUFDRCxjQUFjLENBQUMsR0FBYztRQUN6QixNQUFNLFNBQVMsR0FBRyxHQUFHLENBQUMsWUFBWSxTQUFDLDZDQUFlLEVBQUcsQ0FBQTtRQUNyRCxnREFBZ0Q7UUFDaEQsMERBQTBEO1FBQzFELElBQUcsU0FBUyxLQUFLLDJDQUFhLENBQUMsUUFBUSxDQUFDLFdBQVcsQ0FBQyxZQUFZLENBQUMsU0FBUyxFQUFDO1lBQ3ZFLElBQUksQ0FBQyxHQUFHLENBQUMsVUFBVSxDQUFDLFNBQVMsQ0FBQyxJQUFJLENBQUMsQ0FBQTtTQUN0QztJQUNMLENBQUM7SUFDRCw0QkFBNEI7SUFDNUIsd0NBQXdDO0lBQ3hDLHFEQUFxRDtJQUNyRCxvQ0FBb0M7SUFDcEMsZ0dBQWdHO0lBQ2hHLElBQUk7SUFFSixhQUFhLENBQUMsR0FBYztRQUN4QixNQUFNLFNBQVMsR0FBRyxHQUFHLENBQUMsWUFBWSxTQUFDLDZDQUFlLEVBQUcsQ0FBQTtRQUNyRCxJQUFHLFNBQVMsS0FBSywyQ0FBYSxDQUFDLFFBQVEsQ0FBQyxXQUFXLENBQUMsWUFBWSxDQUFDLFNBQVMsRUFBQztZQUN2RSxJQUFJLENBQUMsR0FBRyxDQUFDLFVBQVUsQ0FBQyxTQUFTLENBQUMsS0FBSyxDQUFDLENBQUE7U0FDdkM7SUFDTCxDQUFDO0NBQ0o7QUF6Q0Qsb0NBeUNDIn0=\",\"assetPath\":\"Assets/Scripts/GestureInteractor.ts\",\"manifest\":{\"properties\":[{\"assembly\":\"UnityEngine.UI\",\"name\":\"btn\",\"type\":\"UnityEngine.UI.Button\",\"isArray\":false,\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]},{\"assembly\":\"UnityEngine.AnimationModule\",\"name\":\"animationClip\",\"type\":\"UnityEngine.AnimationClip\",\"isArray\":false,\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]}],\"name\":\"GestureInteractor\",\"description\":\"\"},\"isCompiled\":true}"
+  typescriptHash: a119123be2fe8b152cfeccdcf3b557e5

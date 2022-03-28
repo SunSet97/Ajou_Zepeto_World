@@ -1,13 +1,18 @@
 import { Camera, RenderTexture } from 'UnityEngine'
+import { ZepetoPlayers } from 'ZEPETO.Character.Controller'
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
 import { ZepetoWorldContent } from 'ZEPETO.World'
 
 export default class ScreenShotController extends ZepetoScriptBehaviour {
 
-    public camera : Camera
+    private camera : Camera
     public renderTexture : RenderTexture
 
-
+    Start(){
+        ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(() => {
+            this.camera = ZepetoPlayers.instance.LocalPlayer.zepetoCamera.camera
+        })
+    }
 
     public TakeScreenShot(){
         this.camera.targetTexture = this.renderTexture

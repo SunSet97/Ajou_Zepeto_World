@@ -12,7 +12,6 @@ export default class ClientStarter extends ZepetoScriptBehaviour {
     public multiplay: ZepetoWorldMultiplay
     
     private room: Room
-
     private static _instance: ClientStarter;
     
     public static get instance(): ClientStarter {
@@ -59,34 +58,40 @@ export default class ClientStarter extends ZepetoScriptBehaviour {
     private OnStateChange(state: State, isFirst: boolean) {        
         //State가 바뀔 경우 - Animation 포함
         if (isFirst) {
-            
             state.players.ForEach((sessionId: string, player: Player) => this.OnJoinPlayer(sessionId, player));
         
             state.players.OnAdd += (player: Player, sessionId: string) => this.OnJoinPlayer(sessionId, player);
     
             state.players.OnRemove += (player: Player, sessionId: string) => this.OnLeavePlayer(sessionId, player);
-
-
-
+            
+            
             // [CharacterController] (Local)Player �ν��Ͻ��� Scene�� ������ �ε�Ǿ��� �� ȣ��
             ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(() => {
                 const myPlayer = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer;
                 // myPlayer.character.OnChangedState
-                myPlayer.character.OnChangedState.AddListener((cur, next) => {
+                myPlayer.character.OnChangedState.AddListener((next, cur) => {
+                    console.log("로컬 State 변경", cur, next)
                     this.SendState(next);
                 });
-                console.log(myPlayer.character.gameObject.layer)
-                // myPlayer.character.gameObject.layer = UnityEngine.LayerMask.NameToLayer("LocalPlayer")
-                console.log(myPlayer.character.gameObject.layer)
+                // console.log(myPlayer.character.gameObject.layer)
+                myPlayer.character.gameObject.layer = UnityEngine.LayerMask.NameToLayer("LocalPlayer")
+                // console.log(myPlayer.character.gameObject.layer)
             });
 
             // [CharacterController] Player �ν��Ͻ��� Scene�� ������ �ε�Ǿ��� �� ȣ��
             ZepetoPlayers.instance.OnAddedPlayer.AddListener((sessionId: string) => {
                 const isLocal = this.room.SessionId === sessionId;
+                const player : Player = this.room.State.players.get_Item(sessionId)
                 if (!isLocal) {
-                    const player : Player = this.room.State.players.get_Item(sessionId)
                     player.OnChange += (changeValues) => this.OnUpdateMultiPlayer(sessionId, player)
                 }
+                const zepetoPlayer = ZepetoPlayers.instance.GetPlayer(sessionId)
+                // console.log(AnimationLinker.instance)
+                // console.log(AnimationLinker.instance.gameObject)
+                // console.log(AnimationLinker.instance.originalAnimators)
+                // console.log(AnimationLinker.instance.originalAnimators, "???")
+                // console.log(AnimationLinker.instance.originalAnimators.size)
+                AnimationLinker.instance.OnAddPlayer(sessionId, zepetoPlayer.character.ZepetoAnimator, player.animation)
             });
         }
     }
@@ -95,7 +100,6 @@ export default class ClientStarter extends ZepetoScriptBehaviour {
         console.log(`roomSession - ${this.room.SessionId}\nplayerSession - ${player.sessionId}\nsessionId - ${sessionId}`);
         console.log(`[OnJoinPlayer] players - sessionId : ${sessionId}`);
         
-        this.StartCoroutine(this.SetAnimation(sessionId, player.animation))
 
         const spawnInfo = new SpawnInfo();
         const position = this.ParseVector3(player.transform.position);
@@ -107,36 +111,29 @@ export default class ClientStarter extends ZepetoScriptBehaviour {
         ZepetoPlayers.instance.CreatePlayerWithUserId(sessionId, player.zepetoUserId, spawnInfo, isLocal);
     }
 
-    *SetAnimation(sessionId : string, animationName : string){
-        while(!ZepetoPlayers.instance.HasPlayer(sessionId)){
-            yield null
-        }
-        const zepetoPlayer = ZepetoPlayers.instance.GetPlayer(sessionId);
-        AnimationLinker.instance.SetAnimation(zepetoPlayer.character.ZepetoAnimator, animationName)
-    }
-
     private OnLeavePlayer(sessionId: string, player: Player) {
         console.log(`[OnRemove] players - sessionId : ${sessionId}`)
 
-        ZepetoPlayers.instance.RemovePlayer(sessionId);
+        AnimationLinker.instance.originalAnimators.delete(sessionId)
+        ZepetoPlayers.instance.RemovePlayer(sessionId)
     }
 
     private OnUpdateMultiPlayer(sessionId: string, player: Player) {
 
         const zepetoPlayer = ZepetoPlayers.instance.GetPlayer(sessionId);
-        const isAnimate = player.animation !== AnimationLinker.instance.animationName
-
-        if (zepetoPlayer.isLocalPlayer === false) {
-            const positionSchema = this.ParseVector3(player.transform.position);
-            if(UnityEngine.Vector3.Distance(zepetoPlayer.character.transform.position, positionSchema) > 3){
-                zepetoPlayer.character.transform.position = positionSchema
-            }
-            zepetoPlayer.character.MoveToPosition(positionSchema);
-            
-            //애니메이션이 변경되었는데 Jump인 경우가 있음 그러면 애니메이션 변경시 점프가 동시에 발생함
-            if (!isAnimate && (player.state === CharacterState.JumpIdle || player.state === CharacterState.JumpMove))
-                zepetoPlayer.character.Jump();
+        const isAnimate = player.animation !== AnimationLinker.instance.GetPlayerAnimation(sessionId)
+        console.log("멀티 player 상태 변경", player.state)
+        const positionSchema = this.ParseVector3(player.transform.position);
+        
+        if(UnityEngine.Vector3.Distance(zepetoPlayer.character.transform.position, positionSchema) > 3){
+            zepetoPlayer.character.transform.position = positionSchema
         }
+        zepetoPlayer.character.MoveToPosition(positionSchema);
+        
+        //애니메이션이 변경되었는데 Jump인 경우가 있음 그러면 애니메이션 변경시 점프가 동시에 발생함
+        if (!isAnimate && (player.state === CharacterState.JumpIdle || player.state === CharacterState.JumpMove))
+            zepetoPlayer.character.Jump();
+        
         
         // 현재 애니메이션 상태가 다른 경우
         // 여기서 문제 생기는거로 예상
@@ -152,9 +149,14 @@ export default class ClientStarter extends ZepetoScriptBehaviour {
         // 해결방법 2 - 시작할 때 체크한다  - AnimationManager가 빈 경우 (기본)
         //애니메이션이 변경된 경우
         if (isAnimate){
-            console.log("서버 - 애니메이션 세팅")
-            console.log(player.state)
-            AnimationLinker.instance.SetAnimation(zepetoPlayer.character.ZepetoAnimator, player.animation)
+            console.log("서버 - 애니메이션 세팅", player.state)
+            AnimationLinker.instance.SetAnimation(zepetoPlayer.character.ZepetoAnimator, sessionId, player.animation)
+        }
+        
+        //문제는 제스처 중에 다시 제스처를 누르면 무시된다.
+        if(player.state === CharacterState.Gesture && !AnimationLinker.instance.GetIsGesturing(sessionId)){
+        //     // 제스처이고 어쩌고 저쩌고이면
+            AnimationLinker.instance.GestureHandler(zepetoPlayer, player.gesture)
         }
     }
 
@@ -177,6 +179,7 @@ export default class ClientStarter extends ZepetoScriptBehaviour {
     }
     
     private SendState(state: CharacterState) {
+        // console.log("스테이트 변경", state)
         const data = new RoomData();
         data.Add("state", state);
         this.room.Send("onChangedState", data.GetObject());
@@ -186,6 +189,12 @@ export default class ClientStarter extends ZepetoScriptBehaviour {
         const data = new RoomData();
         data.Add("animation", name);
         this.room.Send("onChangedAnimation", data.GetObject());
+    }
+
+    SendGesture(name : string){
+        const data = new RoomData();
+        data.Add("gesture", name);
+        this.room.Send("onChangedGesture", data.GetObject());
     }
 
     private ParseVector3(vector3: Vector3): UnityEngine.Vector3 {

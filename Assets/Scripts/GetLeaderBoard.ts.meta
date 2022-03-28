@@ -1,0 +1,34 @@
+fileFormatVersion: 2
+guid: 7655e98120d1e4d45a1c808939b8ef3b
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst ZEPETO_Script_Leaderboard_1
+    = require(\"ZEPETO.Script.Leaderboard\");\r\nclass GetAllLeaderboardsExample
+    extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    Start() {\r\n        ZEPETO_Script_Leaderboard_1.LeaderboardAPI.GetAllLeaderboards(this.OnResult,
+    this.OnError);\r\n    }\r\n    OnResult(result) {\r\n        UnityEngine_1.Debug.Log(`[GetAllLeaderboards]
+    result.isSuccess: ${result.isSuccess}`);\r\n        if (result.leaderboards)
+    {\r\n            for (let i = 0; i < result.leaderboards.length; ++i) {\r\n               
+    var leaderboard = result.leaderboards[i];\r\n                UnityEngine_1.Debug.Log(`i:
+    ${i}, id: ${leaderboard.id}, name: ${leaderboard.name}`);\r\n            }\r\n       
+    }\r\n    }\r\n    OnError(error) {\r\n        UnityEngine_1.Debug.LogError(`[GetAllLeaderboards]
+    ${error}`);\r\n    }\r\n}\r\nexports.default = GetAllLeaderboardsExample;\r\n//#
+    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiR2V0TGVhZGVyQm9hcmQuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJHZXRMZWFkZXJCb2FyZC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLDZDQUFvQztBQUNwQyxpREFBcUQ7QUFDckQseUVBQXNGO0FBRXRGLE1BQXFCLHlCQUEwQixTQUFRLHFDQUFxQjtJQUU1RSxLQUFLO1FBQ0QsMENBQWMsQ0FBQyxrQkFBa0IsQ0FBQyxJQUFJLENBQUMsUUFBUSxFQUFFLElBQUksQ0FBQyxPQUFPLENBQUMsQ0FBQztJQUNuRSxDQUFDO0lBRUQsUUFBUSxDQUFDLE1BQWtDO1FBQ3ZDLG1CQUFLLENBQUMsR0FBRyxDQUFDLDBDQUEwQyxNQUFNLENBQUMsU0FBUyxFQUFFLENBQUMsQ0FBQztRQUV4RSxJQUFJLE1BQU0sQ0FBQyxZQUFZLEVBQUU7WUFDckIsS0FBSyxJQUFJLENBQUMsR0FBRyxDQUFDLEVBQUUsQ0FBQyxHQUFHLE1BQU0sQ0FBQyxZQUFZLENBQUMsTUFBTSxFQUFFLEVBQUUsQ0FBQyxFQUFFO2dCQUNqRCxJQUFJLFdBQVcsR0FBRyxNQUFNLENBQUMsWUFBWSxDQUFDLENBQUMsQ0FBQyxDQUFDO2dCQUN6QyxtQkFBSyxDQUFDLEdBQUcsQ0FBQyxNQUFNLENBQUMsU0FBUyxXQUFXLENBQUMsRUFBRSxXQUFXLFdBQVcsQ0FBQyxJQUFJLEVBQUUsQ0FBQyxDQUFDO2FBQzFFO1NBQ0o7SUFDTCxDQUFDO0lBRUQsT0FBTyxDQUFDLEtBQWE7UUFDakIsbUJBQUssQ0FBQyxRQUFRLENBQUMsd0JBQXdCLEtBQUssRUFBRSxDQUFDLENBQUM7SUFDcEQsQ0FBQztDQUNBO0FBcEJELDRDQW9CQyJ9","assetPath":"Assets/Scripts/GetLeaderBoard.ts","manifest":{"properties":[],"name":"GetAllLeaderboardsExample","description":""},"isCompiled":true}'
+  typescriptHash: c16a903c272d1a677467598fc025bace

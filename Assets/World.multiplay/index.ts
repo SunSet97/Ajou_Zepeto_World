@@ -45,6 +45,10 @@ export default class extends Sandbox {
             console.log("디버그 받음" + message.sentence)
         });
         
+        this.onMessage("onChangedGesture", (client, message)=>{
+            const player = this.state.players.get(client.sessionId);
+            player.gesture = message.gesture;
+        });
         // this.onMessage("도달할때마다", (client, message) => {
         //     //local에서 message 보내기 그리고 떨어졌을 때 혹은 load 할때 스키마에 있는 데이터로 가져오기
 

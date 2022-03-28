@@ -5,22 +5,22 @@ import AnimationLinker from './AnimationLinker'
 
 export default class MoveAniInteractor extends ZepetoScriptBehaviour {
 
-    public tempButton : Button
+    public testButton : Button
     @Header("애니메이션 이름을 넣으세요. ex) idle_cup인 경우 cup")
     public animationClipName : string
 
     Start() {
-        this.tempButton.onClick.AddListener(() => {
-            AnimationLinker.instance.SetAnimationName(this.animationClipName)
+        this.testButton.onClick.AddListener(() => {
+            AnimationLinker.instance.SendAnimationToServer(this.animationClipName)
         })
         
     }
 
-    Update(){
+    // Update(){
         // if(this.localCamera != null){
             // this.btn.gameObject.transform.LookAt(this.localCamera.transform)
         // }
-    }
+    // }
 
     // OnTriggerEnter(col : Collider){
     //     this.localCamera = ZepetoPlayers.instance.ZepetoCamera.camera
