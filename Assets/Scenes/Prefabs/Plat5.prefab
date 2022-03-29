@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 540823983088880364}
   - component: {fileID: 3471922478187103561}
   - component: {fileID: 1714262119724724611}
+  - component: {fileID: 4605225814993063516}
   m_Layer: 0
   m_Name: Plat5
   m_TagString: Untagged
@@ -81,3 +82,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &4605225814993063516
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 921747125643382870}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5802557532863752374, guid: c437532e1f0bda74ca1f5d613ab50b66, type: 3}
