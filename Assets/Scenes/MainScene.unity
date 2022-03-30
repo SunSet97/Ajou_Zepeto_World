@@ -5812,9 +5812,53 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 397192802}
     m_Modifications:
+    - target: {fileID: 1329506782399540881, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
+      propertyPath: m_Range
+      value: 4.13
+      objectReference: {fileID: 0}
     - target: {fileID: 1975554805460443140, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3105278964322892166, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 3105278964322892166, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3105278964322892166, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3105278964322892166, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3105278964322892185, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3105278964322892185, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3984421533452346748, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.003
+      objectReference: {fileID: 0}
+    - target: {fileID: 4008253347397731036, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
+      propertyPath: m_Intensity
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5246171072974157501, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
+      propertyPath: m_Range
+      value: 2.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 7022015297096755722, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
+      propertyPath: m_Intensity
+      value: 5.18
       objectReference: {fileID: 0}
     - target: {fileID: 8530230461995870495, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
       propertyPath: m_RootOrder
