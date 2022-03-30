@@ -26,4 +26,4 @@ ScriptedImporter:
     => {\r\n            this.GetComponent($typeof(UnityEngine_1.Canvas)).worldCamera
     = ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoCamera.camera;\r\n       
     });\r\n    }\r\n}\r\nexports.default = WorldCanvasLocalCamera;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiV29ybGRDYW52YXNMb2NhbENhbWVyYS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIldvcmxkQ2FudmFzTG9jYWxDYW1lcmEudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSw2Q0FBb0M7QUFDcEMsNkVBQTJEO0FBQzNELGlEQUFxRDtBQUVyRCxNQUFxQixzQkFBdUIsU0FBUSxxQ0FBcUI7SUFFckUsS0FBSztRQUNELDJDQUFhLENBQUMsUUFBUSxDQUFDLGtCQUFrQixDQUFDLFdBQVcsQ0FBQyxHQUFHLEVBQUU7WUFDdkQsSUFBSSxDQUFDLFlBQVksU0FBQyxvQkFBTSxHQUFJLFdBQVcsR0FBRywyQ0FBYSxDQUFDLFFBQVEsQ0FBQyxXQUFXLENBQUMsWUFBWSxDQUFDLE1BQU0sQ0FBQTtRQUNwRyxDQUFDLENBQUMsQ0FBQTtJQUNOLENBQUM7Q0FFSjtBQVJELHlDQVFDIn0=","assetPath":"Assets/Scripts/WorldCanvasLocalCamera.ts","manifest":{"properties":[],"name":"WorldCanvasLocalCamera","description":""},"isCompiled":true}'
-  typescriptHash: a76a88f9a91e05289d8957f73516b81e
+  typescriptHash: 70e64326f85e01385a45aa0b8c4cc901
