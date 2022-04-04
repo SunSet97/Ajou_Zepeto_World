@@ -5812,13 +5812,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 397192802}
     m_Modifications:
+    - target: {fileID: 29951593774744017, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 29951593774744017, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1329506782399540881, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
       propertyPath: m_Range
       value: 4.13
       objectReference: {fileID: 0}
+    - target: {fileID: 1329506782399540881, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
+      propertyPath: m_Intensity
+      value: 1.21
+      objectReference: {fileID: 0}
     - target: {fileID: 1975554805460443140, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2482307483385260962, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
+      propertyPath: m_Intensity
+      value: 1.21
       objectReference: {fileID: 0}
     - target: {fileID: 3105278964322892166, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
       propertyPath: ShapeModule.radiusThickness
@@ -5844,21 +5860,37 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 3213667584951588046, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 16731796369dfdb4b9453f57b35d2704, type: 2}
     - target: {fileID: 3984421533452346748, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
       propertyPath: m_LocalPosition.z
       value: -2.003
       objectReference: {fileID: 0}
     - target: {fileID: 4008253347397731036, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
       propertyPath: m_Intensity
-      value: 6
+      value: 1.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 4753368747076945327, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
+      propertyPath: m_Intensity
+      value: 1.21
       objectReference: {fileID: 0}
     - target: {fileID: 5246171072974157501, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
       propertyPath: m_Range
       value: 2.86
       objectReference: {fileID: 0}
+    - target: {fileID: 5246171072974157501, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
+      propertyPath: m_Intensity
+      value: 1.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 6148822199042033127, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
+      propertyPath: m_Intensity
+      value: 1.21
+      objectReference: {fileID: 0}
     - target: {fileID: 7022015297096755722, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
       propertyPath: m_Intensity
-      value: 5.18
+      value: 1.21
       objectReference: {fileID: 0}
     - target: {fileID: 8530230461995870495, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
       propertyPath: m_RootOrder
@@ -5903,6 +5935,10 @@ PrefabInstance:
     - target: {fileID: 8530230461995870495, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8662969873420094247, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
+      propertyPath: m_Intensity
+      value: 1.21
       objectReference: {fileID: 0}
     - target: {fileID: 9019205665658942373, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
       propertyPath: m_Name
