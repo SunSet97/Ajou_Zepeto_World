@@ -1,0 +1,33 @@
+fileFormatVersion: 2
+guid: 467d9ab828c46bb40a1e86aba79a3ab8
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    UnityEngine_UI_1 = require(\"UnityEngine.UI\");\r\nconst UnityEngine_UI_CanvasScaler_1
+    = require(\"UnityEngine.UI.CanvasScaler\");\r\nconst ZEPETO_Character_Controller_1
+    = require(\"ZEPETO.Character.Controller\");\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nclass
+    ZepetoControllerScaler extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n   
+    Start() {\r\n        ZEPETO_Character_Controller_1.ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(()
+    => {\r\n            this.GetComponentInChildren($typeof(UnityEngine_UI_1.CanvasScaler)).uiScaleMode
+    = UnityEngine_UI_CanvasScaler_1.ScaleMode.ScaleWithScreenSize;\r\n           
+    this.GetComponentInChildren($typeof(UnityEngine_UI_1.CanvasScaler)).referenceResolution
+    = new UnityEngine_1.Vector2(1920, 1080);\r\n        });\r\n    }\r\n}\r\nexports.default
+    = ZepetoControllerScaler;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiWmVwZXRvQ29udHJvbGxlclNjYWxlci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIlplcGV0b0NvbnRyb2xsZXJTY2FsZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSw2Q0FBaUQ7QUFDakQsbURBQTZDO0FBQzdDLDZFQUF1RDtBQUN2RCw2RUFBMkQ7QUFDM0QsaURBQXFEO0FBRXJELE1BQXFCLHNCQUF1QixTQUFRLHFDQUFxQjtJQUVyRSxLQUFLO1FBQ0QsMkNBQWEsQ0FBQyxRQUFRLENBQUMsa0JBQWtCLENBQUMsV0FBVyxDQUFDLEdBQUcsRUFBRTtZQUN2RCxJQUFJLENBQUMsc0JBQXNCLFNBQUMsNkJBQVksR0FBSSxXQUFXLEdBQUcsdUNBQVMsQ0FBQyxtQkFBbUIsQ0FBQTtZQUN2RixJQUFJLENBQUMsc0JBQXNCLFNBQUMsNkJBQVksR0FBSSxtQkFBbUIsR0FBRyxJQUFJLHFCQUFPLENBQUMsSUFBSSxFQUFFLElBQUksQ0FBQyxDQUFBO1FBQzdGLENBQUMsQ0FBQyxDQUFBO0lBQ04sQ0FBQztDQUVKO0FBVEQseUNBU0MifQ==","assetPath":"Assets/Scripts/ZepetoControllerScaler.ts","manifest":{"properties":[],"name":"ZepetoControllerScaler","description":""},"isCompiled":true}'
+  typescriptHash: c84177a6932c7f85ccf6b518db270e98

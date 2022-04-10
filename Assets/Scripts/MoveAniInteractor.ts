@@ -26,7 +26,7 @@ export default class MoveAniInteractor extends ZepetoScriptBehaviour {
         if(this.testButton.gameObject.activeSelf && this.localCamera != null){
             // console.log(this.testButton.gameObject.transform.position)
             var screenPos = this.localCamera.WorldToScreenPoint(this.transform.position)
-            console.log(screenPos)
+            // console.log(screenPos)
             this.testButton.transform.position = this.AddVec(screenPos, this.cameraOffset)
 
             // this.testButton.gameObject.transform.LookAt(this.localCamera.transform)
@@ -47,7 +47,7 @@ export default class MoveAniInteractor extends ZepetoScriptBehaviour {
 
     AddVec(vec1 : Vector3, vec2 : Vector3) : Vector3{
         var vec = new Vector3(0, 0)
-        console.log(vec)
+        // console.log(vec)
         vec.x = vec1.x + vec2.x
         vec.y = vec1.y + vec2.y
         vec.z = vec1.z + vec2.z

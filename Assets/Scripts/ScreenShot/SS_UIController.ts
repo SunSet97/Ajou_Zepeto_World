@@ -23,13 +23,23 @@ export default class SS_UIController extends ZepetoScriptBehaviour {
     public shareButton : Button
     public createFeedButton : Button
     public screenShotResultExitButton : Button
-
+   
     @Header("스크립트 모음 오브젝트")
     public screenShotController : GameObject
 
     private _screenShotController : ScreenShotController
     
+    @Header("Pose Panels")
+    public poseDefaultPanels : GameObject
+    public poseModePanels : GameObject
 
+    @Header("Pose Mode")
+    public poseModeButton : Button
+    public poseExitButton : Button
+    public gestureButton : Button
+    public poseButton : Button
+    public gestureContent : GameObject
+    public poseContent : GameObject
 
     Awake(){
         this._screenShotController = this.screenShotController.GetComponent<ScreenShotController>()
@@ -100,5 +110,36 @@ export default class SS_UIController extends ZepetoScriptBehaviour {
             this._screenShotController.CreateFeedScreenShot()
         })
 
+        this.poseModeButton.onClick.AddListener(() =>{
+            this.poseDefaultPanels.SetActive(false)
+            this.poseModePanels.SetActive(true)
+        })
+
+        this.poseExitButton.onClick.AddListener(() =>{
+            this.poseDefaultPanels.SetActive(true)
+            this.poseModePanels.SetActive(false)
+        })
+        
+        this.gestureButton.onClick.AddListener(() =>{
+            this.poseContent.SetActive(false)
+            this.gestureContent.SetActive(true)
+        })
+
+        this.poseButton.onClick.AddListener(() =>{
+            this.poseContent.SetActive(true)
+            this.gestureContent.SetActive(false)
+        })
+
+        for(var index = 0; index < this.poseContent.transform.childCount; index++){
+            this.poseContent.transform.GetChild(index).GetComponent<Button>().onClick.AddListener(() =>{
+
+            })
+        }
+
+        for(var index = 0; index < this.poseContent.transform.childCount; index++){
+            this.poseContent.transform.GetChild(index).GetComponent<Button>().onClick.AddListener(() =>{
+                
+            })
+        }
     }
 }

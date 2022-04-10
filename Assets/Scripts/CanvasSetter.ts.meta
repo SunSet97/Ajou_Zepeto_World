@@ -1,0 +1,32 @@
+fileFormatVersion: 2
+guid: a15d32f9c0a714f4e866d58987ac3cb1
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    UnityEngine_UI_1 = require(\"UnityEngine.UI\");\r\nconst UnityEngine_UI_CanvasScaler_1
+    = require(\"UnityEngine.UI.CanvasScaler\");\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nclass
+    CanvasSetter extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    Start() {\r\n       
+    this.GetComponent($typeof(UnityEngine_UI_1.CanvasScaler)).uiScaleMode = UnityEngine_UI_CanvasScaler_1.ScaleMode.ScaleWithScreenSize;\r\n       
+    this.GetComponent($typeof(UnityEngine_UI_1.CanvasScaler)).referenceResolution
+    = new UnityEngine_1.Vector2(1920, 1080);\r\n        // ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(()
+    =>{\r\n        //     this.GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceCamera\r\n       
+    //     this.GetComponent<Canvas>().worldCamera = ZepetoPlayers.instance.LocalPlayer.zepetoCamera.camera 
+    \r\n        // })\r\n    }\r\n}\r\nexports.default = CanvasSetter;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQ2FudmFzU2V0dGVyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiQ2FudmFzU2V0dGVyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsNkNBQXNDO0FBQ3RDLG1EQUE2QztBQUM3Qyw2RUFBd0Q7QUFFeEQsaURBQXFEO0FBRXJELE1BQXFCLFlBQWEsU0FBUSxxQ0FBcUI7SUFFM0QsS0FBSztRQUNELElBQUksQ0FBQyxZQUFZLFNBQUMsNkJBQVksR0FBSSxXQUFXLEdBQUcsdUNBQVMsQ0FBQyxtQkFBbUIsQ0FBQztRQUM5RSxJQUFJLENBQUMsWUFBWSxTQUFDLDZCQUFZLEdBQUksbUJBQW1CLEdBQUcsSUFBSSxxQkFBTyxDQUFDLElBQUksRUFBRSxJQUFJLENBQUMsQ0FBQTtRQUMvRSwrREFBK0Q7UUFDL0QsNEVBQTRFO1FBQzVFLHlHQUF5RztRQUN6RyxLQUFLO0lBQ1QsQ0FBQztDQUVKO0FBWEQsK0JBV0MifQ==","assetPath":"Assets/Scripts/CanvasSetter.ts","manifest":{"properties":[],"name":"CanvasSetter","description":""},"isCompiled":true}'
+  typescriptHash: 2657c7412afd9a13bd6fc51e921ce2d7
