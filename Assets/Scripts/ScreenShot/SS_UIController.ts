@@ -132,7 +132,7 @@ export default class SS_UIController extends ZepetoScriptBehaviour {
 
         for(var index = 0; index < this.poseContent.transform.childCount; index++){
             this.poseContent.transform.GetChild(index).GetComponent<Button>().onClick.AddListener(() =>{
-
+                
             })
         }
 

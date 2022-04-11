@@ -18,24 +18,5 @@ ScriptedImporter:
   wrapperTypes: []
   WrapperFilters: []
   wrapperOutputDirectory: Generated
-  compiledResult: "{\"source\":\"\\\"use strict\\\";\\r\\nObject.defineProperty(exports,
-    \\\"__esModule\\\", { value: true });\\r\\nconst UnityEngine_1 = require(\\\"UnityEngine\\\");\\r\\nconst
-    ZEPETO_Character_Controller_1 = require(\\\"ZEPETO.Character.Controller\\\");\\r\\nconst
-    ZEPETO_Script_1 = require(\\\"ZEPETO.Script\\\");\\r\\nclass Potal extends ZEPETO_Script_1.ZepetoScriptBehaviour
-    {\\r\\n    Start() {\\r\\n        this._connectedPotal = this.connectedPotal.GetComponent($typeof(Potal));\\r\\n   
-    }\\r\\n    *TryTeleport(zepetoChar, potal) {\\r\\n        var time = .0;\\r\\n       
-    console.log(\\\"\uD3EC\uD0C8 \uB4E4\uC5B4\uAC10\\\");\\r\\n        while (time
-    < 4) {\\r\\n            time += UnityEngine_1.Time.deltaTime;\\r\\n           
-    //\uD3EC\uD0C8 \uD6A8\uACFC\\r\\n            yield null;\\r\\n        }\\r\\n       
-    console.log(\\\"\uD3EC\uD0C8 \uC2E4\uD589\\\");\\r\\n        zepetoChar.Teleport(potal.transform.position,
-    potal.transform.rotation);\\r\\n    }\\r\\n    StopTeleport(zepetoChar, potal)
-    {\\r\\n        console.log(\\\"\uD3EC\uD0C8 \uB098\uAC10\\\");\\r\\n        this.StopAllCoroutines();\\r\\n   
-    }\\r\\n    OnTriggerEnter(col) {\\r\\n        const zepetoCharacter = col.GetComponent($typeof(ZEPETO_Character_Controller_1.ZepetoCharacter));\\r\\n       
-    if (ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character
-    === zepetoCharacter) {\\r\\n            this.StartCoroutine(this.TryTeleport(zepetoCharacter,
-    this._connectedPotal));\\r\\n        }\\r\\n    }\\r\\n    OnTriggerExit(col)
-    {\\r\\n        const zepetoCharacter = col.GetComponent($typeof(ZEPETO_Character_Controller_1.ZepetoCharacter));\\r\\n       
-    if (ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character
-    === zepetoCharacter) {\\r\\n            this.StopTeleport(zepetoCharacter, this._connectedPotal);\\r\\n       
-    }\\r\\n    }\\r\\n}\\r\\nexports.default = Potal;\\r\\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiUG90YWwuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJQb3RhbC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLDZDQUF5RDtBQUN6RCw2RUFBMkY7QUFDM0YsaURBQXFEO0FBRXJELE1BQXFCLEtBQU0sU0FBUSxxQ0FBcUI7SUFLcEQsS0FBSztRQUNELElBQUksQ0FBQyxlQUFlLEdBQUcsSUFBSSxDQUFDLGNBQWMsQ0FBQyxZQUFZLFNBQUMsS0FBSyxFQUFHLENBQUE7SUFDcEUsQ0FBQztJQUdELENBQUMsV0FBVyxDQUFDLFVBQTRCLEVBQUUsS0FBYTtRQUVwRCxJQUFJLElBQUksR0FBRyxFQUFFLENBQUE7UUFDYixPQUFPLENBQUMsR0FBRyxDQUFDLFFBQVEsQ0FBQyxDQUFBO1FBQ3JCLE9BQU0sSUFBSSxHQUFHLENBQUMsRUFBQztZQUNYLElBQUksSUFBSSxrQkFBSSxDQUFDLFNBQVMsQ0FBQTtZQUN0QixPQUFPO1lBQ1AsTUFBTSxJQUFJLENBQUE7U0FDYjtRQUNELE9BQU8sQ0FBQyxHQUFHLENBQUMsT0FBTyxDQUFDLENBQUE7UUFDcEIsVUFBVSxDQUFDLFFBQVEsQ0FBQyxLQUFLLENBQUMsU0FBUyxDQUFDLFFBQVEsRUFBRSxLQUFLLENBQUMsU0FBUyxDQUFDLFFBQVEsQ0FBQyxDQUFBO0lBQzNFLENBQUM7SUFFRCxZQUFZLENBQUMsVUFBNEIsRUFBRSxLQUFhO1FBQ3BELE9BQU8sQ0FBQyxHQUFHLENBQUMsT0FBTyxDQUFDLENBQUE7UUFDcEIsSUFBSSxDQUFDLGlCQUFpQixFQUFFLENBQUE7SUFDNUIsQ0FBQztJQUVELGNBQWMsQ0FBQyxHQUFjO1FBQ3pCLE1BQU0sZUFBZSxHQUFHLEdBQUcsQ0FBQyxZQUFZLFNBQUMsNkNBQWUsRUFBRyxDQUFBO1FBQzNELElBQUcsMkNBQWEsQ0FBQyxRQUFRLENBQUMsV0FBVyxDQUFDLFlBQVksQ0FBQyxTQUFTLEtBQUssZUFBZSxFQUFDO1lBQzdFLElBQUksQ0FBQyxjQUFjLENBQUMsSUFBSSxDQUFDLFdBQVcsQ0FBQyxlQUFlLEVBQUUsSUFBSSxDQUFDLGVBQWUsQ0FBQyxDQUFDLENBQUE7U0FDL0U7SUFDTCxDQUFDO0lBQ0QsYUFBYSxDQUFDLEdBQWM7UUFDeEIsTUFBTSxlQUFlLEdBQUcsR0FBRyxDQUFDLFlBQVksU0FBQyw2Q0FBZSxFQUFHLENBQUE7UUFDM0QsSUFBRywyQ0FBYSxDQUFDLFFBQVEsQ0FBQyxXQUFXLENBQUMsWUFBWSxDQUFDLFNBQVMsS0FBSyxlQUFlLEVBQUM7WUFDN0UsSUFBSSxDQUFDLFlBQVksQ0FBQyxlQUFlLEVBQUUsSUFBSSxDQUFDLGVBQWUsQ0FBQyxDQUFBO1NBQzNEO0lBQ0wsQ0FBQztDQUNKO0FBeENELHdCQXdDQyJ9\",\"assetPath\":\"Assets/Scripts/Potal.ts\",\"manifest\":{\"properties\":[{\"assembly\":\"UnityEngine.CoreModule\",\"name\":\"connectedPotal\",\"type\":\"UnityEngine.GameObject\",\"isArray\":false,\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]}],\"name\":\"Potal\",\"description\":\"\"},\"isCompiled\":true}"
-  typescriptHash: c8923acd27b713624be1a5b948927ddc
+  compiledResult: '{"source":"","assetPath":"Assets/Scripts/Potal.ts","manifest":{"properties":[],"name":"","description":""},"isCompiled":false}'
+  typescriptHash: 6ad64ef50154ea52104cf1f5ac1108ac

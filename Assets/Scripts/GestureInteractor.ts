@@ -8,12 +8,8 @@ export default class GestureInteractor extends ZepetoScriptBehaviour {
 
     public btn : Button
     public animationClip : AnimationClip
-    private playerCharacter : ZepetoPlayer
 
     Start(){
-        ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(() =>{
-            this.playerCharacter = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer
-        })
         this.btn.onClick.AddListener(() =>{
             AnimationLinker.instance.PlayGesture(this.animationClip.name)
         })

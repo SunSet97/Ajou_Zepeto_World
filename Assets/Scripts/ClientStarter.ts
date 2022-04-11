@@ -1,10 +1,10 @@
 import {ZepetoScriptBehaviour} from 'ZEPETO.Script'
-import {ZepetoWorldMultiplay} from 'ZEPETO.World'
 import {Room, RoomData} from 'ZEPETO.Multiplay'
 import {Player, State, Vector3} from 'ZEPETO.Multiplay.Schema'
 import {CharacterState, SpawnInfo, ZepetoPlayers, ZepetoPlayer, ZepetoCharacter} from 'ZEPETO.Character.Controller'
 import * as UnityEngine from 'UnityEngine'
 import AnimationLinker from './AnimationLinker'
+import { ZepetoWorldMultiplay } from 'ZEPETO.World'
 
 
 export default class ClientStarter extends ZepetoScriptBehaviour {

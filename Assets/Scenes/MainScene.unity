@@ -297,7 +297,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &43689319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1411,10 +1411,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   script:
     keys:
-    - safeAreaObject
     - DefaultPanel
     - screenShotModePanel
     - screenShotResultPanel
+    - safeAreaObject
     - screenShotModeButton
     - shootScreenShotButton
     - screenShotModeExitButton
@@ -1432,10 +1432,10 @@ MonoBehaviour:
     - gestureContent
     - poseContent
     unityValues:
-    - {fileID: 1542254161}
     - {fileID: 752247890}
     - {fileID: 1470031101}
     - {fileID: 561592577}
+    - {fileID: 1542254161}
     - {fileID: 1443931106}
     - {fileID: 2138409187}
     - {fileID: 513634294}
@@ -2057,18 +2057,38 @@ MonoBehaviour:
       m_Bits: 3
     animatorController: {fileID: 9100000, guid: 019901d3486cc411abc6c84594c03743, type: 2}
     shadow: {fileID: 1025544020809228, guid: 4512418b2a1844f42961867ad8421ab8, type: 3}
+    motionController: 0
   controllerData:
     inputAsset: {fileID: -944628639613478452, guid: 090135bc9e5ee4c89b1642240eb723fe, type: 3}
     eventSystem: {fileID: 7328100774219155841, guid: 67971ba158b48401988f9aad07940d6f, type: 3}
     useDefaultVirtualController: 1
+    controlMode: 0
     verticalController: {fileID: 8523051459139762370, guid: 33446b9369e354b00a7ab43885afbe88, type: 3}
     horizontalController: {fileID: 2787167779785370926, guid: 9b7a03709461140b4b3fc85aa8c5d741, type: 3}
+    verticalDefaultController: {fileID: 8523051459139762370, guid: 33446b9369e354b00a7ab43885afbe88, type: 3}
+    horizontalDefaultController: {fileID: 2787167779785370926, guid: 9b7a03709461140b4b3fc85aa8c5d741, type: 3}
   floatingUIData:
     showNickNameLocalPlayer: 0
     showNickNameOtherPlayers: 1
     showBubbleChatLocalPlayer: 1
     showBubbleChatOtherPlayers: 1
     useMiniProfileOnApp: 1
+  motionV1Data:
+    walkSpeed: 2
+    runSpeed: 5
+    jumpPower: 5
+    animatorController: {fileID: 0}
+  motionV2Data:
+    walkSpeed: 2
+    runSpeed: 4
+    jumpPower: 13
+    animatorController: {fileID: 0}
+    useDoubleJump: 1
+    doubleJumpPower: 13
+    useLandingRoll: 1
+    landingRollSpeed: 4
+    useMoveTurn: 1
+    Gravity: 50
   OnAddedLocalPlayer:
     m_PersistentCalls:
       m_Calls: []
@@ -3725,7 +3745,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &916812747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4529,7 +4549,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1165678600
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4621,13 +4641,10 @@ MonoBehaviour:
   script:
     keys:
     - kind
-    - jumpManagerObject
     unityValues:
     - {fileID: 0}
-    - {fileID: 1967528303}
     values:
-    - '{"type":"System.String, mscorlib","value":"Start"}'
-    - 
+    - '{"type":"System.String, mscorlib","value":""}'
     unityArrayValues: []
     arrayValues: []
     script: {fileID: 4458252877524076426, guid: 02e11b7d91f0810408d634d499f17d83, type: 3}
@@ -5502,7 +5519,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1363776268
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5531,22 +5548,10 @@ MonoBehaviour:
   script:
     keys:
     - cameraOffset
-    - testButton
-    - animationClip
-    - fixedPoint
-    - stopButton
     unityValues:
     - {fileID: 0}
-    - {fileID: 1903266893}
-    - {fileID: 7400000, guid: 978b4764f09fc7542bdfdf3d2f4428fd, type: 2}
-    - {fileID: 1363776273}
-    - {fileID: 721780181}
     values:
-    - '{"type":"UnityEngine.Vector3, UnityEngine.CoreModule","value":"{\"x\":0.0,\"y\":1.0,\"z\":0.0}"}'
-    - 
-    - 
-    - 
-    - 
+    - '{"type":"UnityEngine.Vector3, UnityEngine.CoreModule","value":"{\"x\":0.0,\"y\":0.0,\"z\":0.0}"}'
     unityArrayValues: []
     arrayValues: []
     script: {fileID: 4458252877524076426, guid: 98072a246bfd9fe49b0e6c4983f5d270, type: 3}
@@ -5646,7 +5651,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1425289387
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5737,14 +5742,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   script:
     keys:
-    - jumpManagerObject
     - kind
     unityValues:
-    - {fileID: 1967528303}
     - {fileID: 0}
     values:
-    - 
-    - '{"type":"System.String, mscorlib","value":"End"}'
+    - '{"type":"System.String, mscorlib","value":""}'
     unityArrayValues: []
     arrayValues: []
     script: {fileID: 4458252877524076426, guid: 02e11b7d91f0810408d634d499f17d83, type: 3}
@@ -6763,7 +6765,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1594182882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7016,6 +7018,47 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8530230461995870495, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
   m_PrefabInstance: {fileID: 1601310028}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1601310030 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4006446461906957595, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
+  m_PrefabInstance: {fileID: 1601310028}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1601310031
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601310030}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.83, y: 2.7, z: 1.09}
+  m_Center: {x: 0, y: 1.6966612, z: 0}
+--- !u!114 &1601310032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601310030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1673316429, guid: 921f0445823004a16a499d629dd566a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  script:
+    keys:
+    - connectedPotal
+    unityValues:
+    - {fileID: 5239770449979977529}
+    values:
+    - 
+    unityArrayValues: []
+    arrayValues: []
+    script: {fileID: 4458252877524076426, guid: ee120a1747b2dd14cacbb15f2a143c9d, type: 3}
+    isExpaned: 0
 --- !u!1 &1615657010
 GameObject:
   m_ObjectHideFlags: 0
@@ -7443,7 +7486,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1724252173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7555,8 +7598,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1741518670}
-  - component: {fileID: 1741518669}
   - component: {fileID: 1741518668}
+  - component: {fileID: 1741518669}
   m_Layer: 0
   m_Name: Server
   m_TagString: Untagged
@@ -9117,12 +9160,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   script:
-    keys:
-    - image
-    unityValues:
-    - {fileID: 1754798106}
-    values:
-    - 
+    keys: []
+    unityValues: []
+    values: []
     unityArrayValues: []
     arrayValues: []
     script: {fileID: 4458252877524076426, guid: bca3e58fc1e9e4d4fad39693f4c8617d, type: 3}
@@ -9859,3 +9899,44 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fe76c7d614ea2e4fa04386876f82c64, type: 3}
+--- !u!1 &5239770449979977529 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 595563570360784158, guid: 6fe76c7d614ea2e4fa04386876f82c64, type: 3}
+  m_PrefabInstance: {fileID: 5239770449979977528}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5239770449979977530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5239770449979977529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1673316429, guid: 921f0445823004a16a499d629dd566a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  script:
+    keys:
+    - connectedPotal
+    unityValues:
+    - {fileID: 1601310030}
+    values:
+    - 
+    unityArrayValues: []
+    arrayValues: []
+    script: {fileID: 4458252877524076426, guid: ee120a1747b2dd14cacbb15f2a143c9d, type: 3}
+    isExpaned: 0
+--- !u!65 &5239770449979977531
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5239770449979977529}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.52, y: 2.8, z: 0.99}
+  m_Center: {x: -0.0000009536743, y: 1.6966612, z: 0}

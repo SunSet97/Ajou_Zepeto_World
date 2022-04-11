@@ -18,27 +18,5 @@ ScriptedImporter:
   wrapperTypes: []
   WrapperFilters: []
   wrapperOutputDirectory: Generated
-  compiledResult: "{\"source\":\"\\\"use strict\\\";\\r\\nObject.defineProperty(exports,
-    \\\"__esModule\\\", { value: true });\\r\\nconst ZEPETO_Character_Controller_1
-    = require(\\\"ZEPETO.Character.Controller\\\");\\r\\nconst ZEPETO_Script_1 =
-    require(\\\"ZEPETO.Script\\\");\\r\\nconst ZEPETO_World_1 = require(\\\"ZEPETO.World\\\");\\r\\nclass
-    ScreenShotController extends ZEPETO_Script_1.ZepetoScriptBehaviour {\\r\\n   
-    Start() {\\r\\n        ZEPETO_Character_Controller_1.ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(()
-    => {\\r\\n            this.camera = ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoCamera.camera;\\r\\n       
-    });\\r\\n    }\\r\\n    TakeScreenShot() {\\r\\n        this.camera.targetTexture
-    = this.renderTexture;\\r\\n        this.camera.Render();\\r\\n        this.camera.targetTexture
-    = null;\\r\\n    }\\r\\n    // Screenshot Result \\r\\n    // 1. Btn: \uC2A4\uD06C\uB9B0\uC0F7
-    \uC800\uC7A5 - \uC2A4\uD06C\uB9B0\uC0F7\uC744 \uAC24\uB7EC\uB9AC\uC5D0 \uC800\uC7A5\uD569\uB2C8\uB2E4.
-    \\r\\n    // 2. Btn: \uC2A4\uD06C\uB9B0\uC0F7 \uACF5\uC720 - \uC2A4\uD06C\uB9B0\uC0F7\uC744
-    \uACF5\uC720\uD560 \uC218 \uC788\uB294 \uAE30\uB2A5\uC785\uB2C8\uB2E4.\\r\\n   
-    // 3. Btn: \uD53C\uB4DC \uC62C\uB9AC\uAE30 - \uD53C\uB4DC\uC5D0 \uC62C\uB9AC\uB294
-    \uAE30\uB2A5\uC785\uB2C8\uB2E4.\\r\\n    SaveScreenShot() {\\r\\n        ZEPETO_World_1.ZepetoWorldContent.SaveToCameraRoll(this.renderTexture,
-    (result) => { console.log(`\uC2A4\uD06C\uB9B0\uC0F7 \uC800\uC7A5 \uACB0\uACFC
-    : ${result}`); });\\r\\n    }\\r\\n    ShareScreenShot() {\\r\\n        ZEPETO_World_1.ZepetoWorldContent.Share(this.renderTexture,
-    (result) => { console.log(`\uC2A4\uD06C\uB9B0\uC0F7 \uACF5\uC720 \uACB0\uACFC
-    : ${result}`); });\\r\\n    }\\r\\n    CreateFeedScreenShot() {\\r\\n       
-    ZEPETO_World_1.ZepetoWorldContent.CreateFeed(this.renderTexture, \\\"\uD14C\uC2A4\uD2B8\\\",
-    (result) => {\\r\\n            console.log(`\uD53C\uB4DC \uC0DD\uC131 \uACB0\uACFC
-    : ${result}`);\\r\\n        });\\r\\n    }\\r\\n}\\r\\nexports.default = ScreenShotController;\\r\\n//#
-    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiU2NyZWVuU2hvdENvbnRyb2xsZXIuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJTY3JlZW5TaG90Q29udHJvbGxlci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUNBLDZFQUEyRDtBQUMzRCxpREFBcUQ7QUFDckQsK0NBQWlEO0FBRWpELE1BQXFCLG9CQUFxQixTQUFRLHFDQUFxQjtJQUtuRSxLQUFLO1FBQ0QsMkNBQWEsQ0FBQyxRQUFRLENBQUMsa0JBQWtCLENBQUMsV0FBVyxDQUFDLEdBQUcsRUFBRTtZQUN2RCxJQUFJLENBQUMsTUFBTSxHQUFHLDJDQUFhLENBQUMsUUFBUSxDQUFDLFdBQVcsQ0FBQyxZQUFZLENBQUMsTUFBTSxDQUFBO1FBQ3hFLENBQUMsQ0FBQyxDQUFBO0lBQ04sQ0FBQztJQUVNLGNBQWM7UUFDakIsSUFBSSxDQUFDLE1BQU0sQ0FBQyxhQUFhLEdBQUcsSUFBSSxDQUFDLGFBQWEsQ0FBQTtRQUM5QyxJQUFJLENBQUMsTUFBTSxDQUFDLE1BQU0sRUFBRSxDQUFBO1FBQ3BCLElBQUksQ0FBQyxNQUFNLENBQUMsYUFBYSxHQUFHLElBQUksQ0FBQTtJQUNwQyxDQUFDO0lBRUQscUJBQXFCO0lBQ3JCLHVDQUF1QztJQUN2QywwQ0FBMEM7SUFDMUMsa0NBQWtDO0lBRzNCLGNBQWM7UUFDakIsaUNBQWtCLENBQUMsZ0JBQWdCLENBQUMsSUFBSSxDQUFDLGFBQWEsRUFBRSxDQUFDLE1BQWUsRUFBRSxFQUFFLEdBQUcsT0FBTyxDQUFDLEdBQUcsQ0FBQyxnQkFBZ0IsTUFBTSxFQUFFLENBQUMsQ0FBQSxDQUFDLENBQUMsQ0FBQyxDQUFDO0lBQzVILENBQUM7SUFFTSxlQUFlO1FBQ2xCLGlDQUFrQixDQUFDLEtBQUssQ0FBQyxJQUFJLENBQUMsYUFBYSxFQUFFLENBQUMsTUFBZSxFQUFFLEVBQUUsR0FBRyxPQUFPLENBQUMsR0FBRyxDQUFDLGdCQUFnQixNQUFNLEVBQUUsQ0FBQyxDQUFBLENBQUMsQ0FBQyxDQUFDLENBQUM7SUFDakgsQ0FBQztJQUVNLG9CQUFvQjtRQUN2QixpQ0FBa0IsQ0FBQyxVQUFVLENBQUMsSUFBSSxDQUFDLGFBQWEsRUFBRSxLQUFLLEVBQUUsQ0FBQyxNQUFlLEVBQUUsRUFBRTtZQUN6RSxPQUFPLENBQUMsR0FBRyxDQUFDLGNBQWMsTUFBTSxFQUFFLENBQUMsQ0FBQTtRQUN2QyxDQUFDLENBQUMsQ0FBQztJQUNQLENBQUM7Q0FDSjtBQXBDRCx1Q0FvQ0MifQ==\",\"assetPath\":\"Assets/Scripts/ScreenShot/ScreenShotController.ts\",\"manifest\":{\"properties\":[{\"assembly\":\"UnityEngine.CoreModule\",\"name\":\"renderTexture\",\"type\":\"UnityEngine.RenderTexture\",\"isArray\":false,\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]}],\"name\":\"ScreenShotController\",\"description\":\"\"},\"isCompiled\":true}"
-  typescriptHash: 2357cf6a2c8e6d509a4bd5538c4d9158
+  compiledResult: '{"source":"","assetPath":"Assets/Scripts/ScreenShot/ScreenShotController.ts","manifest":{"properties":[],"name":"","description":""},"isCompiled":false}'
+  typescriptHash: 12b789a99b5e3cb5c82b12f5d7c02540

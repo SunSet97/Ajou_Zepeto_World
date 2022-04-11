@@ -20,13 +20,16 @@ ScriptedImporter:
   wrapperOutputDirectory: Generated
   compiledResult: "{\"source\":\"\\\"use strict\\\";\\r\\nObject.defineProperty(exports,
     \\\"__esModule\\\", { value: true });\\r\\nconst UnityEngine_1 = require(\\\"UnityEngine\\\");\\r\\nconst
-    ZEPETO_Character_Controller_1 = require(\\\"ZEPETO.Character.Controller\\\");\\r\\nconst
-    ZEPETO_Script_1 = require(\\\"ZEPETO.Script\\\");\\r\\nclass ScreenRatioFixer
-    extends ZEPETO_Script_1.ZepetoScriptBehaviour {\\r\\n    Start() {\\r\\n       
-    ZEPETO_Character_Controller_1.ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(()
-    => {\\r\\n            // this.SetResolution();\\r\\n            this.SetLetterBox();\\r\\n           
-    // this.image.SetActive(false)\\r\\n        });\\r\\n    }\\r\\n    SetResolution()
-    {\\r\\n        var setWidth = 1920; // \uC0AC\uC6A9\uC790 \uC124\uC815 \uB108\uBE44\\r\\n       
+    UnityEngine_Camera_1 = require(\\\"UnityEngine.Camera\\\");\\r\\nconst ZEPETO_Character_Controller_1
+    = require(\\\"ZEPETO.Character.Controller\\\");\\r\\nconst ZEPETO_Script_1 =
+    require(\\\"ZEPETO.Script\\\");\\r\\nclass ScreenRatioFixer extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\\r\\n    Start() {\\r\\n        UnityEngine_1.Camera.onPreCull = new UnityEngine_Camera_1.CameraCallback((camera)
+    => { UnityEngine_1.Camera.onPreCull; UnityEngine_1.GL.Clear(true, true, UnityEngine_1.Color.black);
+    });\\r\\n        ZEPETO_Character_Controller_1.ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(()
+    => {\\r\\n            // this.SetResolution();\\r\\n            this.camera =
+    ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoCamera.camera;\\r\\n           
+    this.SetLetterBox();\\r\\n        });\\r\\n    }\\r\\n    SetResolution() {\\r\\n       
+    var setWidth = 1920; // \uC0AC\uC6A9\uC790 \uC124\uC815 \uB108\uBE44\\r\\n       
     var setHeight = 1080; // \uC0AC\uC6A9\uC790 \uC124\uC815 \uB192\uC774\\r\\n       
     var deviceWidth = UnityEngine_1.Screen.width; // \uAE30\uAE30 \uB108\uBE44 \uC800\uC7A5\\r\\n       
     var deviceHeight = UnityEngine_1.Screen.height; // \uAE30\uAE30 \uB192\uC774
@@ -36,22 +39,18 @@ ScriptedImporter:
     / deviceHeight) // \uAE30\uAE30\uC758 \uD574\uC0C1\uB3C4 \uBE44\uAC00 \uB354
     \uD070 \uACBD\uC6B0\\r\\n         {\\r\\n            var newWidth = (setWidth
     / setHeight) / (deviceWidth / deviceHeight); // \uC0C8\uB85C\uC6B4 \uB108\uBE44\\r\\n           
-    ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoCamera.camera.rect
-    = new UnityEngine_1.Rect((1.0 - newWidth) / 2.0, .0, newWidth, 1.0); // \uC0C8\uB85C\uC6B4
-    Rect \uC801\uC6A9\\r\\n        }\\r\\n        else // \uAC8C\uC784\uC758 \uD574\uC0C1\uB3C4
-    \uBE44\uAC00 \uB354 \uD070 \uACBD\uC6B0\\r\\n         {\\r\\n            var
-    newHeight = (deviceWidth / deviceHeight) / (setWidth / setHeight); // \uC0C8\uB85C\uC6B4
-    \uB192\uC774\\r\\n            ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoCamera.camera.rect
+    this.camera.rect = new UnityEngine_1.Rect((1.0 - newWidth) / 2.0, .0, newWidth,
+    1.0); // \uC0C8\uB85C\uC6B4 Rect \uC801\uC6A9\\r\\n        }\\r\\n        else
+    // \uAC8C\uC784\uC758 \uD574\uC0C1\uB3C4 \uBE44\uAC00 \uB354 \uD070 \uACBD\uC6B0\\r\\n        
+    {\\r\\n            var newHeight = (deviceWidth / deviceHeight) / (setWidth /
+    setHeight); // \uC0C8\uB85C\uC6B4 \uB192\uC774\\r\\n            this.camera.rect
     = new UnityEngine_1.Rect(.0, (1.0 - newHeight) / 2.0, 1.0, newHeight); // \uC0C8\uB85C\uC6B4
     Rect \uC801\uC6A9\\r\\n        }\\r\\n    }\\r\\n    SetLetterBox() {\\r\\n       
-    var camera = ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoCamera.camera;\\r\\n       
-    var rect = camera.rect;\\r\\n        var scaleheight = (UnityEngine_1.Screen.width
+    var rect = this.camera.rect;\\r\\n        var scaleheight = (UnityEngine_1.Screen.width
     / UnityEngine_1.Screen.height) / (16.0 / 9.0); // (\uAC00\uB85C / \uC138\uB85C)\\r\\n       
     var scalewidth = 1.0 / scaleheight;\\r\\n        if (scaleheight < 1) {\\r\\n           
     rect.height = scaleheight;\\r\\n            rect.y = (1.0 - scaleheight) / 2.0;\\r\\n       
     }\\r\\n        else {\\r\\n            rect.width = scalewidth;\\r\\n           
-    rect.x = (1.0 - scalewidth) / 2.0;\\r\\n        }\\r\\n        camera.rect =
-    rect;\\r\\n    }\\r\\n    OnPreCull() {\\r\\n        UnityEngine_1.GL.Clear(true,
-    true, UnityEngine_1.Color.black);\\r\\n    }\\r\\n}\\r\\nexports.default = ScreenRatioFixer;\\r\\n//#
-    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiU2NyZWVuUmF0aW9GaXhlci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIlNjcmVlblJhdGlvRml4ZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSw2Q0FBMEU7QUFDMUUsNkVBQTREO0FBQzVELGlEQUFxRDtBQUVyRCxNQUFxQixnQkFBaUIsU0FBUSxxQ0FBcUI7SUFLeEQsS0FBSztRQUNSLDJDQUFhLENBQUMsUUFBUSxDQUFDLGtCQUFrQixDQUFDLFdBQVcsQ0FBQyxHQUFHLEVBQUU7WUFDdkQsd0JBQXdCO1lBQ3hCLElBQUksQ0FBQyxZQUFZLEVBQUUsQ0FBQztZQUNwQiw4QkFBOEI7UUFDbEMsQ0FBQyxDQUFDLENBQUE7SUFDTixDQUFDO0lBQ00sYUFBYTtRQUVoQixJQUFJLFFBQVEsR0FBRyxJQUFJLENBQUMsQ0FBQyxZQUFZO1FBQ2pDLElBQUksU0FBUyxHQUFHLElBQUksQ0FBQyxDQUFDLFlBQVk7UUFFbEMsSUFBSSxXQUFXLEdBQUcsb0JBQU0sQ0FBQyxLQUFLLENBQUMsQ0FBQyxXQUFXO1FBQzNDLElBQUksWUFBWSxHQUFHLG9CQUFNLENBQUMsTUFBTSxDQUFDLENBQUMsV0FBVztRQUM3QyxvQkFBTSxDQUFDLGFBQWEsQ0FBQyxRQUFRLEVBQUUsQ0FBQyxDQUFFLFlBQXNCLEdBQUcsV0FBVyxDQUFDLEdBQUcsUUFBUSxDQUFDLEVBQUUsSUFBSSxDQUFDLENBQUMsQ0FBQyw0QkFBNEI7UUFFeEgsSUFBSyxRQUFrQixHQUFHLFNBQVMsR0FBSSxXQUFxQixHQUFHLFlBQVksRUFBRSxvQkFBb0I7U0FDakc7WUFDSSxJQUFJLFFBQVEsR0FBRyxDQUFFLFFBQWtCLEdBQUcsU0FBUyxDQUFDLEdBQUcsQ0FBRSxXQUFxQixHQUFHLFlBQVksQ0FBQyxDQUFDLENBQUMsU0FBUztZQUNyRywyQ0FBYSxDQUFDLFFBQVEsQ0FBQyxXQUFXLENBQUMsWUFBWSxDQUFDLE1BQU0sQ0FBQyxJQUFJLEdBQUcsSUFBSSxrQkFBSSxDQUFDLENBQUMsR0FBRyxHQUFHLFFBQVEsQ0FBQyxHQUFHLEdBQUcsRUFBRSxFQUFFLEVBQUUsUUFBUSxFQUFFLEdBQUcsQ0FBQyxDQUFDLENBQUMsY0FBYztTQUNwSTthQUNJLG9CQUFvQjtTQUN6QjtZQUNJLElBQUksU0FBUyxHQUFHLENBQUUsV0FBcUIsR0FBRyxZQUFZLENBQUMsR0FBRyxDQUFFLFFBQWtCLEdBQUcsU0FBUyxDQUFDLENBQUMsQ0FBQyxTQUFTO1lBQ3RHLDJDQUFhLENBQUMsUUFBUSxDQUFDLFdBQVcsQ0FBQyxZQUFZLENBQUMsTUFBTSxDQUFDLElBQUksR0FBRyxJQUFJLGtCQUFJLENBQUMsRUFBRSxFQUFFLENBQUMsR0FBRyxHQUFHLFNBQVMsQ0FBQyxHQUFHLEdBQUcsRUFBRSxHQUFHLEVBQUUsU0FBUyxDQUFDLENBQUMsQ0FBQyxjQUFjO1NBQ3RJO0lBQ0wsQ0FBQztJQUVELFlBQVk7UUFFUixJQUFJLE1BQU0sR0FBWSwyQ0FBYSxDQUFDLFFBQVEsQ0FBQyxXQUFXLENBQUMsWUFBWSxDQUFDLE1BQU0sQ0FBQztRQUM3RSxJQUFJLElBQUksR0FBVSxNQUFNLENBQUMsSUFBSSxDQUFDO1FBQzlCLElBQUksV0FBVyxHQUFHLENBQUMsb0JBQU0sQ0FBQyxLQUFLLEdBQUcsb0JBQU0sQ0FBQyxNQUFNLENBQUMsR0FBRyxDQUFDLElBQUksR0FBRyxHQUFHLENBQUMsQ0FBQyxDQUFDLFlBQVk7UUFDN0UsSUFBSSxVQUFVLEdBQUcsR0FBRyxHQUFHLFdBQVcsQ0FBQztRQUNuQyxJQUFJLFdBQVcsR0FBRyxDQUFDLEVBQ25CO1lBQ0ksSUFBSSxDQUFDLE1BQU0sR0FBRyxXQUFXLENBQUM7WUFDMUIsSUFBSSxDQUFDLENBQUMsR0FBRyxDQUFDLEdBQUcsR0FBRyxXQUFXLENBQUMsR0FBRyxHQUFHLENBQUM7U0FDdEM7YUFFRDtZQUNJLElBQUksQ0FBQyxLQUFLLEdBQUcsVUFBVSxDQUFDO1lBQ3hCLElBQUksQ0FBQyxDQUFDLEdBQUcsQ0FBQyxHQUFHLEdBQUcsVUFBVSxDQUFDLEdBQUcsR0FBRyxDQUFDO1NBQ3JDO1FBQ0QsTUFBTSxDQUFDLElBQUksR0FBRyxJQUFJLENBQUM7SUFDdkIsQ0FBQztJQUVELFNBQVM7UUFDTCxnQkFBRSxDQUFDLEtBQUssQ0FBQyxJQUFJLEVBQUUsSUFBSSxFQUFFLG1CQUFLLENBQUMsS0FBSyxDQUFDLENBQUM7SUFDdEMsQ0FBQztDQUNKO0FBdkRELG1DQXVEQyJ9\",\"assetPath\":\"Assets/Scripts/ScreenRatioFixer.ts\",\"manifest\":{\"properties\":[{\"assembly\":\"UnityEngine.CoreModule\",\"name\":\"image\",\"type\":\"UnityEngine.GameObject\",\"isArray\":false,\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]}],\"name\":\"ScreenRatioFixer\",\"description\":\"\"},\"isCompiled\":true}"
-  typescriptHash: ad9f504fe9285ac277f56b54704e6f0a
+    rect.x = (1.0 - scalewidth) / 2.0;\\r\\n        }\\r\\n        this.camera.rect
+    = rect;\\r\\n    }\\r\\n}\\r\\nexports.default = ScreenRatioFixer;\\r\\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiU2NyZWVuUmF0aW9GaXhlci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIlNjcmVlblJhdGlvRml4ZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSw2Q0FBMEU7QUFDMUUsMkRBQW9EO0FBRXBELDZFQUE0RDtBQUM1RCxpREFBcUQ7QUFFckQsTUFBcUIsZ0JBQWlCLFNBQVEscUNBQXFCO0lBSXhELEtBQUs7UUFDUixvQkFBTSxDQUFDLFNBQVMsR0FBRyxJQUFJLG1DQUFjLENBQUMsQ0FBQyxNQUFNLEVBQUUsRUFBRSxHQUFFLG9CQUFNLENBQUMsU0FBUyxDQUFDLENBQUMsZ0JBQUUsQ0FBQyxLQUFLLENBQUMsSUFBSSxFQUFFLElBQUksRUFBRSxtQkFBSyxDQUFDLEtBQUssQ0FBQyxDQUFBLENBQUEsQ0FBQyxDQUFDLENBQUE7UUFDeEcsMkNBQWEsQ0FBQyxRQUFRLENBQUMsa0JBQWtCLENBQUMsV0FBVyxDQUFDLEdBQUcsRUFBRTtZQUN2RCx3QkFBd0I7WUFDeEIsSUFBSSxDQUFDLE1BQU0sR0FBRywyQ0FBYSxDQUFDLFFBQVEsQ0FBQyxXQUFXLENBQUMsWUFBWSxDQUFDLE1BQU0sQ0FBQTtZQUNwRSxJQUFJLENBQUMsWUFBWSxFQUFFLENBQUM7UUFDeEIsQ0FBQyxDQUFDLENBQUE7SUFDTixDQUFDO0lBQ00sYUFBYTtRQUVoQixJQUFJLFFBQVEsR0FBRyxJQUFJLENBQUMsQ0FBQyxZQUFZO1FBQ2pDLElBQUksU0FBUyxHQUFHLElBQUksQ0FBQyxDQUFDLFlBQVk7UUFFbEMsSUFBSSxXQUFXLEdBQUcsb0JBQU0sQ0FBQyxLQUFLLENBQUMsQ0FBQyxXQUFXO1FBQzNDLElBQUksWUFBWSxHQUFHLG9CQUFNLENBQUMsTUFBTSxDQUFDLENBQUMsV0FBVztRQUM3QyxvQkFBTSxDQUFDLGFBQWEsQ0FBQyxRQUFRLEVBQUUsQ0FBQyxDQUFFLFlBQXNCLEdBQUcsV0FBVyxDQUFDLEdBQUcsUUFBUSxDQUFDLEVBQUUsSUFBSSxDQUFDLENBQUMsQ0FBQyw0QkFBNEI7UUFFeEgsSUFBSyxRQUFrQixHQUFHLFNBQVMsR0FBSSxXQUFxQixHQUFHLFlBQVksRUFBRSxvQkFBb0I7U0FDakc7WUFDSSxJQUFJLFFBQVEsR0FBRyxDQUFFLFFBQWtCLEdBQUcsU0FBUyxDQUFDLEdBQUcsQ0FBRSxXQUFxQixHQUFHLFlBQVksQ0FBQyxDQUFDLENBQUMsU0FBUztZQUNyRyxJQUFJLENBQUMsTUFBTSxDQUFDLElBQUksR0FBRyxJQUFJLGtCQUFJLENBQUMsQ0FBQyxHQUFHLEdBQUcsUUFBUSxDQUFDLEdBQUcsR0FBRyxFQUFFLEVBQUUsRUFBRSxRQUFRLEVBQUUsR0FBRyxDQUFDLENBQUMsQ0FBQyxjQUFjO1NBQ3pGO2FBQ0ksb0JBQW9CO1NBQ3pCO1lBQ0ksSUFBSSxTQUFTLEdBQUcsQ0FBRSxXQUFxQixHQUFHLFlBQVksQ0FBQyxHQUFHLENBQUUsUUFBa0IsR0FBRyxTQUFTLENBQUMsQ0FBQyxDQUFDLFNBQVM7WUFDdEcsSUFBSSxDQUFDLE1BQU0sQ0FBQyxJQUFJLEdBQUcsSUFBSSxrQkFBSSxDQUFDLEVBQUUsRUFBRSxDQUFDLEdBQUcsR0FBRyxTQUFTLENBQUMsR0FBRyxHQUFHLEVBQUUsR0FBRyxFQUFFLFNBQVMsQ0FBQyxDQUFDLENBQUMsY0FBYztTQUMzRjtJQUNMLENBQUM7SUFFRCxZQUFZO1FBRVIsSUFBSSxJQUFJLEdBQVUsSUFBSSxDQUFDLE1BQU0sQ0FBQyxJQUFJLENBQUM7UUFDbkMsSUFBSSxXQUFXLEdBQUcsQ0FBQyxvQkFBTSxDQUFDLEtBQUssR0FBRyxvQkFBTSxDQUFDLE1BQU0sQ0FBQyxHQUFHLENBQUMsSUFBSSxHQUFHLEdBQUcsQ0FBQyxDQUFDLENBQUMsWUFBWTtRQUM3RSxJQUFJLFVBQVUsR0FBRyxHQUFHLEdBQUcsV0FBVyxDQUFDO1FBQ25DLElBQUksV0FBVyxHQUFHLENBQUMsRUFDbkI7WUFDSSxJQUFJLENBQUMsTUFBTSxHQUFHLFdBQVcsQ0FBQztZQUMxQixJQUFJLENBQUMsQ0FBQyxHQUFHLENBQUMsR0FBRyxHQUFHLFdBQVcsQ0FBQyxHQUFHLEdBQUcsQ0FBQztTQUN0QzthQUVEO1lBQ0ksSUFBSSxDQUFDLEtBQUssR0FBRyxVQUFVLENBQUM7WUFDeEIsSUFBSSxDQUFDLENBQUMsR0FBRyxDQUFDLEdBQUcsR0FBRyxVQUFVLENBQUMsR0FBRyxHQUFHLENBQUM7U0FDckM7UUFDRCxJQUFJLENBQUMsTUFBTSxDQUFDLElBQUksR0FBRyxJQUFJLENBQUM7SUFDNUIsQ0FBQztDQUNKO0FBbERELG1DQWtEQyJ9\",\"assetPath\":\"Assets/Scripts/ScreenRatioFixer.ts\",\"manifest\":{\"properties\":[],\"name\":\"ScreenRatioFixer\",\"description\":\"\"},\"isCompiled\":true}"
+  typescriptHash: 0893f72490cac85dc79a74cb5eecc722
