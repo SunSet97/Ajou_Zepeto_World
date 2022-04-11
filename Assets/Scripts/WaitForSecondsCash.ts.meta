@@ -1,0 +1,29 @@
+fileFormatVersion: 2
+guid: 048aa2b28447fb642b11ad3a5d72558f
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nclass WaitForSecondsCash extends
+    ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    Awake() {\r\n        WaitForSecondsCash._timeInterval
+    = new Map();\r\n    }\r\n    static WaitForSeconds(seconds) {\r\n        if (!WaitForSecondsCash._timeInterval.has(seconds))
+    {\r\n            WaitForSecondsCash._timeInterval.set(seconds, new UnityEngine_1.WaitForSeconds(seconds));\r\n       
+    }\r\n        return WaitForSecondsCash._timeInterval.get(seconds);\r\n    }\r\n}\r\nexports.default
+    = WaitForSecondsCash;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiV2FpdEZvclNlY29uZHNDYXNoLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiV2FpdEZvclNlY29uZHNDYXNoLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQ0EsNkNBQWdFO0FBQ2hFLGlEQUFxRDtBQUVyRCxNQUFxQixrQkFBbUIsU0FBUSxxQ0FBcUI7SUFHakUsS0FBSztRQUNELGtCQUFrQixDQUFDLGFBQWEsR0FBRyxJQUFJLEdBQUcsRUFBeUIsQ0FBQTtJQUN2RSxDQUFDO0lBQ00sTUFBTSxDQUFDLGNBQWMsQ0FBQyxPQUFnQjtRQUN6QyxJQUFHLENBQUMsa0JBQWtCLENBQUMsYUFBYSxDQUFDLEdBQUcsQ0FBQyxPQUFPLENBQUMsRUFBQztZQUM5QyxrQkFBa0IsQ0FBQyxhQUFhLENBQUMsR0FBRyxDQUFDLE9BQU8sRUFBRSxJQUFJLDRCQUFjLENBQUMsT0FBTyxDQUFDLENBQUMsQ0FBQTtTQUM3RTtRQUNELE9BQU8sa0JBQWtCLENBQUMsYUFBYSxDQUFDLEdBQUcsQ0FBQyxPQUFPLENBQUMsQ0FBQTtJQUV4RCxDQUFDO0NBRUo7QUFkRCxxQ0FjQyJ9","assetPath":"Assets/Scripts/WaitForSecondsCash.ts","manifest":{"properties":[],"name":"WaitForSecondsCash","description":""},"isCompiled":true}'
+  typescriptHash: 70749e1b1ea8e367b2bae120c7982076

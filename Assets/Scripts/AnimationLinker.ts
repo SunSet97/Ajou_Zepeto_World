@@ -2,6 +2,7 @@ import { AnimationClip, Animator, AnimatorOverrideController, Avatar, AvatarIKGo
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
 import { ZepetoCharacter, ZepetoPlayer, ZepetoPlayers } from 'ZEPETO.Character.Controller';
 import ClientStarter from './ClientStarter';
+import WaitForSecondsCash from './WaitForSecondsCash';
 
 export default class AnimationLinker extends ZepetoScriptBehaviour {
 
@@ -36,7 +37,7 @@ export default class AnimationLinker extends ZepetoScriptBehaviour {
         AnimationLinker._instance = this
     }
 
-    //Local에서 실행하는 함수
+    //Local에서 Move 애니메이션 실행하는 함수
     SendAnimationToServer(name : string){
         const sessionId = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.id
         const animationName = this.GetPlayerAnimation(sessionId)
@@ -51,7 +52,7 @@ export default class AnimationLinker extends ZepetoScriptBehaviour {
         }
     }
     
-    //Local에서 실행하는 함수
+    //Local에서 제스처 실행하는 함수
     PlayGesture(name : string){
         //실행한 상태에서 다시 실행하는 경우에는 ???
         const player = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer
@@ -61,6 +62,7 @@ export default class AnimationLinker extends ZepetoScriptBehaviour {
         }
     }
 
+    //제자리 제스처
     PlayFixedGesture(name : string){
         const player = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer
         if(!this.GetIsGesturing(player.id)){
@@ -85,7 +87,7 @@ export default class AnimationLinker extends ZepetoScriptBehaviour {
         this.StartCoroutine(this.GestureStopCoroutine(player, clip.length))
     }
     *GestureStopCoroutine(player : ZepetoPlayer, clipTime : float){
-        yield new WaitForSeconds(clipTime)
+        yield WaitForSecondsCash.WaitForSeconds(clipTime)
         this.StopGesture(player)
     }
 
