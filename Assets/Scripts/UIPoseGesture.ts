@@ -11,7 +11,7 @@ export default class UIPoseGesture extends ZepetoScriptBehaviour {
     Start() {    
         for(var index = 0; index < this.PoseButtons.length; index++){
             this.PoseButtons[index].onClick.AddListener(() =>{
-                AnimationLinker.instance.PlayFixedGesture(this.animationClip[index].name)
+                AnimationLinker.instance.PlayGesture(this.animationClip[index].name)
             })
         }
     }

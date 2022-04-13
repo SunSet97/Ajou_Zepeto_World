@@ -11,6 +11,8 @@ export default class AnimationLinker extends ZepetoScriptBehaviour {
     public animationNames : Map<string, string> // sessionId, current animationName for each player
     public gestures : AnimationClip[] // GestureName, AnimationClip
     public isGesture : Map<string, bool> // sessionId, isGesturing
+    public isInfinite : bool
+    
     private static _instance: AnimationLinker
     
     public static get instance(): AnimationLinker {
@@ -31,6 +33,7 @@ export default class AnimationLinker extends ZepetoScriptBehaviour {
 
     Awake(){
         GameObject.DontDestroyOnLoad(this.gameObject)
+        this.isInfinite = false
         this.originalAnimators = new Map<string, RuntimeAnimatorController>()
         this.animationNames = new Map<string, string>()
         this.isGesture = new Map<string, bool>()
@@ -52,13 +55,25 @@ export default class AnimationLinker extends ZepetoScriptBehaviour {
         }
     }
     
+    
+
     //Local에서 제스처 실행하는 함수
     PlayGesture(name : string){
         //실행한 상태에서 다시 실행하는 경우에는 ???
         const player = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer
         if(!this.GetIsGesturing(player.id)){
-            this.GestureHandler(player, name)
-            ClientStarter.instance.SendGesture(name)
+            if(this.isInfinite){
+                //무한
+                // this.SetisGesture(player.id, true)
+                // const clip = this.GetPlayerGesture(name)
+                // this.ResetAniamtor(player.character.ZepetoAnimator, player.id)
+                // player.character.SetGesture(clip)
+                // ClientStarter.instance.SendGesture(name)
+            }else{
+                //일반
+                this.GestureHandler(player, name)
+                ClientStarter.instance.SendGesture(name)
+            }
         }
     }
 

@@ -1,6 +1,7 @@
 import { GameObject, Rect, RectTransform, Screen, Vector2 } from 'UnityEngine'
 import { Button } from 'UnityEngine.UI'
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
+import AnimationLinker from '../AnimationLinker'
 import ScreenShotController from './ScreenShotController'
 
 export default class SS_UIController extends ZepetoScriptBehaviour {
@@ -40,6 +41,7 @@ export default class SS_UIController extends ZepetoScriptBehaviour {
     public poseButton : Button
     public gestureContent : GameObject
     public poseContent : GameObject
+    public infinityButton : Button
 
     Awake(){
         this._screenShotController = this.screenShotController.GetComponent<ScreenShotController>()
@@ -129,17 +131,20 @@ export default class SS_UIController extends ZepetoScriptBehaviour {
             this.poseContent.SetActive(true)
             this.gestureContent.SetActive(false)
         })
+        this.infinityButton.onClick.AddListener(() =>{
+            AnimationLinker.instance.isInfinite = !AnimationLinker.instance.isInfinite
+        })
 
-        for(var index = 0; index < this.poseContent.transform.childCount; index++){
-            this.poseContent.transform.GetChild(index).GetComponent<Button>().onClick.AddListener(() =>{
+        // for(var index = 0; index < this.poseContent.transform.childCount; index++){
+        //     this.poseContent.transform.GetChild(index).GetComponent<Button>().onClick.AddListener(() =>{
                 
-            })
-        }
+        //     })
+        // }
 
-        for(var index = 0; index < this.poseContent.transform.childCount; index++){
-            this.poseContent.transform.GetChild(index).GetComponent<Button>().onClick.AddListener(() =>{
+        // for(var index = 0; index < this.poseContent.transform.childCount; index++){
+        //     this.poseContent.transform.GetChild(index).GetComponent<Button>().onClick.AddListener(() =>{
                 
-            })
-        }
+        //     })
+        // }
     }
 }

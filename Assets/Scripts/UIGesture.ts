@@ -9,10 +9,12 @@ export default class UIGesture extends ZepetoScriptBehaviour {
     public animationClip : AnimationClip[]
     // private waitForSeconds : WaitForSeconds
 
-    Start() {    
+    Start() {
         for(var index = 0; index < this.animationButtons.length; index++){
+            const clip = this.animationClip[index]
+            console.log(clip)
             this.animationButtons[index].onClick.AddListener(() =>{
-                AnimationLinker.instance.PlayGesture(this.animationClip[index].name)
+                AnimationLinker.instance.PlayGesture(clip.name)
             })
         }
     }
