@@ -6130,10 +6130,13 @@ MonoBehaviour:
     keys:
     - connectedPotal
     - audioManger
+    - audioClip
     unityValues:
     - {fileID: 5239770449979977529}
     - {fileID: 168591523}
+    - {fileID: 8300000, guid: a3a62539dd1a26e419fd26f89b5051a8, type: 3}
     values:
+    - 
     - 
     - 
     unityArrayValues: []

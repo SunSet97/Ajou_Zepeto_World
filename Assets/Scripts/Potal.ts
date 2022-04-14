@@ -17,6 +17,7 @@ export default class Potal extends ZepetoScriptBehaviour {
     *TryTeleport(zepetoChar : ZepetoCharacter, potal : Potal){
         if(this.audioManger != null && this.audioClip != null){
             this.audioManger.Stop()
+            console.log("의수바보");
             this.audioManger.clip = this.audioClip;
             this.audioManger.Play()
         }
