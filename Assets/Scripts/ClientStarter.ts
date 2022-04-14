@@ -67,6 +67,7 @@ export default class ClientStarter extends ZepetoScriptBehaviour {
             
             // [CharacterController] (Local)Player �ν��Ͻ��� Scene�� ������ �ε�Ǿ��� �� ȣ��
             ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(() => {
+                ZepetoPlayers.instance.LocalPlayer.zepetoCamera.camera.gameObject.AddComponent<UnityEngine.AudioListener>()
                 const myPlayer = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer;
                 // myPlayer.character.OnChangedState
                 myPlayer.character.OnChangedState.AddListener((next, cur) => {
