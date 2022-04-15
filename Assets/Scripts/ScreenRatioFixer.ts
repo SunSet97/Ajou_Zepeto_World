@@ -9,7 +9,7 @@ export default class ScreenRatioFixer extends ZepetoScriptBehaviour {
     private camera : Camera
 
     public Start(){
-        Camera.onPreCull = new CameraCallback((camera) => {Camera.onPreCull; GL.Clear(true, true, Color.black)})
+        Camera.onPreCull = new CameraCallback((camera) => {GL.Clear(true, true, Color.black); Camera.onPreCull;})
         ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(() => {
             // this.SetResolution();
             this.camera = ZepetoPlayers.instance.LocalPlayer.zepetoCamera.camera
