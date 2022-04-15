@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b587e03123b349c4a7217647a364be84
+guid: e2d3ded2781f4eebad9f58dfbd84e772
 importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
 ScriptedImporter:
   internalIDToNameTable: []
@@ -18,5 +18,5 @@ ScriptedImporter:
   wrapperTypes: []
   WrapperFilters: []
   wrapperOutputDirectory: Generated
-  compiledResult: '{"source":"","assetPath":"Assets/World.multiplay/index.ts","manifest":{"properties":[],"name":"","description":""},"isCompiled":false}'
-  typescriptHash: 2943e87d6c39cae8a533e4ec758da849
+  compiledResult: 
+  typescriptHash: 
