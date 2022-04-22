@@ -6146,6 +6146,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8662969873420094247, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
+      propertyPath: m_Range
+      value: 2.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 8662969873420094247, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
       propertyPath: m_Intensity
       value: 0.74
       objectReference: {fileID: 0}
