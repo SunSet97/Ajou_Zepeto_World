@@ -5939,7 +5939,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1329506782399540881, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
       propertyPath: m_Intensity
-      value: 1.21
+      value: 0.74
       objectReference: {fileID: 0}
     - target: {fileID: 1883471760230064913, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
       propertyPath: m_FadeMode
@@ -5959,7 +5959,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2482307483385260962, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
       propertyPath: m_Intensity
-      value: 1.21
+      value: 0.74
       objectReference: {fileID: 0}
     - target: {fileID: 2543910308385644989, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
       propertyPath: m_FadeMode
@@ -6011,7 +6011,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4008253347397731036, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
       propertyPath: m_Intensity
-      value: 1.21
+      value: 0.74
       objectReference: {fileID: 0}
     - target: {fileID: 4015396741267779807, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
       propertyPath: m_IsActive
@@ -6031,7 +6031,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4753368747076945327, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
       propertyPath: m_Intensity
-      value: 1.21
+      value: 0.74
       objectReference: {fileID: 0}
     - target: {fileID: 5116562042554431892, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
       propertyPath: m_FadeMode
@@ -6047,7 +6047,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5246171072974157501, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
       propertyPath: m_Intensity
-      value: 1.21
+      value: 0.74
       objectReference: {fileID: 0}
     - target: {fileID: 5258165892802180909, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
       propertyPath: m_FadeMode
@@ -6067,7 +6067,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6148822199042033127, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
       propertyPath: m_Intensity
-      value: 1.21
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6347365942488531838, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
       propertyPath: m_AnimateCrossFading
@@ -6091,7 +6091,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7022015297096755722, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
       propertyPath: m_Intensity
-      value: 1.21
+      value: 0.74
       objectReference: {fileID: 0}
     - target: {fileID: 7499796118689394154, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
       propertyPath: m_IsActive
@@ -6147,7 +6147,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8662969873420094247, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
       propertyPath: m_Intensity
-      value: 1.21
+      value: 0.74
       objectReference: {fileID: 0}
     - target: {fileID: 9019205665658942373, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
       propertyPath: m_Name
