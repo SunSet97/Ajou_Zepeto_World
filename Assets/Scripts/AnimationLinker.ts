@@ -102,7 +102,7 @@ export default class AnimationLinker extends ZepetoScriptBehaviour {
         this.StartCoroutine(this.GestureStopCoroutine(player, clip.length))
     }
     *GestureStopCoroutine(player : ZepetoPlayer, clipTime : float){
-        yield WaitForSecondsCash.WaitForSeconds(clipTime)
+        yield WaitForSecondsCash.instance.WaitForSeconds(clipTime)
         this.StopGesture(player)
     }
 

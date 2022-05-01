@@ -18,5 +18,34 @@ ScriptedImporter:
   wrapperTypes: []
   WrapperFilters: []
   wrapperOutputDirectory: Generated
-  compiledResult: '{"source":"","assetPath":"Assets/Scripts/ScreenShot/ScreenShotController.ts","manifest":{"properties":[],"name":"","description":""},"isCompiled":false}'
-  typescriptHash: 12b789a99b5e3cb5c82b12f5d7c02540
+  compiledResult: "{\"source\":\"\\\"use strict\\\";\\r\\nObject.defineProperty(exports,
+    \\\"__esModule\\\", { value: true });\\r\\nconst UnityEngine_1 = require(\\\"UnityEngine\\\");\\r\\nconst
+    ZEPETO_Character_Controller_1 = require(\\\"ZEPETO.Character.Controller\\\");\\r\\nconst
+    ZEPETO_Script_1 = require(\\\"ZEPETO.Script\\\");\\r\\nconst ZEPETO_World_1 =
+    require(\\\"ZEPETO.World\\\");\\r\\nconst SS_UIController_1 = require(\\\"./SS_UIController\\\");\\r\\nclass
+    ScreenShotController extends ZEPETO_Script_1.ZepetoScriptBehaviour {\\r\\n   
+    Start() {\\r\\n        this.UIController = this.UIControllerObject.GetComponent($typeof(SS_UIController_1.default));\\r\\n       
+    ZEPETO_Character_Controller_1.ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(()
+    => {\\r\\n            this.camera = ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoCamera.camera;\\r\\n       
+    });\\r\\n    }\\r\\n    SetScreenShotCamera(camera) {\\r\\n        this.camera
+    = camera;\\r\\n    }\\r\\n    TakeScreenShot() {\\r\\n        this.camera.targetTexture
+    = this.renderTexture;\\r\\n        this.StartCoroutine(this.RenderTargetTexture());\\r\\n   
+    }\\r\\n    // Screenshot Result \\r\\n    // 1. Btn: \uC2A4\uD06C\uB9B0\uC0F7
+    \uC800\uC7A5 - \uC2A4\uD06C\uB9B0\uC0F7\uC744 \uAC24\uB7EC\uB9AC\uC5D0 \uC800\uC7A5\uD569\uB2C8\uB2E4.
+    \\r\\n    // 2. Btn: \uC2A4\uD06C\uB9B0\uC0F7 \uACF5\uC720 - \uC2A4\uD06C\uB9B0\uC0F7\uC744
+    \uACF5\uC720\uD560 \uC218 \uC788\uB294 \uAE30\uB2A5\uC785\uB2C8\uB2E4.\\r\\n   
+    // 3. Btn: \uD53C\uB4DC \uC62C\uB9AC\uAE30 - \uD53C\uB4DC\uC5D0 \uC62C\uB9AC\uB294
+    \uAE30\uB2A5\uC785\uB2C8\uB2E4.\\r\\n    SaveScreenShot() {\\r\\n        ZEPETO_World_1.ZepetoWorldContent.SaveToCameraRoll(this.renderTexture,
+    (result) => {\\r\\n            console.log(`\uC2A4\uD06C\uB9B0\uC0F7 \uC800\uC7A5
+    \uACB0\uACFC : ${result}`);\\r\\n            this.UIController.StartCoroutine(this.UIController.ShowToastMessage(this.UIController.TOAST_MESSAGE.screenShotSaveCompleted));\\r\\n       
+    });\\r\\n    }\\r\\n    ShareScreenShot() {\\r\\n        ZEPETO_World_1.ZepetoWorldContent.Share(this.renderTexture,
+    (result) => {\\r\\n            console.log(`\uC2A4\uD06C\uB9B0\uC0F7 \uACF5\uC720
+    \uACB0\uACFC : ${result}`);\\r\\n        });\\r\\n    }\\r\\n    CreateFeedScreenShot()
+    {\\r\\n        this.UIController.StartCoroutine(this.UIController.ShowToastMessage(this.UIController.TOAST_MESSAGE.feedUploading));\\r\\n       
+    ZEPETO_World_1.ZepetoWorldContent.CreateFeed(this.renderTexture, \\\"\uD14C\uC2A4\uD2B8\\\",
+    (result) => {\\r\\n            this.UIController.ShowCreateFeedResult(result);\\r\\n           
+    console.log(`\uD53C\uB4DC \uC0DD\uC131 \uACB0\uACFC : ${result}`);\\r\\n       
+    });\\r\\n    }\\r\\n    *RenderTargetTexture() {\\r\\n        yield new UnityEngine_1.WaitForEndOfFrame();\\r\\n       
+    this.camera.Render();\\r\\n        this.camera.targetTexture = null;\\r\\n   
+    }\\r\\n}\\r\\nexports.default = ScreenShotController;\\r\\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiU2NyZWVuU2hvdENvbnRyb2xsZXIuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJTY3JlZW5TaG90Q29udHJvbGxlci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLDZDQUFrRjtBQUNsRiw2RUFBMkQ7QUFDM0QsaURBQXFEO0FBQ3JELCtDQUFpRDtBQUNqRCx1REFBK0M7QUFFL0MsTUFBcUIsb0JBQXFCLFNBQVEscUNBQXFCO0lBUW5FLEtBQUs7UUFDRCxJQUFJLENBQUMsWUFBWSxHQUFHLElBQUksQ0FBQyxrQkFBa0IsQ0FBQyxZQUFZLFNBQUMseUJBQWUsRUFBRyxDQUFBO1FBQzNFLDJDQUFhLENBQUMsUUFBUSxDQUFDLGtCQUFrQixDQUFDLFdBQVcsQ0FBQyxHQUFHLEVBQUU7WUFDdkQsSUFBSSxDQUFDLE1BQU0sR0FBRywyQ0FBYSxDQUFDLFFBQVEsQ0FBQyxXQUFXLENBQUMsWUFBWSxDQUFDLE1BQU0sQ0FBQTtRQUN4RSxDQUFDLENBQUMsQ0FBQTtJQUNOLENBQUM7SUFFTSxtQkFBbUIsQ0FBQyxNQUFjO1FBQ3JDLElBQUksQ0FBQyxNQUFNLEdBQUcsTUFBTSxDQUFBO0lBQ3hCLENBQUM7SUFFTSxjQUFjO1FBQ2pCLElBQUksQ0FBQyxNQUFNLENBQUMsYUFBYSxHQUFHLElBQUksQ0FBQyxhQUFhLENBQUE7UUFDOUMsSUFBSSxDQUFDLGNBQWMsQ0FBQyxJQUFJLENBQUMsbUJBQW1CLEVBQUUsQ0FBQyxDQUFBO0lBQ25ELENBQUM7SUFFRCxxQkFBcUI7SUFDckIsdUNBQXVDO0lBQ3ZDLDBDQUEwQztJQUMxQyxrQ0FBa0M7SUFHM0IsY0FBYztRQUNqQixpQ0FBa0IsQ0FBQyxnQkFBZ0IsQ0FBQyxJQUFJLENBQUMsYUFBYSxFQUFFLENBQUMsTUFBZSxFQUFFLEVBQUU7WUFDeEUsT0FBTyxDQUFDLEdBQUcsQ0FBQyxnQkFBZ0IsTUFBTSxFQUFFLENBQUMsQ0FBQTtZQUNyQyxJQUFJLENBQUMsWUFBWSxDQUFDLGNBQWMsQ0FBQyxJQUFJLENBQUMsWUFBWSxDQUFDLGdCQUFnQixDQUFDLElBQUksQ0FBQyxZQUFZLENBQUMsYUFBYSxDQUFDLHVCQUF1QixDQUFDLENBQUMsQ0FBQTtRQUNqSSxDQUFDLENBQUMsQ0FBQztJQUNQLENBQUM7SUFFTSxlQUFlO1FBQ2xCLGlDQUFrQixDQUFDLEtBQUssQ0FBQyxJQUFJLENBQUMsYUFBYSxFQUFFLENBQUMsTUFBZSxFQUFFLEVBQUU7WUFDN0QsT0FBTyxDQUFDLEdBQUcsQ0FBQyxnQkFBZ0IsTUFBTSxFQUFFLENBQUMsQ0FBQTtRQUN6QyxDQUFDLENBQUMsQ0FBQztJQUNQLENBQUM7SUFFTSxvQkFBb0I7UUFDdkIsSUFBSSxDQUFDLFlBQVksQ0FBQyxjQUFjLENBQUMsSUFBSSxDQUFDLFlBQVksQ0FBQyxnQkFBZ0IsQ0FBQyxJQUFJLENBQUMsWUFBWSxDQUFDLGFBQWEsQ0FBQyxhQUFhLENBQUMsQ0FBQyxDQUFBO1FBQ25ILGlDQUFrQixDQUFDLFVBQVUsQ0FBQyxJQUFJLENBQUMsYUFBYSxFQUFFLEtBQUssRUFBRSxDQUFDLE1BQWUsRUFBRSxFQUFFO1lBQ3pFLElBQUksQ0FBQyxZQUFZLENBQUMsb0JBQW9CLENBQUMsTUFBTSxDQUFDLENBQUE7WUFDOUMsT0FBTyxDQUFDLEdBQUcsQ0FBQyxjQUFjLE1BQU0sRUFBRSxDQUFDLENBQUE7UUFDdkMsQ0FBQyxDQUFDLENBQUM7SUFDUCxDQUFDO0lBRUQsQ0FBQyxtQkFBbUI7UUFFaEIsTUFBTSxJQUFJLCtCQUFpQixFQUFFLENBQUM7UUFDOUIsSUFBSSxDQUFDLE1BQU0sQ0FBQyxNQUFNLEVBQUUsQ0FBQztRQUNyQixJQUFJLENBQUMsTUFBTSxDQUFDLGFBQWEsR0FBRyxJQUFJLENBQUM7SUFDckMsQ0FBQztDQUNKO0FBekRELHVDQXlEQyJ9\",\"assetPath\":\"Assets/Scripts/ScreenShot/ScreenShotController.ts\",\"manifest\":{\"properties\":[{\"assembly\":\"UnityEngine.CoreModule\",\"name\":\"renderTexture\",\"type\":\"UnityEngine.RenderTexture\",\"isArray\":false,\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]},{\"assembly\":\"UnityEngine.CoreModule\",\"name\":\"UIControllerObject\",\"type\":\"UnityEngine.GameObject\",\"isArray\":false,\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]}],\"name\":\"ScreenShotController\",\"description\":\"\"},\"isCompiled\":true}"
+  typescriptHash: c106839be727bd7daa01882313b63223

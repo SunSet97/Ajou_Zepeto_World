@@ -21,9 +21,10 @@ ScriptedImporter:
   compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
     { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
     ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nclass WaitForSecondsCash extends
-    ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    Awake() {\r\n        WaitForSecondsCash._timeInterval
-    = new Map();\r\n    }\r\n    static WaitForSeconds(seconds) {\r\n        if (!WaitForSecondsCash._timeInterval.has(seconds))
-    {\r\n            WaitForSecondsCash._timeInterval.set(seconds, new UnityEngine_1.WaitForSeconds(seconds));\r\n       
-    }\r\n        return WaitForSecondsCash._timeInterval.get(seconds);\r\n    }\r\n}\r\nexports.default
-    = WaitForSecondsCash;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiV2FpdEZvclNlY29uZHNDYXNoLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiV2FpdEZvclNlY29uZHNDYXNoLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQ0EsNkNBQWdFO0FBQ2hFLGlEQUFxRDtBQUVyRCxNQUFxQixrQkFBbUIsU0FBUSxxQ0FBcUI7SUFHakUsS0FBSztRQUNELGtCQUFrQixDQUFDLGFBQWEsR0FBRyxJQUFJLEdBQUcsRUFBeUIsQ0FBQTtJQUN2RSxDQUFDO0lBQ00sTUFBTSxDQUFDLGNBQWMsQ0FBQyxPQUFnQjtRQUN6QyxJQUFHLENBQUMsa0JBQWtCLENBQUMsYUFBYSxDQUFDLEdBQUcsQ0FBQyxPQUFPLENBQUMsRUFBQztZQUM5QyxrQkFBa0IsQ0FBQyxhQUFhLENBQUMsR0FBRyxDQUFDLE9BQU8sRUFBRSxJQUFJLDRCQUFjLENBQUMsT0FBTyxDQUFDLENBQUMsQ0FBQTtTQUM3RTtRQUNELE9BQU8sa0JBQWtCLENBQUMsYUFBYSxDQUFDLEdBQUcsQ0FBQyxPQUFPLENBQUMsQ0FBQTtJQUV4RCxDQUFDO0NBRUo7QUFkRCxxQ0FjQyJ9","assetPath":"Assets/Scripts/WaitForSecondsCash.ts","manifest":{"properties":[],"name":"WaitForSecondsCash","description":""},"isCompiled":true}'
-  typescriptHash: 724c86bb8b7bb6bdb030504ccee78d28
+    ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    static get instance() {\r\n       
+    return this._instance;\r\n    }\r\n    Awake() {\r\n        WaitForSecondsCash._instance
+    = this;\r\n        this._timeInterval = new Map();\r\n    }\r\n    WaitForSeconds(seconds)
+    {\r\n        if (!this._timeInterval.has(seconds)) {\r\n            this._timeInterval.set(seconds,
+    new UnityEngine_1.WaitForSeconds(seconds));\r\n        }\r\n        return this._timeInterval.get(seconds);\r\n   
+    }\r\n}\r\nexports.default = WaitForSecondsCash;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiV2FpdEZvclNlY29uZHNDYXNoLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiV2FpdEZvclNlY29uZHNDYXNoLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQ0EsNkNBQWdFO0FBQ2hFLGlEQUFxRDtBQUVyRCxNQUFxQixrQkFBbUIsU0FBUSxxQ0FBcUI7SUFJMUQsTUFBTSxLQUFLLFFBQVE7UUFDdEIsT0FBTyxJQUFJLENBQUMsU0FBUyxDQUFDO0lBQzFCLENBQUM7SUFJRCxLQUFLO1FBQ0Qsa0JBQWtCLENBQUMsU0FBUyxHQUFHLElBQUksQ0FBQTtRQUNuQyxJQUFJLENBQUMsYUFBYSxHQUFHLElBQUksR0FBRyxFQUF5QixDQUFBO0lBQ3pELENBQUM7SUFDTSxjQUFjLENBQUMsT0FBZ0I7UUFDbEMsSUFBRyxDQUFDLElBQUksQ0FBQyxhQUFhLENBQUMsR0FBRyxDQUFDLE9BQU8sQ0FBQyxFQUFDO1lBQ2hDLElBQUksQ0FBQyxhQUFhLENBQUMsR0FBRyxDQUFDLE9BQU8sRUFBRSxJQUFJLDRCQUFjLENBQUMsT0FBTyxDQUFDLENBQUMsQ0FBQTtTQUMvRDtRQUNELE9BQU8sSUFBSSxDQUFDLGFBQWEsQ0FBQyxHQUFHLENBQUMsT0FBTyxDQUFDLENBQUE7SUFFMUMsQ0FBQztDQUVKO0FBdEJELHFDQXNCQyJ9","assetPath":"Assets/Scripts/WaitForSecondsCash.ts","manifest":{"properties":[],"name":"WaitForSecondsCash","description":""},"isCompiled":true}'
+  typescriptHash: 85f48ea719276f36ad2f994539d1faaa

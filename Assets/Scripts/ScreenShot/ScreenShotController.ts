@@ -1,23 +1,31 @@
-import { Camera, RenderTexture } from 'UnityEngine'
+import { Camera, GameObject, RenderTexture, WaitForEndOfFrame } from 'UnityEngine'
 import { ZepetoPlayers } from 'ZEPETO.Character.Controller'
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
 import { ZepetoWorldContent } from 'ZEPETO.World'
+import SS_UIController from './SS_UIController'
 
 export default class ScreenShotController extends ZepetoScriptBehaviour {
 
     private camera : Camera
+
     public renderTexture : RenderTexture
 
+    public UIControllerObject : GameObject
+    private UIController : SS_UIController
     Start(){
+        this.UIController = this.UIControllerObject.GetComponent<SS_UIController>()
         ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(() => {
             this.camera = ZepetoPlayers.instance.LocalPlayer.zepetoCamera.camera
         })
     }
 
+    public SetScreenShotCamera(camera: Camera) {
+        this.camera = camera
+    }
+
     public TakeScreenShot(){
         this.camera.targetTexture = this.renderTexture
-        this.camera.Render()
-        this.camera.targetTexture = null
+        this.StartCoroutine(this.RenderTargetTexture())
     }
 
     // Screenshot Result 
@@ -27,16 +35,30 @@ export default class ScreenShotController extends ZepetoScriptBehaviour {
     
     
     public SaveScreenShot(){
-        ZepetoWorldContent.SaveToCameraRoll(this.renderTexture, (result: boolean) => { console.log(`스크린샷 저장 결과 : ${result}`) });
+        ZepetoWorldContent.SaveToCameraRoll(this.renderTexture, (result: boolean) => {
+            console.log(`스크린샷 저장 결과 : ${result}`)
+            this.UIController.StartCoroutine(this.UIController.ShowToastMessage(this.UIController.TOAST_MESSAGE.screenShotSaveCompleted))
+        });
     }
 
     public ShareScreenShot() {
-        ZepetoWorldContent.Share(this.renderTexture, (result: boolean) => { console.log(`스크린샷 공유 결과 : ${result}`) });
+        ZepetoWorldContent.Share(this.renderTexture, (result: boolean) => {
+            console.log(`스크린샷 공유 결과 : ${result}`)
+        });
     }
 
     public CreateFeedScreenShot() {
+        this.UIController.StartCoroutine(this.UIController.ShowToastMessage(this.UIController.TOAST_MESSAGE.feedUploading))
         ZepetoWorldContent.CreateFeed(this.renderTexture, "테스트", (result: boolean) => {
+            this.UIController.ShowCreateFeedResult(result)
             console.log(`피드 생성 결과 : ${result}`)
         });
+    }
+
+    *RenderTargetTexture()
+    {
+        yield new WaitForEndOfFrame();
+        this.camera.Render();
+        this.camera.targetTexture = null;
     }
 }

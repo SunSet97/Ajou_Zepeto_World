@@ -4,15 +4,23 @@ import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
 
 export default class WaitForSecondsCash extends ZepetoScriptBehaviour {
 
-    private static _timeInterval : Map<float, WaitForSeconds>
-    Awake(){
-        WaitForSecondsCash._timeInterval = new Map<float, WaitForSeconds>()
+    private static _instance: WaitForSecondsCash
+
+    public static get instance(): WaitForSecondsCash{
+        return this._instance;
     }
-    public static WaitForSeconds(seconds : number) : WaitForSeconds{
-        if(!WaitForSecondsCash._timeInterval.has(seconds)){
-            WaitForSecondsCash._timeInterval.set(seconds, new WaitForSeconds(seconds))
+
+    private _timeInterval : Map<float, WaitForSeconds>
+    
+    Awake(){
+        WaitForSecondsCash._instance = this
+        this._timeInterval = new Map<float, WaitForSeconds>()
+    }
+    public WaitForSeconds(seconds : number) : WaitForSeconds{
+        if(!this._timeInterval.has(seconds)){
+            this._timeInterval.set(seconds, new WaitForSeconds(seconds))
         }
-        return WaitForSecondsCash._timeInterval.get(seconds)
+        return this._timeInterval.get(seconds)
 
     }
 

@@ -1,10 +1,11 @@
 import {ZepetoScriptBehaviour} from 'ZEPETO.Script'
 import {Room, RoomData} from 'ZEPETO.Multiplay'
-import {Player, State, Vector3} from 'ZEPETO.Multiplay.Schema'
-import {CharacterState, SpawnInfo, ZepetoPlayers, ZepetoPlayer, ZepetoCharacter} from 'ZEPETO.Character.Controller'
-import * as UnityEngine from 'UnityEngine'
+import {Player, State, Vector3 as Vector3Schema} from 'ZEPETO.Multiplay.Schema'
+import {CharacterState, SpawnInfo, ZepetoPlayers} from 'ZEPETO.Character.Controller'
 import AnimationLinker from './AnimationLinker'
 import { ZepetoWorldMultiplay } from 'ZEPETO.World'
+import { AudioListener, GameObject, LayerMask, Quaternion, Time, Transform, Vector3 } from 'UnityEngine'
+import WaitForSecondsCash from './WaitForSecondsCash'
 
 
 export default class ClientStarter extends ZepetoScriptBehaviour {
@@ -22,7 +23,7 @@ export default class ClientStarter extends ZepetoScriptBehaviour {
     }
 
     Awake(){
-        UnityEngine.GameObject.DontDestroyOnLoad(this.gameObject)
+        GameObject.DontDestroyOnLoad(this.gameObject)
         ClientStarter._instance = this
     }
     private Start() {
@@ -35,12 +36,12 @@ export default class ClientStarter extends ZepetoScriptBehaviour {
             room.OnStateChange += this.OnStateChange;
         };
 
-        this.StartCoroutine(this.SendMessageLoop(UnityEngine.Time.deltaTime));
+        this.StartCoroutine(this.SendMessageLoop(Time.deltaTime));
     }
 
     // ���� Interval Time���� ��(local)ĳ���� transform�� server�� �����մϴ�.
     private* SendMessageLoop(tick: number) {
-        const waitForSeconds = new UnityEngine.WaitForSeconds(tick);
+        const waitForSeconds = WaitForSecondsCash.instance.WaitForSeconds(tick);
         while (true) {
             yield waitForSeconds;
 
@@ -58,7 +59,7 @@ export default class ClientStarter extends ZepetoScriptBehaviour {
     private OnStateChange(state: State, isFirst: boolean) {        
         //State가 바뀔 경우 - Animation 포함
         if (isFirst) {
-            state.players.ForEach((sessionId: string, player: Player) => this.OnJoinPlayer(sessionId, player));
+            state.players.ForEach((sessionId : string, player : Player) => this.OnJoinPlayer(sessionId, player))
         
             state.players.OnAdd += (player: Player, sessionId: string) => this.OnJoinPlayer(sessionId, player);
     
@@ -67,7 +68,7 @@ export default class ClientStarter extends ZepetoScriptBehaviour {
             
             // [CharacterController] (Local)Player �ν��Ͻ��� Scene�� ������ �ε�Ǿ��� �� ȣ��
             ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(() => {
-                ZepetoPlayers.instance.LocalPlayer.zepetoCamera.camera.gameObject.AddComponent<UnityEngine.AudioListener>()
+                ZepetoPlayers.instance.LocalPlayer.zepetoCamera.camera.gameObject.AddComponent<AudioListener>()
                 const myPlayer = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer;
                 // myPlayer.character.OnChangedState
                 myPlayer.character.OnChangedState.AddListener((next, cur) => {
@@ -75,7 +76,7 @@ export default class ClientStarter extends ZepetoScriptBehaviour {
                     this.SendState(next);
                 });
                 // console.log(myPlayer.character.gameObject.layer)
-                myPlayer.character.gameObject.layer = UnityEngine.LayerMask.NameToLayer("LocalPlayer")
+                myPlayer.character.gameObject.layer = LayerMask.NameToLayer("LocalPlayer")
                 // console.log(myPlayer.character.gameObject.layer)
             });
 
@@ -106,7 +107,7 @@ export default class ClientStarter extends ZepetoScriptBehaviour {
         const position = this.ParseVector3(player.transform.position);
         const rotation = this.ParseVector3(player.transform.rotation);
         spawnInfo.position = position;
-        spawnInfo.rotation = UnityEngine.Quaternion.Euler(rotation);
+        spawnInfo.rotation = Quaternion.Euler(rotation);
 
         const isLocal = this.room.SessionId === player.sessionId;
         ZepetoPlayers.instance.CreatePlayerWithUserId(sessionId, player.zepetoUserId, spawnInfo, isLocal);
@@ -126,7 +127,7 @@ export default class ClientStarter extends ZepetoScriptBehaviour {
         console.log("멀티 player 상태 변경", player.state)
         const positionSchema = this.ParseVector3(player.transform.position);
         
-        if(UnityEngine.Vector3.Distance(zepetoPlayer.character.transform.position, positionSchema) > 3){
+        if(Vector3.Distance(zepetoPlayer.character.transform.position, positionSchema) > 3){
             zepetoPlayer.character.transform.position = positionSchema
         }
         zepetoPlayer.character.MoveToPosition(positionSchema);
@@ -162,7 +163,7 @@ export default class ClientStarter extends ZepetoScriptBehaviour {
     }
 
 
-    private SendTransform(transform: UnityEngine.Transform) {
+    private SendTransform(transform: Transform) {
         const data = new RoomData();
 
         const pos = new RoomData();
@@ -198,8 +199,8 @@ export default class ClientStarter extends ZepetoScriptBehaviour {
         this.room.Send("onChangedGesture", data.GetObject());
     }
 
-    private ParseVector3(vector3: Vector3): UnityEngine.Vector3 {
-        return new UnityEngine.Vector3
+    private ParseVector3(vector3: Vector3Schema): Vector3 {
+        return new Vector3
         (
             vector3.x,
             vector3.y,

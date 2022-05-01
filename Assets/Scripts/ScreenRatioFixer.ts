@@ -1,6 +1,5 @@
 import { Camera, Color, GameObject, GL, Rect, Screen } from 'UnityEngine';
 import { CameraCallback } from 'UnityEngine.Camera';
-import { RenderPipelineManager, ScriptableRenderContext } from 'UnityEngine.Rendering';
 import { ZepetoPlayers } from 'ZEPETO.Character.Controller';
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
 
@@ -11,11 +10,12 @@ export default class ScreenRatioFixer extends ZepetoScriptBehaviour {
     public Start(){
         Camera.onPreCull = new CameraCallback((camera) => {GL.Clear(true, true, Color.black); Camera.onPreCull;})
         ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(() => {
-            // this.SetResolution();
             this.camera = ZepetoPlayers.instance.LocalPlayer.zepetoCamera.camera
-            this.SetLetterBox();
+            this.SetResolution();
+            // this.SetLetterBox();
         })
     }
+    
     public SetResolution()
     {
         var setWidth = 1920; // 사용자 설정 너비
@@ -23,6 +23,7 @@ export default class ScreenRatioFixer extends ZepetoScriptBehaviour {
 
         var deviceWidth = Screen.width; // 기기 너비 저장
         var deviceHeight = Screen.height; // 기기 높이 저장
+        console.log(deviceWidth, deviceHeight)
         Screen.SetResolution(setWidth, (((deviceHeight as float) / deviceWidth) * setWidth), true); // SetResolution 함수 제대로 사용하기
         
         if ((setWidth as float) / setHeight < (deviceWidth as float) / deviceHeight) // 기기의 해상도 비가 더 큰 경우
@@ -40,6 +41,9 @@ export default class ScreenRatioFixer extends ZepetoScriptBehaviour {
     SetLetterBox()
     {
         var rect : Rect = this.camera.rect;
+        console.log(Screen.width)
+        console.log(Screen.height)
+        console.log(Screen.width / Screen.height, 16.0 / 9.0)
         var scaleheight = (Screen.width / Screen.height) / (16.0 / 9.0); // (가로 / 세로)
         var scalewidth = 1.0 / scaleheight;
         if (scaleheight < 1)
