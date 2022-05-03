@@ -1906,7 +1906,7 @@ MonoBehaviour:
     layer:
       serializedVersion: 2
       m_Bits: 3
-    animatorController: {fileID: 9100000, guid: 019901d3486cc411abc6c84594c03743, type: 2}
+    animatorController: {fileID: 9100000, guid: 2b2b883fb8b8435498bed49f8c4faf1c, type: 2}
     shadow: {fileID: 1025544020809228, guid: 4512418b2a1844f42961867ad8421ab8, type: 3}
     motionController: 0
   controllerData:
@@ -1929,6 +1929,7 @@ MonoBehaviour:
     runSpeed: 5
     jumpPower: 5
     animatorController: {fileID: 0}
+    runThreshold: 0.8
   motionV2Data:
     walkSpeed: 2
     runSpeed: 4
@@ -1940,6 +1941,34 @@ MonoBehaviour:
     landingRollSpeed: 4
     useMoveTurn: 1
     Gravity: 50
+    GravityRestoreRate: 1.018
+    walkThreshold: 0.3
+    runThreshold: 0.5
+    fallingTimeThreshold: 0.08
+    fallingSpeedThreshold: 18
+    landingSpeedThreshold: 30
+    landingImpactSpeedThreshold: 40
+    landingRollSpeedThreshold: 0.1
+    moveTurnAngleThreshold: 0.5
+    moveTurnSpeedThreshold: 0.5
+    moveTurnTimeThreshold: 0.3
+    moveTurnReleaseTime: 0.6
+    moveTurnReverseSpeed: 0.56
+    jumpInputDelayTime: 0.008
+    jumpDashSpeedThreshold: 0.95
+    walkClipBaseSpeed: 0.01
+    firstJumpCurveTime: 0.4
+    secondJumpCurveTime: 0.764
+    firstDoubleJumpCurveTime: 0.4
+    secondDoubleJumpCurveTime: 0.7
+    stampClipPlayTime: 1
+    landingClipPlayTime: 1
+    landingRollClipPlayTime: 0.8
+    moveTurnClipPlayTime: 0.591
+    jumpEaseSpeedThreshold: 2
+    jumpEaseSpeedRate: 0.1
+    jumpDoubleAvailableTimeUp: 1
+    jumpDoubleAvailableTimeDown: 1
   OnAddedLocalPlayer:
     m_PersistentCalls:
       m_Calls: []
@@ -8313,7 +8342,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2064645947}
   m_Layer: 0
-  m_Name: UI Module
+  m_Name: Pose Module
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

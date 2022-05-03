@@ -43,7 +43,7 @@ export default class IKController extends ZepetoScriptBehaviour {
             this.lookAtTarget == null ||
             this.gripTarget == null)
             return;
-    
+        
         // body와 head가 target을 바라보는 lookAt weight를 설정
         this.animator.SetLookAtWeight(1, this.bodyWeight, this.headWeight);
         // lookAt target 설정
