@@ -101,8 +101,9 @@ export default class ClientStarter extends ZepetoScriptBehaviour {
     private OnJoinPlayer(sessionId: string, player: Player) {
         console.log(`roomSession - ${this.room.SessionId}\nplayerSession - ${player.sessionId}\nsessionId - ${sessionId}`);
         console.log(`[OnJoinPlayer] players - sessionId : ${sessionId}`);
-        
-
+        console.log(player.sessionId)
+        console.log(player.zepetoUserId)
+        // LeaderboardAPI.
         const spawnInfo = new SpawnInfo();
         const position = this.ParseVector3(player.transform.position);
         const rotation = this.ParseVector3(player.transform.rotation);
@@ -199,6 +200,11 @@ export default class ClientStarter extends ZepetoScriptBehaviour {
         this.room.Send("onChangedGesture", data.GetObject());
     }
 
+    public SendDebug(name : string){
+        const data = new RoomData();
+        data.Add("sentence", name);
+        this.room.Send("DebugUpdate", data.GetObject());
+    }
     private ParseVector3(vector3: Vector3Schema): Vector3 {
         return new Vector3
         (

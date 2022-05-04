@@ -1,8 +1,8 @@
 import { Animator, Camera, GameObject, Quaternion, Renderer, Transform, Vector3 } from 'UnityEngine';
 import { ZepetoPlayer, ZepetoPlayers } from 'ZEPETO.Character.Controller';
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
+import CaptureController from './CaptureController';
 import IKController from './IKController';
-import ScreenShotController from './ScreenShotController';
 import SelfieCamera from './SelfieCamera';
 
 export default class ScreenShotModeManager extends ZepetoScriptBehaviour {
@@ -10,8 +10,8 @@ export default class ScreenShotModeManager extends ZepetoScriptBehaviour {
     private localPlayer: ZepetoPlayer
     private iKController: IKController
 
-    public screenShotController: GameObject
-    private screenShot: ScreenShotController
+    public captureController: GameObject
+    private capture : CaptureController
 
     public selfieCameraPrefab: GameObject
     private selfieCamera: Camera
@@ -25,7 +25,7 @@ export default class ScreenShotModeManager extends ZepetoScriptBehaviour {
     private rightHandBone :string = "hand_R"
 
     Start() {
-        this.screenShot = this.screenShotController.GetComponent<ScreenShotController>();
+        this.capture = this.captureController.GetComponent<CaptureController>();
         
         // Zepeto Local player 관련 객체 캐싱
         ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(() => {
@@ -120,7 +120,7 @@ export default class ScreenShotModeManager extends ZepetoScriptBehaviour {
         // 셀카 포즈 설정을 위해 IKPass 활성화
         this.SetIKPassActive(true); 
         // 스크린샷 찍을 카메라를 셀피 카메라로 변경
-        this.screenShot.SetScreenShotCamera(this.selfieCamera);
+        this.capture.SetCaptureCamera(this.selfieCamera);
         // 셀카봉 활성화
         this.selfieStick.SetActive(true);
     }
@@ -133,7 +133,7 @@ export default class ScreenShotModeManager extends ZepetoScriptBehaviour {
         // 셀카 포즈 해제를 위해 IKPass 비활성화
         this.SetIKPassActive(false);
         // 스크린샷 찍을 카메라를 제페토 카메라로 변경
-        this.screenShot.SetScreenShotCamera(this.zepetoCamera);
+        this.capture.SetCaptureCamera(this.zepetoCamera);
         // 셀카봉 비활성화
         this.selfieStick.SetActive(false);
     }

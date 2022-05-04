@@ -1,9 +1,13 @@
 import { Canvas, GameObject, Rect, RectTransform, Screen, Sprite, Vector2, YieldInstruction } from 'UnityEngine'
 import { Button, Image, Text } from 'UnityEngine.UI'
+import { ZepetoPlayers } from 'ZEPETO.Character.Controller'
+import { RoomData } from 'ZEPETO.Multiplay'
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
+import { WorldVideoRecorder } from 'ZEPETO.World'
 import AnimationLinker from '../AnimationLinker'
+import ClientStarter from '../ClientStarter'
 import WaitForSecondsCash from '../WaitForSecondsCash'
-import ScreenShotController from './ScreenShotController'
+import CaptureController from './CaptureController'
 import ScreenShotModeManager from './ScreenShotModeManager'
 
 export default class SS_UIController extends ZepetoScriptBehaviour {
@@ -26,6 +30,12 @@ export default class SS_UIController extends ZepetoScriptBehaviour {
     private viewChangeImage : Image
     public selfiViewSprite : Sprite
     public thirdPersonViewSprite : Sprite
+    public videoModeButton : Button
+    public imageModeButton : Button
+    public focusedVideoModeSprite : Sprite
+    public idleVideoModeSprite : Sprite
+    public focusedImageModeSprite : Sprite
+    public idleImageModeSprite : Sprite
 
 
     @Header("ScreenShot Result")
@@ -39,11 +49,11 @@ export default class SS_UIController extends ZepetoScriptBehaviour {
     public feedBackButton : Button
 
     @Header("스크립트 모음 오브젝트")
-    public screenShotController : GameObject
+    public captureController : GameObject
     public screenShotModeManager: GameObject
 
     private _screenShotModeManager: ScreenShotModeManager;
-    private _screenShotController : ScreenShotController
+    private _captureController : CaptureController
     
     @Header("Pose Panels")
     public poseDefaultPanels : GameObject
@@ -55,6 +65,7 @@ export default class SS_UIController extends ZepetoScriptBehaviour {
 
     //  Camera Mode
     isThirdPersonView = false
+    isVideoMode = false
 
     @Header("Pose Mode")
     public poseModeButton : Button
@@ -81,7 +92,7 @@ export default class SS_UIController extends ZepetoScriptBehaviour {
     Start(){
         this.zepetoScreenShotCanvas.sortingOrder = 1
         this._screenShotModeManager = this.screenShotModeManager.GetComponent<ScreenShotModeManager>()
-        this._screenShotController = this.screenShotController.GetComponent<ScreenShotController>()
+        this._captureController = this.captureController.GetComponent<CaptureController>()
         this.viewChangeImage = this.viewChangeButton.GetComponent<Image>()
 
         this.waitForSecond = WaitForSecondsCash.instance.WaitForSeconds(1)
@@ -123,12 +134,35 @@ export default class SS_UIController extends ZepetoScriptBehaviour {
                 // this.poseDefaultPanels.SetActive(false)
                 // this.poseModePanels.SetActive(false)
                 this.isThirdPersonView = false
+
+                // const data = new RoomData()
+                // ZepetoPlayers.instance.GetPlayer
+                // ZepetoPlayers.instance.GetPlayerWithUserId
+                // //or 
+                // // data.Add('playerId', ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.id)
+                // data.Add('playerId', ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.userId)
+
+                // var room = ClientStarter.instance.GetRoom()
+                // room.
+                //send Message to All Player                
             }else{
                 this.viewChangeImage.sprite = this.thirdPersonViewSprite
                 this._screenShotModeManager.SetZepetoCameraMode()
                 // this.poseDefaultPanels.SetActive(true)
                 this.isThirdPersonView = true
             }
+        })
+
+        this.videoModeButton.onClick.AddListener(() =>{
+            this.videoModeButton.image.sprite = this.focusedVideoModeSprite
+            this.imageModeButton.image.sprite = this.idleImageModeSprite
+            this.isVideoMode = true
+        })
+
+        this.imageModeButton.onClick.AddListener(() =>{
+            this.imageModeButton.image.sprite = this.focusedImageModeSprite
+            this.videoModeButton.image.sprite = this.idleVideoModeSprite
+            this.isVideoMode = false
         })
 
         this.screenShotModeExitButton.onClick.AddListener(() => {
@@ -143,10 +177,13 @@ export default class SS_UIController extends ZepetoScriptBehaviour {
         // 스크린샷 촬영
         this.shootScreenShotButton.onClick.AddListener(() => {
             //스크린샷
-            this._screenShotController.TakeScreenShot()
+            this._captureController.TakeScreenShot(this.isVideoMode)
+            
             //결과 보여주기
-            this.screenShotModePanel.SetActive(false)
-            this.screenShotResultPanel.SetActive(true)
+            if(!this.isVideoMode){
+                ClientStarter.instance.SendDebug("???")
+                this.ShowCaptureResultPanel()
+            }
         })
 
 
@@ -160,21 +197,20 @@ export default class SS_UIController extends ZepetoScriptBehaviour {
         })
 
         this.saveButton.onClick.AddListener(() => {
-            this._screenShotController.SaveScreenShot()
+            this._captureController.Save(this.isVideoMode)
             //토스트 메시지
         })
         
         this.shareButton.onClick.AddListener(() =>{
-            this._screenShotController.ShareScreenShot()
+            this._captureController.Share(this.isVideoMode)
         })
 
         this.feedButton.onClick.AddListener(() =>{
             this.screenShotResultPanel.SetActive(false)
             this.screenShotFeedPanel.SetActive(true)
-            // this._screenShotController.CreateFeedScreenShot()
         })
         this.createFeedButton.onClick.AddListener(() =>{            
-            this._screenShotController.CreateFeedScreenShot()
+            this._captureController.CreateFeed(this.isVideoMode)
             this.screenDefaultPanel.SetActive(true)
             this.screenShotFeedPanel.SetActive(false)            
         })
@@ -218,6 +254,11 @@ export default class SS_UIController extends ZepetoScriptBehaviour {
         //     })
         // }
     }
+    public ShowCaptureResultPanel(){
+        this.screenShotModePanel.SetActive(false)
+        this.screenShotResultPanel.SetActive(true)
+    }
+
     public ShowCreateFeedResult(result: Boolean) {
         if (result) {
             // this.createFeedButton.gameObject.SetActive(false);

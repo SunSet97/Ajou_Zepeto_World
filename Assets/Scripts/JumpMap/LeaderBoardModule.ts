@@ -1,11 +1,12 @@
 import { GameObject, Rect, Sprite, Texture, Texture2D, Time, Transform, Vector2 } from 'UnityEngine';
-import { Image, Text } from 'UnityEngine.UI';
+import { Button, Image, Text } from 'UnityEngine.UI';
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
 import { GetRangeRankResponse, Leaderboard, LeaderboardAPI, Rank, RankInfo, ResetRule, SetScoreResponse } from 'ZEPETO.Script.Leaderboard';
 import { ZepetoWorldHelper } from 'ZEPETO.World';
 
-export default class JumpMapManager extends ZepetoScriptBehaviour {
+export default class LeaderBoardModule extends ZepetoScriptBehaviour {
 
+    // public buttonasdf : GameObject
     public profileImage : Image[]
     public medalImage : Image[]
     public medalText : Text[]
@@ -19,7 +20,7 @@ export default class JumpMapManager extends ZepetoScriptBehaviour {
     public timerText : Text
     public resetRule : ResetRule
 
-
+    // public btn : Button
     //public player : CharacterFloorDetector
     @Header("디버그용입니다~")
     public timer : float
@@ -27,6 +28,9 @@ export default class JumpMapManager extends ZepetoScriptBehaviour {
     
     public readonly leaderboardId : string
     Start(){
+        // this.btn.onClick.AddListener(() =>{
+        //     this.ShowRank()
+        // })
         var itemCount = this.leaderBoardItemParent.transform.childCount
         this.leaderBoardPanel.SetActive(false)
         this.profileImage = new Array<Image>(itemCount)
@@ -53,7 +57,7 @@ export default class JumpMapManager extends ZepetoScriptBehaviour {
     GameStart(){
         if(!this.isStart){
             this.isStart = true
-            this.timer = 0
+            this.timer = .0
             this.timerText.gameObject.SetActive(true)
         }
     }
