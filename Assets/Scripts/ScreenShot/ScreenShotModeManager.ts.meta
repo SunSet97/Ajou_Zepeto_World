@@ -19,4 +19,4 @@ ScriptedImporter:
   WrapperFilters: []
   wrapperOutputDirectory: Generated
   compiledResult: '{"source":"","assetPath":"Assets/Scripts/ScreenShot/ScreenShotModeManager.ts","manifest":{"properties":[],"name":"","description":""},"isCompiled":false}'
-  typescriptHash: 32455f38416a83b2804dddc54359bb1a
+  typescriptHash: d4d4ec980dca0cf264b2536ed020af90
