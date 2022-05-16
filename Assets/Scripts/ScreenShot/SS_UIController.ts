@@ -133,18 +133,7 @@ export default class SS_UIController extends ZepetoScriptBehaviour {
                 this._screenShotModeManager.SetSelfieCameraMode()
                 // this.poseDefaultPanels.SetActive(false)
                 // this.poseModePanels.SetActive(false)
-                this.isThirdPersonView = false
-
-                // const data = new RoomData()
-                // ZepetoPlayers.instance.GetPlayer
-                // ZepetoPlayers.instance.GetPlayerWithUserId
-                // //or 
-                // // data.Add('playerId', ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.id)
-                // data.Add('playerId', ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.userId)
-
-                // var room = ClientStarter.instance.GetRoom()
-                // room.
-                //send Message to All Player                
+                this.isThirdPersonView = false        
             }else{
                 this.viewChangeImage.sprite = this.thirdPersonViewSprite
                 this._screenShotModeManager.SetZepetoCameraMode()
@@ -181,7 +170,6 @@ export default class SS_UIController extends ZepetoScriptBehaviour {
             
             //결과 보여주기
             if(!this.isVideoMode){
-                ClientStarter.instance.SendDebug("???")
                 this.ShowCaptureResultPanel()
             }
         })

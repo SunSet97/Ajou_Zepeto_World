@@ -1,6 +1,9 @@
 import { Application, GameObject, HideFlags, Input, Mathf, Quaternion, Time, Transform, Vector3 } from 'UnityEngine';
 import { EventSystem } from 'UnityEngine.EventSystems';
+import { ZepetoPlayers } from 'ZEPETO.Character.Controller';
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
+import ClientStarter from '../ClientStarter';
+import SelfieRegistrant from './SelfieRegistrant';
 
 export default class SelfieCamera extends ZepetoScriptBehaviour {
 
@@ -133,5 +136,9 @@ export default class SelfieCamera extends ZepetoScriptBehaviour {
 
         this.CameraInput();
         this.CameraMovement();
+        //만약에 Registant에 있는 경우에만 보내기
+        // if(SelfieRegistrant.instance.WathcingAny(ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.userId)){
+        ClientStarter.instance.SendCameraTransform(this.transform)
+        // }
     }
 }

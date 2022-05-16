@@ -1,0 +1,31 @@
+fileFormatVersion: 2
+guid: 879c47090a2f8ad41aa8925992fb4c4d
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst LeaderBoard_1 = require(\"./LeaderBoard\");\r\nconst
+    leaderBoardModule_1 = require(\"./leaderBoardModule\");\r\nclass UI_LeaderBoard
+    extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    Start() {\r\n        let
+    leaderBoard = this.leaderBoardManager.GetComponent($typeof(LeaderBoard_1.default));\r\n       
+    this.leaderBoardButton.onClick.AddListener(() => {\r\n            leaderBoard.ShowRank();\r\n       
+    });\r\n        // console.log(this.exitButton.onClick)\r\n        // console.log(this.exitButton.onClick.AddListener)\r\n       
+    this.exitButton.onClick.AddListener(() => {\r\n            leaderBoard.leaderBoardPanel.SetActive(false);\r\n       
+    });\r\n    }\r\n}\r\nexports.default = UI_LeaderBoard;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVUlfTGVhZGVyQm9hcmQuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJVSV9MZWFkZXJCb2FyZC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLDZDQUF3QztBQUV4QyxpREFBcUQ7QUFDckQsK0NBQXVDO0FBQ3ZDLDJEQUFtRDtBQUVuRCxNQUFxQixjQUFlLFNBQVEscUNBQXFCO0lBTzdELEtBQUs7UUFDRCxJQUFJLFdBQVcsR0FBRyxJQUFJLENBQUMsa0JBQWtCLENBQUMsWUFBWSxTQUFDLHFCQUFXLEVBQUcsQ0FBQTtRQUNyRSxJQUFJLENBQUMsaUJBQWlCLENBQUMsT0FBTyxDQUFDLFdBQVcsQ0FBQyxHQUFHLEVBQUU7WUFDNUMsV0FBVyxDQUFDLFFBQVEsRUFBRSxDQUFBO1FBQzFCLENBQUMsQ0FBQyxDQUFBO1FBQ0YsdUNBQXVDO1FBQ3ZDLG1EQUFtRDtRQUNuRCxJQUFJLENBQUMsVUFBVSxDQUFDLE9BQU8sQ0FBQyxXQUFXLENBQUMsR0FBRyxFQUFFO1lBQ3JDLFdBQVcsQ0FBQyxnQkFBZ0IsQ0FBQyxTQUFTLENBQUMsS0FBSyxDQUFDLENBQUE7UUFDakQsQ0FBQyxDQUFDLENBQUE7SUFDTixDQUFDO0NBRUo7QUFuQkQsaUNBbUJDIn0=","assetPath":"Assets/Scripts/JumpMap/UI_LeaderBoard.ts","manifest":{"properties":[{"assembly":"UnityEngine.CoreModule","name":"leaderBoardManager","type":"UnityEngine.GameObject","isArray":false,"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"UnityEngine.UI","name":"leaderBoardButton","type":"UnityEngine.UI.Button","isArray":false,"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"UnityEngine.UI","name":"exitButton","type":"UnityEngine.UI.Button","isArray":false,"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"UI_LeaderBoard","description":""},"isCompiled":true}'
+  typescriptHash: 0dbfb798c4d83668ea8c913b16f05895

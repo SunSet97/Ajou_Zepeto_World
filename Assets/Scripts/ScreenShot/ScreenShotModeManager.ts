@@ -1,6 +1,7 @@
-import { Animator, Camera, GameObject, Quaternion, Renderer, Transform, Vector3 } from 'UnityEngine';
+import { Animator, Camera, GameObject, Quaternion, Transform, Vector3 } from 'UnityEngine';
 import { ZepetoPlayer, ZepetoPlayers } from 'ZEPETO.Character.Controller';
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
+import ClientStarter from '../ClientStarter';
 import CaptureController from './CaptureController';
 import IKController from './IKController';
 import SelfieCamera from './SelfieCamera';
@@ -21,7 +22,6 @@ export default class ScreenShotModeManager extends ZepetoScriptBehaviour {
     private selfieStick: GameObject
 
     // Data
-    private playerLayer: number = 21
     private rightHandBone :string = "hand_R"
 
     Start() {
@@ -31,19 +31,12 @@ export default class ScreenShotModeManager extends ZepetoScriptBehaviour {
         ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(() => {
             this.localPlayer = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer;
             this.zepetoCamera = ZepetoPlayers.instance.LocalPlayer.zepetoCamera.camera;
-
-            if(this.localPlayer.character.gameObject.layer != this.playerLayer) {
-                this.localPlayer.character.GetComponentsInChildren<Transform>().forEach((characterObj) => {
-                    characterObj.gameObject.layer = this.playerLayer;
-                });
-            }            
         });
     }
 
     // 스크린샷 모드 시작 시 관련 설정 진행
     public StartScreenShotMode() {
         // 1. IK 설정
-        console.log('ㅎㅇ')
         this.selfieCamera = GameObject.Instantiate<GameObject>(this.selfieCameraPrefab).GetComponent<Camera>();
 
         let character = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character;
@@ -55,7 +48,9 @@ export default class ScreenShotModeManager extends ZepetoScriptBehaviour {
         
         let grip = selfieCamera.GetGripObject();
         let playerAnimator = this.localPlayer.character.gameObject.GetComponentInChildren<Animator>();
-        this.iKController = playerAnimator.gameObject.AddComponent<IKController>();
+        if(this.iKController == null){
+            this.iKController = playerAnimator.gameObject.AddComponent<IKController>();
+        }
         this.iKController.SetTargetAndGrip(target.transform, grip.transform);
 
         // 3. selfie stick을 캐릭터의 오른손에 고정
@@ -68,10 +63,9 @@ export default class ScreenShotModeManager extends ZepetoScriptBehaviour {
                 // this.selfieStick.GetComponentInChildren<Renderer>().gameObject.layer = this.playerLayer;
             }
         });
-        //4. 처음에는 zepetoCamera로 설정
-        this.SetZepetoCameraMode();
+        //4. 처음에는 zepetoCamera로 설정, true - 서버에 메시지 보내지 않기
+        this.SetZepetoCameraMode(true);
     }
-
 
     public ExitScreenShotMode(isThirdPersonView: boolean) {
         if(this.selfieCamera != null) {
@@ -84,11 +78,8 @@ export default class ScreenShotModeManager extends ZepetoScriptBehaviour {
             this.SetIKPassActive(false);
             // 제페토 카메라 활성화
             this.zepetoCamera.gameObject.SetActive(true);
+            ClientStarter.instance.GetRoom().Send("offSelfieMode")
         }
-    }
-
-    public GetPlayerLayer(): number {
-        return this.playerLayer;
     }
     // 셀피 카메라 반환
     public GetSelfieCamera(): Camera {
@@ -113,6 +104,7 @@ export default class ScreenShotModeManager extends ZepetoScriptBehaviour {
 
     // 카메라 설정을 위한 함수
     SetSelfieCameraMode() {
+        ClientStarter.instance.GetRoom().Send("onSelfieMode")
         // 기존 제페토카메라 비활성화
         this.zepetoCamera.gameObject.SetActive(false);
         // 셀피 카메라 활성화
@@ -125,7 +117,8 @@ export default class ScreenShotModeManager extends ZepetoScriptBehaviour {
         this.selfieStick.SetActive(true);
     }
 
-    SetZepetoCameraMode() {
+    SetZepetoCameraMode(isInit : boolean = false) {
+        if(!isInit) ClientStarter.instance.GetRoom().Send("offSelfieMode")
         // 기존 제페토 카메라 활성화
         this.zepetoCamera.gameObject.SetActive(true);
         // 셀피 카메라 비활성화

@@ -1,11 +1,12 @@
 import {ZepetoScriptBehaviour} from 'ZEPETO.Script'
 import {Room, RoomData} from 'ZEPETO.Multiplay'
-import {Player, State, Vector3 as Vector3Schema} from 'ZEPETO.Multiplay.Schema'
+import {Player, SelfieUser, SelfieWithUser, State, User, Vector3 as Vector3Schema} from 'ZEPETO.Multiplay.Schema'
 import {CharacterState, SpawnInfo, ZepetoPlayers} from 'ZEPETO.Character.Controller'
 import AnimationLinker from './AnimationLinker'
 import { ZepetoWorldMultiplay } from 'ZEPETO.World'
 import { AudioListener, GameObject, LayerMask, Quaternion, Time, Transform, Vector3 } from 'UnityEngine'
 import WaitForSecondsCash from './WaitForSecondsCash'
+import SelfieRegistrant from './ScreenShot/SelfieRegistrant'
 
 
 export default class ClientStarter extends ZepetoScriptBehaviour {
@@ -26,7 +27,7 @@ export default class ClientStarter extends ZepetoScriptBehaviour {
         GameObject.DontDestroyOnLoad(this.gameObject)
         ClientStarter._instance = this
     }
-    private Start() {
+    Start() {
 
         this.multiplay.RoomCreated += (room: Room) => {
             this.room = room;
@@ -57,42 +58,41 @@ export default class ClientStarter extends ZepetoScriptBehaviour {
     }
 
     private OnStateChange(state: State, isFirst: boolean) {        
+        // this.Debug(`[스테이트 변경]    ${isFirst}`)
         //State가 바뀔 경우 - Animation 포함
         if (isFirst) {
+            this.StartCoroutine(this.OnUpdateSelfie(state))
+
             state.players.ForEach((sessionId : string, player : Player) => this.OnJoinPlayer(sessionId, player))
         
             state.players.OnAdd += (player: Player, sessionId: string) => this.OnJoinPlayer(sessionId, player);
     
-            state.players.OnRemove += (player: Player, sessionId: string) => this.OnLeavePlayer(sessionId, player);
+            state.players.OnRemove += (player: Player, sessionId: string) => this.StartCoroutine(this.OnLeavePlayer(sessionId, player))
             
             
             // [CharacterController] (Local)Player �ν��Ͻ��� Scene�� ������ �ε�Ǿ��� �� ȣ��
             ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(() => {
+                this.Debug(`[로컬 플레이어 생성] player ${ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.id}`)
                 ZepetoPlayers.instance.LocalPlayer.zepetoCamera.camera.gameObject.AddComponent<AudioListener>()
-                const myPlayer = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer;
+                const myPlayer = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer
                 // myPlayer.character.OnChangedState
                 myPlayer.character.OnChangedState.AddListener((next, cur) => {
                     console.log("로컬 State 변경", cur, next)
                     this.SendState(next);
                 });
-                // console.log(myPlayer.character.gameObject.layer)
                 myPlayer.character.gameObject.layer = LayerMask.NameToLayer("LocalPlayer")
-                // console.log(myPlayer.character.gameObject.layer)
             });
 
             // [CharacterController] Player �ν��Ͻ��� Scene�� ������ �ε�Ǿ��� �� ȣ��
             ZepetoPlayers.instance.OnAddedPlayer.AddListener((sessionId: string) => {
-                const isLocal = this.room.SessionId === sessionId;
+                const isLocal = this.room.SessionId === sessionId
                 const player : Player = this.room.State.players.get_Item(sessionId)
+                if(player == null || player == undefined) return
                 if (!isLocal) {
+                    this.Debug(`[온라인 플레이어 생성] player  ${sessionId}`)
                     player.OnChange += (changeValues) => this.OnUpdateMultiPlayer(sessionId, player)
                 }
                 const zepetoPlayer = ZepetoPlayers.instance.GetPlayer(sessionId)
-                // console.log(AnimationLinker.instance)
-                // console.log(AnimationLinker.instance.gameObject)
-                // console.log(AnimationLinker.instance.originalAnimators)
-                // console.log(AnimationLinker.instance.originalAnimators, "???")
-                // console.log(AnimationLinker.instance.originalAnimators.size)
                 AnimationLinker.instance.OnAddPlayer(sessionId, zepetoPlayer.character.ZepetoAnimator, player.animation)
             });
         }
@@ -103,6 +103,7 @@ export default class ClientStarter extends ZepetoScriptBehaviour {
         console.log(`[OnJoinPlayer] players - sessionId : ${sessionId}`);
         console.log(player.sessionId)
         console.log(player.zepetoUserId)
+        this.Debug(`[OnJoinPlayer] player - sessionId : ${sessionId}`)
         // LeaderboardAPI.
         const spawnInfo = new SpawnInfo();
         const position = this.ParseVector3(player.transform.position);
@@ -113,22 +114,104 @@ export default class ClientStarter extends ZepetoScriptBehaviour {
         const isLocal = this.room.SessionId === player.sessionId;
         ZepetoPlayers.instance.CreatePlayerWithUserId(sessionId, player.zepetoUserId, spawnInfo, isLocal);
     }
+    private* OnUpdateSelfie(state : State){
+        this.Debug(`ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ`)
+        this.Debug(`플레이어 생성까지 foreach 시작 ${state.players.Count}`)
+        for(var i = 0; i < state.players.Count; i++){
+            while(state.players.GetByIndex(i) === null) i++
+            this.Debug(`${i + 1}번째 생성대기 foeach,  ${state.players.Count}`)
+            while(!ZepetoPlayers.instance.HasPlayer(state.players.GetByIndex(i).sessionId)){
+                // this.Debug(`ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ`)
+                // this.Debug(state.players.GetByIndex(i).sessionId)
+                // this.Debug(ZepetoPlayers.instance.HasPlayer(state.players.GetByIndex(i).sessionId))
+                // this.Debug(`ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ`)
+                yield null
+            }
+        }
+        this.Debug(`${ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character.gameObject} 생성 완료`)
+        this.Debug(`ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ`)
+        this.room.State.selfiePlayer.OnAdd += (user : SelfieUser, sessionId : string) => {
+            // this.Debug(`${sessionId}   ${user.sessionId}  +로 바뀜`)
+            SelfieRegistrant.instance.AddSelfieUser(user.sessionId)
+            //UI On
+        }
+        this.room.State.selfiePlayer.OnRemove += (user : SelfieUser, sessionId : string) => {
+            // this.Debug(`${sessionId}   ${user.sessionId}  -로 바뀜`)
+            //UI Off
+            SelfieRegistrant.instance.DeleteSelfieUser(user.sessionId)
+            //셀카 자세 중지
+        }
 
-    private OnLeavePlayer(sessionId: string, player: Player) {
+        this.room.State.selfieWithPlayers.OnAdd += (user : SelfieWithUser, sessionId : string) => {
+            // this.Debug(`${sessionId}   ${user.sessionId} 누군가 바라보기로 시작함`)
+            
+            //바라보기
+            user.withUser.OnAdd += (withUser : User) => {
+                SelfieRegistrant.instance.LookAt(user.sessionId, withUser.sessionId)
+            }
+            
+            //바라보기 종료
+            user.withUser.OnRemove += (withUser : User) =>{
+                SelfieRegistrant.instance.StopLookAt(withUser.sessionId)
+            }
+        }
+    
+        this.room.State.selfieWithPlayers.OnRemove += (user : SelfieWithUser, sessionId : string) => {
+            // this.Debug(`${sessionId}   ${user.sessionId}  모든 이가 바라보기 멈춤`)
+            //바라보기 종료
+            user.withUser.ForEach((withSessionId : string) =>{
+                SelfieRegistrant.instance.StopLookAt(withSessionId)
+            })
+        }
+
+        this.Debug(`플레이어 셀카 foreach 수 - ${this.room.State.selfiePlayer.Count}`)
+        this.room.State.selfiePlayer.ForEach((sessionId : string, user : SelfieUser) => {
+            this.Debug("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
+            this.Debug("기존의 플레이어 Foreach 돌리기")
+            // this.Debug(sessionId)
+            // this.Debug(user.sessionId)
+            this.Debug("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
+            SelfieRegistrant.instance.AddSelfieUser(user.sessionId)
+            //이미 UI를 누른 플레이어 === selfieWithPlayer
+        })
+
+        this.Debug(`플레이어 셀카 같이 찍기 foreach 수 - ${this.room.State.selfieWithPlayers.Count}`)
+        this.room.State.selfieWithPlayers.ForEach((sessionId : string, user : SelfieWithUser) =>{
+            this.Debug("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
+            this.Debug("기존의 플레이어 같이 찍기 Foreach 돌리기")
+            // this.Debug(user.sessionId)
+            this.Debug("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ")
+            
+            // 각 플레이어 ui에 누르면 꺼지도록 세팅
+            user.withUser.ForEach((sessionId : string, withUser : User) =>{
+                SelfieRegistrant.instance.SetTakeWithUI(true, user.sessionId, withUser.sessionId)
+                SelfieRegistrant.instance.LookAt(user.sessionId, withUser.sessionId)
+                //카메라 위치 조정
+            })
+        })
+        this.Debug('셀카 관련 세팅 종료')
+    }
+
+    private *OnLeavePlayer(sessionId: string, player: Player) {
+        while(SelfieRegistrant.instance.HasPlayer(player.sessionId)){
+            this.Debug(SelfieRegistrant.instance.HasPlayer(player.sessionId))
+            yield null
+        }
         console.log(`[OnRemove] players - sessionId : ${sessionId}`)
-
-        AnimationLinker.instance.originalAnimators.delete(sessionId)
+        AnimationLinker.instance.OnRemovePlayer(sessionId)
         ZepetoPlayers.instance.RemovePlayer(sessionId)
     }
 
     private OnUpdateMultiPlayer(sessionId: string, player: Player) {
 
         const zepetoPlayer = ZepetoPlayers.instance.GetPlayer(sessionId);
-        const isAnimate = player.animation !== AnimationLinker.instance.GetPlayerAnimation(sessionId)
-        console.log("멀티 player 상태 변경", player.state)
+        const isAnimate = player.animation != AnimationLinker.instance.GetPlayerAnimation(sessionId)
+        // console.log("멀티 player 상태 변경", player.state)
         const positionSchema = this.ParseVector3(player.transform.position);
-        
-        if(Vector3.Distance(zepetoPlayer.character.transform.position, positionSchema) > 3){
+        // ClientStarter.instance.Debug("움직여라")
+        // ClientStarter.instance.Debug(`${zepetoPlayer.character.transform.position.x} ${zepetoPlayer.character.transform.position.y} ${zepetoPlayer.character.transform.position.z}`)
+        // ClientStarter.instance.Debug(`${positionSchema.x}  ${positionSchema.y}  ${positionSchema.z}`)
+        if(Vector3.Distance(zepetoPlayer.character.transform.position, positionSchema) > 1){
             zepetoPlayer.character.transform.position = positionSchema
         }
         zepetoPlayer.character.MoveToPosition(positionSchema);
@@ -153,7 +236,7 @@ export default class ClientStarter extends ZepetoScriptBehaviour {
         //애니메이션이 변경된 경우
         if (isAnimate){
             console.log("서버 - 애니메이션 세팅", player.state)
-            AnimationLinker.instance.SetAnimation(zepetoPlayer.character.ZepetoAnimator, sessionId, player.animation)
+            AnimationLinker.instance.SetMoveAnimation(zepetoPlayer.character.ZepetoAnimator, sessionId, player.animation, player.interactor)
         }
         
         //문제는 제스처 중에 다시 제스처를 누르면 무시된다.
@@ -180,6 +263,16 @@ export default class ClientStarter extends ZepetoScriptBehaviour {
         data.Add("rotation", rot.GetObject());
         this.room.Send("onChangedTransform", data.GetObject());
     }
+    public SendCameraTransform(transform: Transform) {
+        const data = new RoomData();
+
+        const pos = new RoomData();
+        pos.Add("x", transform.localPosition.x);
+        pos.Add("y", transform.localPosition.y);
+        pos.Add("z", transform.localPosition.z);
+        data.Add("position", pos.GetObject());
+        this.room.Send("onChangedCameraTransform", data.GetObject());
+    }
     
     private SendState(state: CharacterState) {
         // console.log("스테이트 변경", state)
@@ -188,22 +281,34 @@ export default class ClientStarter extends ZepetoScriptBehaviour {
         this.room.Send("onChangedState", data.GetObject());
     }
 
-    SendAnimation(name : string){
+    SendAnimation(name : string, interactor : string){
         const data = new RoomData();
         data.Add("animation", name);
+        data.Add("interactor", interactor)
         this.room.Send("onChangedAnimation", data.GetObject());
     }
 
-    SendGesture(name : string){
-        const data = new RoomData();
-        data.Add("gesture", name);
-        this.room.Send("onChangedGesture", data.GetObject());
+    SendGesture(name : string, isInfinite : boolean = false){
+        const data = new RoomData()
+        data.Add("gesture", name)
+        data.Add("isInfinite", isInfinite)
+        this.room.Send("onChangedGesture", data.GetObject())
     }
 
-    public SendDebug(name : string){
+    public DebugObject(obj : any){
+        const data = new RoomData()
+        data.Add("sentence", obj)
+        
+        console.log(obj)
+        console.log(this.room)
+        this.room.Send("DebugUpdate", data.GetObject())
+    }
+    public Debug(name : any){
         const data = new RoomData();
         data.Add("sentence", name);
-        this.room.Send("DebugUpdate", data.GetObject());
+        console.log(name)
+        console.log(this.room)
+        this.room.Send("DebugUpdate", data.GetObject())
     }
     private ParseVector3(vector3: Vector3Schema): Vector3 {
         return new Vector3

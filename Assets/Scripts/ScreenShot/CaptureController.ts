@@ -1,7 +1,6 @@
 import { Camera, GameObject, RenderTexture, WaitForEndOfFrame } from 'UnityEngine'
 import { RawImage, Text } from 'UnityEngine.UI'
 import { ZepetoPlayers } from 'ZEPETO.Character.Controller'
-import { RoomData } from 'ZEPETO.Multiplay'
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
 import { VideoResolutions, WorldVideoRecorder, ZepetoWorldContent } from 'ZEPETO.World'
 import ClientStarter from '../ClientStarter'
@@ -21,9 +20,6 @@ export default class CaptureController extends ZepetoScriptBehaviour {
     public textField : Text
 
     private recordCamera : Camera
-    // Awake(){
-    //     this.videoPlayerObject = new GameObject();
-    // }
     Start(){
         this.uiController = this.uiControllerObject.GetComponent<SS_UIController>()
         ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(() => {
@@ -43,13 +39,13 @@ export default class CaptureController extends ZepetoScriptBehaviour {
             this.camera.targetTexture = this.renderTexture
             this.StartCoroutine(this.RenderTargetTexture())
         }else{
-            ClientStarter.instance.SendDebug("무슨 일이여")
+            ClientStarter.instance.Debug("무슨 일이여")
             if(WorldVideoRecorder.IsRecording()){
-                ClientStarter.instance.SendDebug("녹화 중단")
+                ClientStarter.instance.Debug("녹화 중단")
                 WorldVideoRecorder.StopRecording()
             }else{
                 //문제 발생 2 ~ 60초만 가능함
-                ClientStarter.instance.SendDebug("녹화")
+                ClientStarter.instance.Debug("녹화")
                 this.StartCoroutine(this.StartRecording())
                 // if(!WorldVideoRecorder.StartRecording(this.camera, VideoResolutions.W1280xH720, 10)) return
                 // this.StartCoroutine(this.CheckRecording());
@@ -58,7 +54,7 @@ export default class CaptureController extends ZepetoScriptBehaviour {
     }
     *StartRecording(){
         this.recordCamera = GameObject.Instantiate<Camera>(this.camera)
-        WorldVideoRecorder.StartRecording(this.recordCamera.GetComponent<Camera>(), VideoResolutions.W1280xH720, 10)
+        WorldVideoRecorder.StartRecording(this.recordCamera.GetComponent<Camera>(), VideoResolutions.W1280xH720, 59)
 
         while(WorldVideoRecorder.IsRecording()){
             this.recordCamera.transform.position = this.camera.transform.position

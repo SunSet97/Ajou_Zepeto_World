@@ -41,17 +41,17 @@ export default class LeaderBoardModule extends ZepetoScriptBehaviour {
         // console.log(this._leaderBoards)
         // console.log(this._leaderBoards.Capacity)
         for(var i = 0; i < itemCount; i++){
-            console.log(1)
+            // console.log(1)
             this.medalImage[i] = this.leaderBoardItemParent.transform.GetChild(i).GetChild(0).GetComponent<Image>()
-            console.log(2)
+            // console.log(2)
             this.medalText[i] = this.leaderBoardItemParent.transform.GetChild(i).GetChild(0).GetChild(0).GetComponent<Text>()
-            console.log(3)
+            // console.log(3)
             this.profileImage[i] = this.leaderBoardItemParent.transform.GetChild(i).GetChild(1).GetChild(0).GetComponent<Image>()
-            console.log(4)
+            // console.log(4)
             this.playerName[i] = this.leaderBoardItemParent.transform.GetChild(i).GetChild(1).GetChild(1).GetComponent<Text>()
-            console.log(5)
-            this.score[i] = this.leaderBoardItemParent.transform.GetChild(i).GetChild(2).GetComponent<Text>()
-            console.log(6)
+            // console.log(5)
+            this.score[i] = this.leaderBoardItemParent.transform.GetChild(i).GetChild(1).GetChild(2).GetComponent<Text>()
+            // console.log(6)
         }
     }
     GameStart(){
@@ -75,7 +75,7 @@ export default class LeaderBoardModule extends ZepetoScriptBehaviour {
         }
     }
 
-    ShowRank(){
+    public ShowRank(){
         LeaderboardAPI.GetRangeRank(this.leaderboardId, 1, 10000, this.resetRule, false, (response : GetRangeRankResponse) => {
             console.log("리더보드 불러오기 결과 : " + response.isSuccess)
             //멤버는 ㅁㄹ, 이름은 이름, score - number로 됨 float 안됨, rank - 1등인가
