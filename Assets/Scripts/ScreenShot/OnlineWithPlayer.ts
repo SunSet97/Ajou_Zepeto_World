@@ -32,16 +32,16 @@ export default class OnlineWithPlayer extends ZepetoScriptBehaviour {
     }
 
     public Initialize(cameraPrefab : GameObject, buttonUIPrefab : GameObject){
-        ClientStarter.instance.Debug(cameraPrefab)
-        ClientStarter.instance.Debug(buttonUIPrefab)
+        // ClientStarter.instance.Debug(cameraPrefab)
+        // ClientStarter.instance.Debug(buttonUIPrefab)
         this.buttonUI = GameObject.Instantiate<GameObject>(buttonUIPrefab, buttonUIPrefab.transform.parent).transform
-        ClientStarter.instance.Debug(this.buttonUI)
+        // ClientStarter.instance.Debug(this.buttonUI)
         this.buttonUI.gameObject.SetActive(false)
         this.cameraTarget = GameObject.Instantiate<GameObject>(cameraPrefab).transform
-        ClientStarter.instance.Debug(this.cameraTarget)
+        // ClientStarter.instance.Debug(this.cameraTarget)
         let selfieCamera = this.cameraTarget.GetComponent<OnlineSelfieCamera>()
         this.gripTarget = selfieCamera.GetGripObject().transform
-        ClientStarter.instance.Debug("하이")
+        // ClientStarter.instance.Debug("하이")
     }
 
     public SetPlayer(player : ZepetoPlayer, selfieStickPrefab : GameObject) {

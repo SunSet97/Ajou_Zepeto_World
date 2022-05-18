@@ -13,6 +13,8 @@ export default class ClientStarter extends ZepetoScriptBehaviour {
 
     public multiplay: ZepetoWorldMultiplay
     
+    public spawnPoint : Transform
+
     private room: Room
     private static _instance: ClientStarter;
     
@@ -74,6 +76,7 @@ export default class ClientStarter extends ZepetoScriptBehaviour {
             ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(() => {
                 this.Debug(`[로컬 플레이어 생성] player ${ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.id}`)
                 ZepetoPlayers.instance.LocalPlayer.zepetoCamera.camera.gameObject.AddComponent<AudioListener>()
+                // ZepetoPlayers.instance.LocalPlayer
                 const myPlayer = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer
                 // myPlayer.character.OnChangedState
                 myPlayer.character.OnChangedState.AddListener((next, cur) => {
@@ -93,6 +96,8 @@ export default class ClientStarter extends ZepetoScriptBehaviour {
                     player.OnChange += (changeValues) => this.OnUpdateMultiPlayer(sessionId, player)
                 }
                 const zepetoPlayer = ZepetoPlayers.instance.GetPlayer(sessionId)
+                zepetoPlayer.character.transform.position = this.spawnPoint.position
+                zepetoPlayer.character.transform.rotation = this.spawnPoint.rotation
                 AnimationLinker.instance.OnAddPlayer(sessionId, zepetoPlayer.character.ZepetoAnimator, player.animation)
             });
         }
@@ -101,9 +106,6 @@ export default class ClientStarter extends ZepetoScriptBehaviour {
     private OnJoinPlayer(sessionId: string, player: Player) {
         console.log(`roomSession - ${this.room.SessionId}\nplayerSession - ${player.sessionId}\nsessionId - ${sessionId}`);
         console.log(`[OnJoinPlayer] players - sessionId : ${sessionId}`);
-        console.log(player.sessionId)
-        console.log(player.zepetoUserId)
-        this.Debug(`[OnJoinPlayer] player - sessionId : ${sessionId}`)
         // LeaderboardAPI.
         const spawnInfo = new SpawnInfo();
         const position = this.ParseVector3(player.transform.position);

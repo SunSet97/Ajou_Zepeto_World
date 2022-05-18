@@ -54,15 +54,17 @@ export default class ScreenShotModeManager extends ZepetoScriptBehaviour {
         this.iKController.SetTargetAndGrip(target.transform, grip.transform);
 
         // 3. selfie stick을 캐릭터의 오른손에 고정
-        this.selfieStick = GameObject.Instantiate<GameObject>(this.selfieStickPrefab);
-        this.localPlayer.character.GetComponentsInChildren<Transform>().forEach((characterObj) => {
-            if(characterObj.name == this.rightHandBone) {
-                this.selfieStick.transform.parent = characterObj;
-                this.selfieStick.transform.localPosition = Vector3.zero;
-                this.selfieStick.transform.localRotation = Quaternion.Euler(Vector3.zero);
-                // this.selfieStick.GetComponentInChildren<Renderer>().gameObject.layer = this.playerLayer;
-            }
-        });
+        if(this.selfieStick == null){
+            this.selfieStick = GameObject.Instantiate<GameObject>(this.selfieStickPrefab);
+            this.localPlayer.character.GetComponentsInChildren<Transform>().forEach((characterObj) => {
+                if(characterObj.name == this.rightHandBone) {
+                    this.selfieStick.transform.parent = characterObj;
+                    this.selfieStick.transform.localPosition = Vector3.zero;
+                    this.selfieStick.transform.localRotation = Quaternion.Euler(Vector3.zero);
+                    // this.selfieStick.GetComponentInChildren<Renderer>().gameObject.layer = this.playerLayer;
+                }
+            });
+        }
         //4. 처음에는 zepetoCamera로 설정, true - 서버에 메시지 보내지 않기
         this.SetZepetoCameraMode(true);
     }
@@ -70,8 +72,14 @@ export default class ScreenShotModeManager extends ZepetoScriptBehaviour {
     public ExitScreenShotMode(isThirdPersonView: boolean) {
         if(this.selfieCamera != null) {
             GameObject.Destroy(this.selfieCamera.gameObject);
+            this.selfieCamera = null
         }
 
+        // if(this.selfieStick != null) {
+
+        //     // GameObject.Destroy(this.selfieStick.gameObject);
+        //     // this.selfieStick = null
+        // }
         if(!isThirdPersonView) {
             // 셀피 카메라 삭제
             // IK Pass 적용 해제

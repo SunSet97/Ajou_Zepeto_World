@@ -10,10 +10,6 @@ export default class CanvasSetter extends ZepetoScriptBehaviour {
         this.GetComponent<CanvasScaler>().uiScaleMode = ScaleMode.ScaleWithScreenSize;
         this.GetComponent<CanvasScaler>().referenceResolution = new Vector2(1920, 1080)
         this.GetComponent<CanvasScaler>().matchWidthOrHeight = 1
-        // ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(() =>{
-        //     this.GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceCamera
-        //     this.GetComponent<Canvas>().worldCamera = ZepetoPlayers.instance.LocalPlayer.zepetoCamera.camera  
-        // })
     }
 
 }

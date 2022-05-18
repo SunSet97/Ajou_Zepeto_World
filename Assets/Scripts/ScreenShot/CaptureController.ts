@@ -54,7 +54,7 @@ export default class CaptureController extends ZepetoScriptBehaviour {
     }
     *StartRecording(){
         this.recordCamera = GameObject.Instantiate<Camera>(this.camera)
-        WorldVideoRecorder.StartRecording(this.recordCamera.GetComponent<Camera>(), VideoResolutions.W1280xH720, 59)
+        WorldVideoRecorder.StartRecording(this.recordCamera.GetComponent<Camera>(), VideoResolutions.W1920xH1080, 59)
 
         while(WorldVideoRecorder.IsRecording()){
             this.recordCamera.transform.position = this.camera.transform.position

@@ -74,7 +74,6 @@ export default class SS_UIController extends ZepetoScriptBehaviour {
     public poseButton : Button
     public gestureContent : GameObject
     public poseContent : GameObject
-    public infinityButton : Button
 
 
     TOAST_MESSAGE = {
@@ -83,6 +82,8 @@ export default class SS_UIController extends ZepetoScriptBehaviour {
         feedFailed: "Failed",
         screenShotSaveCompleted: "Saved!"
     }
+
+    private isUIOpen : boolean = false
 
 
     AddVector2(t1 : Vector2, t2 : Vector2) : Vector2{
@@ -117,6 +118,8 @@ export default class SS_UIController extends ZepetoScriptBehaviour {
         rect.anchorMax = newAnchorMax;
         
         this.screenShotModeButton.onClick.AddListener(() => {
+            if(this.isUIOpen) return
+            this.isUIOpen = true
             // 스크린샷 모드 Panel 키기
             // Default Panel 끄기
             this.screenDefaultPanel.SetActive(false)
@@ -157,6 +160,8 @@ export default class SS_UIController extends ZepetoScriptBehaviour {
         this.screenShotModeExitButton.onClick.AddListener(() => {
             // 스크린샷 모드 Panel 끄기
             // Default Panel 키기
+            this.isUIOpen = false
+
             this.screenDefaultPanel.SetActive(true)
             this.screenShotModePanel.SetActive(false)
 
@@ -178,6 +183,7 @@ export default class SS_UIController extends ZepetoScriptBehaviour {
         //ScreenShot Result
         this.screenShotResultExitButton.onClick.AddListener(() => {
             //스크린샷 결과 창 끄기
+            this.isUIOpen = false
             this.screenShotResultPanel.SetActive(false)
             this.screenDefaultPanel.SetActive(true)
 
@@ -197,7 +203,9 @@ export default class SS_UIController extends ZepetoScriptBehaviour {
             this.screenShotResultPanel.SetActive(false)
             this.screenShotFeedPanel.SetActive(true)
         })
-        this.createFeedButton.onClick.AddListener(() =>{            
+        this.createFeedButton.onClick.AddListener(() =>{
+            this.isUIOpen = false
+            this._screenShotModeManager.ExitScreenShotMode(this.isThirdPersonView)
             this._captureController.CreateFeed(this.isVideoMode)
             this.screenDefaultPanel.SetActive(true)
             this.screenShotFeedPanel.SetActive(false)            
@@ -208,11 +216,14 @@ export default class SS_UIController extends ZepetoScriptBehaviour {
         })
 
         this.poseModeButton.onClick.AddListener(() =>{
+            if(this.isUIOpen) return
+            this.isUIOpen = true
             this.poseDefaultPanels.SetActive(false)
             this.poseModePanels.SetActive(true)
         })
 
         this.poseExitButton.onClick.AddListener(() =>{
+            this.isUIOpen = false
             this.poseDefaultPanels.SetActive(true)
             this.poseModePanels.SetActive(false)
         })
@@ -225,9 +236,6 @@ export default class SS_UIController extends ZepetoScriptBehaviour {
         this.poseButton.onClick.AddListener(() =>{
             this.poseContent.SetActive(true)
             this.gestureContent.SetActive(false)
-        })
-        this.infinityButton.onClick.AddListener(() =>{
-            AnimationLinker.instance.isInfinite = !AnimationLinker.instance.isInfinite
         })
 
         // for(var index = 0; index < this.poseContent.transform.childCount; index++){

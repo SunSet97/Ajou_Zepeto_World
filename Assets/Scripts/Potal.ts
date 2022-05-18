@@ -17,7 +17,6 @@ export default class Potal extends ZepetoScriptBehaviour {
     *TryTeleport(zepetoChar : ZepetoCharacter, potal : Potal){
         if(this.audioManger != null && this.audioClip != null){
             this.audioManger.Stop()
-            console.log("의수바보");
             this.audioManger.clip = this.audioClip;
             this.audioManger.Play()
         }
@@ -34,19 +33,19 @@ export default class Potal extends ZepetoScriptBehaviour {
     }
 
     StopTeleport(zepetoChar : ZepetoCharacter, potal : Potal){
-        console.log("포탈 나감")
+        console.log("도중에 포탈 나감")
         this.StopAllCoroutines()
     }
 
     OnTriggerEnter(col : Collider){
         const zepetoCharacter = col.GetComponent<ZepetoCharacter>()
-        if(ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character === zepetoCharacter){
+        if(ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character == zepetoCharacter){
             this.StartCoroutine(this.TryTeleport(zepetoCharacter, this._connectedPotal))
         }
     }
     OnTriggerExit(col : Collider){
         const zepetoCharacter = col.GetComponent<ZepetoCharacter>()
-        if(ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character === zepetoCharacter){
+        if(ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character == zepetoCharacter){
             this.StopTeleport(zepetoCharacter, this._connectedPotal)
         }
     }

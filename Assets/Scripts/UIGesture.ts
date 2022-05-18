@@ -1,11 +1,13 @@
-import { AnimationClip } from 'UnityEngine'
-import { Button } from 'UnityEngine.UI'
+import { AnimationClip, Color } from 'UnityEngine'
+import { Button, Image } from 'UnityEngine.UI'
 import { ZepetoPlayers } from 'ZEPETO.Character.Controller'
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
 import AnimationLinker from './AnimationLinker'
 
 export default class UIGesture extends ZepetoScriptBehaviour {
 
+    public defaultColor : Color
+    public infiniteColor : Color
     public infiniteButton : Button
 
     private isInfinite : boolean = false
@@ -54,7 +56,26 @@ export default class UIGesture extends ZepetoScriptBehaviour {
         })
         this.infiniteButton.onClick.AddListener(() =>{
             this.isInfinite = !this.isInfinite
+            if(!this.isInfinite){
+                this.infiniteButton.GetComponent<Image>().color = this.defaultColor
+                this.infiniteButton.colors.normalColor = this.defaultColor
+                this.infiniteButton.colors.highlightedColor = this.defaultColor
+                this.infiniteButton.colors.pressedColor = this.GetGrayColor(this.defaultColor)
+                this.infiniteButton.colors.selectedColor = this.defaultColor
+                this.infiniteButton.colors.disabledColor = this.GetGrayColor(this.defaultColor)
+            }else{
+                this.infiniteButton.GetComponent<Image>().color = this.infiniteColor
+                this.infiniteButton.colors.normalColor = this.infiniteColor
+                this.infiniteButton.colors.highlightedColor = this.infiniteColor
+                this.infiniteButton.colors.pressedColor = this.GetGrayColor(this.infiniteColor)
+                this.infiniteButton.colors.selectedColor = this.infiniteColor
+                this.infiniteButton.colors.disabledColor = this.GetGrayColor(this.infiniteColor)
+            }
         })
+    }
+    GetGrayColor(color : Color) : Color{
+        let c = new Color(color.r - 0.2, color.g - 0.2, color.b - 0.2, color.a)
+        return color
     }
     // *OnUpdate(){
     //     while(true){

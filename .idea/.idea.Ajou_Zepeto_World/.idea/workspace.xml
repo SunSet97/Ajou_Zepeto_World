@@ -2,93 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2d783d68-ac2c-459e-bf57-fe29b2cd69b1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Ani_work_folder/pose_model_2.anim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Ani_work_folder/pose_model_2.anim.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/SelfieOnlineCamera.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/SelfieOnlineCamera.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Fbx/Cafe/blue_chair.fbm.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Fbx/Cafe/blue_chair.fbm/chairs_UV.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Fbx/Cafe/blue_chair.fbm/chairs_UV.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Fbx/Cafe/chair.fbm.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Fbx/Cafe/chair.fbm/chairs_UV.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Fbx/Cafe/chair.fbm/chairs_UV.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Fbx/Cafe/high_chair.fbm.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Fbx/Cafe/high_chair.fbm/chairs_UV.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Fbx/Cafe/high_chair.fbm/chairs_UV.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Fbx/Cafe/stool.fbm.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Fbx/Cafe/stool.fbm/chairs_UV.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Fbx/Cafe/stool.fbm/chairs_UV.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Fbx/Materials/terrass.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Fbx/Materials/terrass.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Fbx/Plat1.fbm.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Fbx/Plat1.fbm/uv_marble.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Fbx/Plat1.fbm/uv_marble.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Fbx/Plat2.fbm.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Fbx/Plat2.fbm/uv_marble.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Fbx/Plat2.fbm/uv_marble.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Fbx/T_chair01.fbm.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Fbx/T_chair01.fbm/chair01_roundTable01.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Fbx/T_chair01.fbm/chair01_roundTable01.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Fbx/T_road.fbm.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Fbx/T_road.fbm/road.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Fbx/T_road.fbm/road.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Fbx/T_roundTable.fbm.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Fbx/T_roundTable.fbm/chair01_roundTable01.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Fbx/T_roundTable.fbm/chair01_roundTable01.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Fbx/Terras_fin.fbm.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Fbx/Terras_fin.fbm/terrass.psd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Fbx/Terras_fin.fbm/terrass.psd.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Fbx/portal.fbm.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Fbx/portal.fbm/terrass_uv.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Fbx/portal.fbm/terrass_uv.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Fbx/sofa.fbm.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Fbx/sofa.fbm/chairs_UV.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Fbx/sofa.fbm/chairs_UV.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ScreenShot/OnlineSelfieCamera.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ScreenShot/OnlineSelfieCamera.ts.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ScreenShot/OnlineWithPlayer.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ScreenShot/OnlineWithPlayer.ts.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ScreenShot/SelfieRegistrant.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ScreenShot/SelfieRegistrant.ts.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Ajou_Zepeto_World/.idea/runConfigurations/Zepeto_Multiplay_Script.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Ajou_Zepeto_World/.idea/runConfigurations/Zepeto_Multiplay_Script.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Ajou_Zepeto_World/.idea/runConfigurations/Zepeto_Script.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Ajou_Zepeto_World/.idea/runConfigurations/Zepeto_Script.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Ajou_Zepeto_World/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Ajou_Zepeto_World/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/launch.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ani_work_folder/Cup_Hold/idle_cup.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ani_work_folder/Cup_Hold/idle_cup.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ani_work_folder/Cup_Hold/run_cup.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ani_work_folder/Cup_Hold/run_cup.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ani_work_folder/New Folder.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ani_work_folder/Gestures.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ani_work_folder/New Folder/dance.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ani_work_folder/Gestures/dance.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ani_work_folder/New Folder/dance.anim.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ani_work_folder/Gestures/dance.anim.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ani_work_folder/New Folder/ok.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ani_work_folder/Gestures/ok.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ani_work_folder/New Folder/ok.anim.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ani_work_folder/Gestures/ok.anim.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ani_work_folder/New Folder/sleep.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ani_work_folder/Gestures/sleep.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ani_work_folder/New Folder/sleep.anim.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ani_work_folder/Gestures/sleep.anim.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/BuildScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BuildScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AnimationLinker.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AnimationLinker.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AnimationLinker.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AnimationLinker.ts.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ClientStarter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ClientStarter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ClientStarter.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ClientStarter.ts.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FixedInteractor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FixedInteractor.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FixedInteractor.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FixedInteractor.ts.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/JumpMap/LeaderBoardModule.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/JumpMap/LeaderBoardModule.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/JumpMap/LeaderBoardModule.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/JumpMap/LeaderBoardModule.ts.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MoveAnimationInteractor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MoveAnimationInteractor.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MoveAnimationInteractor.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MoveAnimationInteractor.ts.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScreenShot/CaptureController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScreenShot/CaptureController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScreenShot/CaptureController.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScreenShot/CaptureController.ts.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScreenShot/SS_UIController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScreenShot/SS_UIController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScreenShot/SS_UIController.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScreenShot/SS_UIController.ts.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScreenShot/ScreenShotModeManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScreenShot/ScreenShotModeManager.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScreenShot/ScreenShotModeManager.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScreenShot/ScreenShotModeManager.ts.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScreenShot/SelfieCamera.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScreenShot/SelfieCamera.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScreenShot/SelfieCamera.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScreenShot/SelfieCamera.ts.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UIGesture.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UIGesture.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UIGesture.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UIGesture.ts.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UIPoseGesture.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UIPoseGesture.ts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/World 1.multiplay/SchemaTypes/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/World 1.multiplay/SchemaTypes/index.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/World 1.multiplay/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/World 1.multiplay/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/World 1.multiplay/schemas.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/World 1.multiplay/schemas.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/WorldEditorSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/WorldEditorSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,6 +71,7 @@
       <workItem from="1651835109247" duration="1000" />
       <workItem from="1652257825352" duration="42000" />
       <workItem from="1652707417772" duration="1000" />
+      <workItem from="1652762352535" duration="1000" />
     </task>
     <servers />
   </component>

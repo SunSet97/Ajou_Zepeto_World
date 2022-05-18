@@ -36,7 +36,7 @@ export default class FixedInteractor extends ZepetoScriptBehaviour {
     Update(){
         if((this.interactButton.gameObject.activeSelf || this.interactButton.gameObject.activeSelf) && this.localCamera != null){
             // console.log(this.testButton.gameObject.transform.position)
-            var screenPos = this.localCamera.WorldToScreenPoint(this.AddVec(this.transform.position, this.cameraOffset))
+            var screenPos = this.localCamera.WorldToScreenPoint(this.transform.position + this.cameraOffset)
             // console.log(screenPos)
             this.interactButton.transform.position = screenPos
             this.interactButton.transform.position = screenPos
@@ -55,14 +55,5 @@ export default class FixedInteractor extends ZepetoScriptBehaviour {
         if(col.gameObject.layer === LayerMask.NameToLayer("LocalPlayer")){
             this.interactButton.gameObject.SetActive(false)
         }
-    }
-
-    AddVec(vec1 : Vector3, vec2 : Vector3) : Vector3{
-        var vec = new Vector3(0, 0)
-        // console.log(vec)
-        vec.x = vec1.x + vec2.x
-        vec.y = vec1.y + vec2.y
-        vec.z = vec1.z + vec2.z
-        return vec
     }
 }

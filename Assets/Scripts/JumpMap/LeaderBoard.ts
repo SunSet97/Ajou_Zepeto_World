@@ -70,7 +70,7 @@ export default class LeaderBoard extends ZepetoScriptBehaviour {
             this.ShowRank()
             //LeaderboardAPI.GetRangeRank("", 1, 100, null, )
             this.timerText.gameObject.SetActive(false)
-            this.timer = 0
+            this.timer = .0
             this.isStart = false
         }
     }

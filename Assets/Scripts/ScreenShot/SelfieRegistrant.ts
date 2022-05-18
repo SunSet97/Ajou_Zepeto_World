@@ -169,20 +169,9 @@ export default class SelfieRegistrant extends ZepetoScriptBehaviour {
         // ClientStarter.instance.Debug(`${ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character.gameObject}가 본다.`)
         this.users.forEach((cameraAndUI : CameraAndUI, player : ZepetoPlayer) =>{
             let onlineWithPlayer = this.tempUsers.get(player)
-            const screenPos = this.localCamera.WorldToScreenPoint(this.AddVec(player.character.transform.position, this.cameraOffset))
+            const screenPos = this.localCamera.WorldToScreenPoint(player.character.transform.position + this.cameraOffset)
             onlineWithPlayer.OnUpdateOnline(player, screenPos)
         })
-        // this.withUsers.forEach((takePlayer : ZepetoPlayer, withPlayer : ZepetoPlayer) =>{
-        //     const withUser = ClientStarter.instance.GetRoom().State.selfiePlayer.get_Item(takePlayer.id)
-        //     if(withUser.cameraTransform == null || withUser.cameraTransform == undefined) {
-        //         ClientStarter.instance.Debug(`위험할 뻔 했습니다 - 카메라스키마 transform NULL`)
-        //         return
-        //     }
-        //     const camera = this.users.get(takePlayer).camera
-        //     console.log(`${withPlayer.character.gameObject}가 ${camera.gameObject}를 보고 있습니다.`)
-        //     // withPlayer.character.ZepetoAnimator.SetLookAtWeight(1, 0.3, 0.7)
-        //     // withPlayer.character.ZepetoAnimator.SetLookAtPosition(camera.position)
-        // })
     }
 
     public LookAt(sessionId : string, withSessionId : string){
@@ -193,15 +182,12 @@ export default class SelfieRegistrant extends ZepetoScriptBehaviour {
         const withPlayer = ZepetoPlayers.instance.GetPlayer(withSessionId)
         this.withUsers.set(withPlayer, takePlayer)
         // 이제부터 selfieCamera 위치 보내
-        // this.users.get(takePlayer).camera = new GameObject().transform
-        // this.users.get(takePlayer).onlinePlayer.Watch(this.users.get(takePlayer).camera)
         this.tempUsers.get(withPlayer).Watch(this.users.get(takePlayer).camera)
         // if(takePlayer.isLocalPlayer){
         //     this.tempUsers.get(withPlayer).Watch(ZepetoPlayers.instance.ZepetoCamera.camera.transform)
         // }else{
         //     this.tempUsers.get(withPlayer).Watch(this.users.get(takePlayer).camera)
         // }
-        // withPlayer.character.ZepetoAnimator.GetComponent<OnlineWithPlayer>().Watch(this.users.get(takePlayer).camera)
         ClientStarter.instance.Debug(`Complete LookAT`)
         ClientStarter.instance.Debug(`ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ`)
     }
@@ -240,21 +226,5 @@ export default class SelfieRegistrant extends ZepetoScriptBehaviour {
                 isWith = true
         })
         return this.users.has(player) || isWith
-    }
-
-    SubVec(vec1 : Vector3, vec2 : Vector3) : Vector3{
-        var vec = new Vector3(0, 0)
-        vec.x = vec1.x - vec2.x
-        vec.y = vec1.y - vec2.y
-        vec.z = vec1.z - vec2.z
-        return vec
-    }
-
-    AddVec(vec1 : Vector3, vec2 : Vector3) : Vector3{
-        var vec = new Vector3(0, 0)
-        vec.x = vec1.x + vec2.x
-        vec.y = vec1.y + vec2.y
-        vec.z = vec1.z + vec2.z
-        return vec
     }
 }
