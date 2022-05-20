@@ -7,6 +7,7 @@ import { ZepetoWorldMultiplay } from 'ZEPETO.World'
 import { AudioListener, GameObject, LayerMask, Quaternion, Time, Transform, Vector3 } from 'UnityEngine'
 import WaitForSecondsCash from './WaitForSecondsCash'
 import SelfieRegistrant from './ScreenShot/SelfieRegistrant'
+import CatManager from './CatManager'
 
 
 export default class ClientStarter extends ZepetoScriptBehaviour {
@@ -70,7 +71,10 @@ export default class ClientStarter extends ZepetoScriptBehaviour {
             state.players.OnAdd += (player: Player, sessionId: string) => this.OnJoinPlayer(sessionId, player);
     
             state.players.OnRemove += (player: Player, sessionId: string) => this.StartCoroutine(this.OnLeavePlayer(sessionId, player))
-            
+
+            this.room.AddMessageHandler("OnCatActivate", (catActivationIndex) =>{
+                CatManager.instance.ActivateCats(catActivationIndex)
+            })
             
             // [CharacterController] (Local)Player �ν��Ͻ��� Scene�� ������ �ε�Ǿ��� �� ȣ��
             ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(() => {

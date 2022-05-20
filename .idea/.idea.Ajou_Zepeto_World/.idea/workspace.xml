@@ -5,7 +5,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Ajou_Zepeto_World/.idea/runConfigurations/Zepeto_Multiplay_Script.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Ajou_Zepeto_World/.idea/runConfigurations/Zepeto_Multiplay_Script.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Ajou_Zepeto_World/.idea/runConfigurations/Zepeto_Script.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Ajou_Zepeto_World/.idea/runConfigurations/Zepeto_Script.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/launch.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/WorldEditorSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/WorldEditorSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScreenShot/OnlineWithPlayer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScreenShot/OnlineWithPlayer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScreenShot/OnlineWithPlayer.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScreenShot/OnlineWithPlayer.ts.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScreenShot/SelfieCamera.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScreenShot/SelfieCamera.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScreenShot/SelfieCamera.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScreenShot/SelfieCamera.ts.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,6 +17,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.2/InputSystem/Plugins/UI/InputSystemUIInputModule.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="26NFrsEpr3zD82pzL2BqpHKEuLc" />
   <component name="ProjectViewState">
@@ -72,6 +78,7 @@
       <workItem from="1652257825352" duration="42000" />
       <workItem from="1652707417772" duration="1000" />
       <workItem from="1652762352535" duration="1000" />
+      <workItem from="1653003848398" duration="11000" />
     </task>
     <servers />
   </component>

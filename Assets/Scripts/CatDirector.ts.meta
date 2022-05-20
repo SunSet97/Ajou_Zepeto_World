@@ -1,0 +1,30 @@
+fileFormatVersion: 2
+guid: 5c125c77aae28d0449ff268cc76dc3d0
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: "{\"source\":\"\\\"use strict\\\";\\r\\nObject.defineProperty(exports,
+    \\\"__esModule\\\", { value: true });\\r\\nconst UnityEngine_1 = require(\\\"UnityEngine\\\");\\r\\nconst
+    ZEPETO_Script_1 = require(\\\"ZEPETO.Script\\\");\\r\\nconst ClientStarter_1
+    = require(\\\"./ClientStarter\\\");\\r\\nclass CatDirector extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\\r\\n    Start() {\\r\\n        this.animator = this.GetComponent($typeof(UnityEngine_1.Animator));\\r\\n   
+    }\\r\\n    Activate(index) {\\r\\n        // ClientStarter.instance.Debug(`\uACE0\uC591\uC774\uC774\uC774\uC774`)\\r\\n       
+    ClientStarter_1.default.instance.Debug(`${this.gameObject}\uAC00 ${index}\uB97C
+    \uC2E4\uD589\uD569\uB2C8\uB2E4.`);\\r\\n        this.animator.SetInteger(\\\"random\\\",
+    index);\\r\\n    }\\r\\n}\\r\\nexports.default = CatDirector;\\r\\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQ2F0RGlyZWN0b3IuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJDYXREaXJlY3Rvci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLDZDQUFzQztBQUN0QyxpREFBcUQ7QUFDckQsbURBQTJDO0FBRTNDLE1BQXFCLFdBQVksU0FBUSxxQ0FBcUI7SUFHMUQsS0FBSztRQUNELElBQUksQ0FBQyxRQUFRLEdBQUcsSUFBSSxDQUFDLFlBQVksU0FBQyxzQkFBUSxFQUFHLENBQUE7SUFDakQsQ0FBQztJQUVNLFFBQVEsQ0FBQyxLQUFLO1FBQ2pCLHlDQUF5QztRQUN6Qyx1QkFBYSxDQUFDLFFBQVEsQ0FBQyxLQUFLLENBQUMsR0FBRyxJQUFJLENBQUMsVUFBVSxLQUFLLEtBQUssVUFBVSxDQUFDLENBQUE7UUFDcEUsSUFBSSxDQUFDLFFBQVEsQ0FBQyxVQUFVLENBQUMsUUFBUSxFQUFFLEtBQUssQ0FBQyxDQUFBO0lBQzdDLENBQUM7Q0FDSjtBQVpELDhCQVlDIn0=\",\"assetPath\":\"Assets/Scripts/CatDirector.ts\",\"manifest\":{\"properties\":[{\"assembly\":\"UnityEngine.AnimationModule\",\"name\":\"animator\",\"type\":\"UnityEngine.Animator\",\"isArray\":false,\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]}],\"name\":\"CatDirector\",\"description\":\"\"},\"isCompiled\":true}"
+  typescriptHash: 8f497fc79f1394765c86f186fe8462ef

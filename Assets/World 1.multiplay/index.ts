@@ -4,6 +4,7 @@ import {Player, SelfieUser, SelfieWithUser, Transform, User, Vector3} from "ZEPE
 
 export default class extends Sandbox {
 
+    private secCounter : number = 0
     constructor() {
         super();
     }
@@ -12,6 +13,7 @@ export default class extends Sandbox {
         // Room 객체가 생성될 때 호출됩니다.
         // Room 객체의 상태나 데이터 초기화를 처리 한다.
         
+        // console.log(options.tickInterval)
         this.onMessage("onChangedTransform", (client, message) => {
             const player = this.state.players.get(client.sessionId);
 
@@ -170,12 +172,18 @@ export default class extends Sandbox {
         console.log('[Add Player Map]')
     }
 
-    // 일정 Interval Time으로 내(local)캐릭터 transform을 server로 전송합니다.
-    getTimeSandbox() {
-        return Date.now();
-    }
-
     onTick(deltaTime: number): void {
+        this.secCounter += deltaTime
+        if(this.secCounter > 5000){
+            var catCount : number = 5
+            for(var i = 0; i < catCount; i++){
+                var catIndex = Math.round(Math.random() * 2)
+                // const data = new room
+                console.log(`${catIndex}   ${i}`)
+                this.broadcast("OnCatActivate", catIndex * 10 + i)
+            }
+            this.secCounter = 0
+        }
         //  서버에서 설정된 타임마다 반복적으로 호출되며 deltaTime 을 이용하여 일정한 interval 이벤트를 관리할 수 있음.
     }
 

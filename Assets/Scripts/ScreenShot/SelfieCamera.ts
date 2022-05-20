@@ -69,7 +69,7 @@ export default class SelfieCamera extends ZepetoScriptBehaviour {
         this.currentPos = this.currentTargetPos + new Vector3(0, this.height, 0);
 
         this.targetLookAt.position = this.currentPos;
-        this.transform.position = this.currentPos + (camDir * this.distance);
+        this.transform.position = Vector3.Lerp(this.transform.position, this.currentPos + (camDir * this.distance), 0.9)
 
         var lookPoint: Vector3 = this.currentPos + this.targetLookAt.forward * 2;
         lookPoint = lookPoint + (this.targetLookAt.right * Vector3.Dot(camDir * (this.distance), this.targetLookAt.right));
@@ -80,7 +80,7 @@ export default class SelfieCamera extends ZepetoScriptBehaviour {
             lookPoint.z - this.transform.position.z);
         var rotation = Quaternion.LookRotation(subtractionVec);
 
-        this.transform.rotation = rotation;
+        this.transform.rotation = Quaternion.Lerp(this.transform.rotation, rotation, 0.9);
 
         this.currentTarget.LookAt(this.transform);
         this.currentTarget.eulerAngles = new Vector3(0, this.currentTarget.eulerAngles.y, 0);

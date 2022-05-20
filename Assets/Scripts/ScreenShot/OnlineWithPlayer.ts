@@ -92,7 +92,7 @@ export default class OnlineWithPlayer extends ZepetoScriptBehaviour {
     // 유저가 로컬이 아닌 경우에만 온다
     //다른 캐릭터 업데이트
     public OnUpdateOnline(player : ZepetoPlayer, screenPos : Vector3){
-        this.buttonUI.position = screenPos
+        this.buttonUI.position = Vector3.Lerp(this.buttonUI.position, screenPos, 0.8)
         // ClientStarter.instance.Debug("하이")
         // ClientStarter.instance.Debug(this.buttonUI.gameObject.activeSelf)
         // this.camera.position = this.ParseVector3(takingUser.cameraTransform.position)
