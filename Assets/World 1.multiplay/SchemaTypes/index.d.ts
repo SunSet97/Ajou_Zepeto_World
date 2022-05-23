@@ -17,6 +17,7 @@ declare module "ZEPETO.Multiplay.Schema" {
 		animation: string;
 		gesture: string;
 		interactor: string;
+		isInfinite: boolean;
 	}
 	class Transform extends Schema {
 		position: Vector3;

@@ -1,12 +1,13 @@
-import { AnimationClip, Camera, Collider, LayerMask, Transform, Vector3 } from 'UnityEngine'
+import { AnimationClip, Camera, Collider, GameObject, LayerMask, Transform, Vector3 } from 'UnityEngine'
 import { Button } from 'UnityEngine.UI'
 import { ZepetoPlayers } from 'ZEPETO.Character.Controller'
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
-import AnimationLinker from './AnimationLinker'
+import AnimationLinker from '../AnimationLinker'
 
 export default class FixedInteractor extends ZepetoScriptBehaviour {
     
     public interactButton : Button
+    private _interactButton : Button
     // @Header("애니메이션 이름을 넣으세요. ex) idle_cup인 경우 cup")
     public animationClip : AnimationClip
     public fixedPoint : Transform
@@ -16,12 +17,13 @@ export default class FixedInteractor extends ZepetoScriptBehaviour {
     private isPlaying : boolean = false
 
     Start() {
+        this._interactButton = GameObject.Instantiate<GameObject>(this.interactButton.gameObject, this.interactButton.transform.parent).GetComponent<Button>()
         ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(() =>{
             this.localCamera = ZepetoPlayers.instance.LocalPlayer.zepetoCamera.camera
         })
 
-        this.interactButton.onClick.AddListener(() => {
-            console.log(this.isPlaying)
+        this._interactButton.onClick.AddListener(() => {
+            // console.log(this.isPlaying)
             if(!this.isPlaying){
                 AnimationLinker.instance.PlayGesture(this.animationClip.name, true)
                 ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character.transform.position = this.fixedPoint.position
@@ -34,12 +36,12 @@ export default class FixedInteractor extends ZepetoScriptBehaviour {
     }
 
     Update(){
-        if((this.interactButton.gameObject.activeSelf || this.interactButton.gameObject.activeSelf) && this.localCamera != null){
+        if((this._interactButton.gameObject.activeSelf || this._interactButton.gameObject.activeSelf) && this.localCamera != null){
             // console.log(this.testButton.gameObject.transform.position)
             var screenPos = this.localCamera.WorldToScreenPoint(this.transform.position + this.cameraOffset)
             // console.log(screenPos)
-            this.interactButton.transform.position = screenPos
-            this.interactButton.transform.position = screenPos
+            this._interactButton.transform.position = screenPos
+            this._interactButton.transform.position = screenPos
 
             // this.testButton.transform.LookAt(this.localCamera.transform)
         }
@@ -47,13 +49,13 @@ export default class FixedInteractor extends ZepetoScriptBehaviour {
 
     OnTriggerEnter(col : Collider){    
         if(col.gameObject.layer === LayerMask.NameToLayer("LocalPlayer")){
-            this.interactButton.gameObject.SetActive(true)
+            this._interactButton.gameObject.SetActive(true)
         }
     }
 
     OnTriggerExit(col : Collider){
         if(col.gameObject.layer === LayerMask.NameToLayer("LocalPlayer")){
-            this.interactButton.gameObject.SetActive(false)
+            this._interactButton.gameObject.SetActive(false)
         }
     }
 }

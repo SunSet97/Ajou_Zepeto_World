@@ -7,7 +7,7 @@ import { ZepetoWorldMultiplay } from 'ZEPETO.World'
 import { AudioListener, GameObject, LayerMask, Quaternion, Time, Transform, Vector3 } from 'UnityEngine'
 import WaitForSecondsCash from './WaitForSecondsCash'
 import SelfieRegistrant from './ScreenShot/SelfieRegistrant'
-import CatManager from './CatManager'
+import CatManager from './Cat/CatManager'
 
 
 export default class ClientStarter extends ZepetoScriptBehaviour {
@@ -127,10 +127,6 @@ export default class ClientStarter extends ZepetoScriptBehaviour {
             while(state.players.GetByIndex(i) === null) i++
             this.Debug(`${i + 1}번째 생성대기 foeach,  ${state.players.Count}`)
             while(!ZepetoPlayers.instance.HasPlayer(state.players.GetByIndex(i).sessionId)){
-                // this.Debug(`ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ`)
-                // this.Debug(state.players.GetByIndex(i).sessionId)
-                // this.Debug(ZepetoPlayers.instance.HasPlayer(state.players.GetByIndex(i).sessionId))
-                // this.Debug(`ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ`)
                 yield null
             }
         }
@@ -214,9 +210,6 @@ export default class ClientStarter extends ZepetoScriptBehaviour {
         const isAnimate = player.animation != AnimationLinker.instance.GetPlayerAnimation(sessionId)
         // console.log("멀티 player 상태 변경", player.state)
         const positionSchema = this.ParseVector3(player.transform.position);
-        // ClientStarter.instance.Debug("움직여라")
-        // ClientStarter.instance.Debug(`${zepetoPlayer.character.transform.position.x} ${zepetoPlayer.character.transform.position.y} ${zepetoPlayer.character.transform.position.z}`)
-        // ClientStarter.instance.Debug(`${positionSchema.x}  ${positionSchema.y}  ${positionSchema.z}`)
         if(Vector3.Distance(zepetoPlayer.character.transform.position, positionSchema) > 1){
             zepetoPlayer.character.transform.position = positionSchema
         }
@@ -248,7 +241,9 @@ export default class ClientStarter extends ZepetoScriptBehaviour {
         //문제는 제스처 중에 다시 제스처를 누르면 무시된다.
         if(player.state === CharacterState.Gesture && !AnimationLinker.instance.GetIsGesturing(sessionId)){
         //     // 제스처이고 어쩌고 저쩌고이면
-            AnimationLinker.instance.GestureHandler(zepetoPlayer, player.gesture)
+            console.log("서버 - 제스처 세팅", player.state)
+            //무한인지 아닌지 체크를 안하네
+            AnimationLinker.instance.GestureHandler(zepetoPlayer, player.gesture, player.isInfinite)
         }
     }
 

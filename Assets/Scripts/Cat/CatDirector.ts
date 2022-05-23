@@ -1,6 +1,5 @@
 import { Animator } from 'UnityEngine'
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
-import ClientStarter from './ClientStarter'
 
 export default class CatDirector extends ZepetoScriptBehaviour {
 
@@ -11,7 +10,7 @@ export default class CatDirector extends ZepetoScriptBehaviour {
 
     public Activate(index){
         // ClientStarter.instance.Debug(`고양이이이이`)
-        ClientStarter.instance.Debug(`${this.gameObject}가 ${index}를 실행합니다.`)
+        // ClientStarter.instance.Debug(`${this.gameObject}가 ${index}를 실행합니다.`)
         this.animator.SetInteger("random", index)
     }
 }

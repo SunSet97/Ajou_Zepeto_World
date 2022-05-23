@@ -5,7 +5,7 @@ import ClientStarter from './ClientStarter';
 import WaitForSecondsCash from './WaitForSecondsCash';
 import { Button } from 'UnityEngine.UI';
 import { RoomData } from 'ZEPETO.Multiplay';
-import MoveAnimationInteractor from './MoveAnimationInteractor';
+import MoveAnimationInteractor from './Interact/MoveAnimationInteractor';
 
 class playerData{
     animatorController : RuntimeAnimatorController
@@ -49,6 +49,11 @@ export default class AnimationLinker extends ZepetoScriptBehaviour {
     private readonly AniOriginal : string[] = ["idle", "walk", "run", "jump_idle", "jump_move"]
     private readonly leftHandBone :string = "hand_L"
     
+
+    public AddGestureAndPoseClip(clip : AnimationClip){
+        this.gestures.push(clip)
+    }
+
     Awake(){
         GameObject.DontDestroyOnLoad(this.gameObject)
         this.originalAnimators = new Map<string, RuntimeAnimatorController>()
@@ -163,11 +168,12 @@ export default class AnimationLinker extends ZepetoScriptBehaviour {
         ClientStarter.instance.Debug(`${player.character.gameObject}가 제스처 실행 - ${targetClip}, ${isInfinite ? "무한" : "1회성"}`)
 
         const clip = this.GetPlayerGesture(targetClip)
+        console.log(clip)
+        if(clip == undefined) return
         this.SetisGesture(player.id, clip)
         // this.StopCoroutine(this.GestureStop(player.character, clip.length))
         // 쓰읍 실행 중인 플레이어만 멈추려면 StopAllCorutine 쓰면 안되는데
         // 다른데랑 겹친다 Client에서 isGesturing() 체크하는 부분 다시 생각하도록
-        console.log(clip)
         this.ResetAniamtor(player.character.ZepetoAnimator, player.id)
         player.character.SetGesture(clip)
         if(!isInfinite){
@@ -235,7 +241,7 @@ export default class AnimationLinker extends ZepetoScriptBehaviour {
 
 
     GetPlayerGesture(gestureName : string) : AnimationClip{
-        var clip : AnimationClip = this.gestures.find((item) => {return item.name === gestureName})
+        var clip : AnimationClip = this.gestures.find((item) => {return item.name == gestureName})
         return clip
     }
 

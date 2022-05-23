@@ -2,11 +2,12 @@ import { Camera, Collider, GameObject, LayerMask, Vector3 } from 'UnityEngine'
 import { Button } from 'UnityEngine.UI'
 import { ZepetoPlayers } from 'ZEPETO.Character.Controller'
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
-import AnimationLinker from './AnimationLinker'
+import AnimationLinker from '../AnimationLinker'
 
 export default class MoveAnimationInteractor extends ZepetoScriptBehaviour {
 
-    public inteactButton : Button
+    public interactButton : Button
+    private _interactButton : Button
     @Header("애니메이션 이름을 넣으세요. ex) idle_cup인 경우 cup")
     public animationClipName : string
     public cameraOffset : Vector3
@@ -18,35 +19,32 @@ export default class MoveAnimationInteractor extends ZepetoScriptBehaviour {
 
     private localCamera : Camera
     Start() {
+        this._interactButton = GameObject.Instantiate<GameObject>(this.interactButton.gameObject, this.interactButton.transform.parent).GetComponent<Button>()
         ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(() =>{
             this.localCamera = ZepetoPlayers.instance.LocalPlayer.zepetoCamera.camera
         })
-        this.inteactButton.onClick.AddListener(() => {
+        this._interactButton.onClick.AddListener(() => {
             AnimationLinker.instance.SendAnimationToServer(this.animationClipName, this.gameObject.name)
         })
         
     }
 
     Update(){
-        if(this.inteactButton.gameObject.activeSelf && this.localCamera != null){
-            // console.log(this.testButton.gameObject.transform.position)
+        if(this._interactButton.gameObject.activeSelf && this.localCamera != null){
             var screenPos = this.localCamera.WorldToScreenPoint(this.transform.position + this.cameraOffset)
-            // console.log(screenPos)
-            this.inteactButton.transform.position = screenPos
-
-            // this.testButton.transform.LookAt(this.localCamera.transform)
+            this._interactButton.transform.position = screenPos
         }
     }
 
     OnTriggerEnter(col : Collider){    
         if(col.gameObject.layer === LayerMask.NameToLayer("LocalPlayer")){
-            this.inteactButton.gameObject.SetActive(true)
+            this._interactButton.gameObject.SetActive(true)
         }
     }
 
     OnTriggerExit(col : Collider){
         if(col.gameObject.layer === LayerMask.NameToLayer("LocalPlayer")){
-            this.inteactButton.gameObject.SetActive(false)
+            this._interactButton.gameObject.SetActive(false)
         }
     }
 }

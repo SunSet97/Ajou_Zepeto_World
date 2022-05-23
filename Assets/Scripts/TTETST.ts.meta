@@ -1,0 +1,116 @@
+fileFormatVersion: 2
+guid: 623de14e3cce9304c8d2595871757ba4
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: "{\"source\":\"\\\"use strict\\\";\\r\\nObject.defineProperty(exports,
+    \\\"__esModule\\\", { value: true });\\r\\nconst UnityEngine_1 = require(\\\"UnityEngine\\\");\\r\\nconst
+    ZEPETO_Character_Controller_1 = require(\\\"ZEPETO.Character.Controller\\\");\\r\\nconst
+    ZEPETO_Script_1 = require(\\\"ZEPETO.Script\\\");\\r\\nconst ZEPETO_World_1 =
+    require(\\\"ZEPETO.World\\\");\\r\\nconst AnimationLinker_1 = require(\\\"./AnimationLinker\\\");\\r\\nconst
+    ClientStarter_1 = require(\\\"./ClientStarter\\\");\\r\\nconst SS_UIController_1
+    = require(\\\"./SS_UIController\\\");\\r\\nconst UIGesture_1 = require(\\\"./UIGesture\\\");\\r\\nclass
+    TTETST extends ZEPETO_Script_1.ZepetoScriptBehaviour {\\r\\n    constructor()
+    {\\r\\n        super(...arguments);\\r\\n        this.gestureItemIndex = 0;\\r\\n       
+    this.poseItemIndex = 0;\\r\\n        this.gestureContentLen = -1;\\r\\n       
+    this.poseContentLen = -1;\\r\\n    }\\r\\n    Start() {\\r\\n        this._uiController
+    = this.uiController.GetComponent($typeof(SS_UIController_1.default));\\r\\n       
+    this._uiGesture = this.uiGesture.GetComponent($typeof(UIGesture_1.default));\\r\\n       
+    ZEPETO_Character_Controller_1.ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(()
+    => {\\r\\n            ZEPETO_World_1.ZepetoWorldContent.RequestOfficialContentList(ZEPETO_World_1.OfficialContentType.Gesture,
+    (contents) => {\\r\\n                this.gestureContentLen = contents.length;\\r\\n               
+    console.log('\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161');\\r\\n               
+    console.log(contents.length);\\r\\n                var character = ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character;\\r\\n               
+    // if(Application.isEditor) return\\r\\n                for (var index = 0; index
+    < contents.length; index++) {\\r\\n                    const idx = index;\\r\\n                   
+    const cnt = contents[idx];\\r\\n                    cnt.DownloadAnimation(()
+    => {\\r\\n                        console.log(\\\"\uC560\uB2C8\uBA54\uC774\uC158\\\");\\r\\n                       
+    console.log(idx);\\r\\n                        console.log(cnt);\\r\\n                       
+    console.log(cnt.AnimationClip);\\r\\n                        const aniClip =
+    cnt.AnimationClip;\\r\\n                        AnimationLinker_1.default.instance.AddGestureAndPoseClip(cnt.AnimationClip);\\r\\n                       
+    this._uiGesture.AddGestureClip(aniClip);\\r\\n                        if (!UnityEngine_1.Application.isEditor)
+    {\\r\\n                            // isDownloadAnimation \uAE30\uB2E4\uB9AC\uB2E4\uAC00
+    \uC2E4\uD589\\r\\n                            cnt.DownloadThumbnail(character,
+    () => {\\r\\n                                ClientStarter_1.default.instance.Debug(\\\"\uC378\uB124\uC77C\\\");\\r\\n                               
+    ClientStarter_1.default.instance.Debug(idx);\\r\\n                               
+    console.log(this.gestureItemIndex);\\r\\n                                var
+    texture = cnt.Thumbnail;\\r\\n                                // ClientStarter.instance.Debug(texture)\\r\\n                               
+    ClientStarter_1.default.instance.Debug(texture.width);\\r\\n                               
+    ClientStarter_1.default.instance.Debug(texture.height);\\r\\n                               
+    const sprite = UnityEngine_1.Sprite.Create(texture, new UnityEngine_1.Rect(0,
+    0, texture.width, texture.height), new UnityEngine_1.Vector2(0.5, 0.5));\\r\\n                               
+    this._uiGesture.SetGestureThumbnail(sprite, this.gestureItemIndex);\\r\\n                               
+    this.gestureItemIndex++;\\r\\n                                console.log('\uC778\uB371\uC2A4
+    ++++++++');\\r\\n                                console.log(this.gestureItemIndex);\\r\\n                           
+    });\\r\\n                        }\\r\\n                        else {\\r\\n                           
+    this._uiGesture.SetGestureThumbnail(null, this.gestureItemIndex);\\r\\n                           
+    this.gestureItemIndex++;\\r\\n                            console.log('\uC778\uB371\uC2A4
+    ++++++++');\\r\\n                            console.log(this.gestureItemIndex);\\r\\n                       
+    }\\r\\n                    });\\r\\n                }\\r\\n                console.log('\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161');\\r\\n           
+    });\\r\\n            ZEPETO_World_1.ZepetoWorldContent.RequestOfficialContentList(ZEPETO_World_1.OfficialContentType.Pose,
+    (contents) => {\\r\\n                console.log('\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161');\\r\\n               
+    console.log(contents.length);\\r\\n                this.poseContentLen = contents.length;\\r\\n               
+    var character = ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character;\\r\\n               
+    // if(Application.isEditor) return\\r\\n                for (var index = 0; index
+    < contents.length; index++) {\\r\\n                    const idx = index;\\r\\n                   
+    const cnt = contents[idx];\\r\\n                    cnt.DownloadAnimation(()
+    => {\\r\\n                        console.log(\\\"\uC560\uB2C8\uBA54\uC774\uC158
+    \uD3EC\uC988\\\");\\r\\n                        console.log(idx);\\r\\n                       
+    console.log(cnt);\\r\\n                        console.log(cnt.AnimationClip);\\r\\n                       
+    const aniClip = cnt.AnimationClip;\\r\\n                        AnimationLinker_1.default.instance.AddGestureAndPoseClip(cnt.AnimationClip);\\r\\n                       
+    this._uiGesture.AddPoseClip(aniClip);\\r\\n                        if (!UnityEngine_1.Application.isEditor)
+    {\\r\\n                            // isDownloadAnimation \uAE30\uB2E4\uB9AC\uB2E4\uAC00
+    \uC2E4\uD589\\r\\n                            cnt.DownloadThumbnail(character,
+    () => {\\r\\n                                ClientStarter_1.default.instance.Debug(\\\"\uC378\uB124\uC77C\\\");\\r\\n                               
+    ClientStarter_1.default.instance.Debug(idx);\\r\\n                               
+    var texture = cnt.Thumbnail;\\r\\n                                // ClientStarter.instance.Debug(texture)\\r\\n                               
+    ClientStarter_1.default.instance.Debug(texture.width);\\r\\n                               
+    ClientStarter_1.default.instance.Debug(texture.height);\\r\\n                               
+    const sprite = UnityEngine_1.Sprite.Create(texture, new UnityEngine_1.Rect(0,
+    0, texture.width, texture.height), new UnityEngine_1.Vector2(0.5, 0.5));\\r\\n                               
+    this._uiGesture.SetPoseThumbnail(sprite, this.poseItemIndex);\\r\\n                               
+    this.poseItemIndex++;\\r\\n                                console.log('\uC778\uB371\uC2A4
+    ++++++++');\\r\\n                                console.log(this.poseItemIndex);\\r\\n                           
+    });\\r\\n                        }\\r\\n                        else {\\r\\n                           
+    this._uiGesture.SetPoseThumbnail(null, this.poseItemIndex);\\r\\n                           
+    this.poseItemIndex++;\\r\\n                            console.log('\uC778\uB371\uC2A4
+    ++++++++');\\r\\n                            console.log(this.poseItemIndex);\\r\\n                       
+    }\\r\\n                    });\\r\\n                }\\r\\n                console.log('\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161');\\r\\n           
+    });\\r\\n            this.StartCoroutine(this.OnCompleteGesture());\\r\\n       
+    });\\r\\n        // ZepetoWorldContent.GetQuickMessageList((quickMessages : QuickMessage[])
+    =>{\\r\\n        //     console.log('\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161')\\r\\n       
+    //     console.log(quickMessages.length)\\r\\n        //     for(var idx = 0;
+    idx < quickMessages.length; idx++){\\r\\n        //         console.log(quickMessages[idx])\\r\\n       
+    //         console.log(quickMessages[idx].id)\\r\\n        //         console.log(quickMessages[idx].message)\\r\\n       
+    //     }\\r\\n        //     console.log('\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161')\\r\\n       
+    // }, (errorMessage) =>{ console.log(`\uC5D0\uB7EC \uBA54\uC2DC\uC9C0 : ${errorMessage}`)})\\r\\n       
+    // ZepetoWorldContent.ResetQuickMessageList((quickMessages : QuickMessage[])
+    =>{\\r\\n        //     console.log('\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161')\\r\\n       
+    //     console.log(quickMessages.length)\\r\\n        //     for(var idx = 0;
+    idx < quickMessages.length; idx++){\\r\\n        //         console.log(quickMessages[idx])\\r\\n       
+    //         console.log(quickMessages[idx].id)\\r\\n        //         console.log(quickMessages[idx].message)\\r\\n       
+    //     }\\r\\n        //     console.log('\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161\u3161')\\r\\n       
+    // }, (errorMessage) =>{ console.log(`\uC5D0\uB7EC \uBA54\uC2DC\uC9C0 : ${errorMessage}`)})\\r\\n       
+    // this.messageButton.onClick.AddListener(() =>{\\r\\n        //     ClientStarter.instance.Debug(\\\"\uCC44\uD305\\\")\\r\\n       
+    //     WorldMultiplayChatContent.instance.Send(\\\"\uD14C\uC2A4\uD2B8 \uBA54\uC2DC\uC9C0\\\")\\r\\n       
+    // })\\r\\n    }\\r\\n    *OnCompleteGesture() {\\r\\n        console.log(this.poseContentLen);\\r\\n       
+    console.log(this.gestureContentLen);\\r\\n        yield new UnityEngine_1.WaitUntil(()
+    => {\\r\\n            return this.gestureContentLen + this.poseContentLen ==
+    this.gestureItemIndex + this.poseItemIndex;\\r\\n        });\\r\\n        this._uiController.InitUIPos();\\r\\n   
+    }\\r\\n}\\r\\nexports.default = TTETST;\\r\\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVFRFVFNULmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiVFRFVFNULnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsNkNBQTRIO0FBRTVILDZFQUEyRDtBQUMzRCxpREFBcUQ7QUFDckQsK0NBQXFLO0FBQ3JLLHVEQUErQztBQUMvQyxtREFBMkM7QUFDM0MsdURBQStDO0FBQy9DLDJDQUFtQztBQUVuQyxNQUFxQixNQUFPLFNBQVEscUNBQXFCO0lBQXpEOztRQU9ZLHFCQUFnQixHQUFZLENBQUMsQ0FBQTtRQUM3QixrQkFBYSxHQUFZLENBQUMsQ0FBQTtRQUMxQixzQkFBaUIsR0FBWSxDQUFDLENBQUMsQ0FBQTtRQUMvQixtQkFBYyxHQUFZLENBQUMsQ0FBQyxDQUFBO0lBeUl4QyxDQUFDO0lBcklHLEtBQUs7UUFDRCxJQUFJLENBQUMsYUFBYSxHQUFHLElBQUksQ0FBQyxZQUFZLENBQUMsWUFBWSxTQUFDLHlCQUFlLEVBQUcsQ0FBQTtRQUN0RSxJQUFJLENBQUMsVUFBVSxHQUFHLElBQUksQ0FBQyxTQUFTLENBQUMsWUFBWSxTQUFDLG1CQUFTLEVBQUcsQ0FBQTtRQUMxRCwyQ0FBYSxDQUFDLFFBQVEsQ0FBQyxrQkFBa0IsQ0FBQyxXQUFXLENBQUMsR0FBRyxFQUFFO1lBQ3ZELGlDQUFrQixDQUFDLDBCQUEwQixDQUFDLGtDQUFtQixDQUFDLE9BQU8sRUFBRSxDQUFDLFFBQW9CLEVBQUUsRUFBRTtnQkFDaEcsSUFBSSxDQUFDLGlCQUFpQixHQUFHLFFBQVEsQ0FBQyxNQUFNLENBQUE7Z0JBQ3hDLE9BQU8sQ0FBQyxHQUFHLENBQUMsOEJBQThCLENBQUMsQ0FBQTtnQkFDM0MsT0FBTyxDQUFDLEdBQUcsQ0FBQyxRQUFRLENBQUMsTUFBTSxDQUFDLENBQUE7Z0JBQzVCLElBQUksU0FBUyxHQUFHLDJDQUFhLENBQUMsUUFBUSxDQUFDLFdBQVcsQ0FBQyxZQUFZLENBQUMsU0FBUyxDQUFBO2dCQUN6RSxrQ0FBa0M7Z0JBQ2xDLEtBQUksSUFB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\",\"assetPath\":\"Assets/Scripts/TTETST.ts\",\"manifest\":{\"properties\":[{\"assembly\":\"UnityEngine.CoreModule\",\"name\":\"uiGesture\",\"type\":\"UnityEngine.GameObject\",\"isArray\":false,\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]},{\"assembly\":\"\",\"name\":\"_uiGesture\",\"type\":\"C:/Users/UISU/Documents/GitHub/Ajou_Zepeto_World/Assets/Scripts/UIGesture.default\",\"isArray\":false,\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]},{\"assembly\":\"UnityEngine.CoreModule\",\"name\":\"uiController\",\"type\":\"UnityEngine.GameObject\",\"isArray\":false,\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]}],\"name\":\"TTETST\",\"description\":\"\"},\"isCompiled\":true}"
+  typescriptHash: 9dfa93241b9a7e827c5abcea928aaa6a

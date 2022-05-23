@@ -1,14 +1,12 @@
 import { Canvas, GameObject, Rect, RectTransform, Screen, Sprite, Vector2, YieldInstruction } from 'UnityEngine'
-import { Button, Image, Text } from 'UnityEngine.UI'
+import { Button, GridLayoutGroup, Image, Text } from 'UnityEngine.UI'
 import { ZepetoPlayers } from 'ZEPETO.Character.Controller'
 import { RoomData } from 'ZEPETO.Multiplay'
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
 import { WorldVideoRecorder } from 'ZEPETO.World'
-import AnimationLinker from '../AnimationLinker'
-import ClientStarter from '../ClientStarter'
-import WaitForSecondsCash from '../WaitForSecondsCash'
-import CaptureController from './CaptureController'
-import ScreenShotModeManager from './ScreenShotModeManager'
+import CaptureController from './ScreenShot/CaptureController'
+import ScreenShotModeManager from './ScreenShot/ScreenShotModeManager'
+import WaitForSecondsCash from './WaitForSecondsCash'
 
 export default class SS_UIController extends ZepetoScriptBehaviour {
 
@@ -52,7 +50,7 @@ export default class SS_UIController extends ZepetoScriptBehaviour {
     public captureController : GameObject
     public screenShotModeManager: GameObject
 
-    private _screenShotModeManager: ScreenShotModeManager;
+    private _screenShotModeManager: ScreenShotModeManager
     private _captureController : CaptureController
     
     @Header("Pose Panels")
@@ -61,7 +59,7 @@ export default class SS_UIController extends ZepetoScriptBehaviour {
 
     @Header("Toast Message")
     // public toastMessagePrefab : GameObject
-    private waitForSecond : YieldInstruction;
+    private waitForSecond : YieldInstruction
 
     //  Camera Mode
     isThirdPersonView = false
@@ -74,6 +72,8 @@ export default class SS_UIController extends ZepetoScriptBehaviour {
     public poseButton : Button
     public gestureContent : GameObject
     public poseContent : GameObject
+    // public poseBackground : GameObject
+    // public poseViewPort : GameObject
 
 
     TOAST_MESSAGE = {
@@ -85,11 +85,37 @@ export default class SS_UIController extends ZepetoScriptBehaviour {
 
     private isUIOpen : boolean = false
 
+    private pose_Y : number
+    private gesture_Y : number
 
     AddVector2(t1 : Vector2, t2 : Vector2) : Vector2{
         return new Vector2(t1.x + t2.x, t1.y + t2.y)
     }
 
+    public InitUIPos(){
+        const poseRect = this.poseContent.GetComponent<RectTransform>()
+        const poseGrid = this.poseContent.GetComponent<GridLayoutGroup>()
+        var y_count = Math.floor((this.poseContent.transform.childCount + 1) / poseGrid.constraintCount)
+        var base_y = poseRect.rect.height / 2
+        poseRect.sizeDelta = new Vector2(poseRect.sizeDelta.x ,(y_count - 1) * poseGrid.spacing.y  +  y_count * poseGrid.cellSize.y)
+        this.pose_Y = poseRect.rect.height / 2 - base_y
+
+        const gestureRect = this.gestureContent.GetComponent<RectTransform>()
+        const gestureGrid = this.gestureContent.GetComponent<GridLayoutGroup>()
+        var y_count = Math.floor((this.gestureContent.transform.childCount + 1) / gestureGrid.constraintCount)
+        var base_y = gestureRect.rect.height / 2
+        gestureRect.sizeDelta = new Vector2(gestureRect.sizeDelta.x ,(y_count - 1) * gestureGrid.spacing.y  +  y_count * gestureGrid.cellSize.y)
+        this.gesture_Y = gestureRect.rect.height / 2 - base_y
+    }
+    SetUIPos(){
+        const poseRect = this.poseContent.GetComponent<RectTransform>()
+        poseRect.anchoredPosition = new Vector2(poseRect.anchoredPosition.x, -this.pose_Y)
+        console.log(this.pose_Y)
+        const gestureRect = this.gestureContent.GetComponent<RectTransform>()
+        gestureRect.anchoredPosition = new Vector2(gestureRect.anchoredPosition.x, -this.gesture_Y)
+        console.log(this.gesture_Y)
+    }
+    
     Start(){
         this.zepetoScreenShotCanvas.sortingOrder = 1
         this._screenShotModeManager = this.screenShotModeManager.GetComponent<ScreenShotModeManager>()
@@ -217,9 +243,11 @@ export default class SS_UIController extends ZepetoScriptBehaviour {
 
         this.poseModeButton.onClick.AddListener(() =>{
             if(this.isUIOpen) return
+            this.SetUIPos()
             this.isUIOpen = true
             this.poseDefaultPanels.SetActive(false)
             this.poseModePanels.SetActive(true)
+            
         })
 
         this.poseExitButton.onClick.AddListener(() =>{
@@ -229,11 +257,15 @@ export default class SS_UIController extends ZepetoScriptBehaviour {
         })
         
         this.gestureButton.onClick.AddListener(() =>{
+            if(this.gestureContent.activeSelf) return
+            this.SetUIPos()
             this.poseContent.SetActive(false)
             this.gestureContent.SetActive(true)
         })
 
         this.poseButton.onClick.AddListener(() =>{
+            if(this.poseContent.activeSelf) return
+            this.SetUIPos()
             this.poseContent.SetActive(true)
             this.gestureContent.SetActive(false)
         })

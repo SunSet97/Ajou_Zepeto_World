@@ -1,7 +1,6 @@
 import { GameObject, Mathf } from 'UnityEngine'
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
 import CatDirector from './CatDirector'
-import ClientStarter from './ClientStarter'
 
 export default class CatManager extends ZepetoScriptBehaviour {
 

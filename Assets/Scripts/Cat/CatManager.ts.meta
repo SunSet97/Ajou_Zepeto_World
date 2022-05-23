@@ -1,0 +1,34 @@
+fileFormatVersion: 2
+guid: 43057b8c50040e944af3c99766e595c2
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: "{\"source\":\"\\\"use strict\\\";\\r\\nObject.defineProperty(exports,
+    \\\"__esModule\\\", { value: true });\\r\\nconst UnityEngine_1 = require(\\\"UnityEngine\\\");\\r\\nconst
+    ZEPETO_Script_1 = require(\\\"ZEPETO.Script\\\");\\r\\nconst CatDirector_1 =
+    require(\\\"./CatDirector\\\");\\r\\nclass CatManager extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\\r\\n    static get instance() {\\r\\n        return this._instance;\\r\\n   
+    }\\r\\n    Awake() {\\r\\n        CatManager._instance = this;\\r\\n    }\\r\\n   
+    Start() {\\r\\n        this._cats = new Array(this.cats.length);\\r\\n       
+    for (var i = 0; i < this._cats.length; i++) {\\r\\n            this._cats[i]
+    = this.cats[i].GetComponent($typeof(CatDirector_1.default));\\r\\n        }\\r\\n   
+    }\\r\\n    ActivateCats(catIndex) {\\r\\n        //\uC2ED\uC758 \uC790\uB9AC\uC218
+    - index, \uC77C\uC758 \uC790\uB9AC\uC218 random animate parameter\\r\\n       
+    this._cats[UnityEngine_1.Mathf.Round(catIndex % 10)].Activate(UnityEngine_1.Mathf.Round(catIndex
+    / 10));\\r\\n    }\\r\\n}\\r\\nexports.default = CatManager;\\r\\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQ2F0TWFuYWdlci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIkNhdE1hbmFnZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSw2Q0FBK0M7QUFDL0MsaURBQXFEO0FBQ3JELCtDQUF1QztBQUV2QyxNQUFxQixVQUFXLFNBQVEscUNBQXFCO0lBSWxELE1BQU0sS0FBSyxRQUFRO1FBQ3RCLE9BQU8sSUFBSSxDQUFDLFNBQVMsQ0FBQTtJQUN6QixDQUFDO0lBS0QsS0FBSztRQUNELFVBQVUsQ0FBQyxTQUFTLEdBQUcsSUFBSSxDQUFBO0lBQy9CLENBQUM7SUFFRCxLQUFLO1FBQ0QsSUFBSSxDQUFDLEtBQUssR0FBRyxJQUFJLEtBQUssQ0FBYyxJQUFJLENBQUMsSUFBSSxDQUFDLE1BQU0sQ0FBQyxDQUFBO1FBQ3JELEtBQUksSUFBSSxDQUFDLEdBQUcsQ0FBQyxFQUFFLENBQUMsR0FBRyxJQUFJLENBQUMsS0FBSyxDQUFDLE1BQU0sRUFBRSxDQUFDLEVBQUUsRUFBQztZQUN0QyxJQUFJLENBQUMsS0FBSyxDQUFDLENBQUMsQ0FBQyxHQUFHLElBQUksQ0FBQyxJQUFJLENBQUMsQ0FBQyxDQUFDLENBQUMsWUFBWSxTQUFDLHFCQUFXLEVBQUcsQ0FBQTtTQUMzRDtJQUNMLENBQUM7SUFFTSxZQUFZLENBQUMsUUFBUTtRQUN4QixpREFBaUQ7UUFDakQsSUFBSSxDQUFDLEtBQUssQ0FBQyxtQkFBSyxDQUFDLEtBQUssQ0FBQyxRQUFRLEdBQUcsRUFBRSxDQUFDLENBQUMsQ0FBQyxRQUFRLENBQUMsbUJBQUssQ0FBQyxLQUFLLENBQUMsUUFBUSxHQUFDLEVBQUUsQ0FBQyxDQUFDLENBQUE7SUFDN0UsQ0FBQztDQUVKO0FBM0JELDZCQTJCQyJ9\",\"assetPath\":\"Assets/Scripts/Cat/CatManager.ts\",\"manifest\":{\"properties\":[{\"assembly\":\"UnityEngine.CoreModule\",\"name\":\"cats\",\"type\":\"UnityEngine.GameObject[]\",\"isArray\":true,\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]}],\"name\":\"CatManager\",\"description\":\"\"},\"isCompiled\":true}"
+  typescriptHash: 504757fe212608d674f51fb70ee62d61

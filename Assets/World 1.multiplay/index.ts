@@ -50,6 +50,7 @@ export default class extends Sandbox {
         this.onMessage("onChangedGesture", (client, message)=>{
             const player = this.state.players.get(client.sessionId);
             player.gesture = message.gesture;
+            player.isInfinite = message.isInfinite;
         });
         //client - 찍는 플레이어
         this.onMessage("onSelfieMode", (client, message) => {
@@ -178,8 +179,6 @@ export default class extends Sandbox {
             var catCount : number = 5
             for(var i = 0; i < catCount; i++){
                 var catIndex = Math.round(Math.random() * 2)
-                // const data = new room
-                console.log(`${catIndex}   ${i}`)
                 this.broadcast("OnCatActivate", catIndex * 10 + i)
             }
             this.secCounter = 0

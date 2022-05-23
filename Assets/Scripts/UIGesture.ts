@@ -1,8 +1,11 @@
-import { AnimationClip, Color } from 'UnityEngine'
+import { AnimationClip, Color, GameObject, Sprite, WrapMode } from 'UnityEngine'
 import { Button, Image } from 'UnityEngine.UI'
-import { ZepetoPlayers } from 'ZEPETO.Character.Controller'
+import { ZepetoPlayer, ZepetoPlayers } from 'ZEPETO.Character.Controller'
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
 import AnimationLinker from './AnimationLinker'
+import ClientStarter from './ClientStarter'
+import SS_UIController from './SS_UIController'
+import WaitForSecondsCash from './WaitForSecondsCash'
 
 export default class UIGesture extends ZepetoScriptBehaviour {
 
@@ -19,7 +22,12 @@ export default class UIGesture extends ZepetoScriptBehaviour {
     public poseButtons : Button[]
     public poseClips : AnimationClip[]
 
+    private gestureLen : number
+    private poseLen : number
+
     Start() {
+        this.gestureLen = this.gestureButtons.length
+        this.poseLen = this.poseButtons.length
         ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(() =>{
             const player = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer
             for(var idx = 0; idx < this.gestureButtons.length; idx++){
@@ -73,6 +81,68 @@ export default class UIGesture extends ZepetoScriptBehaviour {
             }
         })
     }
+
+    public AddPoseClip(clip : AnimationClip){
+        const prefabBtn = this.poseButtons[0]
+        const poseBtn = GameObject.Instantiate<GameObject>(prefabBtn.gameObject, prefabBtn.transform.parent).GetComponent<Button>()
+        this.poseButtons.push(poseBtn)
+        this.poseClips.push(clip)
+        clip.wrapMode = WrapMode.Loop
+        console.log(clip.length)
+        poseBtn.onClick.AddListener(() =>{
+            const player = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer
+            this.StartCoroutine(this.StopGesture(player, clip.length))
+            if(AnimationLinker.instance.GetIsGesturing(player.id)){
+                AnimationLinker.instance.StopGesture(player)
+                if(clip != AnimationLinker.instance.GetPlayingGesture(player.id)){
+                    AnimationLinker.instance.PlayGesture(clip.name, this.isInfinite)    
+                    this.StartCoroutine(this.CheckPlayerMove())
+                }
+            }else{
+                AnimationLinker.instance.PlayGesture(clip.name, this.isInfinite)
+                this.StartCoroutine(this.CheckPlayerMove())
+            }
+        })
+    }
+
+    public AddGestureClip(clip : AnimationClip){
+        const prefabBtn = this.gestureButtons[0]
+        const gestureBtn = GameObject.Instantiate<GameObject>(prefabBtn.gameObject, prefabBtn.transform.parent).GetComponent<Button>()
+        this.gestureButtons.push(gestureBtn)
+        this.gestureClips.push(clip)
+        clip.wrapMode = WrapMode.Loop
+        gestureBtn.onClick.AddListener(() =>{
+            const player = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer
+            this.StartCoroutine(this.StopGesture(player, clip.length))
+            if(AnimationLinker.instance.GetIsGesturing(player.id)){
+                AnimationLinker.instance.StopGesture(player)
+                if(clip != AnimationLinker.instance.GetPlayingGesture(player.id)){
+                    AnimationLinker.instance.PlayGesture(clip.name, this.isInfinite)    
+                    this.StartCoroutine(this.CheckPlayerMove())
+                }
+            }else{
+                AnimationLinker.instance.PlayGesture(clip.name, this.isInfinite)
+                this.StartCoroutine(this.CheckPlayerMove())
+            }
+        })
+    }
+
+    public SetGestureThumbnail(sprite : Sprite, idx : number){
+        // ClientStarter.instance.Debug(sprite)
+        this.gestureButtons[this.gestureLen + idx].GetComponent<Image>().sprite = sprite
+        // ClientStarter.instance.Debug(this.gestureButtons[this.gestureLen + idx].GetComponent<Image>().sprite)
+    }
+    public SetPoseThumbnail(sprite : Sprite, idx : number){
+        // ClientStarter.instance.Debug(sprite)
+        this.poseButtons[this.poseLen + idx].GetComponent<Image>().sprite = sprite
+        // ClientStarter.instance.Debug(this.gestureButtons[this.gestureLen + idx].GetComponent<Image>().sprite)
+    }
+    
+    *StopGesture(player : ZepetoPlayer, clipTime : float){
+        yield WaitForSecondsCash.instance.WaitForSeconds(clipTime)
+        player.character.CancelGesture()
+    }
+
     GetGrayColor(color : Color) : Color{
         let c = new Color(color.r - 0.2, color.g - 0.2, color.b - 0.2, color.a)
         return color
@@ -90,5 +160,4 @@ export default class UIGesture extends ZepetoScriptBehaviour {
         }
         AnimationLinker.instance.StopGesture(ZepetoPlayers.instance.LocalPlayer.zepetoPlayer)
     }
-    // 2번 제스처하다가 움직이거나 하면 어떻게 되는가 ㅁㄹ 여기도 이거저거 생각
 }

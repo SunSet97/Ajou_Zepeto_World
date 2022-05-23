@@ -1,0 +1,50 @@
+fileFormatVersion: 2
+guid: 98072a246bfd9fe49b0e6c4983f5d270
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    UnityEngine_UI_1 = require(\"UnityEngine.UI\");\r\nconst ZEPETO_Character_Controller_1
+    = require(\"ZEPETO.Character.Controller\");\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    AnimationLinker_1 = require(\"../AnimationLinker\");\r\nclass FixedInteractor
+    extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    constructor() {\r\n       
+    super(...arguments);\r\n        this.isPlaying = false;\r\n    }\r\n    Start()
+    {\r\n        this._interactButton = UnityEngine_1.GameObject.Instantiate(this.interactButton.gameObject,
+    this.interactButton.transform.parent).GetComponent($typeof(UnityEngine_UI_1.Button));\r\n       
+    ZEPETO_Character_Controller_1.ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(()
+    => {\r\n            this.localCamera = ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoCamera.camera;\r\n       
+    });\r\n        this._interactButton.onClick.AddListener(() => {\r\n           
+    // console.log(this.isPlaying)\r\n            if (!this.isPlaying) {\r\n               
+    AnimationLinker_1.default.instance.PlayGesture(this.animationClip.name, true);\r\n               
+    ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character.transform.position
+    = this.fixedPoint.position;\r\n                this.isPlaying = true;\r\n           
+    }\r\n            else {\r\n                AnimationLinker_1.default.instance.StopGesture(ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoPlayer);\r\n               
+    this.isPlaying = false;\r\n            }\r\n        });\r\n    }\r\n    Update()
+    {\r\n        if ((this._interactButton.gameObject.activeSelf || this._interactButton.gameObject.activeSelf)
+    && this.localCamera != null) {\r\n            // console.log(this.testButton.gameObject.transform.position)\r\n           
+    var screenPos = this.localCamera.WorldToScreenPoint(UnityEngine_1.Vector3.op_Addition(this.transform.position,
+    this.cameraOffset));\r\n            // console.log(screenPos)\r\n           
+    this._interactButton.transform.position = screenPos;\r\n            this._interactButton.transform.position
+    = screenPos;\r\n            // this.testButton.transform.LookAt(this.localCamera.transform)\r\n       
+    }\r\n    }\r\n    OnTriggerEnter(col) {\r\n        if (col.gameObject.layer ===
+    UnityEngine_1.LayerMask.NameToLayer(\"LocalPlayer\")) {\r\n            this._interactButton.gameObject.SetActive(true);\r\n       
+    }\r\n    }\r\n    OnTriggerExit(col) {\r\n        if (col.gameObject.layer ===
+    UnityEngine_1.LayerMask.NameToLayer(\"LocalPlayer\")) {\r\n            this._interactButton.gameObject.SetActive(false);\r\n       
+    }\r\n    }\r\n}\r\nexports.default = FixedInteractor;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiRml4ZWRJbnRlcmFjdG9yLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiRml4ZWRJbnRlcmFjdG9yLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsNkNBQXdHO0FBQ3hHLG1EQUF1QztBQUN2Qyw2RUFBMkQ7QUFDM0QsaURBQXFEO0FBQ3JELHdEQUFnRDtBQUVoRCxNQUFxQixlQUFnQixTQUFRLHFDQUFxQjtJQUFsRTs7UUFVWSxjQUFTLEdBQWEsS0FBSyxDQUFBO0lBNEN2QyxDQUFDO0lBMUNHLEtBQUs7UUFDRCxJQUFJLENBQUMsZUFBZSxHQUFHLHdCQUFVLENBQUMsV0FBVyxDQUFhLElBQUksQ0FBQyxjQUFjLENBQUMsVUFBVSxFQUFFLElBQUksQ0FBQyxjQUFjLENBQUMsU0FBUyxDQUFDLE1BQU0sQ0FBQyxDQUFDLFlBQVksU0FBQyx1QkFBTSxFQUFHLENBQUE7UUFDdEosMkNBQWEsQ0FBQyxRQUFRLENBQUMsa0JBQWtCLENBQUMsV0FBVyxDQUFDLEdBQUcsRUFBRTtZQUN2RCxJQUFJLENBQUMsV0FBVyxHQUFHLDJDQUFhLENBQUMsUUFBUSxDQUFDLFdBQVcsQ0FBQyxZQUFZLENBQUMsTUFBTSxDQUFBO1FBQzdFLENBQUMsQ0FBQyxDQUFBO1FBRUYsSUFBSSxDQUFDLGVBQWUsQ0FBQyxPQUFPLENBQUMsV0FBVyxDQUFDLEdBQUcsRUFBRTtZQUMxQyw4QkFBOEI7WUFDOUIsSUFBRyxDQUFDLElBQUksQ0FBQyxTQUFTLEVBQUM7Z0JBQ2YseUJBQWUsQ0FBQyxRQUFRLENBQUMsV0FBVyxDQUFDLElBQUksQ0FBQyxhQUFhLENBQUMsSUFBSSxFQUFFLElBQUksQ0FBQyxDQUFBO2dCQUNuRSwyQ0FBYSxDQUFDLFFBQVEsQ0FBQyxXQUFXLENBQUMsWUFBWSxDQUFDLFNBQVMsQ0FBQyxTQUFTLENBQUMsUUFBUSxHQUFHLElBQUksQ0FBQyxVQUFVLENBQUMsUUFBUSxDQUFBO2dCQUN2RyxJQUFJLENBQUMsU0FBUyxHQUFHLElBQUksQ0FBQTthQUN4QjtpQkFBSTtnQkFDRCx5QkFBZSxDQUFDLFFBQVEsQ0FBQyxXQUFXLENBQUMsMkNBQWEsQ0FBQyxRQUFRLENBQUMsV0FBVyxDQUFDLFlBQVksQ0FBQyxDQUFBO2dCQUNyRixJQUFJLENBQUMsU0FBUyxHQUFHLEtBQUssQ0FBQTthQUN6QjtRQUNMLENBQUMsQ0FBQyxDQUFBO0lBQ04sQ0FBQztJQUVELE1BQU07UUFDRixJQUFHLENBQUMsSUFBSSxDQUFDLGVBQWUsQ0FBQyxVQUFVLENBQUMsVUFBVSxJQUFJLElBQUksQ0FBQyxlQUFlLENBQUMsVUFBVSxDQUFDLFVBQVUsQ0FBQyxJQUFJLElBQUksQ0FBQyxXQUFXLElBQUksSUFBSSxFQUFDO1lBQ3RILDZEQUE2RDtZQUM3RCxJQUFJLFNBQVMsR0FBRyxJQUFJLENBQUMsV0FBVyxDQUFDLGtCQUFrQixDQXhDYSxxQkFBTyxDQTREa2xtQixXQUFZLENBcEJqbm1CLElBQUksQ0FBQyxTQUFTLENBQUMsUUFBUSxFQUFHLElBQUksQ0FBQyxZQUFZLEVBQUMsQ0FBQTtZQUNoRyx5QkFBeUI7WUFDekIsSUFBSSxDQUFDLGVBQWUsQ0FBQyxTQUFTLENBQUMsUUFBUSxHQUFHLFNBQVMsQ0FBQTtZQUNuRCxJQUFJLENBQUMsZUFBZSxDQUFDLFNBQVMsQ0FBQyxRQUFRLEdBQUcsU0FBUyxDQUFBO1lBRW5ELCtEQUErRDtTQUNsRTtJQUNMLENBQUM7SUFFRCxjQUFjLENBQUMsR0FBYztRQUN6QixJQUFHLEdBQUcsQ0FBQyxVQUFVLENBQUMsS0FBSyxLQUFLLHVCQUFTLENBQUMsV0FBVyxDQUFDLGFBQWEsQ0FBQyxFQUFDO1lBQzdELElBQUksQ0FBQyxlQUFlLENBQUMsVUFBVSxDQUFDLFNBQVMsQ0FBQyxJQUFJLENBQUMsQ0FBQTtTQUNsRDtJQUNMLENBQUM7SUFFRCxhQUFhLENBQUMsR0FBYztRQUN4QixJQUFHLEdBQUcsQ0FBQyxVQUFVLENBQUMsS0FBSyxLQUFLLHVCQUFTLENBQUMsV0FBVyxDQUFDLGFBQWEsQ0FBQyxFQUFDO1lBQzdELElBQUksQ0FBQyxlQUFlLENBQUMsVUFBVSxDQUFDLFNBQVMsQ0FBQyxLQUFLLENBQUMsQ0FBQTtTQUNuRDtJQUNMLENBQUM7Q0FDSjtBQXRERCxrQ0FzREMifQ==","assetPath":"Assets/Scripts/Interact/FixedInteractor.ts","manifest":{"properties":[{"assembly":"UnityEngine.UI","name":"interactButton","type":"UnityEngine.UI.Button","isArray":false,"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"UnityEngine.AnimationModule","name":"animationClip","type":"UnityEngine.AnimationClip","isArray":false,"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"UnityEngine.CoreModule","name":"fixedPoint","type":"UnityEngine.Transform","isArray":false,"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"UnityEngine.CoreModule","name":"cameraOffset","type":"UnityEngine.Vector3","isArray":false,"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"FixedInteractor","description":""},"isCompiled":true}'
+  typescriptHash: 243f53759f7a6fa62f74446dea263bcb

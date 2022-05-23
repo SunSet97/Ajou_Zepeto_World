@@ -4,7 +4,7 @@ import { ZepetoPlayers } from 'ZEPETO.Character.Controller'
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
 import { VideoResolutions, WorldVideoRecorder, ZepetoWorldContent } from 'ZEPETO.World'
 import ClientStarter from '../ClientStarter'
-import SS_UIController from './SS_UIController'
+import SS_UIController from '../SS_UIController'
 
 export default class CaptureController extends ZepetoScriptBehaviour {
 

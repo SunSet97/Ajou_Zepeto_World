@@ -78,47 +78,64 @@ export default class LeaderBoard extends ZepetoScriptBehaviour {
     public ShowRank(){
         LeaderboardAPI.GetRangeRank(this.leaderboardId, 1, 10000, this.resetRule, false, (response : GetRangeRankResponse) => {
             console.log("리더보드 불러오기 결과 : " + response.isSuccess)
-            //멤버는 ㅁㄹ, 이름은 이름, score - number로 됨 float 안됨, rank - 1등인가
-            console.log("내 랭킹" + response.rankInfo.myRank.member + " " + response.rankInfo.myRank.name + " " + response.rankInfo.myRank.score + " " + response.rankInfo.myRank.rank)
             console.log("총 랭킹 카운트" + response.rankInfo.totalRankCount)
     
-            // 자신의 랭크
-            // for(var index = 0; index < response.rankInfo.Ranks.length; index++){
-            //     console.log("랭크 : " + response.rankInfo.Ranks[index].member + " " + response.rankInfo.Ranks[index].name + " " + response.rankInfo.Ranks[index].score + " " + response.rankInfo.Ranks[index].rank)
-            // }
+            for(var index = 0; index < response.rankInfo.rankList.length; index++){
+                var rank = response.rankInfo.rankList[index]
+                console.log("랭크 : " + " " + rank.name + " " + rank.score + " " + rank.rank + '\n' + rank.member)
+            }
             
             // console.log("--------------------------")
             this.leaderBoardPanel.SetActive(true)
-            // for(var index = 0; index < response.rankInfo.rankList.length; index++){
-            for(var index = 0; index < response.rankInfo.rankList.length; index++){
-                if(index >= this.leaderBoardItemParent.transform.childCount) break;
-                var rank : Rank = response.rankInfo.rankList[index]
-                console.log("랭크리스트 : " + rank.name + "\n점수 : " + rank.score + ", 랭킹 : " + rank.rank)
-
-                if(rank.rank > 3){
-                    this.medalText[index].text = rank.rank.toString()
+            var childCount = this.leaderBoardItemParent.transform.childCount
+            
+            var index = 0
+            if(response.rankInfo.myRank.member != null){
+                var myRank : Rank = response.rankInfo.myRank
+                console.log("내 랭킹" + myRank.name + " " + myRank.score + " " + myRank.rank + '\n' + myRank.member)
+                if(myRank.rank > 3){
+                    this.medalText[index].text = myRank.rank.toString()
                     this.medalImage[index].sprite = this.medalSprites[3]
-                    // console.log(rank.rank.toString() + "  " + this.medalSprites[3])
                 }else{
                     this.medalImage[index].sprite = this.medalSprites[index]
                     this.medalText[index].text = ''
-                    // console.log(this.medalSprites[index] + "  " + '')
                 }
                 this.medalImage[index].enabled = true
                 this.profileImage[index].enabled = true
-                this.SetProfileImage(this.profileImage[index], rank.member)
-                this.playerName[index].text = rank.name
-                this.score[index].text = rank.score.toString()
+                this.SetProfileImage(this.profileImage[index], myRank.member)
+                this.playerName[index].text = myRank.name
+                this.score[index].text = myRank.score.toString()
+                index++
             }
-            for(var index = response.rankInfo.rankList.length; index < this.leaderBoardItemParent.transform.childCount; index++){
-                if(index >= this.leaderBoardItemParent.transform.childCount) break;
-                // const leaderBoard = this._leaderBoards[index]
-                this.medalImage[index].enabled = false
-                this.medalText[index].text = ''
-                this.profileImage[index].enabled = false
-                this.playerName[index].text = ''
-                this.score[index].text = ''
+
+            for(var rankIndex = 0; index < childCount; index++, rankIndex++){
+            //     //보여주기
+                if(index < response.rankInfo.rankList.length){
+                    if(response.rankInfo.myRank.rank != null && index == response.rankInfo.myRank.rank - 1){
+                        rankIndex++
+                    }
+                    var rank : Rank = response.rankInfo.rankList[rankIndex]
+                    if(rank.rank > 3){
+                        this.medalText[index].text = rank.rank.toString()
+                        this.medalImage[index].sprite = this.medalSprites[3]
+                    }else{
+                        this.medalImage[index].sprite = this.medalSprites[index]
+                        this.medalText[index].text = ''
+                    }
+                    this.medalImage[index].enabled = true
+                    this.profileImage[index].enabled = true
+                    this.SetProfileImage(this.profileImage[index], rank.member)
+                    this.playerName[index].text = rank.name
+                    this.score[index].text = rank.score.toString()
+                }else{
+                    this.medalImage[index].enabled = false
+                    this.medalText[index].text = ''
+                    this.profileImage[index].enabled = false
+                    this.playerName[index].text = ''
+                    this.score[index].text = ''
+                }
             }
+
         }, (error) => { console.log("에러 : ", error)})
     }
 
