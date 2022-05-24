@@ -24,6 +24,9 @@ export default class MoveAnimationInteractor extends ZepetoScriptBehaviour {
             this.localCamera = ZepetoPlayers.instance.LocalPlayer.zepetoCamera.camera
         })
         this._interactButton.onClick.AddListener(() => {
+            // if(AnimationLinker.instance.isAlreadyAnimating(this.animationClipName)){
+                
+            // }
             AnimationLinker.instance.SendAnimationToServer(this.animationClipName, this.gameObject.name)
         })
         

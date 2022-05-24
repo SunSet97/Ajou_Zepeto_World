@@ -104,6 +104,11 @@ export default class AnimationLinker extends ZepetoScriptBehaviour {
             // data.Add("prefab", takeObjPrefab.name)
             // const targetObject = 
             ClientStarter.instance.SendAnimation(targetName, interactor)
+        }else if(this.takingObject.has(player.id)){
+            if(this.takingObject.get(player.id).name != interactor){
+                this.SetMoveAnimation(player.character.ZepetoAnimator, player.id, targetName, interactor)
+                ClientStarter.instance.SendAnimation(targetName, interactor)
+            }
         }
     }
     
@@ -130,6 +135,13 @@ export default class AnimationLinker extends ZepetoScriptBehaviour {
             })
             const player = ZepetoPlayers.instance.GetPlayer(sessionId)
             const takingObj = GameObject.Instantiate<GameObject>(moveAni.prefab)
+            takingObj.name = moveAni.name
+
+            if(this.takingObject.has(sessionId)){
+                GameObject.Destroy(this.takingObject.get(sessionId))
+                this.takingObject.delete(sessionId)
+            }
+            
             this.takingObject.set(sessionId, takingObj)
             player.character.GetComponentsInChildren<Transform>().forEach((characterObj) => {
                 if(characterObj.name == this.leftHandBone) {
