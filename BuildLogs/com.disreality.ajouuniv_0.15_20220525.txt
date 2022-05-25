@@ -9,7 +9,7 @@ disable private room false
 
 [Build Manifest]
 [scenes]
-387 kb               assets/scenes/buildscene.unity
+389 kb               assets/scenes/buildscene.unity
 [assets]
 3 kb                 packages/zepeto.character.controller/runtime/_resources/animations/ui/controller/touchpad_handle_origin_ziggle.anim
 2 kb                 assets/scenes/materials/road.mat

@@ -98,14 +98,22 @@ export default class SS_UIController extends ZepetoScriptBehaviour {
         var y_count = Math.floor((this.poseContent.transform.childCount + 1) / poseGrid.constraintCount)
         var base_y = poseRect.rect.height / 2
         poseRect.sizeDelta = new Vector2(poseRect.sizeDelta.x ,(y_count - 1) * poseGrid.spacing.y  +  y_count * poseGrid.cellSize.y)
+        console.log(base_y)
+        console.log(poseRect.rect.height)
         this.pose_Y = poseRect.rect.height / 2 - base_y
-
+        console.log(this.pose_Y)
+        
+        
         const gestureRect = this.gestureContent.GetComponent<RectTransform>()
         const gestureGrid = this.gestureContent.GetComponent<GridLayoutGroup>()
         var y_count = Math.floor((this.gestureContent.transform.childCount + 1) / gestureGrid.constraintCount)
         var base_y = gestureRect.rect.height / 2
         gestureRect.sizeDelta = new Vector2(gestureRect.sizeDelta.x ,(y_count - 1) * gestureGrid.spacing.y  +  y_count * gestureGrid.cellSize.y)
+        console.log(base_y)
+        console.log(gestureRect.rect.height)
         this.gesture_Y = gestureRect.rect.height / 2 - base_y
+        console.log(this.gesture_Y)
+        this.poseModeButton.gameObject.SetActive(true)
     }
     SetUIPos(){
         const poseRect = this.poseContent.GetComponent<RectTransform>()
@@ -123,6 +131,7 @@ export default class SS_UIController extends ZepetoScriptBehaviour {
         this.viewChangeImage = this.viewChangeButton.GetComponent<Image>()
 
         this.waitForSecond = WaitForSecondsCash.instance.WaitForSeconds(1)
+        this.poseModeButton.gameObject.SetActive(false)
         this.screenDefaultPanel.SetActive(true)
         this.screenShotModePanel.SetActive(false)
         this.screenShotResultPanel.SetActive(false)

@@ -6110,6 +6110,7 @@ MonoBehaviour:
     - infiniteButton
     - defaultColor
     - infiniteColor
+    - officialDownloader
     unityValues:
     - {fileID: 0}
     - {fileID: 0}
@@ -6118,6 +6119,7 @@ MonoBehaviour:
     - {fileID: 1667000903}
     - {fileID: 0}
     - {fileID: 0}
+    - {fileID: 1385636623}
     values:
     - '{"type":"ZEPETO.Script.ZepetoScriptSerializer+ArrayInfo, ZEPETO.Script","value":"{\"offset\":0,\"length\":3,\"type\":\"UnityEngine.Object,
       UnityEngine.CoreModule\",\"isUnity\":true}"}'
@@ -6130,6 +6132,7 @@ MonoBehaviour:
     - 
     - '{"type":"UnityEngine.Color, UnityEngine.CoreModule","value":"{\"r\":1.0,\"g\":1.0,\"b\":1.0,\"a\":1.0}"}'
     - '{"type":"UnityEngine.Color, UnityEngine.CoreModule","value":"{\"r\":0.6509804129600525,\"g\":0.6509804129600525,\"b\":0.6509804129600525,\"a\":1.0}"}'
+    - 
     unityArrayValues:
     - {fileID: 1446141695}
     - {fileID: 1043370956}
@@ -8823,14 +8826,45 @@ MonoBehaviour:
     keys:
     - uiGesture
     - uiController
+    - isAll
+    - gestures
+    - poses
     unityValues:
     - {fileID: 1005900444}
     - {fileID: 460091333}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
     values:
     - 
     - 
+    - '{"type":"System.Boolean, mscorlib","value":"True"}'
+    - '{"type":"ZEPETO.Script.ZepetoScriptSerializer+ArrayInfo, ZEPETO.Script","value":"{\"offset\":0,\"length\":10,\"type\":\"System.Single,
+      mscorlib\",\"isUnity\":false}"}'
+    - '{"type":"ZEPETO.Script.ZepetoScriptSerializer+ArrayInfo, ZEPETO.Script","value":"{\"offset\":10,\"length\":10,\"type\":\"System.Single,
+      mscorlib\",\"isUnity\":false}"}'
     unityArrayValues: []
-    arrayValues: []
+    arrayValues:
+    - 1
+    - 3
+    - 5
+    - 6
+    - 8
+    - 10
+    - 12
+    - 13
+    - 15
+    - 22
+    - 0
+    - 3
+    - 4
+    - 5
+    - 11
+    - 12
+    - 15
+    - 16
+    - 20
+    - 21
     script: {fileID: 4458252877524076426, guid: 623de14e3cce9304c8d2595871757ba4, type: 3}
     isExpaned: 0
 --- !u!4 &1385636625
@@ -9277,6 +9311,7 @@ GameObject:
   - component: {fileID: 1446141697}
   - component: {fileID: 1446141696}
   - component: {fileID: 1446141695}
+  - component: {fileID: 1446141698}
   m_Layer: 5
   m_Name: OK
   m_TagString: Untagged
@@ -9385,6 +9420,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1446141693}
   m_CullTransparentMesh: 1
+--- !u!114 &1446141698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1446141693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1673316429, guid: 921f0445823004a16a499d629dd566a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  script:
+    keys:
+    - index
+    unityValues:
+    - {fileID: 0}
+    values:
+    - '{"type":"System.Single, mscorlib","value":"0"}'
+    unityArrayValues: []
+    arrayValues: []
+    script: {fileID: 4458252877524076426, guid: 7a1fe52d8046e374ba0f1f17ae853a15, type: 3}
+    isExpaned: 0
 --- !u!1 &1446663396
 GameObject:
   m_ObjectHideFlags: 0
@@ -10683,6 +10741,7 @@ GameObject:
   - component: {fileID: 1698168630}
   - component: {fileID: 1698168629}
   - component: {fileID: 1698168628}
+  - component: {fileID: 1698168631}
   m_Layer: 5
   m_Name: OK
   m_TagString: Untagged
@@ -10791,6 +10850,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1698168626}
   m_CullTransparentMesh: 1
+--- !u!114 &1698168631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698168626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1673316429, guid: 921f0445823004a16a499d629dd566a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  script:
+    keys:
+    - index
+    unityValues:
+    - {fileID: 0}
+    values:
+    - '{"type":"System.Single, mscorlib","value":"0"}'
+    unityArrayValues: []
+    arrayValues: []
+    script: {fileID: 4458252877524076426, guid: 7a1fe52d8046e374ba0f1f17ae853a15, type: 3}
+    isExpaned: 0
 --- !u!1 &1722875526
 GameObject:
   m_ObjectHideFlags: 0

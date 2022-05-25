@@ -1,10 +1,12 @@
 import { AnimationClip, Color, GameObject, Sprite, WrapMode } from 'UnityEngine'
-import { Button, Image } from 'UnityEngine.UI'
+import { Button, Image, Text } from 'UnityEngine.UI'
 import { ZepetoPlayer, ZepetoPlayers } from 'ZEPETO.Character.Controller'
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
 import AnimationLinker from './AnimationLinker'
 import ClientStarter from './ClientStarter'
 import SS_UIController from './SS_UIController'
+import TestButtonIndex from './TestButtonIndex'
+import TTETST from './TTETST'
 import WaitForSecondsCash from './WaitForSecondsCash'
 
 export default class UIGesture extends ZepetoScriptBehaviour {
@@ -25,9 +27,13 @@ export default class UIGesture extends ZepetoScriptBehaviour {
     private gestureLen : number
     private poseLen : number
 
+    public officialDownloader : GameObject
+    private _officialDownloader : TTETST
+
     Start() {
         this.gestureLen = this.gestureButtons.length
         this.poseLen = this.poseButtons.length
+        this._officialDownloader = this.officialDownloader.GetComponent<TTETST>()
         ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(() =>{
             const player = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer
             for(var idx = 0; idx < this.gestureButtons.length; idx++){
@@ -82,14 +88,17 @@ export default class UIGesture extends ZepetoScriptBehaviour {
         })
     }
 
-    public AddPoseClip(clip : AnimationClip){
+    public AddPoseClip(clip : AnimationClip, idx : number){
         const prefabBtn = this.poseButtons[0]
         const poseBtn = GameObject.Instantiate<GameObject>(prefabBtn.gameObject, prefabBtn.transform.parent).GetComponent<Button>()
+        const indexScript = poseBtn.gameObject.GetComponent<TestButtonIndex>()
+        indexScript.index = idx
         this.poseButtons.push(poseBtn)
         this.poseClips.push(clip)
         clip.wrapMode = WrapMode.Loop
         console.log(clip.length)
         poseBtn.onClick.AddListener(() =>{
+            this._officialDownloader.PoseIndexTest(idx)
             const player = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer
             this.StartCoroutine(this.StopGesture(player, clip.length))
             if(AnimationLinker.instance.GetIsGesturing(player.id)){
@@ -105,13 +114,16 @@ export default class UIGesture extends ZepetoScriptBehaviour {
         })
     }
 
-    public AddGestureClip(clip : AnimationClip){
+    public AddGestureClip(clip : AnimationClip, idx : number){
         const prefabBtn = this.gestureButtons[0]
         const gestureBtn = GameObject.Instantiate<GameObject>(prefabBtn.gameObject, prefabBtn.transform.parent).GetComponent<Button>()
+        const indexScript = gestureBtn.gameObject.GetComponent<TestButtonIndex>()
+        indexScript.index = idx
         this.gestureButtons.push(gestureBtn)
         this.gestureClips.push(clip)
         clip.wrapMode = WrapMode.Loop
         gestureBtn.onClick.AddListener(() =>{
+            this._officialDownloader.GestureIndexTest(idx)
             const player = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer
             this.StartCoroutine(this.StopGesture(player, clip.length))
             if(AnimationLinker.instance.GetIsGesturing(player.id)){

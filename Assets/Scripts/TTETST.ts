@@ -17,22 +17,88 @@ export default class TTETST extends ZepetoScriptBehaviour {
 
     private gestureItemIndex : number = 0
     private poseItemIndex : number = 0
-    private gestureContentLen : number = -1
-    private poseContentLen : number = -1
+    private ContentsLen : number = -1
 
     public uiController : GameObject
     private _uiController : SS_UIController
+
+
+    public gestures  : number[]
+    public poses  : number[]
+
+    public isAll : boolean
+
+    public GestureIndexTest(index : number){
+        var isInclude = this.gestures.includes(index)
+        if(isInclude){
+            this.gestures = this.gestures.filter((element) =>{
+                return element != index
+            })
+            console.log("삭제삭제삭제")
+            console.log("삭제삭제삭제")
+            console.log("삭제삭제삭제")
+            console.log("삭제삭제삭제")
+            ClientStarter.instance.Debug("삭제삭제삭제")
+            ClientStarter.instance.Debug("삭제삭제삭제")
+            ClientStarter.instance.Debug("삭제삭제삭제")
+            ClientStarter.instance.Debug("삭제삭제삭제")
+        }else{
+            this.gestures.push(index)
+            console.log("추가추가추가")
+            console.log("추가추가추가")
+            console.log("추가추가추가")
+            console.log("추가추가추가")
+            ClientStarter.instance.Debug("추가추가추가")
+            ClientStarter.instance.Debug("추가추가추가")
+            ClientStarter.instance.Debug("추가추가추가")
+            ClientStarter.instance.Debug("추가추가추가")
+        }
+    }
+
+    public PoseIndexTest(index : number){
+        var isInclude = this.poses.includes(index)
+        if(isInclude){
+            this.poses = this.poses.filter((element) =>{
+                return element != index
+            })
+            console.log("삭제삭제삭제")
+            console.log("삭제삭제삭제")
+            console.log("삭제삭제삭제")
+            console.log("삭제삭제삭제")
+            ClientStarter.instance.Debug("삭제삭제삭제")
+            ClientStarter.instance.Debug("삭제삭제삭제")
+            ClientStarter.instance.Debug("삭제삭제삭제")
+            ClientStarter.instance.Debug("삭제삭제삭제")
+        }else{
+            this.poses.push(index)
+            console.log("추가추가추가")
+            console.log("추가추가추가")
+            console.log("추가추가추가")
+            console.log("추가추가추가")
+            ClientStarter.instance.Debug("추가추가추가")
+            ClientStarter.instance.Debug("추가추가추가")
+            ClientStarter.instance.Debug("추가추가추가")
+            ClientStarter.instance.Debug("추가추가추가")
+        }
+    }
     Start() {
         this._uiController = this.uiController.GetComponent<SS_UIController>()
         this._uiGesture = this.uiGesture.GetComponent<UIGesture>()
         ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(() =>{
             ZepetoWorldContent.RequestOfficialContentList(OfficialContentType.Gesture, (contents : Content[]) =>{
-                this.gestureContentLen = contents.length
                 console.log('ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ')
                 console.log(contents.length)
                 var character = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character
+                var contentLen : number = 0
                 // if(Application.isEditor) return
                 for(var index = 0; index < contents.length; index++){
+                    
+                    if(!this.isAll){
+                        var isInclude = this.gestures.includes(index)
+                        if(!isInclude)
+                            continue
+                    }
+                    contentLen++
                     const idx = index
                     const cnt = contents[idx]
                     cnt.DownloadAnimation(() =>{
@@ -42,7 +108,7 @@ export default class TTETST extends ZepetoScriptBehaviour {
                         console.log(cnt.AnimationClip)
                         const aniClip = cnt.AnimationClip
                         AnimationLinker.instance.AddGestureAndPoseClip(cnt.AnimationClip)
-                        this._uiGesture.AddGestureClip(aniClip)
+                        this._uiGesture.AddGestureClip(aniClip, idx)
     
                         if(!Application.isEditor){
                             // isDownloadAnimation 기다리다가 실행
@@ -68,6 +134,8 @@ export default class TTETST extends ZepetoScriptBehaviour {
                         }
                     })
                 }
+                if(this.ContentsLen < 0) this.ContentsLen = 0
+                this.ContentsLen += contentLen
                 console.log('ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ')
             })
 
@@ -75,12 +143,18 @@ export default class TTETST extends ZepetoScriptBehaviour {
             ZepetoWorldContent.RequestOfficialContentList(OfficialContentType.Pose, (contents : Content[]) =>{
                 console.log('ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ')
                 console.log(contents.length)
-                this.poseContentLen = contents.length
                 var character = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character
                 // if(Application.isEditor) return
+                var contentLen : number = 0
                 for(var index = 0; index < contents.length; index++){
                     const idx = index
                     const cnt = contents[idx]
+                    if(!this.isAll){
+                        var isInclude = this.poses.includes(index)
+                        if(!isInclude)
+                            continue
+                    }
+                    contentLen++
                     cnt.DownloadAnimation(() =>{
                         console.log("애니메이션 포즈")
                         console.log(idx)
@@ -88,7 +162,7 @@ export default class TTETST extends ZepetoScriptBehaviour {
                         console.log(cnt.AnimationClip)
                         const aniClip = cnt.AnimationClip
                         AnimationLinker.instance.AddGestureAndPoseClip(cnt.AnimationClip)
-                        this._uiGesture.AddPoseClip(aniClip)
+                        this._uiGesture.AddPoseClip(aniClip, idx)
     
                         if(!Application.isEditor){
                             // isDownloadAnimation 기다리다가 실행
@@ -114,6 +188,8 @@ export default class TTETST extends ZepetoScriptBehaviour {
                     })
                     
                 }
+                if(this.ContentsLen < 0) this.ContentsLen = 0
+                this.ContentsLen += contentLen
                 console.log('ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ')
             })
             this.StartCoroutine(this.OnCompleteGesture())
@@ -148,11 +224,13 @@ export default class TTETST extends ZepetoScriptBehaviour {
         // })
     }
     *OnCompleteGesture(){
-        console.log(this.poseContentLen)
-        console.log(this.gestureContentLen)
+        console.log(this.ContentsLen)
         yield new WaitUntil(() =>{
-            return this.gestureContentLen + this.poseContentLen == this.gestureItemIndex + this.poseItemIndex
+            return this.ContentsLen == this.gestureItemIndex + this.poseItemIndex
         })
+        console.log(`ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ`)
+        console.log(this.gestureItemIndex + this.poseItemIndex)
         this._uiController.InitUIPos()
+        console.log(`ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ`)
     }
 }

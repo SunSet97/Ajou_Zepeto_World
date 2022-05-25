@@ -307,8 +307,8 @@ export default class ClientStarter extends ZepetoScriptBehaviour {
     public Debug(name : any){
         const data = new RoomData();
         data.Add("sentence", name);
-        console.log(name)
-        console.log(this.room)
+        // console.log(name)
+        // console.log(this.room)
         this.room.Send("DebugUpdate", data.GetObject())
     }
     private ParseVector3(vector3: Vector3Schema): Vector3 {
