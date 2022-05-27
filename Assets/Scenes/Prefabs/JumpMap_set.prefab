@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6949888284691167290}
   m_Layer: 6
   m_Name: polySurface45
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 910613526889568342}
   m_Layer: 6
   m_Name: Plat4
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -237,7 +237,7 @@ GameObject:
   - component: {fileID: 4168455044155166588}
   m_Layer: 6
   m_Name: land
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -273,7 +273,7 @@ GameObject:
   - component: {fileID: 3646049393535695949}
   m_Layer: 6
   m_Name: Plat5 (2)
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -369,7 +369,7 @@ GameObject:
   - component: {fileID: 3646049393893070245}
   m_Layer: 6
   m_Name: Plat5 (3)
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -465,7 +465,7 @@ GameObject:
   - component: {fileID: 3646049394264896647}
   m_Layer: 6
   m_Name: Plat5 (6)
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -561,7 +561,7 @@ GameObject:
   - component: {fileID: 3646049394484052162}
   m_Layer: 6
   m_Name: Plat5 (1)
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -657,7 +657,7 @@ GameObject:
   - component: {fileID: 3646049394797398607}
   m_Layer: 6
   m_Name: Plat5 (4)
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -753,7 +753,7 @@ GameObject:
   - component: {fileID: 3646049395237235566}
   m_Layer: 6
   m_Name: Plat5 (5)
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -849,7 +849,7 @@ GameObject:
   - component: {fileID: 4479414041628689615}
   m_Layer: 6
   m_Name: Plat1 (1)
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -945,7 +945,7 @@ GameObject:
   - component: {fileID: 4479414042241252543}
   m_Layer: 6
   m_Name: Plat1 (7)
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1041,7 +1041,7 @@ GameObject:
   - component: {fileID: 4479414042278632570}
   m_Layer: 6
   m_Name: Plat1 (3)
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1137,7 +1137,7 @@ GameObject:
   - component: {fileID: 4479414042532545887}
   m_Layer: 6
   m_Name: Plat1 (4)
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1233,7 +1233,7 @@ GameObject:
   - component: {fileID: 4479414042559649600}
   m_Layer: 6
   m_Name: Plat1 (2)
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1329,7 +1329,7 @@ GameObject:
   - component: {fileID: 4479414042808100688}
   m_Layer: 6
   m_Name: Plat1 (5)
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1425,7 +1425,7 @@ GameObject:
   - component: {fileID: 4479414043692239726}
   m_Layer: 6
   m_Name: Plat1 (6)
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1518,7 +1518,7 @@ GameObject:
   - component: {fileID: 4491191344578193783}
   m_Layer: 6
   m_Name: Part3
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1562,7 +1562,7 @@ GameObject:
   - component: {fileID: 4491191344767589242}
   m_Layer: 6
   m_Name: Part6
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1596,7 +1596,7 @@ GameObject:
   - component: {fileID: 4491191345564421403}
   m_Layer: 6
   m_Name: Part4
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1729,7 +1729,7 @@ GameObject:
   - component: {fileID: 4491191346181757687}
   m_Layer: 6
   m_Name: Part5
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1770,7 +1770,7 @@ GameObject:
   - component: {fileID: 4491191346290162694}
   m_Layer: 6
   m_Name: Part2
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1809,7 +1809,7 @@ GameObject:
   - component: {fileID: 4491191346437633529}
   m_Layer: 6
   m_Name: Part1
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1847,7 +1847,7 @@ GameObject:
   - component: {fileID: 5239770448040195754}
   m_Layer: 6
   m_Name: JumpMap_set
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1906,7 +1906,7 @@ GameObject:
   - component: {fileID: 5461339994054919832}
   m_Layer: 6
   m_Name: Plat3 (4)
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2002,7 +2002,7 @@ GameObject:
   - component: {fileID: 5461339994102956047}
   m_Layer: 6
   m_Name: Plat3 (1)
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2098,7 +2098,7 @@ GameObject:
   - component: {fileID: 5461339994473649077}
   m_Layer: 6
   m_Name: Plat3 (7)
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2194,7 +2194,7 @@ GameObject:
   - component: {fileID: 5461339994911108560}
   m_Layer: 6
   m_Name: Plat3 (8)
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2290,7 +2290,7 @@ GameObject:
   - component: {fileID: 5461339994933232351}
   m_Layer: 6
   m_Name: Plat3 (9)
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2386,7 +2386,7 @@ GameObject:
   - component: {fileID: 5461339994996616033}
   m_Layer: 6
   m_Name: Plat3 (2)
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2482,7 +2482,7 @@ GameObject:
   - component: {fileID: 5461339995038385799}
   m_Layer: 6
   m_Name: Plat3 (11)
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2578,7 +2578,7 @@ GameObject:
   - component: {fileID: 5461339995149766131}
   m_Layer: 6
   m_Name: Plat3 (3)
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2674,7 +2674,7 @@ GameObject:
   - component: {fileID: 5461339995316751755}
   m_Layer: 6
   m_Name: Plat3 (6)
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2770,7 +2770,7 @@ GameObject:
   - component: {fileID: 5461339995344466080}
   m_Layer: 6
   m_Name: Plat3 (5)
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2866,7 +2866,7 @@ GameObject:
   - component: {fileID: 5461339995701469296}
   m_Layer: 6
   m_Name: Plat3 (10)
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2962,7 +2962,7 @@ GameObject:
   - component: {fileID: 5645527127905678693}
   m_Layer: 6
   m_Name: Plat1
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3055,7 +3055,7 @@ GameObject:
   - component: {fileID: 9212877581496656712}
   m_Layer: 6
   m_Name: Stairs
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3092,7 +3092,7 @@ GameObject:
   - component: {fileID: 6258126642346398158}
   m_Layer: 6
   m_Name: Plat5
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3188,7 +3188,7 @@ GameObject:
   - component: {fileID: 6637318299977297521}
   m_Layer: 6
   m_Name: Plat6
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3284,7 +3284,7 @@ GameObject:
   - component: {fileID: 6819383252621656295}
   m_Layer: 6
   m_Name: Plat2 (5)
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3380,7 +3380,7 @@ GameObject:
   - component: {fileID: 6819383252974354254}
   m_Layer: 6
   m_Name: Plat2 (10)
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3476,7 +3476,7 @@ GameObject:
   - component: {fileID: 6819383253054387409}
   m_Layer: 6
   m_Name: Plat2 (6)
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3572,7 +3572,7 @@ GameObject:
   - component: {fileID: 6819383253265589253}
   m_Layer: 6
   m_Name: Plat2 (8)
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3668,7 +3668,7 @@ GameObject:
   - component: {fileID: 6819383253314365246}
   m_Layer: 6
   m_Name: Plat2 (7)
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3764,7 +3764,7 @@ GameObject:
   - component: {fileID: 6819383253468628946}
   m_Layer: 6
   m_Name: Plat2 (2)
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3860,7 +3860,7 @@ GameObject:
   - component: {fileID: 6819383253845805795}
   m_Layer: 6
   m_Name: Plat2 (1)
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3956,7 +3956,7 @@ GameObject:
   - component: {fileID: 6819383253869438807}
   m_Layer: 6
   m_Name: Plat2 (9)
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4052,7 +4052,7 @@ GameObject:
   - component: {fileID: 6819383254442778661}
   m_Layer: 6
   m_Name: Plat2 (3)
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4148,7 +4148,7 @@ GameObject:
   - component: {fileID: 6819383254629153204}
   m_Layer: 6
   m_Name: Plat2
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4244,7 +4244,7 @@ GameObject:
   - component: {fileID: 8195772104427368697}
   m_Layer: 6
   m_Name: polySurface13 (1)
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4339,7 +4339,7 @@ GameObject:
   - component: {fileID: 1575035182146389006}
   m_Layer: 6
   m_Name: polySurface13
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4421,7 +4421,7 @@ GameObject:
   - component: {fileID: 8493175797106831671}
   m_Layer: 6
   m_Name: Plat6 (11)
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4517,7 +4517,7 @@ GameObject:
   - component: {fileID: 8493175797239804845}
   m_Layer: 6
   m_Name: Plat6 (7)
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4613,7 +4613,7 @@ GameObject:
   - component: {fileID: 8493175797246680290}
   m_Layer: 6
   m_Name: Plat6 (3)
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4709,7 +4709,7 @@ GameObject:
   - component: {fileID: 8493175797333847300}
   m_Layer: 6
   m_Name: Plat6 (8)
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4805,7 +4805,7 @@ GameObject:
   - component: {fileID: 8493175797375192103}
   m_Layer: 6
   m_Name: Plat6 (12)
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4901,7 +4901,7 @@ GameObject:
   - component: {fileID: 8493175797398763877}
   m_Layer: 6
   m_Name: Plat6 (9)
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4997,7 +4997,7 @@ GameObject:
   - component: {fileID: 8493175797652109821}
   m_Layer: 6
   m_Name: Plat6 (4)
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5093,7 +5093,7 @@ GameObject:
   - component: {fileID: 8493175798367377554}
   m_Layer: 6
   m_Name: Plat6 (10)
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5189,7 +5189,7 @@ GameObject:
   - component: {fileID: 8493175798430943479}
   m_Layer: 6
   m_Name: Plat6 (5)
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5285,7 +5285,7 @@ GameObject:
   - component: {fileID: 8493175798438637540}
   m_Layer: 6
   m_Name: Plat6 (1)
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5381,7 +5381,7 @@ GameObject:
   - component: {fileID: 8493175798446409428}
   m_Layer: 6
   m_Name: Plat6 (2)
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5477,7 +5477,7 @@ GameObject:
   - component: {fileID: 8493175798451273855}
   m_Layer: 6
   m_Name: Plat6 (13)
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5573,7 +5573,7 @@ GameObject:
   - component: {fileID: 8493175798951870917}
   m_Layer: 6
   m_Name: Plat6 (6)
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5669,7 +5669,7 @@ GameObject:
   - component: {fileID: 8493175799194328802}
   m_Layer: 6
   m_Name: Plat6 (14)
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5765,7 +5765,7 @@ GameObject:
   - component: {fileID: 8943647475053103101}
   m_Layer: 6
   m_Name: Plat3
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6198,6 +6198,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Staris
       objectReference: {fileID: 0}
+    - target: {fileID: 5313440596647899700, guid: 6bd3e66c94023c547aecec94406e22f6, type: 3}
+      propertyPath: m_TagString
+      value: GameController
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6bd3e66c94023c547aecec94406e22f6, type: 3}
 --- !u!4 &6479265633335555251 stripped
@@ -6490,6 +6494,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Staris (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5313440596647899700, guid: 6bd3e66c94023c547aecec94406e22f6, type: 3}
+      propertyPath: m_TagString
+      value: GameController
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6bd3e66c94023c547aecec94406e22f6, type: 3}
 --- !u!4 &6955205862975008270 stripped
@@ -6781,6 +6789,10 @@ PrefabInstance:
     - target: {fileID: 5313440596647899700, guid: 6bd3e66c94023c547aecec94406e22f6, type: 3}
       propertyPath: m_Name
       value: Staris (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5313440596647899700, guid: 6bd3e66c94023c547aecec94406e22f6, type: 3}
+      propertyPath: m_TagString
+      value: GameController
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6bd3e66c94023c547aecec94406e22f6, type: 3}
@@ -7308,6 +7320,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Staris (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5313440596647899700, guid: 6bd3e66c94023c547aecec94406e22f6, type: 3}
+      propertyPath: m_TagString
+      value: GameController
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6bd3e66c94023c547aecec94406e22f6, type: 3}
 --- !u!4 &3610314872446414185 stripped
@@ -7322,6 +7338,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5239770448040195754}
     m_Modifications:
+    - target: {fileID: 7452825545822025047, guid: b9d82bea024d82348a1546e8a6020c1e, type: 3}
+      propertyPath: m_TagString
+      value: GameController
+      objectReference: {fileID: 0}
     - target: {fileID: 8117732709519663986, guid: b9d82bea024d82348a1546e8a6020c1e, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -7381,6 +7401,10 @@ PrefabInstance:
     - target: {fileID: 8929558681550158280, guid: b9d82bea024d82348a1546e8a6020c1e, type: 3}
       propertyPath: m_Name
       value: portal 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929558681550158280, guid: b9d82bea024d82348a1546e8a6020c1e, type: 3}
+      propertyPath: m_TagString
+      value: GameController
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9d82bea024d82348a1546e8a6020c1e, type: 3}

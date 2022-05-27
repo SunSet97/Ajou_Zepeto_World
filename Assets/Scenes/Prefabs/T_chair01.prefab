@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 6628483406562673649}
   - component: {fileID: 8942439944374040379}
   - component: {fileID: 7152638126628730252}
+  - component: {fileID: 5105131365977005668}
+  - component: {fileID: 1183212116057875134}
   m_Layer: 0
   m_Name: T_chair01
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,3 +97,48 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 35.938377, y: 26.68127, z: 40.288605}
   m_Center: {x: 0, y: 13.336773, z: 0.37329942}
+--- !u!114 &5105131365977005668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7428988508523599598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1673316429, guid: 921f0445823004a16a499d629dd566a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  script:
+    keys:
+    - cameraOffset
+    - animationClip
+    - interactButton
+    - fixedPoint
+    unityValues:
+    - {fileID: 0}
+    - {fileID: 7400000, guid: 37659e319d5cdfe469b8a6dc0bebc636, type: 2}
+    - {fileID: 0}
+    - {fileID: 0}
+    values:
+    - '{"type":"UnityEngine.Vector3, UnityEngine.CoreModule","value":"{\"x\":0.0,\"y\":0.5,\"z\":0.0}"}'
+    - 
+    - 
+    - 
+    unityArrayValues: []
+    arrayValues: []
+    script: {fileID: 4458252877524076426, guid: 98072a246bfd9fe49b0e6c4983f5d270, type: 3}
+    isExpaned: 0
+--- !u!135 &1183212116057875134
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7428988508523599598}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 91.3
+  m_Center: {x: 0.0004272461, y: 28.23009, z: 0}

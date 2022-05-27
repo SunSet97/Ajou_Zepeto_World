@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2223103526900798511}
   m_Layer: 0
   m_Name: T_roundTable
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5603105560331222632}
   m_Layer: 0
   m_Name: Jump_Map
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -375,6 +375,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5603105560331222632}
     m_Modifications:
+    - target: {fileID: 1278551589062684894, guid: 92aa2430e127ad54c82b3c7533cc36e0, type: 3}
+      propertyPath: m_TagString
+      value: GameController
+      objectReference: {fileID: 0}
     - target: {fileID: 3146853692143100406, guid: 92aa2430e127ad54c82b3c7533cc36e0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
