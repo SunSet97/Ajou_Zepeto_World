@@ -6,18 +6,20 @@ import AnimationLinker from '../AnimationLinker'
 
 export default class FixedInteractor extends ZepetoScriptBehaviour {
     
-    public interactButton : Button
+    public interactButtonPrefab : GameObject
     private _interactButton : Button
     // @Header("애니메이션 이름을 넣으세요. ex) idle_cup인 경우 cup")
     public animationClip : AnimationClip
-    public fixedPoint : Transform
+    // public fixedPoint : Transform
     public cameraOffset : Vector3
+    public FixedPointOffset : Vector3
     private localCamera : Camera
 
     private isPlaying : boolean = false
 
     Start() {
-        this._interactButton = GameObject.Instantiate<GameObject>(this.interactButton.gameObject, this.interactButton.transform.parent).GetComponent<Button>()
+        this._interactButton = GameObject.Instantiate<GameObject>(this.interactButtonPrefab).GetComponent<Button>()
+        AnimationLinker.instance.AddInteractor(this._interactButton.gameObject)
         ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(() =>{
             this.localCamera = ZepetoPlayers.instance.LocalPlayer.zepetoCamera.camera
         })
@@ -26,8 +28,11 @@ export default class FixedInteractor extends ZepetoScriptBehaviour {
             // console.log(this.isPlaying)
             if(!this.isPlaying){
                 AnimationLinker.instance.PlayGesture(this.animationClip.name, true)
-                ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character.transform.position = this.fixedPoint.position
+                ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character.transform.position = this.transform.position + this.FixedPointOffset
+                ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character.transform.rotation = this.transform.rotation
                 this.isPlaying = true
+                this._interactButton.gameObject.SetActive(false)
+                this.StartCoroutine(this.CheckPlayerMove())
             }else{
                 AnimationLinker.instance.StopGesture(ZepetoPlayers.instance.LocalPlayer.zepetoPlayer)
                 this.isPlaying = false
@@ -37,6 +42,7 @@ export default class FixedInteractor extends ZepetoScriptBehaviour {
 
     Update(){
         if((this._interactButton.gameObject.activeSelf || this._interactButton.gameObject.activeSelf) && this.localCamera != null){
+            ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character.transform.position = this.transform.position + this.FixedPointOffset
             // console.log(this.testButton.gameObject.transform.position)
             var screenPos = this.localCamera.WorldToScreenPoint(this.transform.position + this.cameraOffset)
             // console.log(screenPos)
@@ -45,6 +51,15 @@ export default class FixedInteractor extends ZepetoScriptBehaviour {
 
             // this.testButton.transform.LookAt(this.localCamera.transform)
         }
+    }
+
+    *CheckPlayerMove(){
+        while(!ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character.tryMove){
+            yield null
+        }
+        AnimationLinker.instance.StopGesture(ZepetoPlayers.instance.LocalPlayer.zepetoPlayer)
+        this.isPlaying = false
+        this._interactButton.gameObject.SetActive(true)
     }
 
     OnTriggerEnter(col : Collider){    

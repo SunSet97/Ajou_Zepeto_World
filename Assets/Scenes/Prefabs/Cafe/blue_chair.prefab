@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 1565568782095866222}
   - component: {fileID: 3629606402144808356}
   - component: {fileID: 2291110763649831173}
+  - component: {fileID: 241699343822147231}
+  - component: {fileID: 1735282638044245135}
   m_Layer: 0
   m_Name: blue_chair
   m_TagString: Untagged
@@ -95,3 +97,48 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 31.083769, y: 25.692547, z: 37.76661}
   m_Center: {x: -0.0000044703484, y: 12.625808, z: -2.750127}
+--- !u!135 &241699343822147231
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2980837298745937009}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 91.3
+  m_Center: {x: 0.0004272461, y: 28.23009, z: 0}
+--- !u!114 &1735282638044245135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2980837298745937009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1673316429, guid: 921f0445823004a16a499d629dd566a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  script:
+    keys:
+    - cameraOffset
+    - animationClip
+    - fixedPoint
+    - interactButtonPrefab
+    unityValues:
+    - {fileID: 0}
+    - {fileID: 7400000, guid: 37659e319d5cdfe469b8a6dc0bebc636, type: 2}
+    - {fileID: 2456114459501713099}
+    - {fileID: 2455122858343537354, guid: ac9578b4fb310e64e87a38e8560444d4, type: 3}
+    values:
+    - '{"type":"UnityEngine.Vector3, UnityEngine.CoreModule","value":"{\"x\":0.0,\"y\":0.5,\"z\":0.0}"}'
+    - 
+    - 
+    - 
+    unityArrayValues: []
+    arrayValues: []
+    script: {fileID: 4458252877524076426, guid: 78138a4981ae57a4c9f8c3fcc105afac, type: 3}
+    isExpaned: 0

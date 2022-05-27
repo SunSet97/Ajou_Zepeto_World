@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9215179466341250591}
   - component: {fileID: 6342778769193730773}
   - component: {fileID: 3814783983736724229}
-  - component: {fileID: 6869158147434702283}
+  - component: {fileID: 1773594503779742948}
   m_Layer: 0
   m_Name: T_bench01
   m_TagString: GameController
@@ -96,7 +96,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 91.3
   m_Center: {x: 0.0004272461, y: 28.23009, z: 0}
---- !u!114 &6869158147434702283
+--- !u!114 &1773594503779742948
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,14 +111,14 @@ MonoBehaviour:
   script:
     keys:
     - cameraOffset
+    - interactButtonPrefab
     - animationClip
-    - interactButton
     - fixedPoint
     unityValues:
     - {fileID: 0}
+    - {fileID: 2455122858343537354, guid: ac9578b4fb310e64e87a38e8560444d4, type: 3}
     - {fileID: 7400000, guid: 37659e319d5cdfe469b8a6dc0bebc636, type: 2}
-    - {fileID: 0}
-    - {fileID: 0}
+    - {fileID: 5209890110559058362}
     values:
     - '{"type":"UnityEngine.Vector3, UnityEngine.CoreModule","value":"{\"x\":0.0,\"y\":0.5,\"z\":0.0}"}'
     - 
@@ -126,5 +126,5 @@ MonoBehaviour:
     - 
     unityArrayValues: []
     arrayValues: []
-    script: {fileID: 4458252877524076426, guid: 98072a246bfd9fe49b0e6c4983f5d270, type: 3}
+    script: {fileID: 4458252877524076426, guid: 78138a4981ae57a4c9f8c3fcc105afac, type: 3}
     isExpaned: 0

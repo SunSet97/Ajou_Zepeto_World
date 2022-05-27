@@ -36,6 +36,8 @@ export default class AnimationLinker extends ZepetoScriptBehaviour {
     @Header("애니메이션 형식 기존이름_이름으로 넣으세요. ex) idle_cup")
     public animations : AnimationClip[]
 
+    public interactCanvas : Transform
+
     private takingObject : Map<string, GameObject>          // sessionId, TakeObject
     private originalAnimators : Map<string, RuntimeAnimatorController> // sessionId, RuntimeAnimator
     private animationNames : Map<string, string> // sessionId, current moveAnimationName for each player
@@ -82,6 +84,10 @@ export default class AnimationLinker extends ZepetoScriptBehaviour {
                 // ClientStarter.instance.Debug(`ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ`)
             }
         })
+    }
+
+    public AddInteractor(interactButton : GameObject){
+        interactButton.transform.parent = this.interactCanvas
     }
 
     //Local에서 Move 애니메이션 실행하는 함수

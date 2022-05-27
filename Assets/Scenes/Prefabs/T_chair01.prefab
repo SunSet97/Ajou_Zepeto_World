@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 6628483406562673649}
   - component: {fileID: 8942439944374040379}
   - component: {fileID: 7152638126628730252}
-  - component: {fileID: 5105131365977005668}
   - component: {fileID: 1183212116057875134}
+  - component: {fileID: 1727561508852698917}
   m_Layer: 0
   m_Name: T_chair01
   m_TagString: GameController
@@ -97,7 +97,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 35.938377, y: 26.68127, z: 40.288605}
   m_Center: {x: 0, y: 13.336773, z: 0.37329942}
---- !u!114 &5105131365977005668
+--- !u!135 &1183212116057875134
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7428988508523599598}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 91.3
+  m_Center: {x: 0.0004272461, y: 28.23009, z: 0}
+--- !u!114 &1727561508852698917
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,14 +125,14 @@ MonoBehaviour:
   script:
     keys:
     - cameraOffset
+    - interactButtonPrefab
     - animationClip
-    - interactButton
     - fixedPoint
     unityValues:
     - {fileID: 0}
+    - {fileID: 2455122858343537354, guid: ac9578b4fb310e64e87a38e8560444d4, type: 3}
     - {fileID: 7400000, guid: 37659e319d5cdfe469b8a6dc0bebc636, type: 2}
-    - {fileID: 0}
-    - {fileID: 0}
+    - {fileID: 7805513433305205844}
     values:
     - '{"type":"UnityEngine.Vector3, UnityEngine.CoreModule","value":"{\"x\":0.0,\"y\":0.5,\"z\":0.0}"}'
     - 
@@ -127,18 +140,5 @@ MonoBehaviour:
     - 
     unityArrayValues: []
     arrayValues: []
-    script: {fileID: 4458252877524076426, guid: 98072a246bfd9fe49b0e6c4983f5d270, type: 3}
+    script: {fileID: 4458252877524076426, guid: 78138a4981ae57a4c9f8c3fcc105afac, type: 3}
     isExpaned: 0
---- !u!135 &1183212116057875134
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7428988508523599598}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 91.3
-  m_Center: {x: 0.0004272461, y: 28.23009, z: 0}
