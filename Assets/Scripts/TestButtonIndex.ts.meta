@@ -22,4 +22,4 @@ ScriptedImporter:
     { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nclass
     TestButtonIndex extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n}\r\nexports.default
     = TestButtonIndex;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVGVzdEJ1dHRvbkluZGV4LmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiVGVzdEJ1dHRvbkluZGV4LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsaURBQXFEO0FBRXJELE1BQXFCLGVBQWdCLFNBQVEscUNBQXFCO0NBSWpFO0FBSkQsa0NBSUMifQ==","assetPath":"Assets/Scripts/TestButtonIndex.ts","manifest":{"properties":[{"assembly":"mscorlib","name":"index","type":"System.Single","isArray":false,"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"TestButtonIndex","description":""},"isCompiled":true}'
-  typescriptHash: 79e07d6169627bce670ea8b184e17a5b
+  typescriptHash: 5779c62578c3f6c991dd3dda337c3058

@@ -60,11 +60,11 @@ export default class UIGesture extends ZepetoScriptBehaviour {
                         AnimationLinker.instance.StopGesture(player)
                         if(poseClip != AnimationLinker.instance.GetPlayingGesture(player.id)){
                             // this.StopAllCoroutines()
-                            AnimationLinker.instance.PlayGesture(poseClip.name, this.isInfinite)
+                            AnimationLinker.instance.PlayGesture(poseClip.name, true)
                             this.StartCoroutine(this.CheckPlayerMove())    
                         }
                     }else{
-                        AnimationLinker.instance.PlayGesture(poseClip.name, this.isInfinite)
+                        AnimationLinker.instance.PlayGesture(poseClip.name, true)
                         this.StartCoroutine(this.CheckPlayerMove())
                     }
                 })

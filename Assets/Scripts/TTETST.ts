@@ -148,12 +148,7 @@ export default class TTETST extends ZepetoScriptBehaviour {
                 var contentLen : number = 0
                 for(var index = 0; index < contents.length; index++){
                     const idx = index
-                    const cnt = contents[idx]
-                    if(!this.isAll){
-                        var isInclude = this.poses.includes(index)
-                        if(!isInclude)
-                            continue
-                    }
+                    const cnt = contents[idx];
                     contentLen++
                     cnt.DownloadAnimation(() =>{
                         console.log("애니메이션 포즈")
