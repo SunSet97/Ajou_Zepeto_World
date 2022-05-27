@@ -188,6 +188,7 @@ export default class AnimationLinker extends ZepetoScriptBehaviour {
         // 다른데랑 겹친다 Client에서 isGesturing() 체크하는 부분 다시 생각하도록
         this.ResetAniamtor(player.character.ZepetoAnimator, player.id)
         player.character.SetGesture(clip)
+        this.StopAllCoroutines()
         if(!isInfinite){
             this.StartCoroutine(this.GestureStopCoroutine(player, clip.length))
         }

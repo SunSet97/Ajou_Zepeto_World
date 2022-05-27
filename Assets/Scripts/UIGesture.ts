@@ -43,6 +43,7 @@ export default class UIGesture extends ZepetoScriptBehaviour {
                     if(AnimationLinker.instance.GetIsGesturing(player.id)){
                         AnimationLinker.instance.StopGesture(player)
                         if(clip != AnimationLinker.instance.GetPlayingGesture(player.id)){
+                            // this.StopAllCoroutines()
                             AnimationLinker.instance.PlayGesture(clip.name, this.isInfinite)    
                             this.StartCoroutine(this.CheckPlayerMove())
                         }
@@ -58,6 +59,7 @@ export default class UIGesture extends ZepetoScriptBehaviour {
                     if(AnimationLinker.instance.GetIsGesturing(player.id)){
                         AnimationLinker.instance.StopGesture(player)
                         if(poseClip != AnimationLinker.instance.GetPlayingGesture(player.id)){
+                            // this.StopAllCoroutines()
                             AnimationLinker.instance.PlayGesture(poseClip.name, this.isInfinite)
                             this.StartCoroutine(this.CheckPlayerMove())    
                         }
@@ -100,7 +102,7 @@ export default class UIGesture extends ZepetoScriptBehaviour {
         poseBtn.onClick.AddListener(() =>{
             this._officialDownloader.PoseIndexTest(idx)
             const player = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer
-            this.StartCoroutine(this.StopGesture(player, clip.length))
+            // this.StartCoroutine(this.StopGesture(player, clip.length))
             if(AnimationLinker.instance.GetIsGesturing(player.id)){
                 AnimationLinker.instance.StopGesture(player)
                 if(clip != AnimationLinker.instance.GetPlayingGesture(player.id)){
@@ -123,9 +125,12 @@ export default class UIGesture extends ZepetoScriptBehaviour {
         this.gestureClips.push(clip)
         clip.wrapMode = WrapMode.Loop
         gestureBtn.onClick.AddListener(() =>{
+            // this.StopAllCoroutines()
             this._officialDownloader.GestureIndexTest(idx)
             const player = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer
-            this.StartCoroutine(this.StopGesture(player, clip.length))
+            ClientStarter.instance.Debug(clip.length)
+            console.log(clip.length)
+            // this.StartCoroutine(this.StopGesture(player, clip.length))
             if(AnimationLinker.instance.GetIsGesturing(player.id)){
                 AnimationLinker.instance.StopGesture(player)
                 if(clip != AnimationLinker.instance.GetPlayingGesture(player.id)){
@@ -171,5 +176,6 @@ export default class UIGesture extends ZepetoScriptBehaviour {
             yield null
         }
         AnimationLinker.instance.StopGesture(ZepetoPlayers.instance.LocalPlayer.zepetoPlayer)
+        // this.StopAllCoroutines()
     }
 }
