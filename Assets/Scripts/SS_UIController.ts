@@ -1,9 +1,10 @@
-import { Canvas, GameObject, Rect, RectTransform, Screen, Sprite, Vector2, YieldInstruction } from 'UnityEngine'
+import { Canvas, Debug, GameObject, Rect, RectTransform, Screen, Sprite, Vector2, YieldInstruction } from 'UnityEngine'
 import { Button, GridLayoutGroup, Image, Text } from 'UnityEngine.UI'
 import { ZepetoPlayers } from 'ZEPETO.Character.Controller'
 import { RoomData } from 'ZEPETO.Multiplay'
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
-import { WorldVideoRecorder } from 'ZEPETO.World'
+import { WorldMultiplayChatContent, WorldVideoRecorder } from 'ZEPETO.World'
+import ClientStarter from './ClientStarter'
 import CaptureController from './ScreenShot/CaptureController'
 import ScreenShotModeManager from './ScreenShot/ScreenShotModeManager'
 import WaitForSecondsCash from './WaitForSecondsCash'
@@ -75,6 +76,15 @@ export default class SS_UIController extends ZepetoScriptBehaviour {
     // public poseBackground : GameObject
     // public poseViewPort : GameObject
 
+    @Header("Quick Panel")
+    public quickDefaultPanel : GameObject
+    public quickModePanel : GameObject
+
+    @Header("Quick Mode")
+    public quickModeButton : Button
+    public quickExitButton : Button
+    public quickContentButtons : Button[]
+    // private quickMessages : string[]
 
     TOAST_MESSAGE = {
         feedUploading: "Uploading...",
@@ -278,6 +288,27 @@ export default class SS_UIController extends ZepetoScriptBehaviour {
             this.poseContent.SetActive(true)
             this.gestureContent.SetActive(false)
         })
+
+        this.quickModeButton.onClick.AddListener(() =>{
+            this.quickDefaultPanel.SetActive(false)
+            this.quickModePanel.SetActive(true)
+        })
+
+        this.quickExitButton.onClick.AddListener(() =>{
+            this.quickDefaultPanel.SetActive(true)
+            this.quickModePanel.SetActive(false)
+        })
+        for(var index = 0; index < this.quickContentButtons.length; index++){
+            const idx = index
+
+            // ClientStarter.instance.Debug(quickMessages)
+            // this.quickMessages[index] = this.quickContentButtons[index].transform.GetComponentInChildren<Text>().text
+            this.quickContentButtons[idx].onClick.AddListener(() =>{
+                
+                var quickMessages = this.quickContentButtons[idx].transform.GetComponentInChildren<Text>().text
+                WorldMultiplayChatContent.instance.Send(quickMessages)  
+            })
+        }
 
         // for(var index = 0; index < this.poseContent.transform.childCount; index++){
         //     this.poseContent.transform.GetChild(index).GetComponent<Button>().onClick.AddListener(() =>{
