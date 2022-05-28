@@ -1056,9 +1056,9 @@ GameObject:
   - component: {fileID: 6229398034949986631}
   - component: {fileID: 8185208536115260813}
   - component: {fileID: 2112014980522829910}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: terrarian 2
-  m_TagString: GameController
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1690,6 +1690,10 @@ PrefabInstance:
     - target: {fileID: 8355748388411586593, guid: c7876f9cb4a0ed14abc501b62c045bd9, type: 3}
       propertyPath: m_Name
       value: Sungho
+      objectReference: {fileID: 0}
+    - target: {fileID: 8355748388411586593, guid: c7876f9cb4a0ed14abc501b62c045bd9, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8700466640000705179, guid: c7876f9cb4a0ed14abc501b62c045bd9, type: 3}
       propertyPath: m_RootOrder
@@ -3391,6 +3395,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: woncheon
       objectReference: {fileID: 0}
+    - target: {fileID: 7936768227880463692, guid: 9920b0e7884612746b2c6913ffa11500, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8441413485572934809, guid: 9920b0e7884612746b2c6913ffa11500, type: 3}
       propertyPath: m_CastShadows
       value: 0
@@ -4456,6 +4464,10 @@ PrefabInstance:
       value: yulgok
       objectReference: {fileID: 0}
     - target: {fileID: 5807555429413375724, guid: 859fb0ea21ee53a45851b5a30a1a1dd3, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5807555429413375724, guid: 859fb0ea21ee53a45851b5a30a1a1dd3, type: 3}
       propertyPath: m_TagString
       value: GameController
       objectReference: {fileID: 0}
@@ -5094,6 +5106,10 @@ PrefabInstance:
     - target: {fileID: 9019205665658942373, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
       propertyPath: m_Name
       value: Terras_fin
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019205665658942373, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff7259fd77ab30340bf0811933e6a882, type: 3}

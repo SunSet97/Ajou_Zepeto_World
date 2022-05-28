@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 505444434489857792}
   - component: {fileID: 2370938774418334666}
   - component: {fileID: 8064750680266545280}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: centerrdoor
   m_TagString: GameController
   m_Icon: {fileID: 0}

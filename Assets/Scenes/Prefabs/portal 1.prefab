@@ -4817,7 +4817,7 @@ GameObject:
   - component: {fileID: 6984192689967388701}
   - component: {fileID: 2502046643050011532}
   - component: {fileID: 4224240285046257491}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: portal 1
   m_TagString: GameController
   m_Icon: {fileID: 0}
