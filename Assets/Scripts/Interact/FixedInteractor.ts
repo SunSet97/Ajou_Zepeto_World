@@ -18,6 +18,11 @@ export default class FixedInteractor extends ZepetoScriptBehaviour {
     private isPlaying : boolean = false
 
     Start() {
+        if(this.FixedPointOffset == undefined)
+            this.FixedPointOffset = Vector3.zero
+        if(this.cameraOffset == undefined)
+            this.cameraOffset = Vector3.zero
+
         this._interactButton = GameObject.Instantiate<GameObject>(this.interactButtonPrefab).GetComponent<Button>()
         AnimationLinker.instance.AddInteractor(this._interactButton.gameObject)
         ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(() =>{
@@ -28,7 +33,8 @@ export default class FixedInteractor extends ZepetoScriptBehaviour {
             // console.log(this.isPlaying)
             if(!this.isPlaying){
                 AnimationLinker.instance.PlayGesture(this.animationClip.name, true)
-                ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character.transform.position = this.transform.position + this.FixedPointOffset
+                console.log(this.transform.position)
+                ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character.transform.position = Vector3.op_Addition(this.transform.position, this.FixedPointOffset)
                 ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character.transform.rotation = this.transform.rotation
                 this.isPlaying = true
                 this._interactButton.gameObject.SetActive(false)
@@ -42,9 +48,8 @@ export default class FixedInteractor extends ZepetoScriptBehaviour {
 
     Update(){
         if((this._interactButton.gameObject.activeSelf || this._interactButton.gameObject.activeSelf) && this.localCamera != null){
-            ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character.transform.position = this.transform.position + this.FixedPointOffset
             // console.log(this.testButton.gameObject.transform.position)
-            var screenPos = this.localCamera.WorldToScreenPoint(this.transform.position + this.cameraOffset)
+            var screenPos = this.localCamera.WorldToScreenPoint(Vector3.op_Addition(this.transform.position, this.cameraOffset))
             // console.log(screenPos)
             this._interactButton.transform.position = screenPos
             this._interactButton.transform.position = screenPos

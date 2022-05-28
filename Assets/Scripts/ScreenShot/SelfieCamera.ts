@@ -60,19 +60,19 @@ export default class SelfieCamera extends ZepetoScriptBehaviour {
         let newRot: Quaternion = Quaternion.Euler(this.rotateY, this.rotateX, 0);
         this.targetLookAt.rotation = Quaternion.Slerp(this.targetLookAt.rotation, newRot, this.smoothCameraRotation * Time.deltaTime);
 
-        var camDir: Vector3 = (this.targetLookAt.forward * -1) + (this.targetLookAt.right * this.rightOffset);
+        var camDir: Vector3 = Vector3.op_Addition(Vector3.op_Multiply(this.targetLookAt.forward, -1), Vector3.op_Multiply(this.targetLookAt.right, this.rightOffset))
         camDir = camDir.normalized;
 
         var targetPos = new Vector3(this.currentTarget.position.x, this.currentTarget.position.y, this.currentTarget.position.z);
         this.currentTargetPos = targetPos;
 
-        this.currentPos = this.currentTargetPos + new Vector3(0, this.height, 0);
+        this.currentPos = Vector3.op_Addition(this.currentTargetPos, new Vector3(0, this.height, 0))
 
         this.targetLookAt.position = this.currentPos;
-        this.transform.position = Vector3.Lerp(this.transform.position, this.currentPos + (camDir * this.distance), 0.9)
+        this.transform.position = Vector3.Lerp(this.transform.position, Vector3.op_Addition(this.currentPos, Vector3.op_Multiply(camDir, this.distance)), 0.9)
 
-        var lookPoint: Vector3 = this.currentPos + this.targetLookAt.forward * 2;
-        lookPoint = lookPoint + (this.targetLookAt.right * Vector3.Dot(camDir * (this.distance), this.targetLookAt.right));
+        var lookPoint: Vector3 = Vector3.op_Addition(this.currentPos, Vector3.op_Multiply(this.targetLookAt.forward, 2))
+        lookPoint = Vector3.op_Addition(lookPoint, Vector3.op_Multiply(this.targetLookAt.right, Vector3.Dot(Vector3.op_Multiply(camDir, this.distance), this.targetLookAt.right)))
 
 
         let subtractionVec = new Vector3(lookPoint.x - this.transform.position.x,

@@ -19,6 +19,10 @@ export default class MoveAnimationInteractor extends ZepetoScriptBehaviour {
 
     private localCamera : Camera
     Start() {
+        if(this.posOffset == undefined)
+            this.posOffset = Vector3.zero
+        if(this.rotOffset == undefined)
+            this.rotOffset = Vector3.zero
         this._interactButton = GameObject.Instantiate<GameObject>(this.interactButton.gameObject, this.interactButton.transform.parent).GetComponent<Button>()
         ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(() =>{
             this.localCamera = ZepetoPlayers.instance.LocalPlayer.zepetoCamera.camera
@@ -34,7 +38,7 @@ export default class MoveAnimationInteractor extends ZepetoScriptBehaviour {
 
     Update(){
         if(this._interactButton.gameObject.activeSelf && this.localCamera != null){
-            var screenPos = this.localCamera.WorldToScreenPoint(this.transform.position + this.cameraOffset)
+            var screenPos = this.localCamera.WorldToScreenPoint(Vector3.op_Addition(this.transform.position, this.cameraOffset))
             this._interactButton.transform.position = screenPos
         }
     }

@@ -169,7 +169,7 @@ export default class SelfieRegistrant extends ZepetoScriptBehaviour {
         // ClientStarter.instance.Debug(`${ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character.gameObject}가 본다.`)
         this.users.forEach((cameraAndUI : CameraAndUI, player : ZepetoPlayer) =>{
             let onlineWithPlayer = this.tempUsers.get(player)
-            const screenPos = this.localCamera.WorldToScreenPoint(player.character.transform.position + this.cameraOffset)
+            const screenPos = this.localCamera.WorldToScreenPoint(Vector3.op_Addition(player.character.transform.position, this.cameraOffset))
             onlineWithPlayer.OnUpdateOnline(player, screenPos)
         })
     }
