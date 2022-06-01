@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GeneralStates:
     LoadedProjectGUID:
-      valueInternal: b5485ab56b7307a41a2cbed0629bb3be
+      valueInternal: 671b3c4b1bedf984ca271f2d80b98f91
     RecentlyOpenedProjectPath:
-      valueInternal: Assets\Ani
+      valueInternal: Assets\Ani_work_folder
     RecentlyOpenedProjectGUIDsList:
+    - valueInternal: 671b3c4b1bedf984ca271f2d80b98f91
+    - valueInternal: 7a8bf40fa0b5a4646ab870e4b4ae875c
     - valueInternal: b5485ab56b7307a41a2cbed0629bb3be
