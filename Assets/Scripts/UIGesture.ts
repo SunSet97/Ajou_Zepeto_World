@@ -93,8 +93,8 @@ export default class UIGesture extends ZepetoScriptBehaviour {
     public AddPoseClip(clip : AnimationClip, idx : number){
         const prefabBtn = this.poseButtons[0]
         const poseBtn = GameObject.Instantiate<GameObject>(prefabBtn.gameObject, prefabBtn.transform.parent).GetComponent<Button>()
-        const indexScript = poseBtn.gameObject.GetComponent<TestButtonIndex>()
-        indexScript.index = idx
+        // const indexScript = poseBtn.gameObject.GetComponent<TestButtonIndex>()
+        // indexScript.index = idx
         this.poseButtons.push(poseBtn)
         this.poseClips.push(clip)
         clip.wrapMode = WrapMode.Loop
@@ -106,11 +106,11 @@ export default class UIGesture extends ZepetoScriptBehaviour {
             if(AnimationLinker.instance.GetIsGesturing(player.id)){
                 AnimationLinker.instance.StopGesture(player)
                 if(clip != AnimationLinker.instance.GetPlayingGesture(player.id)){
-                    AnimationLinker.instance.PlayGesture(clip.name, this.isInfinite)    
+                    AnimationLinker.instance.PlayGesture(clip.name, true)    
                     this.StartCoroutine(this.CheckPlayerMove())
                 }
             }else{
-                AnimationLinker.instance.PlayGesture(clip.name, this.isInfinite)
+                AnimationLinker.instance.PlayGesture(clip.name, true)
                 this.StartCoroutine(this.CheckPlayerMove())
             }
         })
@@ -119,14 +119,14 @@ export default class UIGesture extends ZepetoScriptBehaviour {
     public AddGestureClip(clip : AnimationClip, idx : number){
         const prefabBtn = this.gestureButtons[0]
         const gestureBtn = GameObject.Instantiate<GameObject>(prefabBtn.gameObject, prefabBtn.transform.parent).GetComponent<Button>()
-        const indexScript = gestureBtn.gameObject.GetComponent<TestButtonIndex>()
-        indexScript.index = idx
+        // const indexScript = gestureBtn.gameObject.GetComponent<TestButtonIndex>()
+        // indexScript.index = idx
         this.gestureButtons.push(gestureBtn)
         this.gestureClips.push(clip)
         clip.wrapMode = WrapMode.Loop
         gestureBtn.onClick.AddListener(() =>{
             // this.StopAllCoroutines()
-            this._officialDownloader.GestureIndexTest(idx)
+            // this._officialDownloader.GestureIndexTest(idx)
             const player = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer
             ClientStarter.instance.Debug(clip.length)
             console.log(clip.length)

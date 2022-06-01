@@ -3,6 +3,7 @@ import { Button } from 'UnityEngine.UI'
 import { ZepetoPlayers } from 'ZEPETO.Character.Controller'
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
 import AnimationLinker from '../AnimationLinker'
+import ClientStarter from '../ClientStarter'
 
 export default class FixedInteractor extends ZepetoScriptBehaviour {
     
@@ -36,6 +37,7 @@ export default class FixedInteractor extends ZepetoScriptBehaviour {
                 console.log(this.transform.position)
                 ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character.transform.position = Vector3.op_Addition(this.transform.position, this.FixedPointOffset)
                 ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character.transform.rotation = this.transform.rotation
+                ClientStarter.instance.SendTransform(ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character.transform)
                 this.isPlaying = true
                 this._interactButton.gameObject.SetActive(false)
                 this.StartCoroutine(this.CheckPlayerMove())
@@ -48,7 +50,8 @@ export default class FixedInteractor extends ZepetoScriptBehaviour {
 
     Update(){
         if((this._interactButton.gameObject.activeSelf || this._interactButton.gameObject.activeSelf) && this.localCamera != null){
-            // console.log(this.testButton.gameObject.transform.position)
+            console.log(this.cameraOffset)
+
             var screenPos = this.localCamera.WorldToScreenPoint(Vector3.op_Addition(this.transform.position, this.cameraOffset))
             // console.log(screenPos)
             this._interactButton.transform.position = screenPos

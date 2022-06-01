@@ -210,8 +210,9 @@ export default class ClientStarter extends ZepetoScriptBehaviour {
         const isAnimate = player.animation != AnimationLinker.instance.GetPlayerAnimation(sessionId)
         // console.log("멀티 player 상태 변경", player.state)
         const positionSchema = this.ParseVector3(player.transform.position);
-        if(Vector3.Distance(zepetoPlayer.character.transform.position, positionSchema) > 1){
+        if(Vector3.Distance(zepetoPlayer.character.transform.position, positionSchema) > 2){
             zepetoPlayer.character.transform.position = positionSchema
+            // zepetoPlayer.character.transform.eulerAngles = this.ParseVector3(player.transform.rotation);
         }
         zepetoPlayer.character.MoveToPosition(positionSchema);
         
@@ -239,16 +240,25 @@ export default class ClientStarter extends ZepetoScriptBehaviour {
         }
         
         //문제는 제스처 중에 다시 제스처를 누르면 무시된다.
-        if(player.state === CharacterState.Gesture && !AnimationLinker.instance.GetIsGesturing(sessionId)){
-        //     // 제스처이고 어쩌고 저쩌고이면
-            console.log("서버 - 제스처 세팅", player.state)
-            //무한인지 아닌지 체크를 안하네
-            AnimationLinker.instance.GestureHandler(zepetoPlayer, player.gesture, player.isInfinite)
+        if(player.state == CharacterState.Gesture){
+            if(!AnimationLinker.instance.GetIsGesturing(sessionId)){
+                console.log("서버 - 제스처 세팅", player.state)
+                AnimationLinker.instance.GestureHandler(zepetoPlayer, player.gesture, player.isInfinite)
+                zepetoPlayer.character.transform.position = positionSchema
+                zepetoPlayer.character.transform.eulerAngles = this.ParseVector3(player.transform.rotation);
+            }else if(AnimationLinker.instance.GetPlayingGesture(sessionId).name != player.gesture){
+                console.log("서버 - 제스처 세팅", player.state)
+                zepetoPlayer.character.transform.position = positionSchema
+                zepetoPlayer.character.transform.eulerAngles = this.ParseVector3(player.transform.rotation);
+                AnimationLinker.instance.GestureHandler(zepetoPlayer, player.gesture, player.isInfinite)
+            }
+        }else if(player.state != CharacterState.Gesture && AnimationLinker.instance.GetIsGesturing(sessionId)){
+            AnimationLinker.instance.GestureHandler(zepetoPlayer, '')
         }
     }
 
 
-    private SendTransform(transform: Transform) {
+    public SendTransform(transform: Transform) {
         const data = new RoomData();
 
         const pos = new RoomData();

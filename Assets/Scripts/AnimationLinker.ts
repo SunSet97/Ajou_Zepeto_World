@@ -182,12 +182,15 @@ export default class AnimationLinker extends ZepetoScriptBehaviour {
 
     GestureHandler(player : ZepetoPlayer, targetClip : string, isInfinite : boolean = false){
         ClientStarter.instance.Debug(`제스처 실행 여부 - ${this.GetIsGesturing(player.id)}`)
-        if(this.GetIsGesturing(player.id)) return
+        // if(this.GetIsGesturing(player.id)) return
         ClientStarter.instance.Debug(`${player.character.gameObject}가 제스처 실행 - ${targetClip}, ${isInfinite ? "무한" : "1회성"}`)
 
         const clip = this.GetPlayerGesture(targetClip)
         console.log(clip)
-        if(clip == undefined) return
+        if(clip == undefined || clip == null) {
+            this.StopGesture(player)
+            return
+        }
         this.SetisGesture(player.id, clip)
         // this.StopCoroutine(this.GestureStop(player.character, clip.length))
         // 쓰읍 실행 중인 플레이어만 멈추려면 StopAllCorutine 쓰면 안되는데
@@ -202,6 +205,7 @@ export default class AnimationLinker extends ZepetoScriptBehaviour {
     *GestureStopCoroutine(player : ZepetoPlayer, clipTime : float){
         yield WaitForSecondsCash.instance.WaitForSeconds(clipTime)
         this.StopGesture(player)
+        ClientStarter.instance.SendGesture('')
     }
 
     StopGesture(player : ZepetoPlayer){
