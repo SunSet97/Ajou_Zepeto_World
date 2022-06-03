@@ -98,10 +98,13 @@ export default class ClientStarter extends ZepetoScriptBehaviour {
                 if (!isLocal) {
                     this.Debug(`[온라인 플레이어 생성] player  ${sessionId}`)
                     player.OnChange += (changeValues) => this.OnUpdateMultiPlayer(sessionId, player)
+                    this.OnUpdateMultiPlayer(sessionId, player)
                 }
                 const zepetoPlayer = ZepetoPlayers.instance.GetPlayer(sessionId)
                 zepetoPlayer.character.transform.position = this.spawnPoint.position
                 zepetoPlayer.character.transform.rotation = this.spawnPoint.rotation
+                if(isLocal)
+                    this.SendTransform(zepetoPlayer.character.transform)
                 AnimationLinker.instance.OnAddPlayer(sessionId, zepetoPlayer.character.ZepetoAnimator, player.animation)
             });
         }

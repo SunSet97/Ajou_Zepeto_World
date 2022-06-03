@@ -29,6 +29,7 @@ export default class OnlineWithPlayer extends ZepetoScriptBehaviour {
 
     Start() {    
         this.animator = this.GetComponent<Animator>()
+        console.log(this.animator)
     }
 
     public Initialize(cameraPrefab : GameObject, buttonUIPrefab : GameObject){

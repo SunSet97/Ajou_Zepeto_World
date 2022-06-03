@@ -118,17 +118,21 @@ MonoBehaviour:
     - FixedPointOffset
     unityValues:
     - {fileID: 0}
-    - {fileID: 7400000, guid: e70b53a01eb153f4f84e941122e93388, type: 2}
+    - {fileID: 0}
     - {fileID: 2455122858343537354, guid: ac9578b4fb310e64e87a38e8560444d4, type: 3}
     - {fileID: 0}
     values:
     - '{"type":"UnityEngine.Vector3, UnityEngine.CoreModule","value":"{\"x\":0.0,\"y\":0.5,\"z\":0.0}"}'
-    - 
+    - '{"type":"ZEPETO.Script.ZepetoScriptSerializer+ArrayInfo, ZEPETO.Script","value":"{\"offset\":0,\"length\":3,\"type\":\"UnityEngine.Object,
+      UnityEngine.CoreModule\",\"isUnity\":true}"}'
     - 
     - '{"type":"UnityEngine.Vector3, UnityEngine.CoreModule","value":"{\"x\":0.0,\"y\":0.0,\"z\":0.0}"}'
-    unityArrayValues: []
+    unityArrayValues:
+    - {fileID: 7400000, guid: 6bb0836f8ac604e42bc257e5b66c2788, type: 2}
+    - {fileID: 7400000, guid: 67bb804b26730f3479dfa0fc11d280ed, type: 2}
+    - {fileID: 7400000, guid: e38fdc76c1421e54cb0e11726ad2bc57, type: 2}
     arrayValues: []
-    script: {fileID: 4458252877524076426, guid: 78138a4981ae57a4c9f8c3fcc105afac, type: 3}
+    script: {fileID: 4458252877524076426, guid: 0fd03009ba762e84b8b2ea3e8c94d567, type: 3}
     isExpaned: 0
 --- !u!135 &8150449559578499522
 SphereCollider:
