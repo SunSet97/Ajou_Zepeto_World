@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 8301297803301356096}
   - component: {fileID: 6111618990689416842}
   - component: {fileID: 1332426748867940550}
+  - component: {fileID: 8705915369281448470}
+  - component: {fileID: 8150449559578499522}
   m_Layer: 0
   m_Name: T_photozone_blue
   m_TagString: GameController
@@ -96,3 +98,48 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4800539594864274799, guid: f26ff71bfa433cd448b0ccda4b159c45, type: 3}
+--- !u!114 &8705915369281448470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5751142248259344223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1673316429, guid: 921f0445823004a16a499d629dd566a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  script:
+    keys:
+    - cameraOffset
+    - animationClip
+    - interactButtonPrefab
+    - FixedPointOffset
+    unityValues:
+    - {fileID: 0}
+    - {fileID: 7400000, guid: e70b53a01eb153f4f84e941122e93388, type: 2}
+    - {fileID: 2455122858343537354, guid: ac9578b4fb310e64e87a38e8560444d4, type: 3}
+    - {fileID: 0}
+    values:
+    - '{"type":"UnityEngine.Vector3, UnityEngine.CoreModule","value":"{\"x\":0.0,\"y\":0.5,\"z\":0.0}"}'
+    - 
+    - 
+    - '{"type":"UnityEngine.Vector3, UnityEngine.CoreModule","value":"{\"x\":0.0,\"y\":0.0,\"z\":0.0}"}'
+    unityArrayValues: []
+    arrayValues: []
+    script: {fileID: 4458252877524076426, guid: 78138a4981ae57a4c9f8c3fcc105afac, type: 3}
+    isExpaned: 0
+--- !u!135 &8150449559578499522
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5751142248259344223}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}

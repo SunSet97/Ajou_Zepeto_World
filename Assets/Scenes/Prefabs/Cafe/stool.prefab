@@ -130,7 +130,7 @@ MonoBehaviour:
     - FixedPointOffset
     unityValues:
     - {fileID: 0}
-    - {fileID: 7400000, guid: 37659e319d5cdfe469b8a6dc0bebc636, type: 2}
+    - {fileID: 7400000, guid: c85c09d8deff77d4d9b4b02d0b792260, type: 2}
     - {fileID: 2455122858343537354, guid: ac9578b4fb310e64e87a38e8560444d4, type: 3}
     - {fileID: 0}
     values:
