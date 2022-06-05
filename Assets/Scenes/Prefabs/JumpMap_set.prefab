@@ -1943,7 +1943,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5239770448040195754}
-  - component: {fileID: 742092526982444400}
   m_Layer: 6
   m_Name: JumpMap_set
   m_TagString: GameController
@@ -1991,19 +1990,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &742092526982444400
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5239770448040195753}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.20786858, y: 18.637812, z: 9.119072}
-  m_Center: {x: 8.132209, y: 8.554305, z: -7.4317217}
 --- !u!1 &5461339994054919847
 GameObject:
   m_ObjectHideFlags: 0

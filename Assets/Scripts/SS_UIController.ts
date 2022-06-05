@@ -1,4 +1,4 @@
-import { Canvas, Debug, GameObject, Rect, RectTransform, Screen, Sprite, Vector2, YieldInstruction } from 'UnityEngine'
+import { AudioClip, AudioSource, Canvas, Debug, GameObject, Rect, RectTransform, Screen, Sprite, Vector2, YieldInstruction } from 'UnityEngine'
 import { Button, GridLayoutGroup, Image, Text } from 'UnityEngine.UI'
 import { ZepetoPlayers } from 'ZEPETO.Character.Controller'
 import { RoomData } from 'ZEPETO.Multiplay'
@@ -20,6 +20,9 @@ export default class SS_UIController extends ZepetoScriptBehaviour {
     public screenShotResultPanel : GameObject
     public screenShotFeedPanel : GameObject
 
+    @Header("ScreenShot Audio")
+    public audioSource : AudioSource
+    public screenShotAudio : AudioClip
 
     @Header("ScreenShot Mode")
     public screenShotModeButton : Button
@@ -221,6 +224,7 @@ export default class SS_UIController extends ZepetoScriptBehaviour {
             //결과 보여주기
             if(!this.isVideoMode){
                 this.ShowCaptureResultPanel()
+                this.audioSource.PlayOneShot(this.screenShotAudio)
             }
         })
 

@@ -1,0 +1,49 @@
+fileFormatVersion: 2
+guid: 4ee81fff2d6251d46a3918b0f407de21
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: "{\"source\":\"\\\"use strict\\\";\\r\\nObject.defineProperty(exports,
+    \\\"__esModule\\\", { value: true });\\r\\nconst UnityEngine_1 = require(\\\"UnityEngine\\\");\\r\\nconst
+    ZEPETO_Character_Controller_1 = require(\\\"ZEPETO.Character.Controller\\\");\\r\\nconst
+    ZEPETO_Script_1 = require(\\\"ZEPETO.Script\\\");\\r\\nconst LeaderBoard_1 =
+    require(\\\"./LeaderBoard\\\");\\r\\nclass JumpMapUIController extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\\r\\n    Start() {\\r\\n        // this.gameStartButton = GameObject.Instantiate<GameObject>(this.gameStartButtonPrefab).GetComponent<Button>()\\r\\n       
+    this.gameStartButton.gameObject.SetActive(false);\\r\\n        this._leaderBoard
+    = this.leaderBoard.GetComponent($typeof(LeaderBoard_1.default));\\r\\n       
+    this.gameStartButton.onClick.AddListener(() => {\\r\\n            this.gameStartButton.gameObject.SetActive(false);\\r\\n           
+    //\uC815\uC9C0 \uBC84\uD2BC SetActive(true)\\r\\n            var player = ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character;\\r\\n           
+    player.StopMoving();\\r\\n            player.transform.position = this.transform.position;\\r\\n           
+    player.transform.rotation = this.transform.rotation;\\r\\n            player.characterController.enabled
+    = false;\\r\\n            this.StartCoroutine(this.GameReady());\\r\\n       
+    });\\r\\n    }\\r\\n    *GameReady() {\\r\\n        var time = 3;\\r\\n       
+    //\uC704\uCE58 \uC774\uB3D9 \uBC0F \uC6C0\uC9C1\uC774\uAE30 \uC815\uC9C0, \uB300\uAE30\\r\\n       
+    this.readyPanel.SetActive(true);\\r\\n        this.readyText.gameObject.SetActive(true);\\r\\n       
+    var player = ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character;\\r\\n       
+    while (time > 0) {\\r\\n            // player.state\\r\\n            time -=
+    UnityEngine_1.Time.deltaTime;\\r\\n            this.readyText.text = UnityEngine_1.Mathf.Ceil(time).toString();\\r\\n           
+    yield null;\\r\\n        }\\r\\n        player.characterController.enabled =
+    true;\\r\\n        this.readyText.gameObject.SetActive(false);\\r\\n        this.readyPanel.SetActive(false);\\r\\n       
+    this._leaderBoard.GameStart();\\r\\n    }\\r\\n    OnTriggerEnter(col) {\\r\\n       
+    if (col.gameObject.layer == UnityEngine_1.LayerMask.NameToLayer(\\\"LocalPlayer\\\"))
+    {\\r\\n            if (!this._leaderBoard.isStart)\\r\\n                this.gameStartButton.gameObject.SetActive(true);\\r\\n       
+    }\\r\\n    }\\r\\n    OnTriggerExit(col) {\\r\\n        if (col.gameObject.layer
+    == UnityEngine_1.LayerMask.NameToLayer(\\\"LocalPlayer\\\")) {\\r\\n           
+    this.gameStartButton.gameObject.SetActive(false);\\r\\n        }\\r\\n    }\\r\\n}\\r\\nexports.default
+    = JumpMapUIController;\\r\\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiSnVtcE1hcFVJQ29udHJvbGxlci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIkp1bXBNYXBVSUNvbnRyb2xsZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSw2Q0FBMEU7QUFFMUUsNkVBQTJFO0FBQzNFLGlEQUFxRDtBQUNyRCwrQ0FBdUM7QUFFdkMsTUFBcUIsbUJBQW9CLFNBQVEscUNBQXFCO0lBWWxFLEtBQUs7UUFDRCwrR0FBK0c7UUFDL0csSUFBSSxDQUFDLGVBQWUsQ0FBQyxVQUFVLENBQUMsU0FBUyxDQUFDLEtBQUssQ0FBQyxDQUFBO1FBQ2hELElBQUksQ0FBQyxZQUFZLEdBQUcsSUFBSSxDQUFDLFdBQVcsQ0FBQyxZQUFZLFNBQUMscUJBQVcsRUFBRyxDQUFBO1FBQ2hFLElBQUksQ0FBQyxlQUFlLENBQUMsT0FBTyxDQUFDLFdBQVcsQ0FBQyxHQUFHLEVBQUU7WUFDMUMsSUFBSSxDQUFDLGVBQWUsQ0FBQyxVQUFVLENBQUMsU0FBUyxDQUFDLEtBQUssQ0FBQyxDQUFBO1lBQ2hELHVCQUF1QjtZQUN2QixJQUFJLE1BQU0sR0FBRywyQ0FBYSxDQUFDLFFBQVEsQ0FBQyxXQUFXLENBQUMsWUFBWSxDQUFDLFNBQVMsQ0FBQTtZQUN0RSxNQUFNLENBQUMsVUFBVSxFQUFFLENBQUE7WUFDbkIsTUFBTSxDQUFDLFNBQVMsQ0FBQyxRQUFRLEdBQUcsSUFBSSxDQUFDLFNBQVMsQ0FBQyxRQUFRLENBQUE7WUFDbkQsTUFBTSxDQUFDLFNBQVMsQ0FBQyxRQUFRLEdBQUcsSUFBSSxDQUFDLFNBQVMsQ0FBQyxRQUFRLENBQUE7WUFDbkQsTUFBTSxDQUFDLG1CQUFtQixDQUFDLE9BQU8sR0FBRyxLQUFLLENBQUE7WUFDMUMsSUFBSSxDQUFDLGNBQWMsQ0FBQyxJQUFJLENBQUMsU0FBUyxFQUFFLENBQUMsQ0FBQTtRQUN6QyxDQUFDLENBQUMsQ0FBQTtJQUNOLENBQUM7SUFFRCxDQUFDLFNBQVM7UUFDTixJQUFJLElBQUksR0FBRyxDQUFDLENBQUE7UUFDWixxQkFBcUI7UUFDckIsSUFBSSxDQUFDLFVBQVUsQ0FBQyxTQUFTLENBQUMsSUFBSSxDQUFDLENBQUE7UUFDL0IsSUFBSSxDQUFDLFNBQVMsQ0FBQyxVQUFVLENBQUMsU0FBUyxDQUFDLElBQUksQ0FBQyxDQUFBO1FBQ3pDLElBQUksTUFBTSxHQUFHLDJDQUFhLENBQUMsUUFBUSxDQUFDLFdBQVcsQ0FBQyxZQUFZLENBQUMsU0FBUyxDQUFBO1FBQ3RFLE9BQU0sSUFBSSxHQUFHLENBQUMsRUFBQztZQUNYLGVBQWU7WUFDZixJQUFJLElBQUksa0JBQUksQ0FBQyxTQUFTLENBQUE7WUFDdEIsSUFBSSxDQUFDLFNBQVMsQ0FBQyxJQUFJLEdBQUcsbUJBQUssQ0FBQyxJQUFJLENBQUMsSUFBSSxDQUFDLENBQUMsUUFBUSxFQUFFLENBQUE7WUFDakQsTUFBTSxJQUFJLENBQUE7U0FDYjtRQUNELE1BQU0sQ0FBQyxtQkFBbUIsQ0FBQyxPQUFPLEdBQUcsSUFBSSxDQUFBO1FBQ3pDLElBQUksQ0FBQyxTQUFTLENBQUMsVUFBVSxDQUFDLFNBQVMsQ0FBQyxLQUFLLENBQUMsQ0FBQTtRQUMxQyxJQUFJLENBQUMsVUFBVSxDQUFDLFNBQVMsQ0FBQyxLQUFLLENBQUMsQ0FBQTtRQUNoQyxJQUFJLENBQUMsWUFBWSxDQUFDLFNBQVMsRUFBRSxDQUFBO0lBQ2pDLENBQUM7SUFJRCxjQUFjLENBQUMsR0FBYztRQUN6QixJQUFHLEdBQUcsQ0FBQyxVQUFVLENBQUMsS0FBSyxJQUFJLHVCQUFTLENBQUMsV0FBVyxDQUFDLGFBQWEsQ0FBQyxFQUFDO1lBQzVELElBQUcsQ0FBQyxJQUFJLENBQUMsWUFBWSxDQUFDLE9BQU87Z0JBQ3pCLElBQUksQ0FBQyxlQUFlLENBQUMsVUFBVSxDQUFDLFNBQVMsQ0FBQyxJQUFJLENBQUMsQ0FBQTtTQUN0RDtJQUNMLENBQUM7SUFFRCxhQUFhLENBQUMsR0FBYztRQUN4QixJQUFHLEdBQUcsQ0FBQyxVQUFVLENBQUMsS0FBSyxJQUFJLHVCQUFTLENBQUMsV0FBVyxDQUFDLGFBQWEsQ0FBQyxFQUFDO1lBQzVELElBQUksQ0FBQyxlQUFlLENBQUMsVUFBVSxDQUFDLFNBQVMsQ0FBQyxLQUFLLENBQUMsQ0FBQTtTQUNuRDtJQUNMLENBQUM7Q0FDSjtBQTVERCxzQ0E0REMifQ==\",\"assetPath\":\"Assets/Scripts/JumpMap/JumpMapUIController.ts\",\"manifest\":{\"properties\":[{\"assembly\":\"UnityEngine.UI\",\"name\":\"gameStartButton\",\"type\":\"UnityEngine.UI.Button\",\"isArray\":false,\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]},{\"assembly\":\"UnityEngine.CoreModule\",\"name\":\"readyPanel\",\"type\":\"UnityEngine.GameObject\",\"isArray\":false,\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]},{\"assembly\":\"UnityEngine.UI\",\"name\":\"readyText\",\"type\":\"UnityEngine.UI.Text\",\"isArray\":false,\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]},{\"assembly\":\"UnityEngine.CoreModule\",\"name\":\"leaderBoard\",\"type\":\"UnityEngine.GameObject\",\"isArray\":false,\"enumKeys\":[],\"enumValues\":[],\"attributes\":[]}],\"name\":\"JumpMapUIController\",\"description\":\"\"},\"isCompiled\":true}"
+  typescriptHash: ccbc01ab354bc62f7048658d7fb4c0b1

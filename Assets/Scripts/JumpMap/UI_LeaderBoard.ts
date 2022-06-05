@@ -2,7 +2,6 @@ import { GameObject } from 'UnityEngine'
 import { Button } from 'UnityEngine.UI'
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
 import LeaderBoard from './LeaderBoard'
-import LeaderBoardModule from './leaderBoardModule'
 
 export default class UI_LeaderBoard extends ZepetoScriptBehaviour {
 
