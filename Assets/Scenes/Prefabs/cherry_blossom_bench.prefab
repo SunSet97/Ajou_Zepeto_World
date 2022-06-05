@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 1529459948668103610}
   - component: {fileID: 3665170272414883696}
   - component: {fileID: 3056377913530662868}
-  - component: {fileID: 6793538447693154343}
   - component: {fileID: 6965547865618939053}
+  - component: {fileID: 8909935747737702585}
   m_Layer: 0
   m_Name: cherry_blossom_bench
   m_TagString: Untagged
@@ -101,7 +101,20 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -3968828189106086409, guid: 0282a05aefbe09449b0034d2a5e7de0d, type: 3}
---- !u!114 &6793538447693154343
+--- !u!135 &6965547865618939053
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3016761396025360037}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.05
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8909935747737702585
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,28 +134,20 @@ MonoBehaviour:
     - FixedPointOffset
     unityValues:
     - {fileID: 0}
-    - {fileID: 7400000, guid: 6edaa2285ebb8ce4c9df9e2ead1f740c, type: 2}
+    - {fileID: 0}
     - {fileID: 2455122858343537354, guid: ac9578b4fb310e64e87a38e8560444d4, type: 3}
     - {fileID: 0}
     values:
     - '{"type":"UnityEngine.Vector3, UnityEngine.CoreModule","value":"{\"x\":0.0,\"y\":0.5,\"z\":0.0}"}'
+    - '{"type":"ZEPETO.Script.ZepetoScriptSerializer+ArrayInfo, ZEPETO.Script","value":"{\"offset\":0,\"length\":4,\"type\":\"UnityEngine.Object,
+      UnityEngine.CoreModule\",\"isUnity\":true}"}'
     - 
-    - 
-    - '{"type":"UnityEngine.Vector3, UnityEngine.CoreModule","value":"{\"x\":0.0,\"y\":0.4000000059604645,\"z\":0.0}"}'
-    unityArrayValues: []
+    - '{"type":"UnityEngine.Vector3, UnityEngine.CoreModule","value":"{\"x\":0.0,\"y\":0.15000000596046449,\"z\":0.0}"}'
+    unityArrayValues:
+    - {fileID: 7400000, guid: b3a2d3692e01d8f488baa67f61b947ab, type: 2}
+    - {fileID: 7400000, guid: 37659e319d5cdfe469b8a6dc0bebc636, type: 2}
+    - {fileID: 7400000, guid: 6edaa2285ebb8ce4c9df9e2ead1f740c, type: 2}
+    - {fileID: 7400000, guid: e70b53a01eb153f4f84e941122e93388, type: 2}
     arrayValues: []
-    script: {fileID: 4458252877524076426, guid: 78138a4981ae57a4c9f8c3fcc105afac, type: 3}
+    script: {fileID: 4458252877524076426, guid: 0fd03009ba762e84b8b2ea3e8c94d567, type: 3}
     isExpaned: 0
---- !u!135 &6965547865618939053
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3016761396025360037}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.05
-  m_Center: {x: 0, y: 0, z: 0}

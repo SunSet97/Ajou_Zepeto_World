@@ -9009,17 +9009,21 @@ MonoBehaviour:
     - FixedPointOffset
     unityValues:
     - {fileID: 0}
-    - {fileID: 7400000, guid: 6edaa2285ebb8ce4c9df9e2ead1f740c, type: 2}
+    - {fileID: 0}
     - {fileID: 2455122858343537354, guid: ac9578b4fb310e64e87a38e8560444d4, type: 3}
     - {fileID: 0}
     values:
     - '{"type":"UnityEngine.Vector3, UnityEngine.CoreModule","value":"{\"x\":0.0,\"y\":0.5,\"z\":0.0}"}'
+    - '{"type":"ZEPETO.Script.ZepetoScriptSerializer+ArrayInfo, ZEPETO.Script","value":"{\"offset\":0,\"length\":3,\"type\":\"UnityEngine.Object,
+      UnityEngine.CoreModule\",\"isUnity\":true}"}'
     - 
-    - 
-    - '{"type":"UnityEngine.Vector3, UnityEngine.CoreModule","value":"{\"x\":0.0,\"y\":0.4000000059604645,\"z\":0.0}"}'
-    unityArrayValues: []
+    - '{"type":"UnityEngine.Vector3, UnityEngine.CoreModule","value":"{\"x\":0.0,\"y\":0.15000000596046449,\"z\":0.0}"}'
+    unityArrayValues:
+    - {fileID: 7400000, guid: b3a2d3692e01d8f488baa67f61b947ab, type: 2}
+    - {fileID: 7400000, guid: 37659e319d5cdfe469b8a6dc0bebc636, type: 2}
+    - {fileID: 7400000, guid: 6edaa2285ebb8ce4c9df9e2ead1f740c, type: 2}
     arrayValues: []
-    script: {fileID: 4458252877524076426, guid: 78138a4981ae57a4c9f8c3fcc105afac, type: 3}
+    script: {fileID: 4458252877524076426, guid: 0fd03009ba762e84b8b2ea3e8c94d567, type: 3}
     isExpaned: 0
 --- !u!1 &1086952145 stripped
 GameObject:

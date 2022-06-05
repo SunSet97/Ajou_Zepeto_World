@@ -1,5 +1,173 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4466470974090103788
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5414715698686408953}
+  - component: {fileID: 1626796201724000186}
+  - component: {fileID: 8984884870572543770}
+  m_Layer: 0
+  m_Name: stand1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5414715698686408953
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4466470974090103788}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.3, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4943819670312259045}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1626796201724000186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4466470974090103788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1673316429, guid: 921f0445823004a16a499d629dd566a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  script:
+    keys:
+    - cameraOffset
+    - animationClip
+    - interactButtonPrefab
+    - FixedPointOffset
+    unityValues:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 2455122858343537354, guid: ac9578b4fb310e64e87a38e8560444d4, type: 3}
+    - {fileID: 0}
+    values:
+    - '{"type":"UnityEngine.Vector3, UnityEngine.CoreModule","value":"{\"x\":0.0,\"y\":0.5,\"z\":0.0}"}'
+    - '{"type":"ZEPETO.Script.ZepetoScriptSerializer+ArrayInfo, ZEPETO.Script","value":"{\"offset\":0,\"length\":6,\"type\":\"UnityEngine.Object,
+      UnityEngine.CoreModule\",\"isUnity\":true}"}'
+    - 
+    - '{"type":"UnityEngine.Vector3, UnityEngine.CoreModule","value":"{\"x\":0.0,\"y\":0.3499999940395355,\"z\":-0.699999988079071}"}'
+    unityArrayValues:
+    - {fileID: 7400000, guid: 6bb0836f8ac604e42bc257e5b66c2788, type: 2}
+    - {fileID: 7400000, guid: 67bb804b26730f3479dfa0fc11d280ed, type: 2}
+    - {fileID: 7400000, guid: e38fdc76c1421e54cb0e11726ad2bc57, type: 2}
+    - {fileID: 7400000, guid: 346c2e7c08e74d04a92c7b3e42012d7d, type: 2}
+    - {fileID: 7400000, guid: 3dd652488a228ae46a9fe17d3b3f440b, type: 2}
+    - {fileID: 7400000, guid: 84c305811145a8a42857ca67eb533e56, type: 2}
+    arrayValues: []
+    script: {fileID: 4458252877524076426, guid: 0fd03009ba762e84b8b2ea3e8c94d567, type: 3}
+    isExpaned: 0
+--- !u!135 &8984884870572543770
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4466470974090103788}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &5646227238608137674
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4438828124845505742}
+  - component: {fileID: 7878982630457069906}
+  - component: {fileID: 3713629106026303929}
+  m_Layer: 0
+  m_Name: stand1 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4438828124845505742
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5646227238608137674}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.3, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4943819670312259045}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7878982630457069906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5646227238608137674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1673316429, guid: 921f0445823004a16a499d629dd566a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  script:
+    keys:
+    - cameraOffset
+    - animationClip
+    - interactButtonPrefab
+    - FixedPointOffset
+    unityValues:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 2455122858343537354, guid: ac9578b4fb310e64e87a38e8560444d4, type: 3}
+    - {fileID: 0}
+    values:
+    - '{"type":"UnityEngine.Vector3, UnityEngine.CoreModule","value":"{\"x\":0.0,\"y\":0.5,\"z\":0.0}"}'
+    - '{"type":"ZEPETO.Script.ZepetoScriptSerializer+ArrayInfo, ZEPETO.Script","value":"{\"offset\":0,\"length\":6,\"type\":\"UnityEngine.Object,
+      UnityEngine.CoreModule\",\"isUnity\":true}"}'
+    - 
+    - '{"type":"UnityEngine.Vector3, UnityEngine.CoreModule","value":"{\"x\":0.0,\"y\":0.3499999940395355,\"z\":-0.699999988079071}"}'
+    unityArrayValues:
+    - {fileID: 7400000, guid: 6bb0836f8ac604e42bc257e5b66c2788, type: 2}
+    - {fileID: 7400000, guid: 67bb804b26730f3479dfa0fc11d280ed, type: 2}
+    - {fileID: 7400000, guid: e38fdc76c1421e54cb0e11726ad2bc57, type: 2}
+    - {fileID: 7400000, guid: 346c2e7c08e74d04a92c7b3e42012d7d, type: 2}
+    - {fileID: 7400000, guid: 3dd652488a228ae46a9fe17d3b3f440b, type: 2}
+    - {fileID: 7400000, guid: 84c305811145a8a42857ca67eb533e56, type: 2}
+    arrayValues: []
+    script: {fileID: 4458252877524076426, guid: 0fd03009ba762e84b8b2ea3e8c94d567, type: 3}
+    isExpaned: 0
+--- !u!135 &3713629106026303929
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5646227238608137674}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5751142248259344223
 GameObject:
   m_ObjectHideFlags: 0
@@ -31,7 +199,9 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 8.39, y: 3.05, z: -6.4}
   m_LocalScale: {x: 1, y: 0.6, z: 0.1}
-  m_Children: []
+  m_Children:
+  - {fileID: 5414715698686408953}
+  - {fileID: 4438828124845505742}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -123,14 +293,17 @@ MonoBehaviour:
     - {fileID: 0}
     values:
     - '{"type":"UnityEngine.Vector3, UnityEngine.CoreModule","value":"{\"x\":0.0,\"y\":0.5,\"z\":0.0}"}'
-    - '{"type":"ZEPETO.Script.ZepetoScriptSerializer+ArrayInfo, ZEPETO.Script","value":"{\"offset\":0,\"length\":3,\"type\":\"UnityEngine.Object,
+    - '{"type":"ZEPETO.Script.ZepetoScriptSerializer+ArrayInfo, ZEPETO.Script","value":"{\"offset\":0,\"length\":6,\"type\":\"UnityEngine.Object,
       UnityEngine.CoreModule\",\"isUnity\":true}"}'
     - 
-    - '{"type":"UnityEngine.Vector3, UnityEngine.CoreModule","value":"{\"x\":0.0,\"y\":0.0,\"z\":0.0}"}'
+    - '{"type":"UnityEngine.Vector3, UnityEngine.CoreModule","value":"{\"x\":0.0,\"y\":0.3499999940395355,\"z\":-0.699999988079071}"}'
     unityArrayValues:
     - {fileID: 7400000, guid: 6bb0836f8ac604e42bc257e5b66c2788, type: 2}
     - {fileID: 7400000, guid: 67bb804b26730f3479dfa0fc11d280ed, type: 2}
     - {fileID: 7400000, guid: e38fdc76c1421e54cb0e11726ad2bc57, type: 2}
+    - {fileID: 7400000, guid: 346c2e7c08e74d04a92c7b3e42012d7d, type: 2}
+    - {fileID: 7400000, guid: 3dd652488a228ae46a9fe17d3b3f440b, type: 2}
+    - {fileID: 7400000, guid: 84c305811145a8a42857ca67eb533e56, type: 2}
     arrayValues: []
     script: {fileID: 4458252877524076426, guid: 0fd03009ba762e84b8b2ea3e8c94d567, type: 3}
     isExpaned: 0
