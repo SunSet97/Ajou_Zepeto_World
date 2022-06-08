@@ -1,0 +1,299 @@
+[World Settings]
+world id             com.disreality.ajouuniv
+version              0.20                
+max clients          16                  
+orientation          horizontal          
+disable invite       false               
+disable room list    false               
+disable private room false               
+
+[Build Manifest]
+[scenes]
+504 kb               assets/scenes/buildscene real.unity
+[assets]
+2 kb                 assets/scenes/materials/road.mat
+2 kb                 packages/zepeto.character.controller/runtime/_resources/animations/ui/controller/touchpad_handle_off.anim
+14 kb                assets/orchard trees/assets/prefabs/use/treewaxcherry-red2a.prefab
+89 kb                assets/polyart/animals/cats/prefabs/lowpoly_cat_all.prefab
+289 kb               assets/scenes/fbx/connectingmind.fbm/cntmind_texture.png
+865 kb               assets/orchard trees/assets/textures/use/bark-waxcherry-nrm.png
+864 kb               assets/ani_work_folder/cup_hold/run_cup.anim
+80 kb                assets/scenes/fbx/cafe/simple_table.fbx
+35 kb                packages/zepeto.character.controller/runtime/_resources/inputactions/zepetoinputcontrol.inputactions
+1 mb                 assets/scenes/fbx/plat1.fbx
+600 kb               packages/zepeto.character.controller/runtime/_resources/animations/base/v2/landingslight.anim
+2 kb                 assets/scenes/prefabs/t_parasol02.prefab
+2 kb                 assets/orchard trees/assets/materials/billboard-waxcherry-red1.mat
+11 kb                assets/orchard trees/assets/prefabs/use/treewaxcherry-red3a-mobile.prefab
+2 kb                 assets/scenes/materials/chair01_roundtable01.mat
+1 mb                 packages/zepeto.character.controller/runtime/_resources/animations/base/walk.anim
+2 kb                 assets/scenes/materials/pasted__blinn3.mat
+11 kb                assets/orchard trees/assets/prefabs/use/treewaxcherry-white3b-mobile.prefab
+2 kb                 assets/scenes/prefabs/terrarian/centerrdoor.prefab
+2 kb                 assets/scenes/materials/lambert1.mat
+2 kb                 assets/scenes/prefabs/cafe/cups1.prefab
+187 kb               assets/ani_work_folder/photozone_pose/pose_model_2.anim
+1 mb                 assets/ani_work_folder/cafe_ani/ani_typing.anim
+4 mb                 assets/scenes/fbx/terrarian/ground.fbx
+2 kb                 assets/scenes/materials/transparent.mat
+188 kb               assets/ani_work_folder/photozone_pose/pose_jump.anim
+3 kb                 assets/scenes/prefabs/terrarian/centerlibrary.prefab
+1 kb                 assets/_resources/[scriptsshader]/resources-internal/standardnocolor.shader
+1 mb                 packages/zepeto.character.controller/runtime/_resources/animations/base/jump_move.anim
+27 kb                packages/zepeto.character.controller/runtime/_resources/prefabs/uicontroller_touchpad_horizontal.prefab
+546 kb               packages/zepeto.character.controller/runtime/_resources/animations/base/v2/landingroll.anim
+2 kb                 assets/orchard trees/assets/materials/use/branch-waxcherrywhite2mobile.mat
+13 mb                assets/polyart/animals/cats/fbx/lowpoly_cat_animations_rm.fbx
+64 kb                assets/scenes/fbx/sofa.fbx
+387 kb               assets/orchard trees/assets/textures/use/branch-waxcherryred.png
+2 kb                 assets/scenes/materials/tables_uv_01.mat
+1 mb                 assets/ani_work_folder/cup_hold/jump_move_cup.anim
+27 kb                packages/zepeto.character.controller/runtime/_resources/prefabs/uicontroller_touchpad_vertical.prefab
+2 kb                 assets/orchard trees/assets/materials/use/branch-waxcherryred.mat
+40 kb                assets/polyart/animals/cats/prefabs/lowpoly_cat_animations_rm.prefab
+4 kb                 assets/scenes/prefabs/t_chair01.prefab
+1 kb                 packages/com.unity.inputsystem/inputsystem/editor/icons/inputsystemuiinputmodule@64.png
+4 mb                 assets/scenes/fbx/terrarian/woncheon.fbx
+26 kb                assets/scenes/texture/chairs_uv.jpg
+169 kb               assets/orchard trees/assets/models/use/treewaxcherry-white2-mobile.fbx
+325 kb               assets/scenes/fbx/connectingmind.fbx
+717 kb               assets/scenes/texture/road.jpg
+243 kb               assets/orchard trees/assets/models/use/treewaxcherry-red3-mobile.fbx
+55 kb                assets/scenes/texture/tables_uv_01.jpg
+196 kb               assets/ani_work_folder/photozone_pose/pose_thinking.anim
+71 kb                assets/scenes/fbx/cafe/high_chair.fbx
+442 kb               packages/zepeto.character.controller/runtime/_resources/animations/base/v2/jumpmove.anim
+174 kb               assets/scenes/fbx/t_photozone_instargram.fbx
+16 kb                assets/_resources/[scriptsshader]/resources-internal/tonemappinglut.png
+42 kb                assets/scenes/fbx/frontgate2terrass.fbx
+62 kb                packages/zepeto.character.controller/runtime/_resources/animations/base/gesture.anim
+42 kb                assets/scenes/fbx/go2jumpmap.fbx
+1 mb                 assets/ani_work_folder/gestures/ok.anim
+1 mb                 assets/scenes/fbx/plat2.fbx
+2 kb                 assets/scenes/prefabs/cafe/angled_table.prefab
+200 kb               assets/orchard trees/assets/models/use/treewaxcherry-white3-mobile.fbx
+13 mb                assets/polyart/animals/cats/fbx/lowpoly_cat_animations_ip.fbx
+84 kb                assets/scenes/fbx/cafe/cups2.fbx
+2 kb                 assets/scenes/prefabs/cafe/cups2.prefab
+977 kb               assets/ani_work_folder/default/run.anim
+40 kb                assets/polyart/animals/cats/prefabs/lowpoly_cat_black.prefab
+188 kb               assets/ani_work_folder/photozone_pose/pose_crossing_legs.anim
+760 kb               assets/scenes/texture/uvbronze.png
+2 kb                 assets/scenes/materials/cherry_blossom.mat
+4 mb                 assets/scenes/fbx/portal.fbx
+11 kb                assets/orchard trees/assets/prefabs/use/treewaxcherry-white2b-mobile.prefab
+560 kb               packages/zepeto.character.controller/runtime/_resources/animations/base/idle.anim
+64 kb                assets/scenes/texture/bench_light_parasol.jpg
+518 kb               assets/scenes/prefabs/terrarian/terrarian 2.prefab
+2 kb                 assets/orchard trees/assets/materials/use/branch-waxcherryredmobile.mat
+5 kb                 assets/scenes/prefabs/cherry_blossom_bench.prefab
+202 kb               assets/orchard trees/assets/models/use/treewaxcherry-red1.fbx
+901 kb               assets/orchard trees/assets/textures/use/bark-waxcherry.png
+1 mb                 assets/ani_work_folder/cafe_ani/ani_sit.anim
+11 kb                assets/polyart/animals/cats/fbx/cat_random.controller
+137 kb               assets/scenes/fbx/t_roundtable.fbx
+4 mb                 assets/scenes/fbx/grass.fbx
+66 kb                assets/scenes/mainscene 2/reflectionprobe-0.exr
+454 kb               assets/scenes/texture/skybox_fix.png
+2 kb                 assets/scenes/prefabs/t_parasol03.prefab
+6 mb                 assets/ani_work_folder/gestures/dance.anim
+249 kb               assets/scenes/prefabs/jumpmap_set.prefab
+1 mb                 assets/ani_work_folder/cup_hold/walk_cup.anim
+374 kb               packages/zepeto.character.controller/runtime/_resources/animations/base/v2/moverunfast.anim
+828 kb               packages/zepeto.character.controller/runtime/_resources/animations/base/v2/moveturn.anim
+7 kb                 assets/polyart/animals/cats/texture/polyart_cats_color.png
+117 kb               assets/nanc cherry blossom petal particle/prefab/prefab paticle petal 1 pink.prefab
+93 kb                assets/scenes/fbx/t_bench02.fbx
+147 kb               assets/scenes/fbx/t_photozone_instargram.fbm/photozone01,02.jpg
+2 kb                 assets/scenes/prefabs/cafe/round_table.prefab
+2 kb                 assets/scenes/prefabs/t_bench03.prefab
+416 kb               packages/zepeto.character.controller/runtime/_resources/animations/base/v2/moverun.anim
+135 kb               assets/scenes/prefabs/cafe/cafe.prefab
+4 mb                 assets/scenes/fbx/portal.fbm/terrass_uv.png
+2 kb                 assets/scenes/prefabs/cafe/round_low_table.prefab
+121 kb               assets/scenes/prefabs/portal 1.prefab
+1 mb                 packages/zepeto.character.controller/runtime/_resources/animations/base/jump_idle.anim
+94 kb                assets/scenes/fbx/cherry_blossom_bench.fbx
+129 kb               assets/scenes/texture/cash_register_uv.png
+2 kb                 packages/zepeto.character.controller/runtime/_resources/animations/ui/controller/touchpad_handle_origin_off.anim
+56 kb                assets/scenes/fbx/cafe/chair.fbx
+173 kb               assets/scenes/fbx/t_photozone_blue.fbx
+5 kb                 packages/zepeto.character.controller/runtime/_resources/images/touchpad_handle_icon.png
+2 kb                 assets/scenes/prefabs/staris.prefab
+1 mb                 assets/ani_work_folder/default/jump_move.anim
+15 kb                assets/scenes/fbx/terrass2frontgate.fbm/speechbubble_texture.png
+2 kb                 assets/scenes/materials/new material.mat
+5 kb                 packages/zepeto.character.controller/runtime/_resources/images/touchpad_jump_icon.png
+2 kb                 assets/scenes/fbx/materials/cntmind_texture 1.mat
+109 kb               assets/scenes/fbx/t_light.fbx
+1 mb                 assets/scenes/texture/uv_marble.png
+5 mb                 assets/scenes/fbx/terrarian/centerlibrary.fbx
+2 kb                 assets/scenes/materials/chairs_uv.mat
+3 kb                 assets/scenes/prefabs/terrarian/woncheon_statue.prefab
+1 kb                 packages/zepeto.character.controller/runtime/_resources/camera/zepetocamera.prefab
+2 kb                 assets/scenes/prefabs/cafe/cups3.prefab
+2 kb                 assets/polyart/animals/cats/materials/lowpoly_cats.mat
+32 kb                assets/scenes/fbx/cafe/cup.fbx
+4 kb                 assets/scenes/prefabs/cafe/blue_chair.prefab
+2 kb                 assets/scenes/prefabs/cafe/labtop_gray.prefab
+84 kb                assets/scenes/fbx/cafe/cups4.fbx
+2 kb                 assets/scenes/prefabs/t_roundtable.prefab
+2 kb                 assets/scenes/materials/terrass_uv.mat
+2 kb                 assets/scenes/fbx/cafe/materials/labtops_uv.mat
+464 kb               packages/zepeto.character.controller/runtime/_resources/animations/base/v2/jumpdouble.anim
+2 kb                 assets/nanc cherry blossom petal particle/model/materials/0215-4.mat
+1 mb                 assets/scenes/fbx/staris (1).fbx
+1 mb                 assets/scenes/fbx/plat3.fbx
+1 mb                 assets/ani_work_folder/cafe_ani/ani_frustration.anim
+15 mb                assets/scenes/fbx/terras_fin.fbm/terrass.psd
+2 mb                 assets/ani_work_folder/cup_hold/idle_cup.anim
+3 mb                 assets/ani_work_folder/gestures/sleep.anim
+2 kb                 assets/scenes/prefabs/terrarian/woncheon.prefab
+2 kb                 assets/scenes/materials/uv_marble.mat
+13 kb                packages/zepeto.character.controller/runtime/_resources/images/touchpad_handle_base.png
+2 kb                 assets/scenes/fbx/cafe/materials/terrass.mat
+844 b                assets/nanc cherry blossom petal particle/materials/material cherry blossom.mat
+1 mb                 assets/scenes/fbx/plat4.fbx
+2 kb                 assets/scenes/prefabs/t_light.prefab
+2 kb                 assets/orchard trees/assets/materials/use/bark-waxcherry.mat
+179 kb               assets/polyart/animals/cats/fbx/lowpoly_cat_maine.fbx
+3 mb                 assets/scenes/fbx/terrarian/woncheon_statue.fbx
+4 kb                 assets/scenes/prefabs/cafe/chair.prefab
+2 kb                 assets/scenes/materials/cash_register_uv.mat
+62 kb                packages/zepeto.character.controller/runtime/_resources/animations/base/action1.anim
+2 kb                 assets/scenes/prefabs/go2jumpmap.prefab
+1 mb                 assets/scenes/fbx/terrarian.fbx
+11 kb                assets/scenes/prefabs/t_photozone_blue.prefab
+71 kb                assets/scenes/fbx/cafe/round_table.fbx
+3 kb                 packages/zepeto.character.controller/runtime/_resources/animations/ui/controller/touchpad_handle_ziggle.anim
+2 kb                 packages/zepeto.character.controller/runtime/_resources/animations/ui/controller/touchpad_handle_on.anim
+3 kb                 assets/scenes/prefabs/terrarian/sungho.prefab
+2 kb                 assets/scenes/prefabs/cafe/wall.prefab
+2 kb                 assets/orchard trees/assets/materials/branch-waxcherrywhitemobile.mat
+353 kb               assets/scenes/texture/texture cherry blossom_t.png
+186 kb               assets/ani_work_folder/photozone_pose/pose_headstand.anim
+15 mb                assets/scenes/fbx/terras_fin.fbx
+23 kb                assets/nanc cherry blossom petal particle/model/petal2_c_white.fbx
+1 mb                 assets/ani_work_folder/cafe_ani/ani_drink_coffee.anim
+5 mb                 assets/scenes/fbx/terrarian/sungho.fbx
+2 kb                 assets/scenes/prefabs/grass.prefab
+582 kb               assets/ani_work_folder/default/idle.anim
+57 kb                assets/scenes/fbx/cafe/stool.fbx
+1 mb                 assets/ani_work_folder/cup_hold/jump_idle_cup.anim
+165 kb               assets/scenes/fbx/t_chair01.fbx
+3 kb                 assets/scenes/prefabs/terrarian/yulgok.prefab
+79 kb                assets/scenes/texture/terrass_uv-1.png
+93 kb                assets/scenes/fbx/t_bench03.fbx
+7 kb                 packages/zepeto.character.controller/runtime/_resources/animatorcontroller/uicontrollertouchpadhandleorigin.controller
+2 kb                 assets/scenes/prefabs/cafe/cash_register.prefab
+2 kb                 assets/scenes/prefabs/t_parasol01.prefab
+62 kb                packages/zepeto.character.controller/runtime/_resources/animations/base/action2.anim
+114 kb               assets/scenes/fbx/t_parasol01.fbx
+2 kb                 assets/scenes/prefabs/t_photozone_instargram.prefab
+206 kb               assets/scenes/prefabs/terras_fin.prefab
+89 kb                assets/scenes/fbx/cafe/round_low_table.fbx
+7 kb                 packages/zepeto.character.controller/runtime/_resources/animatorcontroller/uicontrollertouchpadhandle.controller
+5 mb                 assets/scenes/fbx/terrarian/yulgok.fbx
+451 kb               packages/zepeto.character.controller/runtime/_resources/animations/base/v2/jumpdash.anim
+2 kb                 assets/scenes/fbx/materials/photozone01,02.mat
+2 kb                 assets/scenes/prefabs/t_bench02.prefab
+2 kb                 assets/scenes/materials/pasted__blinn2.mat
+14 kb                assets/orchard trees/assets/prefabs/use/treewaxcherry-red3a.prefab
+2 kb                 assets/scenes/prefabs/connectingmind.prefab
+2 kb                 assets/scenes/fbx/cafe/materials/cups_texture.mat
+461 kb               packages/zepeto.character.controller/runtime/_resources/animations/base/v2/movewalkfast.anim
+3 kb                 packages/zepeto.character.controller/runtime/_resources/prefabs/shadow/charactershadow.prefab
+1 mb                 assets/scenes/fbx/plat1.fbm/uv_marble.png
+14 kb                assets/orchard trees/assets/prefabs/use/treewaxcherry-red1a.prefab
+1 mb                 assets/scenes/fbx/plat5.fbx
+12 kb                packages/zepeto.character.controller/runtime/_resources/images/touchpad_jump_base.png
+1 mb                 assets/ani_work_folder/default/jump_idle.anim
+68 kb                assets/scenes/fbx/cafe/angled_table.fbx
+187 kb               assets/ani_work_folder/photozone_pose/pose_sit.anim
+1 mb                 assets/ani_work_folder/default/walk.anim
+3 kb                 assets/scenes/materials/sky.mat
+427 kb               assets/orchard trees/assets/textures/use/branch-waxcherrywhite2.png
+99 kb                assets/scenes/fbx/t_bench01.fbx
+190 kb               assets/ani_work_folder/photozone_pose/pose_pretty.anim
+116 kb               assets/scenes/fbx/cafe/labtop_whiite.fbm/labtops_uv.jpg
+2 kb                 assets/scenes/prefabs/frontgate2terrass.prefab
+105 kb               assets/scenes/fbx/t_parasol02.fbx
+2 kb                 packages/zepeto.character.controller/runtime/_resources/animations/ui/controller/touchpad_handle_origin_on.anim
+187 kb               assets/ani_work_folder/photozone_pose/pose_model_1.anim
+40 kb                assets/polyart/animals/cats/prefabs/lowpoly_cat_maine.prefab
+4 kb                 assets/scenes/prefabs/cafe/sofa.prefab
+17 mb                assets/scenes/fbx/cafe/cafe.fbm/terrass.psd
+233 kb               assets/orchard trees/assets/models/use/treewaxcherry-red2.fbx
+40 kb                assets/polyart/animals/cats/prefabs/lowpoly_cat_british.prefab
+106 kb               assets/nanc cherry blossom petal particle/textures/texture cherry blossom.png
+845 kb               assets/shader/portalvfx_fix.png
+96 kb                assets/orchard trees/assets/models/use/treewaxcherry-red4.fbx
+2 kb                 assets/scenes/prefabs/terrass2frontgate.prefab
+2 kb                 assets/scenes/prefabs/terrarian/ground.prefab
+2 kb                 assets/scenes/prefabs/cafe/window_table.prefab
+3 kb                 assets/scenes/prefabs/cafe/simple_table.prefab
+188 kb               assets/ani_work_folder/photozone_pose/pose_poking.anim
+1 kb                 packages/zepeto.character.controller/runtime/_resources/prefabs/shadow/fxt_blobshadow.png
+253 kb               assets/orchard trees/assets/models/use/treewaxcherry-red3.fbx
+742 kb               assets/scenes/fbx/t_road.fbx
+42 kb                assets/scenes/fbx/terrass2frontgate.fbx
+70 kb                assets/scenes/fbx/cafe/blue_chair.fbx
+79 kb                assets/scenes/fbx/terrarian.fbm/terrass_uv-1.png
+1 mb                 packages/zepeto.character.controller/runtime/_resources/animations/gesture/4_ok.anim
+140 kb               assets/scenes/fbx/cafe/labtop_whiite.fbx
+3 mb                 assets/scenes/fbx/land.fbx
+1 mb                 packages/zepeto.character.controller/runtime/_resources/animations/base/v2/landingdeep.anim
+2 kb                 assets/scenes/fbx/materials/terrass_uv-1.mat
+174 kb               assets/polyart/animals/cats/fbx/lowpoly_cat_black.fbx
+17 mb                assets/scenes/fbx/cafe/cafe.fbx
+157 kb               assets/scenes/fbx/cafe/cash_register.fbx
+4 mb                 assets/scenes/texture/terrass_uv 1.png
+2 kb                 assets/_resources/[materials]/colortexture_001.mat
+187 kb               assets/ani_work_folder/photozone_pose/pose_flower_hands.anim
+301 kb               packages/zepeto.character.controller/runtime/_resources/animations/base/v2/falling.anim
+2 kb                 assets/scenes/fbx/materials/speechbubble_texture.mat
+451 kb               packages/zepeto.character.controller/runtime/_resources/animations/base/v2/stamp.anim
+2 kb                 assets/shader/portal_mat.mat
+618 kb               packages/zepeto.character.controller/runtime/_resources/animations/base/v2/jumpidle.anim
+4 kb                 assets/scenes/prefabs/cafe/stool.prefab
+84 kb                assets/scenes/fbx/cafe/cups3.fbx
+4 mb                 assets/scenes/fbx/terrarian/centerrdoor.fbx
+1 mb                 assets/scenes/fbx/plat6.fbx
+80 kb                assets/scenes/fbx/cafe/window_table.fbx
+2 kb                 assets/scenes/fbx/materials/cntmind_texture.mat
+18 kb                assets/scenes/mainscene 2/lightingdata.asset
+2 kb                 assets/scenes/materials/pasted__blinn1.mat
+940 kb               packages/zepeto.character.controller/runtime/_resources/animations/base/run.anim
+1 mb                 assets/polyart/animals/cats/fbx/lowpoly_cat_all.fbx
+140 kb               assets/scenes/fbx/cafe/labtop_gray.fbx
+28 kb                assets/_resources/[materials]/texture/colortexture_001.png
+176 kb               assets/polyart/animals/cats/fbx/lowpoly_cat_blackwhite.fbx
+2 kb                 assets/scenes/fbx/materials/terrass.mat
+2 kb                 assets/orchard trees/assets/materials/use/bark-waxcherryred.mat
+2 kb                 assets/scenes/prefabs/cafe/labtop_whiite.prefab
+40 kb                assets/polyart/animals/cats/prefabs/lowpoly_cat_blackwhite.prefab
+1 mb                 packages/zepeto.character.controller/runtime/_resources/animations/base/v2/movewalk.anim
+2 kb                 assets/scenes/prefabs/t_road.prefab
+175 kb               assets/polyart/animals/cats/fbx/lowpoly_cat_british.fbx
+41 kb                assets/scenes/fbx/cafe/cups1.fbm/cups_texture.png
+2 kb                 packages/zepeto.character.controller/runtime/_resources/prefabs/shadow/fxt_blobshadow.mat
+2 kb                 packages/zepeto.character.controller/runtime/_resources/prefabs/eventsystem.prefab
+1014 kb              packages/zepeto.character.controller/runtime/_resources/animations/base/v2/idle.anim
+2 kb                 assets/scenes/materials/typeblinn.mat
+84 kb                assets/scenes/fbx/cafe/cups1.fbx
+1 mb                 packages/zepeto.character.controller/runtime/_resources/animations/base/fall_end.anim
+4 kb                 assets/scenes/prefabs/cafe/high_chair.prefab
+1 kb                 assets/master.mixer 
+92 kb                assets/scenes/texture/chair01_roundtable01.jpg
+1 mb                 assets/scenes/fbx/terrarian.fbm/grass.jpg
+3 kb                 assets/scenes/prefabs/t_bench01.prefab
+428 kb               packages/zepeto.character.controller/runtime/_resources/animations/base/hand_idle_01.anim
+14 kb                assets/orchard trees/assets/prefabs/use/treewaxcherry-red4a.prefab
+31 kb                packages/com.unity.inputsystem/inputsystem/plugins/playerinput/defaultinputactions.inputactions
+119 kb               assets/scenes/fbx/t_parasol03.fbx
+28 kb                assets/scenes/fbx/cafe/wall.fbx
+2 kb                 assets/scenes/prefabs/cafe/cups4.prefab
+3 kb                 packages/zepeto.character.controller/runtime/_resources/animations/ui/controller/touchpad_handle_origin_ziggle.anim
+[resources]
+0 b                  assets/resources    
+[streamingAssets]

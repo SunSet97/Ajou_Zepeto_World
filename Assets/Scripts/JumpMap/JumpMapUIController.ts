@@ -1,5 +1,5 @@
-import { Collider, GameObject, LayerMask, Mathf, Time } from 'UnityEngine'
-import { Button, Text } from 'UnityEngine.UI'
+import { Collider, GameObject, LayerMask, Mathf, Sprite, Time } from 'UnityEngine'
+import { Button, Image, Text } from 'UnityEngine.UI'
 import { CharacterState, ZepetoPlayers } from 'ZEPETO.Character.Controller'
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
 import LeaderBoard from './LeaderBoard'
@@ -10,7 +10,9 @@ export default class JumpMapUIController extends ZepetoScriptBehaviour {
 
 
     public readyPanel : GameObject
-    public readyText : Text
+    public readyImage : Image
+    @Header("3 2 1 시작 순으로")
+    public readySprites : Sprite[]
     public leaderBoard : GameObject
     private _leaderBoard : LeaderBoard
 
@@ -36,18 +38,30 @@ export default class JumpMapUIController extends ZepetoScriptBehaviour {
         var time = 3
         //위치 이동 및 움직이기 정지, 대기
         this.readyPanel.SetActive(true)
-        this.readyText.gameObject.SetActive(true)
+        this.readyImage.gameObject.SetActive(true)
         var player = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character
         while(time > 0){
             // player.state
             time -= Time.deltaTime
-            this.readyText.text = Mathf.Ceil(time).toString()
+            var idx = 3 - Mathf.Ceil(time)
+            console.log(idx)
+            this.readyImage.sprite = this.readySprites[idx]
+            this.readyImage.SetNativeSize()
             yield null
         }
         player.characterController.enabled = true
-        this.readyText.gameObject.SetActive(false)
-        this.readyPanel.SetActive(false)
         this._leaderBoard.GameStart()
+
+        this.readyImage.sprite = this.readySprites[3]
+        this.readyImage.SetNativeSize()
+        time = 1
+        while(time > 0){
+            time -= Time.deltaTime
+            yield null
+        }
+
+        this.readyImage.gameObject.SetActive(false)
+        this.readyPanel.SetActive(false)
     }
     
 

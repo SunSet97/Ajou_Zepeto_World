@@ -1,8 +1,9 @@
-import { GameObject, Rect, Sprite, Texture, Texture2D, Time, Vector2 } from 'UnityEngine'
-import { Image, Text } from 'UnityEngine.UI'
+import { GameObject, Rect, Sprite, Texture, Texture2D, Time, Vector2, WaitUntil } from 'UnityEngine'
+import { Button, Image, Text } from 'UnityEngine.UI'
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
 import { GetRangeRankResponse, LeaderboardAPI, Rank, ResetRule, SetScoreResponse } from 'ZEPETO.Script.Leaderboard'
 import { ZepetoWorldHelper } from 'ZEPETO.World'
+import ClientStarter from '../ClientStarter'
 
 export default class LeaderBoard extends ZepetoScriptBehaviour {
 
@@ -12,6 +13,8 @@ export default class LeaderBoard extends ZepetoScriptBehaviour {
     public playerName: Text[]
     public score: Text[]
     public leaderBoardPanel: GameObject
+    public playPanel : GameObject
+    public stopButton : Button
 
     @Header("1, 2, 3위, 그 외 순서대로 넣으세요.")
     public medalSprites: Sprite[]
@@ -22,8 +25,7 @@ export default class LeaderBoard extends ZepetoScriptBehaviour {
     @Header("디버그용입니다~")
     public timer: number
     @SerializeField()
-    public isStart: bool
-
+    public isStart: boolean
     public readonly leaderboardId: string
     Start() {
         var itemCount = this.leaderBoardItemParent.transform.childCount
@@ -40,17 +42,22 @@ export default class LeaderBoard extends ZepetoScriptBehaviour {
             this.playerName[i] = this.leaderBoardItemParent.transform.GetChild(i).GetChild(1).GetChild(1).GetComponent<Text>()
             this.score[i] = this.leaderBoardItemParent.transform.GetChild(i).GetChild(1).GetChild(2).GetComponent<Text>()
         }
+        this.stopButton.onClick.AddListener(() =>{
+            this.GameEnd(false)
+        })
     }
     GameStart() {
         if (!this.isStart) {
             this.isStart = true
             this.timer = 0
             this.timerText.gameObject.SetActive(true)
+            this.playPanel.SetActive(true)
             this.StartCoroutine(this.OnUpdatePlay())
         }
     }
 
     public GameStop(){
+        this.playPanel.SetActive(false)
         this.timerText.gameObject.SetActive(false)
         this.timer = 0
         this.isStart = false
@@ -58,17 +65,23 @@ export default class LeaderBoard extends ZepetoScriptBehaviour {
 
     public GameEnd(isSuccess : boolean) {
         if (this.isStart) {
-            if(isSuccess)
-                LeaderboardAPI.SetScore(this.leaderboardId, this.timer * 10, this.OnSetScoreResult, (error) => { console.log("에러 : " + error) })
+            if(isSuccess){
+                LeaderboardAPI.SetScore(this.leaderboardId, this.timer * 10, (setScoreResponse: SetScoreResponse) =>{
+                    console.log("점수 설정" + setScoreResponse.isSuccess)
+                    this.ShowRank()
+                }, (error) => { console.log("에러 : " + error) })
+            }
+            else{
+                this.ShowRank()
+            }
             this.GameStop()
-            this.ShowRank()
         }
     }
 
     *OnUpdatePlay() {
         while (this.isStart) {
             this.timer += Time.deltaTime
-            this.timerText.text = `${this.timer.toString()}`
+            this.timerText.text = `${this.timer.toFixed(1)}`
             yield null
         }
     }
@@ -89,14 +102,15 @@ export default class LeaderBoard extends ZepetoScriptBehaviour {
             var childCount = this.leaderBoardItemParent.transform.childCount
 
             var index = 0
-            if (response.rankInfo.myRank.rank != null) {
+            if (response.rankInfo.myRank.name != null) {
                 var myRank: Rank = response.rankInfo.myRank
                 console.log("내 랭킹" + myRank.name + " " + myRank.score / 10 + " " + myRank.rank + '\n' + myRank.member)
                 if (myRank.rank > 3) {
                     this.medalText[index].text = myRank.rank.toString()
                     this.medalImage[index].sprite = this.medalSprites[3]
                 } else {
-                    this.medalImage[index].sprite = this.medalSprites[index]
+                    var myRankIdx = myRank.rank - 1
+                    this.medalImage[index].sprite = this.medalSprites[myRankIdx]
                     this.medalText[index].text = ''
                 }
                 this.medalImage[index].enabled = true
@@ -119,7 +133,8 @@ export default class LeaderBoard extends ZepetoScriptBehaviour {
                         this.medalText[index].text = rank.rank.toString()
                         this.medalImage[index].sprite = this.medalSprites[3]
                     } else {
-                        this.medalImage[index].sprite = this.medalSprites[index]
+                        var rankIdx = rank.rank - 1
+                        this.medalImage[index].sprite = this.medalSprites[rankIdx]
                         this.medalText[index].text = ''
                     }
                     this.medalImage[index].enabled = true
@@ -137,11 +152,6 @@ export default class LeaderBoard extends ZepetoScriptBehaviour {
             }
 
         }, (error) => { console.log("에러 : ", error) })
-    }
-
-
-    OnSetScoreResult(setScoreResponse: SetScoreResponse) {
-        console.log("점수 설정" + setScoreResponse.isSuccess)
     }
 
     SetProfileImage(image: Image, userId: string) {

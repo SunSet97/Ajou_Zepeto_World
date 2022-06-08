@@ -95,17 +95,17 @@ export default class ClientStarter extends ZepetoScriptBehaviour {
                 const isLocal = this.room.SessionId === sessionId
                 const player : Player = this.room.State.players.get_Item(sessionId)
                 if(player == null || player == undefined) return
+                const zepetoPlayer = ZepetoPlayers.instance.GetPlayer(sessionId)
+                AnimationLinker.instance.OnAddPlayer(sessionId, zepetoPlayer.character.ZepetoAnimator, player.animation)
                 if (!isLocal) {
                     this.Debug(`[온라인 플레이어 생성] player  ${sessionId}`)
                     player.OnChange += (changeValues) => this.OnUpdateMultiPlayer(sessionId, player)
                     this.OnUpdateMultiPlayer(sessionId, player)
                 }
-                const zepetoPlayer = ZepetoPlayers.instance.GetPlayer(sessionId)
                 zepetoPlayer.character.transform.position = this.spawnPoint.position
                 zepetoPlayer.character.transform.rotation = this.spawnPoint.rotation
                 if(isLocal)
                     this.SendTransform(zepetoPlayer.character.transform)
-                AnimationLinker.instance.OnAddPlayer(sessionId, zepetoPlayer.character.ZepetoAnimator, player.animation)
             });
         }
     }
