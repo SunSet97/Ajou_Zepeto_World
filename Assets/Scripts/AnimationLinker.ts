@@ -175,9 +175,13 @@ export default class AnimationLinker extends ZepetoScriptBehaviour {
     //Local에서 제스처 실행하는 함수
     PlayGesture(targetClip : string, isInfinite : boolean = false){
         //실행한 상태에서 다시 실행하는 경우에는 ???
+        console.log("하이111111")
         const player = ZepetoPlayers.instance.LocalPlayer.zepetoPlayer
+        console.log("하이2222222")
         this.GestureHandler(player, targetClip, isInfinite)
+        console.log("하이3333333")
         ClientStarter.instance.SendGesture(targetClip, isInfinite)
+        console.log("하이4444444")
     }
 
     GestureHandler(player : ZepetoPlayer, targetClip : string, isInfinite : boolean = false){

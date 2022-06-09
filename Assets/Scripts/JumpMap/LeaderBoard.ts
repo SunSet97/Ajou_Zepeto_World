@@ -91,7 +91,18 @@ export default class LeaderBoard extends ZepetoScriptBehaviour {
             console.log("리더보드 불러오기 결과 : " + response.isSuccess)
             console.log("총 랭킹 카운트" + response.rankInfo.totalRankCount)
 
-            if(response.rankInfo.rankList == null) return
+            if(response.rankInfo.rankList == null){
+                this.leaderBoardPanel.SetActive(true)
+                var childCount = this.leaderBoardItemParent.transform.childCount
+                for (var idx = 0; idx < childCount; idx++) {
+                    this.medalImage[idx].enabled = false
+                    this.medalText[idx].text = ''
+                    this.profileImage[idx].enabled = false
+                    this.playerName[idx].text = ''
+                    this.score[idx].text = ''
+                }
+                return
+            }
             for (var index = 0; index < response.rankInfo.rankList.length; index++) {
                 var rank = response.rankInfo.rankList[index]
                 console.log("랭크 : " + " " + rank.name + " " + rank.score + " " + rank.rank + '\n' + rank.member)

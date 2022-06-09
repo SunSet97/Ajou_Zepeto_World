@@ -1,6 +1,6 @@
 [World Settings]
 world id             com.disreality.ajouuniv
-version              0.20                
+version              0.21                
 max clients          16                  
 orientation          horizontal          
 disable invite       false               
@@ -9,7 +9,7 @@ disable private room false
 
 [Build Manifest]
 [scenes]
-522 kb               assets/scenes/buildscene real.unity
+502 kb               assets/scenes/buildscene real.unity
 [assets]
 2 kb                 assets/scenes/materials/road.mat
 2 kb                 packages/zepeto.character.controller/runtime/_resources/animations/ui/controller/touchpad_handle_off.anim
@@ -84,7 +84,7 @@ disable private room false
 11 kb                assets/orchard trees/assets/prefabs/use/treewaxcherry-white2b-mobile.prefab
 560 kb               packages/zepeto.character.controller/runtime/_resources/animations/base/idle.anim
 64 kb                assets/scenes/texture/bench_light_parasol.jpg
-518 kb               assets/scenes/prefabs/terrarian/terrarian 2.prefab
+516 kb               assets/scenes/prefabs/terrarian/terrarian 2.prefab
 2 kb                 assets/orchard trees/assets/materials/use/branch-waxcherryredmobile.mat
 5 kb                 assets/scenes/prefabs/cherry_blossom_bench.prefab
 202 kb               assets/orchard trees/assets/models/use/treewaxcherry-red1.fbx
@@ -108,7 +108,7 @@ disable private room false
 2 kb                 assets/scenes/prefabs/cafe/round_table.prefab
 2 kb                 assets/scenes/prefabs/t_bench03.prefab
 416 kb               packages/zepeto.character.controller/runtime/_resources/animations/base/v2/moverun.anim
-135 kb               assets/scenes/prefabs/cafe/cafe.prefab
+134 kb               assets/scenes/prefabs/cafe/cafe.prefab
 4 mb                 assets/scenes/fbx/portal.fbm/terrass_uv.png
 2 kb                 assets/scenes/prefabs/cafe/round_low_table.prefab
 121 kb               assets/scenes/prefabs/portal 1.prefab

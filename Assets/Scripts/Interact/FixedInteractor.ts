@@ -1,4 +1,4 @@
-import { AnimationClip, Camera, Collider, GameObject, LayerMask, Transform, Vector3 } from 'UnityEngine'
+import { AnimationClip, Camera, Collider, GameObject, LayerMask, Mathf, Transform, Vector3 } from 'UnityEngine'
 import { Button } from 'UnityEngine.UI'
 import { ZepetoPlayers } from 'ZEPETO.Character.Controller'
 import { ZepetoScriptBehaviour } from 'ZEPETO.Script'
@@ -34,8 +34,8 @@ export default class FixedInteractor extends ZepetoScriptBehaviour {
             // console.log(this.isPlaying)
             if(!this.isPlaying){
                 AnimationLinker.instance.PlayGesture(this.animationClip.name, true)
-                console.log(this.transform.position)
-                ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character.transform.position = Vector3.op_Addition(this.transform.position, this.FixedPointOffset)
+                var offset = Vector3.op_Addition(Vector3.op_Addition(Vector3.op_Multiply(this.transform.right, this.FixedPointOffset.x), Vector3.op_Multiply(this.transform.up, this.FixedPointOffset.y)), Vector3.op_Multiply(this.transform.forward, this.FixedPointOffset.z))
+                ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character.transform.position = Vector3.op_Addition(this.transform.position, offset)
                 ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character.transform.rotation = this.transform.rotation
                 ClientStarter.instance.SendTransform(ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character.transform)
                 this.isPlaying = true
@@ -49,7 +49,7 @@ export default class FixedInteractor extends ZepetoScriptBehaviour {
 
     Update(){
         if((this._interactButton.gameObject.activeSelf || this._interactButton.gameObject.activeSelf) && this.localCamera != null){
-            console.log(this.cameraOffset)
+            // console.log(this.cameraOffset)
 
             var screenPos = this.localCamera.WorldToScreenPoint(Vector3.op_Addition(this.transform.position, this.cameraOffset))
             // console.log(screenPos)
@@ -71,6 +71,7 @@ export default class FixedInteractor extends ZepetoScriptBehaviour {
                 this.isPlaying = false;
                 break
             }
+            yield null
         }
     }
 
