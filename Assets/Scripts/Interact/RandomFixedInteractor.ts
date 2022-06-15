@@ -72,14 +72,13 @@ export default class RandomFixedInteractor extends ZepetoScriptBehaviour {
     }
 
     OnTriggerEnter(col : Collider){
-        this._interactButton.gameObject.SetActive(true)
-        if(col.gameObject.layer === LayerMask.NameToLayer("LocalPlayer")){
+        if(col.gameObject.layer == LayerMask.NameToLayer("LocalPlayer")){
             this._interactButton.gameObject.SetActive(true)
         }
     }
 
     OnTriggerExit(col : Collider){
-        if(col.gameObject.layer === LayerMask.NameToLayer("LocalPlayer")){
+        if(col.gameObject.layer == LayerMask.NameToLayer("LocalPlayer")){
             this._interactButton.gameObject.SetActive(false)
         }
     }
